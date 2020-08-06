@@ -185,6 +185,7 @@ In case of `opt-in` and `opt-out` the feature should be enabled/disabled by the 
 ### Changed in 22.10.0
 
 -   User delete now accepts bulk delete requests
+-   SC-3909 Teachers no longer have the permission to create or delete users
 -   SC-3958: the "general" LDAP strategy now returns an empty array if classes are not configured properly
 -   Increase performance - error logging in sentry
 -   Mergify: add and modified some configs
@@ -292,7 +293,6 @@ In case of `opt-in` and `opt-out` the feature should be enabled/disabled by the 
 ### Security
 
 -   increased security for user PUT operation
-
 
 ## [22.9.1]
 
