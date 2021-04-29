@@ -21,30 +21,29 @@ const sendMessage = (message) => {
 };
 
 // USER
-const requestFullSyncForUser = async (user, schoolSync = false) => {
+const requestFullSyncForUser = async (userId, schoolSync = false) => {
 	const message = {
 		action: ACTIONS.SYNC_USER,
-		userId: user._id,
+		userId,
 		fullSync: true,
 		schoolSync,
 	};
 	sendMessage(message);
 };
 
-const requestUserRemoval = async (user) => {
+const requestUserRemoval = async (userId) => {
 	const message = {
 		action: ACTIONS.DELETE_USER,
-		userId: user._id,
-		schoolId: user.schoolId,
+		userId,
 	};
 	sendMessage(message);
 };
 
 // TEAM
-const requestTeamSync = async (team) => {
+const requestTeamSync = async (teamId) => {
 	const message = {
 		action: ACTIONS.SYNC_TEAM,
-		teamId: team._id,
+		teamId,
 	};
 	sendMessage(message);
 };
@@ -78,45 +77,35 @@ const requestSyncForEachTeamUser = async (team) => {
 	});
 };
 
-const requestTeamRemoval = async (team) => {
+const requestTeamRemoval = async (teamId) => {
 	const message = {
 		action: ACTIONS.DELETE_TEAM,
-		teamId: team._id,
-		schoolId: team.schoolId,
+		teamId,
 	};
 	sendMessage(message);
 };
 
 // COURSE
-const requestCourseRemoval = async (course, schoolSync = false) => {
+const requestCourseRemoval = async (courseId, schoolSync = false) => {
 	const message = {
 		action: ACTIONS.DELETE_COURSE,
-		courseId: course._id,
-		schoolId: course.schoolId,
+		courseId,
 		schoolSync,
 	};
 	sendMessage(message);
 };
 
-const requestAddCourse = async (course) => {
+const requestCourseSync = async (courseId) => {
 	const message = {
 		action: ACTIONS.SYNC_COURSE,
-		courseId: course._id,
+		courseId,
 	};
 	sendMessage(message);
 };
 
-const requestCourseSync = async (course) => {
-	if (course.isArchived) {
-		requestCourseRemoval(course);
-	} else {
-		requestAddCourse(course);
-	}
-};
-
 const requestSyncForEachCourseUser = async (course) => {
 	if (course.isArchived) {
-		requestCourseRemoval(course);
+		requestCourseRemoval(course._id);
 	} else {
 		getAllCourseUserIds(course).forEach((userId) => {
 			const message = {
@@ -133,13 +122,13 @@ const requestSyncForEachCourseUser = async (course) => {
 const requestRemovalOfRemovedRooms = async (schoolId, schoolSync = false) => {
 	const courses = await app.service('courses').find({ query: { schoolId } });
 	const archivedCourses = courses.data.filter((course) => course.isArchived);
-	archivedCourses.forEach((course) => requestCourseRemoval(course, schoolSync));
+	archivedCourses.forEach((course) => requestCourseRemoval(course._id, schoolSync));
 };
 
-const requestFullSchoolSync = (school) => {
+const requestFullSchoolSync = (schoolId) => {
 	const message = {
 		action: ACTIONS.SYNC_SCHOOL,
-		schoolId: school._id,
+		schoolId,
 		fullSync: true,
 	};
 	sendMessage(message);
@@ -147,7 +136,7 @@ const requestFullSchoolSync = (school) => {
 
 const requestSyncForEachSchoolUser = async (schoolId, schoolSync = false) => {
 	const users = await app.service('users').find({ query: { schoolId } });
-	users.data.forEach((user) => requestFullSyncForUser(user, schoolSync));
+	users.data.forEach((user) => requestFullSyncForUser(user._id, schoolSync));
 };
 
 // SETUP

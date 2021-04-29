@@ -26,7 +26,7 @@ class MessengerSchoolSync {
 			throw new BadRequest('This school does not support the messenger feature.');
 		}
 
-		requestFullSchoolSync(school);
+		requestFullSchoolSync(school._id);
 		return school;
 	}
 }

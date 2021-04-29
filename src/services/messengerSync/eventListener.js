@@ -1,3 +1,5 @@
+const database = require('../../utils/database');
+
 const {
 	requestFullSchoolSync,
 	requestCourseSync,
@@ -8,29 +10,52 @@ const {
 	requestUserRemoval,
 } = require('./producer');
 
-const setup = async (app) => {
-	// teams
-	app.service('teams').on('created', (team, _context) => requestTeamSync(team));
-	app.service('teams').on('patched', (team, _context) => requestTeamSync(team));
-	app.service('teams').on('updated', (team, _context) => requestTeamSync(team));
-	app.service('teams').on('removed', (team, _context) => requestTeamRemoval(team));
+const { teamsModel } = require('../teams/model');
+const { courseModel } = require('../user-group/model');
+const { userModel } = require('../user/model');
+const { schoolModel } = require('../school/model');
 
-	// courses
-	app.service('courses').on('created', (course, _context) => requestCourseSync(course));
-	app.service('courses').on('patched', (course, _context) => requestCourseSync(course));
-	app.service('courses').on('updated', (course, _context) => requestCourseSync(course));
-	app.service('courses').on('removed', (course, _context) => requestCourseRemoval(course));
+const requestSyncCall = {
+	teams: requestTeamSync,
+	courses: requestCourseSync,
+	users: requestFullSyncForUser,
+	schools: requestFullSchoolSync,
+};
 
-	// users
-	app.service('users').on('created', (user, _context) => requestFullSyncForUser(user));
-	app.service('users').on('patched', (user, _context) => requestFullSyncForUser(user));
-	app.service('users').on('updated', (user, _context) => requestFullSyncForUser(user));
-	app.service('users').on('removed', (user, _context) => requestUserRemoval(user));
+const requestRemovalCall = {
+	teams: requestTeamRemoval,
+	courses: requestCourseRemoval,
+	users: requestUserRemoval,
+	schools: () => {},
+};
 
-	// schools
-	app.service('schools').on('created', (school, _context) => requestFullSchoolSync(school));
-	app.service('schools').on('patched', (school, _context) => requestFullSchoolSync(school));
-	app.service('schools').on('updated', (school, _context) => requestFullSchoolSync(school));
+const messengerRelevantAttributes = {
+	teams: ['name', 'userIds', 'classIds'],
+	courses: ['name', 'teacherIds', 'userIds', 'classIds'],
+	users: ['firstName', 'lastName', 'roles'],
+	schools: ['name', 'features'],
+};
+
+const createSyncRequestTrigger = (collection) => async (change) => {
+	if (change.operationType === 'update') {
+		const changedAttributes = Object.keys(change.updateDescription.updatedFields);
+		if (changedAttributes.some((attribute) => messengerRelevantAttributes[collection].includes(attribute))) {
+			requestSyncCall[collection](change.documentKey._id);
+		}
+	} else if (change.operationType === 'insert' || change.operationType === 'replace') {
+		requestSyncCall[collection](change.documentKey._id);
+	} else if (change.operationType === 'delete') {
+		requestRemovalCall[collection](change.documentKey._id);
+	}
+};
+
+const setup = async () => {
+	await database.connect();
+
+	teamsModel.watch().on('change', createSyncRequestTrigger('teams'));
+	courseModel.watch().on('change', createSyncRequestTrigger('courses'));
+	userModel.watch().on('change', createSyncRequestTrigger('users'));
+	schoolModel.watch().on('change', createSyncRequestTrigger('schools'));
 };
 
 module.exports = setup;
