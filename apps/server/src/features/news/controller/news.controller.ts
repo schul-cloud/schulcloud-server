@@ -5,7 +5,7 @@ import { Authenticate, CurrentUser } from '../../../modules/authentication/auth.
 import { ICurrentUser } from '../../../modules/authentication/interfaces/jwt-payload';
 import { ParseObjectIdPipe } from '../parse-object-id.pipe';
 import { Types } from 'mongoose';
-import { News } from '../repo/entity/news.entity';
+import { NewsEntity } from '../repo/entity/news.entity';
 import { CreateNewsDto } from './dto/news.dto';
 import { PaginationDTO } from '../../../models/controller/dto/pagination.dto';
 
@@ -17,12 +17,12 @@ export class NewsController {
 	constructor(private readonly newsService: NewsService) {}
 
 	@Post()
-	create(@Body() createNewsDto: CreateNewsDto): Promise<News> {
+	create(@Body() createNewsDto: CreateNewsDto): Promise<NewsEntity> {
 		return this.newsService.create(createNewsDto);
 	}
 
 	@Get()
-	findAll(@CurrentUser() currentUser: ICurrentUser, @Query() pagination: PaginationDTO): Promise<News[]> {
+	findAll(@CurrentUser() currentUser: ICurrentUser, @Query() pagination: PaginationDTO): Promise<NewsEntity[]> {
 		return this.newsService.findAllForUser(currentUser, pagination);
 	}
 
@@ -32,7 +32,7 @@ export class NewsController {
 		// A parameter pipe like ParseObjectIdPipe gives us the guarantee of typesafety for @Param
 		@Param('id', ParseObjectIdPipe) newsId: Types.ObjectId,
 		@CurrentUser() currentUser: ICurrentUser
-	): Promise<News> {
+	): Promise<NewsEntity> {
 		const userId = new Types.ObjectId(currentUser.userId);
 		const news = await this.newsService.findOneByIdForUser(newsId, userId);
 		return news;
