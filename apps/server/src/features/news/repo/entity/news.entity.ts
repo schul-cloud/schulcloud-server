@@ -4,8 +4,8 @@ import { WithTimeStampBaseEntity } from '../../../../models/repo/entity/base.ent
 import { SchoolEntity } from '../../../school/repo/school.entity';
 import { UserEntity } from '../../../users/entities/user.entity';
 
-class PickSchoolEntity extends PickType(SchoolEntity, ['id', 'name'] as const) {}
-class PickUserEntity extends PickType(UserEntity, ['id', 'firstName', 'lastName'] as const) {}
+export class PickSchoolEntity extends PickType(SchoolEntity, ['id', 'name'] as const) {}
+export class PickUserEntity extends PickType(UserEntity, ['id', 'firstName', 'lastName'] as const) {}
 
 export class NewsEntity extends WithTimeStampBaseEntity {
 	/** the news title */

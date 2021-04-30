@@ -3,15 +3,19 @@ import { Types } from 'mongoose';
 import { ICurrentUser } from '../../modules/authentication/interfaces/jwt-payload';
 import { AuthorizationService } from '../../modules/authorization/authorization.service';
 import { CreateNewsDto, UpdateNewsDto } from './controller/dto/news.dto';
-import { NewsEntity } from './repo/entity/news.entity';
+import { NewsEntity, PickSchoolEntity, PickUserEntity } from './repo/entity/news.entity';
 import { PaginationDTO } from '../../models/controller/dto/pagination.dto';
-import { School } from '../../models/school/school.model';
 
 import { NewsRepo } from './repo/news.repo';
+import { News } from './bo/news.bo';
 
 type Permission = 'NEWS_VIEW' | 'NEWS_EDIT';
 type Target = { targetModel: string; targetId: Types.ObjectId };
-type AuthorizationSubject = { schoolId: Types.ObjectId | School; target?: Types.ObjectId; targetModel?: string };
+type AuthorizationSubject = {
+	schoolId: Types.ObjectId | PickSchoolEntity;
+	target?: Types.ObjectId;
+	targetModel?: string;
+};
 
 // CONSIDER https://github.com/devonfw/devon4j/blob/master/documentation/guide-service-layer.asciidoc#service-considerations
 
@@ -31,10 +35,11 @@ export class NewsService {
 		const userId = new Types.ObjectId(currentUser.userId);
 		// TODO pagination
 		// TODO filter for current user
-		const newsDocuments = await this.newsRepo.findAllByUser(userId, pagination);
-		const newsEntities = await Promise.all(
-			newsDocuments.map(async (news: NewsEntity) => {
-				await this.decoratePermissions(news, userId);
+		const newsEntities = await this.newsRepo.findAllByUser(userId, pagination);
+		const news = await Promise.all(
+			newsEntities.map(async (newsEntity: NewsEntity) => {
+				const news = this.mapFromNewsEntity(newsEntity);
+				news.permissions = await this.getPermissions(newsEntity, userId);
 				// TODO await this.authorizeUserReadNews(news, userId);
 				return news;
 			})
@@ -42,15 +47,10 @@ export class NewsService {
 		return newsEntities;
 	}
 
-	private async decoratePermissions(news: NewsEntity, userId: Types.ObjectId) {
-		news.permissions = (await this.getUserPermissionsForSubject(userId, news)).filter((permission) =>
-			permission.includes('NEWS')
-		);
-	}
-
-	async findOneByIdForUser(newsId: Types.ObjectId, userId: Types.ObjectId): Promise<NewsEntity> {
-		const news = await this.newsRepo.findOneById(newsId);
-		await this.decoratePermissions(news, userId);
+	async findOneByIdForUser(newsId: Types.ObjectId, userId: Types.ObjectId): Promise<News> {
+		const newsEntity = await this.newsRepo.findOneById(newsId);
+		const news = this.mapFromNewsEntity(newsEntity);
+		news.permissions = await this.getPermissions(newsEntity, userId);
 		await this.authorizeUserReadNews(news, userId);
 		return news;
 	}
@@ -82,7 +82,33 @@ export class NewsService {
 		return id;
 	}
 
-	async getUserPermissionsForSubject(userId: Types.ObjectId, subject: AuthorizationSubject): Promise<string[]> {
+	private mapFromNewsEntity(newsEntity: NewsEntity): News {
+		const news = new News();
+		news.id = newsEntity._id.toHexString();
+		news.title = newsEntity.title;
+		news.content = newsEntity.content;
+		news.displayAt = newsEntity.displayAt;
+		news.source = newsEntity.source;
+		news.externalId = newsEntity.externalId;
+		news.sourceDescription = newsEntity.sourceDescription;
+		// TODO check mapping
+		news.target = newsEntity.target as any;
+		news.targetModel = newsEntity.targetModel;
+		news.school = newsEntity.schoolId as PickSchoolEntity;
+		news.creator = newsEntity.creatorId as PickUserEntity;
+		news.updater = newsEntity.updaterId as PickUserEntity;
+
+		return news;
+	}
+
+	private async getPermissions(newsEntity: NewsEntity, userId: Types.ObjectId): Promise<string[]> {
+		const permissions = (await this.getUserPermissionsForSubject(userId, newsEntity)).filter((permission) =>
+			permission.includes('NEWS')
+		);
+		return permissions;
+	}
+
+	private async getUserPermissionsForSubject(userId: Types.ObjectId, subject: AuthorizationSubject): Promise<string[]> {
 		// detect scope of subject
 		let scope: Target;
 		if ('targetModel' in subject && subject.targetModel && 'target' in subject && subject.target) {

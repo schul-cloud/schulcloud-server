@@ -54,8 +54,8 @@ export class NewsRepo {
 		query = QueryBuilder<NewsDocument>(query).paginate(pagination);
 		const newsDocuments = await query.lean().exec();
 
-		const newsEntities = newsDocuments.map(toNews);
-		return newsEntities;
+		// const newsEntities = newsDocuments.map(toNews);
+		return newsDocuments;
 	}
 
 	/** resolves a news document with some elements names (school, updator/creator) populated already */
@@ -72,8 +72,8 @@ export class NewsRepo {
 		if (newsDocument == null) {
 			throw new NotFoundException('The requested news ' + id + 'has not been found.');
 		}
-		const news = toNews(newsDocument);
-		return news;
+		// const news = toNews(newsDocument);
+		return newsDocument;
 	}
 
 	update(id: string, updateNewsDto: UpdateNewsDto) {

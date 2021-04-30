@@ -4,7 +4,7 @@ import { BaseBusinessObject } from 'apps/server/src/models/bo/base.bo';
 import { School } from '../../school/bo/school.bo';
 
 class SchoolPick extends PickType(School, ['id', 'name'] as const) {}
-class UserPick extends PickType(User, ['id', 'firstName', 'lastName', 'fullName'] as const) {}
+class UserPick extends PickType(User, ['id', 'firstName', 'lastName'] as const) {}
 
 export class News extends BaseBusinessObject {
 	id: string;
