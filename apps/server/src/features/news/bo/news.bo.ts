@@ -9,6 +9,8 @@ class UserPick extends PickType(User, ['id', 'firstName', 'lastName'] as const) 
 export class News extends BaseBusinessObject {
 	id: string;
 
+	readonly type = 'news';
+
 	/** the news title */
 	title: string;
 
@@ -32,7 +34,16 @@ export class News extends BaseBusinessObject {
 	permissions: string[];
 
 	// populated properties
-	school?: SchoolPick;
-	creator?: UserPick;
-	updater?: UserPick;
+	school: {
+		id: string;
+		name?: string;
+	};
+	creator: {
+		id: string;
+		name?: string;
+	};
+	updater?: {
+		id: string;
+		name?: string;
+	};
 }

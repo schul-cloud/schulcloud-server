@@ -3,16 +3,16 @@ import { Types } from 'mongoose';
 import { ICurrentUser } from '../../modules/authentication/interfaces/jwt-payload';
 import { AuthorizationService } from '../../modules/authorization/authorization.service';
 import { CreateNewsDto, UpdateNewsDto } from './controller/dto/news.dto';
-import { NewsEntity, PickSchoolEntity, PickUserEntity } from './repo/entity/news.entity';
 import { PaginationDTO } from '../../models/controller/dto/pagination.dto';
-
 import { NewsRepo } from './repo/news.repo';
 import { News } from './bo/news.bo';
+import { NewsEntityDto } from './repo/dto/news-entity.dto';
+import { SchoolShortEntity } from '../school/repo/school.entity';
 
 type Permission = 'NEWS_VIEW' | 'NEWS_EDIT';
 type Target = { targetModel: string; targetId: Types.ObjectId };
 type AuthorizationSubject = {
-	schoolId: Types.ObjectId | PickSchoolEntity;
+	school: SchoolShortEntity;
 	target?: Types.ObjectId;
 	targetModel?: string;
 };
@@ -23,12 +23,10 @@ type AuthorizationSubject = {
 export class NewsService {
 	constructor(private newsRepo: NewsRepo, private authorizationService: AuthorizationService) {}
 
-	async create(createNewsDto: CreateNewsDto): Promise<any> {
-		return {
-			title: 'title',
-			body: 'content',
-			publishedOn: new Date(),
-		};
+	async create(createNewsDto: CreateNewsDto): Promise<News> {
+		const newsEntity = await this.newsRepo.create(this.mapToNewsEntity(createNewsDto));
+		const news = this.mapFromNewsEntity(newsEntity);
+		return news;
 	}
 
 	async findAllForUser(currentUser: ICurrentUser, pagination: PaginationDTO): Promise<NewsEntity[]> {
@@ -37,9 +35,9 @@ export class NewsService {
 		// TODO filter for current user
 		const newsEntities = await this.newsRepo.findAllByUser(userId, pagination);
 		const news = await Promise.all(
-			newsEntities.map(async (newsEntity: NewsEntity) => {
-				const news = this.mapFromNewsEntity(newsEntity);
-				news.permissions = await this.getPermissions(newsEntity, userId);
+			newsEntities.map(async (entity: NewsEntityDto) => {
+				const news = this.mapFromNewsEntity(entity);
+				news.permissions = await this.getPermissions(entity, userId);
 				// TODO await this.authorizeUserReadNews(news, userId);
 				return news;
 			})
@@ -82,45 +80,50 @@ export class NewsService {
 		return id;
 	}
 
-	private mapFromNewsEntity(newsEntity: NewsEntity): News {
+	private mapFromNewsEntity(newsEntity: NewsEntityDto): News {
 		const news = new News();
-		news.id = newsEntity._id.toHexString();
+		news.id = newsEntity.id;
 		news.title = newsEntity.title;
 		news.content = newsEntity.content;
 		news.displayAt = newsEntity.displayAt;
-		news.source = newsEntity.source;
 		news.externalId = newsEntity.externalId;
 		news.sourceDescription = newsEntity.sourceDescription;
-		// TODO check mapping
 		news.target = newsEntity.target as any;
 		news.targetModel = newsEntity.targetModel;
-		news.school = newsEntity.schoolId as PickSchoolEntity;
-		news.creator = newsEntity.creatorId as PickUserEntity;
-		news.updater = newsEntity.updaterId as PickUserEntity;
+
+		news.school = newsEntity.school;
+		news.creator = newsEntity.creator;
+		news.updater = newsEntity.updater;
+
+		// news.createdAt = newsEntity.createdAt;
+		// news.updatedAt = newsEntity.updatedAt;
 
 		return news;
 	}
 
-	private async getPermissions(newsEntity: NewsEntity, userId: Types.ObjectId): Promise<string[]> {
-		const permissions = (await this.getUserPermissionsForSubject(userId, newsEntity)).filter((permission) =>
+	private mapToNewsEntity(createNewsDto: CreateNewsDto): NewsEntityDto {
+		const dto = new NewsEntityDto();
+		dto.title = createNewsDto.title;
+		dto.content = createNewsDto.body;
+		dto.displayAt = createNewsDto.publishedOn;
+		return dto;
+	}
+
+	private async getPermissions(news: News, userId: Types.ObjectId): Promise<string[]> {
+		const permissions = (await this.getUserPermissionsForSubject(userId, news)).filter((permission) =>
 			permission.includes('NEWS')
 		);
 		return permissions;
 	}
 
-	private async getUserPermissionsForSubject(userId: Types.ObjectId, subject: AuthorizationSubject): Promise<string[]> {
+	private async getUserPermissionsForSubject(userId: Types.ObjectId, subject: News): Promise<string[]> {
 		// detect scope of subject
 		let scope: Target;
 		if ('targetModel' in subject && subject.targetModel && 'target' in subject && subject.target) {
 			const { target: targetId, targetModel } = subject;
 			scope = { targetModel, targetId };
-		} else if ('schoolId' in subject) {
-			const { schoolId } = subject;
-			if ('name' in schoolId) {
-				scope = { targetModel: 'school', targetId: schoolId._id };
-			} else {
-				scope = { targetModel: 'school', targetId: schoolId };
-			}
+		} else if ('school' in subject) {
+			scope = { targetModel: 'school', targetId: new Types.ObjectId(subject.school.id) };
 		} else {
 			// data format not seems to be compatible, throw
 			throw new UnauthorizedException('Bääm');

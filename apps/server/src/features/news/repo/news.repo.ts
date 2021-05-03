@@ -2,9 +2,10 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Document, LeanDocument, Model, Query, Types } from 'mongoose';
 import legacyConstants = require('../../../../../../src/services/news/constants');
 import { InjectModel } from '@nestjs/mongoose';
-import { NewsDocument, NewsEntity } from './entity/news.entity';
-import { CreateNewsDto, UpdateNewsDto } from '../controller/dto/news.dto';
+import { UpdateNewsDto } from '../controller/dto/news.dto';
 import { PaginationModel } from '../../../models/repo/interface/pagination.interface';
+import { NewsDocument, NewsEntity } from './entity/news.entity';
+import { NewsEntityDto } from './dto/news-entity.dto';
 
 const { populateProperties } = legacyConstants;
 
@@ -36,15 +37,14 @@ function QueryBuilder<T extends Document>(query: Query<T[], T>) {
 export class NewsRepo {
 	constructor(@InjectModel('News') private readonly newsModel: Model<NewsDocument>) {}
 
-	async create(createNewsDto: CreateNewsDto): Promise<NewsEntity> {
-		const newsToCreate = new NewsEntity(createNewsDto);
-		const createdNews = await this.newsModel.create(newsToCreate);
-		if (createdNews) {
-			return new NewsEntity(createdNews.toJSON());
-		}
+	async create(dto: NewsEntityDto): Promise<NewsEntityDto> {
+		const newsEntity = NewsEntity.fromNewsEntityDto(dto);
+		const newsDocument = await this.newsModel.create(newsEntity);
+		const resultDto = NewsEntityDto.fromNewsEntity(newsDocument);
+		return resultDto;
 	}
 
-	async findAllByUser(userId: Types.ObjectId, pagination?: PaginationModel): Promise<NewsEntity[]> {
+	async findAllByUser(userId: Types.ObjectId, pagination?: PaginationModel): Promise<NewsEntityDto[]> {
 		let query = this.newsModel.find();
 		// TODO filter by user scopes
 		populateProperties.forEach((populationSet) => {
@@ -53,13 +53,15 @@ export class NewsRepo {
 		});
 		query = QueryBuilder<NewsDocument>(query).paginate(pagination);
 		const newsDocuments = await query.lean().exec();
+		const resultDtos = newsDocuments.map((doc) => {
+			return NewsEntityDto.fromNewsEntity(doc);
+		});
 
-		// const newsEntities = newsDocuments.map(toNews);
-		return newsDocuments;
+		return resultDtos;
 	}
 
 	/** resolves a news document with some elements names (school, updator/creator) populated already */
-	async findOneById(id: Types.ObjectId): Promise<NewsEntity> {
+	async findOneById(id: Types.ObjectId): Promise<NewsEntityDto> {
 		let query = this.newsModel.findById(id);
 		populateProperties.forEach((populationSet) => {
 			const { path, select } = populationSet;
@@ -72,8 +74,8 @@ export class NewsRepo {
 		if (newsDocument == null) {
 			throw new NotFoundException('The requested news ' + id + 'has not been found.');
 		}
-		// const news = toNews(newsDocument);
-		return newsDocument;
+		const resultDto = NewsEntityDto.fromNewsEntity(newsDocument);
+		return resultDto;
 	}
 
 	update(id: string, updateNewsDto: UpdateNewsDto) {
@@ -103,3 +105,14 @@ function toNews(newsDocument: LeanDocument<NewsDocument>): NewsEntity {
 	const news = new NewsEntity(newsDocument);
 	return news;
 }
+
+/** document to dto conversion */
+// function toNews(newsDocument: LeanDocument<NewsFullDocument>): NewsFullDto {
+// 	const newsDto = new NewsFullDto({
+// 		...newsDocument,
+// 		school: newsDocument.schoolId as PickSchoolEntity,
+// 		creator: newsDocument.creatorId as PickUserEntity,
+// 		updater: newsDocument.updaterId as PickUserEntity,
+// 	});
+// 	return newsDto;
+// }

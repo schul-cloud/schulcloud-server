@@ -17,7 +17,7 @@ export class NewsController {
 	constructor(private readonly newsService: NewsService) {}
 
 	@Post()
-	create(@Body() createNewsDto: CreateNewsDto): Promise<NewsEntity> {
+	create(@Body() createNewsDto: CreateNewsDto): Promise<News> {
 		return this.newsService.create(createNewsDto);
 	}
 
