@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="hpi-schul-cloud-nestjs-server">HPI Schul-Cloud NestJS server</h1>
+<p>This application extends the existing server-application based on feathers and express by introducing dependency injection supporting unit testing and modularization, the possibility to develop against interfaces, and start implementation of modules using TypeScript.</p>
+<h2 id="how-to-start-the-application">How to start the application</h2>
+<p>Beside existing <a href="/">scripts</a>, for the nestJS application the following scripts have been added. Try not changing the scripts as they should match what NestJS defines by default. Execute <code>npm run ...</code></p>
+<ul>
+<li><code>nest:prebuild</code> prebuild nest ressources</li>
+<li><code>nest:build</code> compile the applications typescript ressources from apps/server to dist folder, keeps legacy js-code where it is</li>
+<li><code>nest:build:all</code> currently executes <code>nest:build</code>, could additionaly build static assets</li>
+<li><code>nest:clean</code> removes the dist folder</li>
+<li><code>nest:doc:serve</code> builds code documentation and module relations into /documentation folder and serves it on port :8080</li>
+<li><code>nest:start</code> starts the nest application // TODO how?</li>
+<li><code>nest:start:dev</code> run application without build from sources in dev-mode with hot-reload</li>
+<li><code>nest:start:debug</code> run application in dev-mode with hot-reload and debug port opened on port :9229</li>
+<li><code>nest:start:prod</code> start applicaiton in production mode, requires <code>nest:build</code> to be executed beforehand</li>
+</ul>
+<h1 id="how-to-statically-check-the-code">How to statically check the code</h1>
+<ul>
+<li><code>nest:format</code> run prettier to fix formatting issues</li>
+<li><code>nest:lint</code> run eslint to fix linter issues</li>
+</ul>
+<h1 id="how-to-test-the-application">How to test the application?</h1>
+<ul>
+<li><code>nest:test</code> executes jest tests, to separate them from existing tests, not use _.test.[ts|js] as filename but instead either _.spec.ts beside providers or *.e2e-spec.ts in test folders</li>
+<li><code>nest:test:watch</code> executes changed tests again on save</li>
+<li><code>nest:test:cov</code> reports coverage results</li>
+<li><code>nest:test:debug</code> executes tests for debugging</li>
+<li><code>nest:test:e2e</code> beside unit tests on providers which are placed beside the providers (executed by statements above), e2e tests can be added in test folder</li>
+</ul>
+<h2 id="how-to-get-full-documentation">How to get full documentation</h2>
+<p>The documentation is provided by compodoc, run <code>npm run nest:dev:serve</code>, check generated compodoc features, custom information can be found in additional information section. Your console will tell you, where it is served.</p>
+<h2 id="content">Content</h2>
+<p>For further reading, browse <code>apps/server/doc</code>.</p>
+<h2 id="development">Development</h2>
+<h3 id="nestjs-cli">NestJS CLI</h3>
+<p>To use the NestJS CLI, <a href="https://docs.nestjs.com/#installation">install the nest cli globally</a>.</p>
+<div><pre class="line-numbers"><code class="language-bash">$ npm i -g &#64;nestjs/cli</code></pre></div><p>Then you may use features like <code>nest g service foo</code> within of <code>/apps/server/src</code>.</p>
+<h3 id="debugging">Debugging</h3>
+<p>There are launch configurations available for VSCode in <code>.vscode/launch.default.json</code></p>
+<h2 id="tech-stack">Tech Stack</h2>
+<p>Feel free to find related documentation:</p>
+<ul>
+<li><a href="https://nestjs.com/">https://nestjs.com/</a></li>
+<li><a href="https://jestjs.io/">https://jestjs.io/</a></li>
+<li><a href="https://mikro-orm.io/">https://mikro-orm.io/</a></li>
+</ul>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'nestjs-application.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,636 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#API_PATH" title="apps/server/src/main.ts"><b>API_PATH</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CourseSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>CourseSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CurrentUser" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>CurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jwtConstants" title="apps/server/src/modules/authentication/constants.ts"><b>jwtConstants</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jwtOptionsProvider" title="apps/server/src/modules/authentication/jwt-options.provider.ts"><b>jwtOptionsProvider</b>&nbsp;&nbsp;&nbsp;(apps/.../jwt-options.provider.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LessonSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>LessonSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NEWS_SOURCES" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>NEWS_SOURCES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NEWS_TARGET_MODELS" title="apps/server/src/modules/news/entity/news.entity.ts"><b>NEWS_TARGET_MODELS</b>&nbsp;&nbsp;&nbsp;(apps/.../news.entity.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PORT" title="apps/server/src/main.ts"><b>PORT</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ROUTE_PRAEFIX" title="apps/server/src/main.ts"><b>ROUTE_PRAEFIX</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmissionSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>SubmissionSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TaskSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>TaskSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/config/database.config.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../database.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/modules/authentication/constants.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/modules/authorization/authorization.service.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../authorization.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/modules/task/repo/task.schema.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/modules/task/repo/task.schema.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/modules/task/repo/task.schema.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>apps/server/src/main.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="API_PATH"></a>
+                        <span class="name">
+                            <b>
+                            API_PATH</b>
+                            <a href="#API_PATH"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;api&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PORT"></a>
+                        <span class="name">
+                            <b>
+                            PORT</b>
+                            <a href="#PORT"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>3030</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ROUTE_PRAEFIX"></a>
+                        <span class="name">
+                            <b>
+                            ROUTE_PRAEFIX</b>
+                            <a href="#ROUTE_PRAEFIX"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;v3&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/task/repo/task.schema.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CourseSchema"></a>
+                        <span class="name">
+                            <b>
+                            CourseSchema</b>
+                            <a href="#CourseSchema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>courseSchema</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="LessonSchema"></a>
+                        <span class="name">
+                            <b>
+                            LessonSchema</b>
+                            <a href="#LessonSchema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>lessonSchema</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SubmissionSchema"></a>
+                        <span class="name">
+                            <b>
+                            SubmissionSchema</b>
+                            <a href="#SubmissionSchema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>submissionSchema</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TaskSchema"></a>
+                        <span class="name">
+                            <b>
+                            TaskSchema</b>
+                            <a href="#TaskSchema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>taskSchema</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>taskModel</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>courseModel</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>lessonModel</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/authentication/decorator/auth.decorator.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CurrentUser"></a>
+                        <span class="name">
+                            <b>
+                            CurrentUser</b>
+                            <a href="#CurrentUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>createParamDecorator&lt;any, any, ICurrentUser&gt;((data: unknown, ctx: ExecutionContext) &#x3D;&gt; {
+	const { user } &#x3D; ctx.switchToHttp().getRequest();
+	if (!user)
+		throw new UnauthorizedException(
+			&#x27;CurrentUser missing in request context. This route requires jwt authentication guard enabled.&#x27;
+		);
+	return user as ICurrentUser;
+})</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Returns the current authenticated user.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/authentication/constants.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jwtConstants"></a>
+                        <span class="name">
+                            <b>
+                            jwtConstants</b>
+                            <a href="#jwtConstants"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/JwtConstants.html" target="_self" >JwtConstants</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+	secret,
+	jwtOptions,
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>authConfig</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/authentication/jwt-options.provider.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jwtOptionsProvider"></a>
+                        <span class="name">
+                            <b>
+                            jwtOptionsProvider</b>
+                            <a href="#jwtOptionsProvider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+	provide: &#x27;JWT_MODULE_OPTIONS&#x27;,
+	useValue: {
+		secret: jwtConstants.secret,
+		signOptions: { expiresIn: &#x27;60s&#x27; },
+	},
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/news/controller/dto/news.response.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="NEWS_SOURCES"></a>
+                        <span class="name">
+                            <b>
+                            NEWS_SOURCES</b>
+                            <a href="#NEWS_SOURCES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;internal&#x27;, &#x27;rss&#x27;] as const</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/news/entity/news.entity.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="NEWS_TARGET_MODELS"></a>
+                        <span class="name">
+                            <b>
+                            NEWS_TARGET_MODELS</b>
+                            <a href="#NEWS_TARGET_MODELS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;courses&#x27;, &#x27;teams&#x27;, &#x27;class&#x27;] as const</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/config/database.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>globals</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Database URL </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/authorization/authorization.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>CompareHelper.ObjectId</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

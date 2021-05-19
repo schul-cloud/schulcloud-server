@@ -1,0 +1,358 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+	      <link rel="stylesheet" href="../../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="software-architecture">Software Architecture</h1>
+<h2 id="goals">Goals</h2>
+<p>Our architecture aims to achieve the following goals:</p>
+<ul>
+<li>decouple the business logic from any protocol, framework or technology specific code<ul>
+<li>makes business code easier to understand and test</li>
+<li>makes code easier to maintain and change</li>
+</ul>
+</li>
+<li>Define standard solutions for cross-cutting-concerns and implement them once, for example:<ul>
+<li>error handling</li>
+<li>logging</li>
+<li>transaction handling</li>
+<li>API documentation and validation</li>
+</ul>
+</li>
+</ul>
+<h2 id="principles">Principles</h2>
+<p>Our architecture is based on the following principles:</p>
+<ul>
+<li><strong>Component Oriented Design</strong><br>We follow a strictly component oriented design to address the following sub-principles:<ul>
+<li><strong>Separation of Concerns</strong></li>
+<li><strong>Reusability</strong> and avoiding redundant code</li>
+<li>I<strong>nformation Hiding</strong> via component API and its exchangeable implementation treated as secret.</li>
+<li><strong>Design by Contract</strong> for self-contained, descriptive, and stable component APIs.</li>
+<li><strong>Layering</strong> as well as separation of business logic from technical code for better maintenance.</li>
+<li><strong>Data Sovereignty</strong> (and high cohesion with low coupling) says that a component is responsible for its data and changes to this data shall only happen via the component. Otherwise maintenance problems will arise to ensure that data remains consistent. Therefore interfaces of a component that may be used by other components are designed call-by-value and not call-by-reference.</li>
+</ul>
+</li>
+<li><strong>Homogeneity</strong><br>Solve similar problems in similar ways and establish a uniform code-style.</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>The following figure shows the general architecture approach for the HPI-Schul-Cloud. It contains two different architecture categories (<em>business architecture</em> and <em>technical architecture</em>), which are described in more detail bellow.</p>
+<p><img src="../../assets/architecture-overview.png" alt="" class="img-responsive"></p>
+<h3 id="business-architecture">Business Architecture</h3>
+<p>The <em>business architecture</em> divides the application into <em>business components</em>. A <strong>business component has a well-defined responsibility that it encapsulates</strong>. All aspects related to that responsibility have to be implemented within that business component. Further the business architecture defines the dependencies between the business components. These dependencies need to be free of cycles. A business component exports his functionality via well-defined interfaces as a self-contained API. A business component may use another business component via its API and compliant with the dependencies defined by the business architecture.</p>
+<p>The business components in the architecture should be the output of the <a href="https://docs.hpi-schul-cloud.org/display/PROD/Facharchitektur">business architecture</a> created and managed by the product owner and it must stay aligned with the implementation to provide actual value. If their components are hard to implement (e.g. because technically, there is a very high cohesion between two components), the business component model should be changed. The business architecture has a very high impact on the solution and should therefore (especially in a agile environment) be the result of a mix team (business and development).</p>
+<p>The application might contain components, which are not part of the business architecture, but have a technical background (e.g. a complex adapter component used to connect to an external system).</p>
+<h3 id="technical-architecture">Technical Architecture</h3>
+<p>The <em>technical architecture</em> <strong>divides the application into technical ***</strong>layers<em>\</em>* based on the multilayered architecture. A layer is a unit of code with the same category such as service or presentation logic. A layer is therefore often supported by a technical framework. Each business component can therefore be split into <em>component parts\</em> for each layer.</p>
+<h2 id="components">Components</h2>
+<p>Following <strong>separation-of-concerns</strong> we divide an application into components using our folder-conventions and the architecture-mapping (see <a href="https://docs.hpi-schul-cloud.org/display/TSC/Software+Architecture#SoftwareArchitecture-architecturemapping">Architecture Mapping to Code</a>). Components must use the UseCase-Facade of other components to communicate with them. Never access any other code from a different component directly.</p>
+<p>For the HPI Schul-Cloud, we have two major types of components</p>
+<h3 id="business-components">Business Components</h3>
+<p>These usually manage one or more entities and provide the related business logic to other components and external systems.</p>
+<h3 id="adapter-components">Adapter Components</h3>
+<p>Adapter components encapsulate interactions with external systems:</p>
+<ul>
+<li>requests <strong>to</strong> an <strong>external system</strong> like a chat system, microservices etc.</li>
+<li>requests <strong>from</strong> <strong>external systems</strong>, but only if:<ul>
+<li>the external system needs a specific API (e.g. a public standard for user/class management)</li>
+<li>there are other (non-)functional requirements, which make it reasonable to encapsulate the interface into its own component, for example:<ul>
+<li>a reporting API, which aggregates data of multiple components</li>
+<li>APIs, which have different security requirements</li>
+</ul>
+</li>
+<li>Otherwise, the standard API provided by business components should be used</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-use-components">How to use Components</h2>
+<h3 id="communication-between-components">Communication between components</h3>
+<p>If <code>component B</code> needs anything from <code>component A</code>, it must always access it using the UseCase Facade of A. The general rules are:</p>
+<ul>
+<li><p>Only the logic exposed in the UseCase facade can be invoked by other components. All other logic must not be called directly. This provides a clean and defined interface, which can be tested and validated.</p>
+<ul>
+<li>accessing the datalayer directly would heavily impact maintainability and encapsulation</li>
+<li>accessing the service layer makes no sense because it contains protocol specific aspects and overhead, which is not relevant within the application</li>
+</ul>
+</li>
+<li><p>In some cases, it is reasonable for the service layer of <code>component B</code> to call the UseCase facade of <code>component A</code> directly</p>
+<ul>
+<li>for example if <code>component B</code> has no business logic (like a simple adapter component)<ul>
+<li>In any other situation, you should only put it into the</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../assets/Communication-between-components.png" alt="Communication between components" class="img-responsive"></p>
+<h3 id="provide-dedicated-apis-for-external-systems">Provide dedicated APIs for external systems</h3>
+<p>If external applications can&#39;t use the default REST API of the system (e.g. because they expect application specific endpoints), those endpoints are provided as a separate component. For example, if an external MyLearningApp Application want&#39;s to connect to the HPI Schul-Cloud, create a new component called &quot;MyLearningAppAdapter&quot;, which maps the external requests from the app to the internal datamodel and calls the use-case facade. Additional Hints:</p>
+<ul>
+<li>Do not access the Service Layer, the Data-Access Layer or the actual data in the database of the target component from this adapter component. Only access the UseCase-Facade. By doing this, we ensure that there are no side-effects introduced and the logic layer has full control over the business logic/rules.</li>
+<li>The adapter component can contain it&#39;s own logic layer, if there is actual logic related to providing the interface (e.g more complex mapping and validation rules).</li>
+<li>The adapter component can also contain a data-access layer, which for example caches data for the responses, contains mapping rules or buffers data from requests for processing.<ul>
+<li>Do not use any relations, constraints or other dependencies onto the target component(s) on database level and do not query the data directly. Always use the UseCase Facade</li>
+</ul>
+</li>
+<li>An adapter component can contain multiple endpoints (e.g. for users, courses and classes) and the adapter is allowed to access multiple business components (e.g. to retrieve data from users, courses and classes).</li>
+</ul>
+<p><img src="../../assets/Integrating-external-App.png" alt="Integrating external App" class="img-responsive"> The figure above shows the generic setup. As stated above, the adapter component can access additional components</p>
+<h3 id="accessing-an-external-api--system">Accessing an external API / System</h3>
+<p>Usually, access to an external system should be encapsulated in it&#39;s own component. This adapter component is responsible for the mapping between the internal and external datamodel and all the protocol and system specific logic. The guidelines are:</p>
+<ul>
+<li>In many cases, external system specific logic is encapsulated in it&#39;s own adapter component<ul>
+<li>The component should have an abstract name, e.g. instead of &quot;RocketChatAdapter&quot;, it should be &quot;ChatAdapter&quot;. That way, we reduce the amount of changes in the code, if we replace the system.</li>
+</ul>
+</li>
+<li>There are cases, in which the client to an external system could be part of a business component. Thats allowed, if the following conditons are true:<ol>
+<li>It will not be reused/called directly by other components. All calls must go through this business components usecase facade and obviously, the logic must fit into the components responsibility.</li>
+<li>it&#39;s very simple or tightly related to an entity managed by the business component, e.g.<ul>
+<li>if course content is not stored in a database but in a third party LMS. In that case, the external system is the actual &quot;repository&quot; of the data and the client for it belongs in the dataaccess layer</li>
+<li>a component managing addresses could contain a client which calls an external application to validate addresses.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>an adapter component provides a business interface (use case oriented)</li>
+<li>adapter components can provide their own REST API / service layer, but don&#39;t have to<ul>
+<li>provided APIs should also be business oriented and not system specific</li>
+</ul>
+</li>
+<li>the actual client and protocol logic (rest client, etc.) is located in the dataaccess layer<ul>
+<li>An adapter component can contain multiple clients for different services (e.g. rocketchat and matrixchat)</li>
+<li>If a framework encapsulates the protocol specific logic enough, the framework can be used as &quot;dataaccess layer&quot;</li>
+</ul>
+</li>
+<li>The dataaccess layer can also contain entites and db repositories. This might be the case if the adapter component caches or buffers data or needs to manage mapping master data/rules</li>
+<li>the logic layer is usually rather empty and contains only mapping and data-enrichment logic<ul>
+<li>It can also contain logic to determine the correct dataaccess-layer-client (e.g. if bundesland=x, use rocketchat, otherwise use matrix chat)</li>
+</ul>
+</li>
+</ul>
+<p>Scenarios:</p>
+<h4 id="with-adapter-component">With Adapter Component</h4>
+<p><img src="../../assets/Calling-an-external-System.png" alt="With Adapter Component" class="img-responsive"></p>
+<h4 id="with-business-component">With Business Component</h4>
+<p><img src="../../assets/access-external-system-from-business-component.png" alt="With Business Component" class="img-responsive"></p>
+<h3 id="access-legacy-code">Access Legacy Code</h3>
+<p>If you need to access legacy code (not yet migrated to the new architecture), you can do it from the logic layer (preferred) or the service layer (if there is no logic layer or it is only needed for service-layer-mapping)</p>
+<p><img src="../../assets/Access-Legacy-Code.png" alt="Access Legacy Code" class="img-responsive"></p>
+<h3 id="extract-component-into-external-system-microservice">Extract Component into external system (Microservice)</h3>
+<p>The component approach not only increases the maintainability and test-ability by a large amount, it also allows to extract components into separate applications without large refactorings. The components are already decoupled and the required functionality in the UseCase Facade can be pulled up into the REST-API.</p>
+<p><img src="../../assets/extract-component-microservice.png" alt="Extract Component into its own microservice" class="img-responsive"></p>
+<h2 id="layers">Layers</h2>
+<h3 id="ui-layer">UI Layer</h3>
+<p>The UI layer is implemented as single-page-application using the <a href="https://nuxtjs.org/">https://nuxtjs.org/</a> framework, which wraps the <a href="https://vuejs.org/">https://vuejs.org/</a> framework. It should contain only logic related to:</p>
+<ul>
+<li>presentation</li>
+<li>simple form validation</li>
+<li>localization</li>
+</ul>
+<p>The client architecture uses an atomic design approach. For details, please check the client-architecture documentation.</p>
+<h3 id="service-layer">Service Layer</h3>
+<p>The service layer is responsible for exposing functionality made available by the logical layer to *<em>external consumers *</em>over a network via technical protocols. By doing this, it decouples the logic layer completely from any protocols or frameworks used to provide logic to the outside world. The service layer can actually contain multiple services for all kinds of protocols (e.g. REST, Sockets, Kafka Messages and so on), which all map protocol specific requests to the protocol-independent logic layer.</p>
+<p>The service layer in the project uses the feathers/express framework to expose RESTful/socket APIs to the legacy client and NUXT client as well as any other authorized consumer.</p>
+<p>The layer ensures that the API specification contract is fulfilled, but also handles a large set of cross-cutting-concerns. Its most important tasks are:</p>
+<ul>
+<li>Ensure authentication, authorization ((Student-,Teacher-,Admin-)Role/Permissions only)</li>
+<li>Request/Response validation against the API specification</li>
+<li>Mapping form the internal data model to the external view (e.g. remove security critical information, technical keys etc.)</li>
+<li>Provide old versions of an API and map to the new business logic (this is not always possible in the service layer)</li>
+<li>Global error handling i.e. translates Application Exception into protocol specific errors</li>
+<li>Capture trace-information (e.g. request-id, user) and provide them to the application for logging</li>
+<li>collect monitoring information (e.g. number of requests, response times, error rates etc)</li>
+<li>Request/response/error logging</li>
+</ul>
+<p>Cross-cutting-concerns are actually shared across all components (hence the name), but many of them are hooked (<a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">aspect oriented programming</a>) around the services in the service-layer und some need a service-specific configuration. For example, a hook, which does role based authorization, is implemented only once and wraps all services. But it needs to know which roles must be checked for specific services and service operations.</p>
+<h3 id="logic-layer">Logic Layer</h3>
+<p>The logic layer is the heart of the application and contains the main business logic. According to our business architecture we divide an application into components, which contains use-cases. Each component provides a usecase facade, which can be used to trigger the business logic for a use case from either:</p>
+<ul>
+<li>the service layer</li>
+<li>from another component.</li>
+</ul>
+<p>The logic layer is responsible for the implementation of the business logic according to the specified functional demands and requirements. It therefore creates the actual value of the application. The following additional aspects are also in its responsibility:</p>
+<ul>
+<li><strong>Validation</strong> based on business rules. For example:<ul>
+<li>Parents must provide their consent for students bellow 16 years of age</li>
+</ul>
+</li>
+<li><strong>Authorization</strong> and data access rights (scope or user specific permission), for example:<ul>
+<li>A teacher are not allowed to see courses or students from other schools</li>
+</ul>
+</li>
+<li><strong>Choreography</strong>: In general, only the logic layer is allowed to call other components or trigger a call to an external system. Exceptions are possible (e.g. if a component has no business logic and therefore no logic layer)</li>
+</ul>
+<p>The service layer must be free from protocol or database specific code and does not make assumptions about which protocol or client called it or where the data is stored. For example:</p>
+<ul>
+<li>the die business layer must not access any HTTP-request parameters or headers directly. It has a defined interface which contains the data independently from the caller.</li>
+<li>it does not throw HTTP specific errors like 404 NotFound. Instead it throws an application specific error, which is mapped to 404 by the general REST API ErrorHandler</li>
+<li>It does not create SQL or mongoDB queries. Instead it calls a defined interface and the dataaccess layer transform the input parameters into a DB specific query.</li>
+</ul>
+<p>Using this approach, the business layer, which contains the actual logic, is much easier to test, understand and change. For example, it is possible to write xUnit Tests with no dependencies to DBs or protocols.</p>
+<h3 id="dataaccess-layer">Dataaccess Layer</h3>
+<p>The data-access layer is responsible for all outgoing connections to access and process data. This is mainly about accessing data from a persistent data-store but also about invoking external services. It provides a more or less business oriented interface - e.g. <code>findUser(userId)</code>- and translates it into an database or database-framework specific query. No matter which database, database framework or protocol-client you use, the interface of the dataaccess layer should be neutral. That means that your interface must also provide parameters for pagination etc.</p>
+<p>This approach brings a couple of benefits:</p>
+<ul>
+<li>Separation of Concerns: encapsulates DB queries/requests to external services and allows for testing it separately</li>
+<li>Introduces an abstraction over DB/protocol Connector/framework</li>
+<li>Separates DB-specific Query Language and Application Specific Search Criteria</li>
+<li>Increases security level - the DB is not exposed via Rest API, minimizes chance for Non-SQL/SQL-Injections</li>
+</ul>
+<h3 id="batch-layer">Batch Layer</h3>
+<p>The batch layer is basically a service layer, which contains code related to batch processing (bulk-oriented, non-interactive, typically long running execution of tasks). For simplicity the term batch or batch job is used for such tasks in the project.</p>
+<p>The batch layer is responsible for batch processes, whereas the business logic is implemented in the logic layer. Compared to the service layer you may understand the batch layer just as a different way of accessing the business logic. Batches should invoke use cases in the logic layer for doing their work. Only &quot;batch specific&quot; technical aspects should be implemented in the batch layer. Example: For a batch, which imports user data from a CSV file, this means that all code for actually reading and parsing the CSV input file is implemented in the batch layer. The batch calls the use case &quot;create user&quot; in the logic layer for actually creating the users for each line read from the CSV input file.</p>
+<p>In practice it is not always appropriate to create use cases in the logic layer for every bit of work a batch should do. Instead, the data access layer can be used directly. An example for that is a typical batch for data retention which deletes out-of-time data. Often deleting out-dated data is done by invoking a single SQL statement. It is appropriate to implement that SQL in a Repository method (provided by the dataaccess layer interface) and call this method directly from the batch. But be careful that this pattern is a simplification which could lead to business logic cluttered in different layers which reduces maintainability of the application. It is a typical design decision you have to take when designing your specific batches.</p>
+<h2 id="cross-cutting-concerns">Cross Cutting Concerns</h2>
+<p><img src="../../assets/Cross-Cutting-Concerns.png" alt="Cross Cutting Concerns" class="img-responsive"></p>
+<h3 id="error-handling">Error Handling</h3>
+<p>An important part of the layered architecture is the handling of errors. In our architecture, errors should either be:</p>
+<ul>
+<li>handled directly (e.g. retry a failed REST-API-Call after a timeout error occurred)</li>
+<li>Bubble up un-catched to the generic error handler in the cross cutting concerns layer (which , which knows how to map this error to an external error and return it to the caller.<ul>
+<li>In case of batch jobs, the batch layer catches the error and knows how to handle it (e.g. restart a job, skip a part of the job, stop the job completely etc).</li>
+</ul>
+</li>
+</ul>
+<p>Please check the <a href="https://docs.hpi-schul-cloud.org/display/TSC/Error+Handling+Guildelines">error handling guidelines</a> for details.</p>
+<h3 id="transaction-handling">Transaction Handling</h3>
+<p>Transactions can span multiple layers and components. A concept is necessary to execute/rollback those transactions.</p>
+<p>TODO: add a link to the concept and describe how it interacts with layers.</p>
+<h3 id="request-context">Request Context</h3>
+<p>Multiple crosscutting concerns make it necessary to introduce a &quot;request context&quot;. This is a set of request specific variables accessible everywhere within the application during a request. For example:</p>
+<ul>
+<li>each request will contain a request-specific trace id, which must be added to log messages and audit log entries</li>
+<li>each request is triggered by a user or a batch job. We need to store this trigger in the audit logs</li>
+<li>if we introduce transactions across multiple components (e.g. users and classes), we need a way to share transaction information between components and store the transaction until a commit</li>
+</ul>
+<p>Because this context is required in all layers (especially in the data access layer for audit logging) and in cross cutting hooks, we need a framework/feature, which makes this available for direct access without adding this object to every method signature as input variable. Luckily, the necessary functionality is now part of nodejs: <a href="https://nodejs.org/docs/latest-v14.x/api/async_hooks.html#async_hooks_class_asynclocalstorage">AsyncLocalStorage</a>.</p>
+<p>The general approach for rest requests:</p>
+<ol>
+<li>A request is received</li>
+<li>A hook initializes the request context</li>
+<li>A hook extracts trace information (e.g. traceid and spanid) from the request and adds it to the request context</li>
+<li>A hook authenticates and authorizes the user and stores basic user information (e.g. user id, maybe general permissions roles) in the request context<ul>
+<li>If the user is not authenticated, a &quot;guest user&quot; is set in the content with only guest permissions</li>
+<li>For batch jobs, a technial user must be set in the request context. For the business logic, the technology, channel and user must be hidden behind the request context.</li>
+</ul>
+</li>
+<li>The normal code is executed and can access the request context<ul>
+<li>If the business logic needs data from the request context, it can access it</li>
+<li>cross cutting logic like audit logging can extract the information. E.g. before the data access layer writes a entity change to the database, it retrieves the trace id and the user id from the request context and adds these information to the entity</li>
+<li>If we make a call to another service (e.g. calendar), we retrieve the trace id from the request context and add it to the outgoing request</li>
+<li>Our logging abstraction retrieves the trace id from the request context and adds it to the log message before writing it to the logfile (actually the console).</li>
+</ul>
+</li>
+<li>After the response is sent to the client, the request context is &quot;destroyed&quot;</li>
+</ol>
+<p>Characteristics of the context:</p>
+<ul>
+<li>It is request specific and destroyed after the request is processed</li>
+<li>Data in it are only accessable by the processing o f a specific request, not any other request of the same user or another user!</li>
+<li>It should only contain very basic information necessary for cross cutting concerns like logging and audit logging. Do not use it to transport all kinds of business data around</li>
+</ul>
+<p><strong>Important:</strong> In order to make the code (and especially the business logic) agnostic to the source of a request, the request context should be considered a &quot;invocation context&quot;. That means that also batch jobs (time based triggerd requests) and anonymous rest request should work the exact same way. That means that:</p>
+<ul>
+<li>we must setup the request context for batch jobs</li>
+<li>we need technical users for anonymous requests and batch jobs</li>
+<li>super users (super heroes) must use the same mechanisms as normal users (no special permission checks etc)</li>
+</ul>
+<p>That way, we can use the same logic for all invocations and the source of an invocation is isolated within the service layer.</p>
+<h3 id="logging-and-tracing">Logging and Tracing</h3>
+<p>For details see the corresponding <a href="https://docs.hpi-schul-cloud.org/display/TSC/Logging+and+Tracing+Guidelines">logging and tracing guidelines</a>.</p>
+<h1 id="architecture-mapping-to-code">Architecture Mapping to Code</h1>
+<p>For details about how this architecture is implemented in code, see the <a href="https://docs.hpi-schul-cloud.org/display/TSC/Server+Code+Conventions">Server Code Conventions</a>.</p>
+<p>Next: See Architecture Mapping and Conventions here.</p>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'software-architecture.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../../js/libs/custom-elements.min.js"></script>
+       <script src="../../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../../js/menu-wc.js" defer></script>
+
+       <script src="../../js/libs/bootstrap-native.js"></script>
+
+       <script src="../../js/libs/es6-shim.min.js"></script>
+       <script src="../../js/libs/EventDispatcher.js"></script>
+       <script src="../../js/libs/promise.min.js"></script>
+       <script src="../../js/libs/zepto.min.js"></script>
+
+       <script src="../../js/compodoc.js"></script>
+
+       <script src="../../js/tabs.js"></script>
+       <script src="../../js/menu.js"></script>
+       <script src="../../js/libs/clipboard.min.js"></script>
+       <script src="../../js/libs/prism.js"></script>
+       <script src="../../js/sourceCode.js"></script>
+          <script src="../../js/search/search.js"></script>
+          <script src="../../js/search/lunr.min.js"></script>
+          <script src="../../js/search/search-lunr.js"></script>
+          <script src="../../js/search/search_index.js"></script>
+       <script src="../../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

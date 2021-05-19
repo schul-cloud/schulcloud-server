@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+	      <link rel="stylesheet" href="../../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="architecture-mapping-to-code">Architecture mapping to Code</h1>
+<h2 id="file-structure">File structure</h2>
+<h3 id="file-structure-1">File structure</h3>
+<p>The server app located in <code>/apps/server</code> is structured like. Beside each ts-file, a test file _.spec.ts has to be added for unit tests (hidden for simplification). Use index.ts files that combine a folders content and export all files from within of the folder using <code>export _ from &#39;./file&#39;</code> where this makes sense. When there are naming conflicts, use more specific names and correct concepts. Think about not to create sub-folders, when only one concept exist.</p>
+<div><pre class="line-numbers"><code class="language-js">src/ // sourcecode &amp; unit tests
+    - config/  // for global definitions
+    - modules/ // for your NestJS modules
+        - [module] // where [module] could be like user, homework, school
+            - entity/
+                - &lt;entity&gt;.entity.ts // (where &lt;entity&gt; might be a user, news, ... owned by the module) exports entity class &amp; document type
+                - &lt;related-info&gt;.entity.ts // where related-info is a partial of another entity used in the entity above
+                - index.ts // exports all entities
+            - controller/ // where controllers define the api
+                - dto/ // dto&#39;s define api in/out types as a class with annotations
+                    - &lt;action-&gt;[param|query].ts // (like create-user-param.ts or pagination.query)
+                    - &lt;data-&gt;[response].ts // (like create-user-response.ts)
+                    - index.ts // exports all dto&#39;s
+                - &lt;module&gt;.controller.ts // defines rest api, references main service file
+                - &lt;other&gt;.controller.ts // think about a new module when require multiple controllers :)
+            - repo/ // repositories take care to load/persist/... entities
+                - schema/ // contains schema imports from legacy app or new definitions (might be replaced by OR mapper)
+                    - &lt;entity&gt;.schema.ts // exports (legacy-) mongoose schemas
+                - &lt;entity&gt;.repo.ts // where entity might be user, news, school
+            - service/ // for technical dependencies (libraries, infrastructure layer concerns)
+                - &lt;module&gt;.service.ts // the modules main service file, might be exported for other modules
+                - &lt;other&gt;.service.ts // use services not for features
+            - mapper/
+                - &lt;entity&gt;.mapper.ts // mapper for a domain entity, should contain mapDomainToResponse and mapFooToDomain
+            - uc/ // preferred for features
+                - &lt;login-user&gt;.uc.ts // one file per single use case (use a long name)
+            - &lt;module&gt;.module.ts // DI instructions to build the module
+    - shared/ // reused stuff without module ownership
+        - core/ // shared concepts (decorators, pipes, guards, errors, ...) folders might be added
+        - domain // (abstract) domain base entities which will be extended in the modules
+        - util/ // helpers, tools, utils can be located here (but find a better name)
+test/ // e2e tests against controllers should use same folder names like controllers
+</code></pre></div><p>For concepts (see <a href="https://docs.nestjs.com/first-steps">https://docs.nestjs.com/first-steps</a>) of NestJS put implementations in shared/core. You might use shared/utils for own solutions, assume TextUtils but when it contains text validators, move it better to shared/core/validators/text.validator.ts before merge. The core concepts of NestJS can be extended with ours (like repo).</p>
+<h2 id="layers">Layers</h2>
+<p>The different layers use separately defined objects that must be mapped when crossing layers.</p>
+<ul>
+<li>Never export entities through the service layer without DTO-mapping which is defined in the controller</li>
+<li>Concepts owned by a layer must not be shared with other layers</li>
+</ul>
+<p><img src="../../assets/object-ownership.png" alt="" class="img-responsive"></p>
+<p>Further reading: <a href="https://khalilstemmler.com/articles/software-design-architecture/organizing-app-logic/">https://khalilstemmler.com/articles/software-design-architecture/organizing-app-logic/</a></p>
+<h3 id="service-layer">Service Layer</h3>
+<p>A modules service layer is defined within of <a href="https://docs.nestjs.com/controllers">controllers</a>.</p>
+<p>The main responsibilities of a controller is to define the REST API interface and map the logic layer to it.</p>
+<p>For <strong>authentication</strong>, use <a href="https://docs.nestjs.com/guards">guards</a> like JwtAuthGuard. It can be applied to a whole controller or a single function. Afterwards <a href="/apps/server/src/modules/authentication/interface/jwt-payload.ts">ICurrentUser</a> can be injected.</p>
+<div><pre class="line-numbers"><code class="language-TypeScript">&#64;Authenticate(&#39;jwt&#39;)
+controllerfunction (&#64;CurrentUser() currentUser: ICurrentUser) {
+    // ...
+    const { userId } = currentUser;
+}</code></pre></div><p>Global settings ensure <strong>request/response validation</strong> against the api definition. Simple input types might additionally use a custom <a href="https://docs.nestjs.com/pipes">pipe</a> while for complex types injected as query/body are validated by default when parsed as DTO class.</p>
+<p>Complex input DTOs are defined like [create-news].param.ts or [pagination].query.ts</p>
+<blockquote>
+<p><strong>Security:</strong> When exporting data, internal entities must be mapped to a response DTO class named like [news].response.dto. The mapping ensures which data of internal entities are exported.</p>
+</blockquote>
+<p>Defining the request/response DTOs in a controller will define the openAPI specification automatically. Additional <a href="https://docs.nestjs.com/techniques/validation">validation rules</a> and <a href="https://docs.nestjs.com/openapi/decorators">openAPI definitions</a> can be added using decorators.</p>
+<p>TODO: Versioning, custom Error-Handling, Logging</p>
+<h3 id="testing">Testing</h3>
+<p>To test the setup behind a controller, use e2e-tests to ensure, use cases and repositories below are correctly mounted and available at a specific path.</p>
+<blockquote>
+<p>A controller unit test should ensure it responds with the correct data-format and a referenced use-case is called correctly.</p>
+</blockquote>
+<blockquote>
+<p>Authentication and response codes can be unit tested.</p>
+</blockquote>
+<blockquote>
+<p>Do not test logic (from the business layer or repository) in e2e-tests, this must be done where the logic is defined within of a unit test. A e2e test should only ensure everything is correctly initialized.</p>
+</blockquote>
+<blockquote>
+<p>Do not put logic (beside mapping) inside a controller, use the logic layer instead. Mapping can be unit tested.</p>
+</blockquote>
+<h2 id="logic-domain--layer">Logic (Domain-) Layer</h2>
+<p>The domain layer assumes a kind of higher-level policy that everything else relies on (<a href="https://khalilstemmler.com/articles/software-design-architecture/organizing-app-logic/">Source</a>).</p>
+<h3 id="use-cases">Use Cases</h3>
+<p>Use cases either return data to the user through a query (CRUD) or apply a command.</p>
+<p>Further reading: <a href="https://khalilstemmler.com/articles/oop-design-principles/command-query-separation/">https://khalilstemmler.com/articles/oop-design-principles/command-query-separation/</a></p>
+<h3 id="testing-1">Testing</h3>
+<p>Use unit-tests to ensure a use-cases logic matches the given requirements (from a [user-]story). A unit test should cover preconditions, allowed input, the result, and expected exceptions defined by the story, and roughly what happens on malformed input (the execution should stop).</p>
+<h2 id="data-access-layer">Data access Layer</h2>
+<p>The data access layer consists of repositories. A repository takes care to persist domain entities defined in the business layer. As we use decorators in entities to define how they are persisted, they are used in this layer too. The repository does not need to map entities like in the presentation layer as it maps data from/to an external system into the domain and to be used from/in the business layer.</p>
+<blockquote>
+<p>It&#39;s not the task of the business layer to fit a repository. A respository should give the logic layer the ability to persist/make available what is defined in the logic layer. The domain model must be independent from a repository (See Clean Architecture).</p>
+</blockquote>
+<p>Specific concepts from within of this layer must be hidden for the business layer like database queries, protocol specifics, mapping to data layer. Others like putting multiple persistence rules into transactions is part of the domain layer (while how a transaction is implemented, then is part of the data access layer).</p>
+<h3 id="testing-2">Testing</h3>
+<p>For the data access layer, integration tests can be used to check the repositories base functionality against a database.</p>
+<p>For Queries care DRY principle, they should be tested very carefully.</p>
+<blockquote>
+<p>Use a in-memory database for testing to allow parallel test execution and have isolated execution of tests. A test must define the before and after state of the data set clearly and cleanup the database after execution to the before state. Instead of using predefined data sets, all preconditions should be defined in code through fixtures.</p>
+</blockquote>
+<p>Logic should not be part of a repository, use logic layer instead.</p>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'architecture-mapping-to-code.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../../js/libs/custom-elements.min.js"></script>
+       <script src="../../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../../js/menu-wc.js" defer></script>
+
+       <script src="../../js/libs/bootstrap-native.js"></script>
+
+       <script src="../../js/libs/es6-shim.min.js"></script>
+       <script src="../../js/libs/EventDispatcher.js"></script>
+       <script src="../../js/libs/promise.min.js"></script>
+       <script src="../../js/libs/zepto.min.js"></script>
+
+       <script src="../../js/compodoc.js"></script>
+
+       <script src="../../js/tabs.js"></script>
+       <script src="../../js/menu.js"></script>
+       <script src="../../js/libs/clipboard.min.js"></script>
+       <script src="../../js/libs/prism.js"></script>
+       <script src="../../js/sourceCode.js"></script>
+          <script src="../../js/search/search.js"></script>
+          <script src="../../js/search/lunr.min.js"></script>
+          <script src="../../js/search/search-lunr.js"></script>
+          <script src="../../js/search/search_index.js"></script>
+       <script src="../../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

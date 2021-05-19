@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+	      <link rel="stylesheet" href="../../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="conventions">Conventions</h1>
+<h2 id="naming-conventions">Naming Conventions</h2>
+<p>In TypeScript files: for Classes we use <code>PascalCase</code> (names start with uppercase letter), variables use lowercase for the first letter <code>camelCase</code>.</p>
+<p>When assigning names, they may end with a concept name:</p>
+<ul>
+<li><p>A Concept might be a known term which is widely used. Samples from NestJS: Controller, Provider, Module, Middleware, Exception, Pipe, Guard, Interceptor.</p>
+</li>
+<li><p>Beside we have own concepts like comparator, validator (generic ones should not be part of a modules (and located in shared folder btw) or repo, use-case which might be owned by a module.</p>
+</li>
+</ul>
+<p>In file names, we use lowercase and minus in the beginning and end with <code>.&lt;concept&gt;.ts</code></p>
+<h3 id="samples">Samples</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>File name</th>
+<th>Class name</th>
+<th>Concept</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>login-user.uc.ts</td>
+<td>LoginUserUc</td>
+<td>use case</td>
+<td>module/uc</td>
+</tr>
+<tr>
+<td>text.validator.ts</td>
+<td>TextValidator</td>
+<td>validator</td>
+<td>shared/core/validators</td>
+</tr>
+<tr>
+<td>user.repo.ts</td>
+<td>UserRepo</td>
+<td>repository</td>
+<td>module/repo</td>
+</tr>
+<tr>
+<td>parse-object-id.pipe.ts</td>
+<td>ParseObjectIdPipe</td>
+<td>pipe</td>
+<td>shared/core/pipes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="programming-conventions">Programming Conventions</h2>
+<h3 id="programming-principles">Programming principles</h3>
+<p>This project should try following the...</p>
+<ul>
+<li>Object-Oriented Programming Basics</li>
+<li>Object-Oriented Programming Design Principles (composition &gt; inheritance, referring to abstractions, SOLID Principles)</li>
+<li>General Design Principles (YAGNI, KISS, DRY)</li>
+</ul>
+<h3 id="domain-driven-design">Domain driven design</h3>
+<p>While <a href="https://khalilstemmler.com/articles/domain-driven-design-intro/">DDD</a> is not enforced, we still try to follow its goals:</p>
+<ul>
+<li>Discover the domain model by interacting with domain experts and agreeing upon a common set of terms to refer to processes, actors and any other phenomenon that occurs in the domain.</li>
+<li>Take those newly discovered terms and embed them in the code, creating a rich domain model that reflects the actual living, breathing business and it&#39;s rules.</li>
+<li>Protect that domain model from all the other technical intricacies involved in creating a web application.</li>
+</ul>
+<h3 id="3-layer-architecture">3 layer architecture</h3>
+<p>For the 3-layer architecture this means we have to protect the business layer and domain models from the outside world and infrastructure to keep it clean, fast, testable, ready for changes.</p>
+<h3 id="concepts">Concepts</h3>
+<p>Beside Concepts NestJS introduces, own services like <a href="https://khalilstemmler.com/articles/domain-driven-design-intro/#Repository">repositories</a> might be created. We prefer using use-cases to step in the application over CRUD.</p>
+<h3 id="domain-services">Domain Services</h3>
+<p>Domain Services (logic which depends on multiple entities, think about a state machine) are most often executed by application layer Application Services / Use Cases. Because Domain Services are a part of the Domain Layer and adhere to the dependency rule, Domain Services aren&#39;t allowed to depend on infrastructure layer concerns like Repositories to get access to the domain entities that they interact with. Application Services fetch the necessary entities, then pass them to domain services to run allow them to interact.</p>
+<p>Sample: Within of a use case we not depend on a user context from outside while for logging, error handling or in a repository it might be used. Like we see in the clean architecture schema.</p>
+<p><img src="https://khalilstemmler.com/img/blog/ddd-intro/clean.jpg" alt="" class="img-responsive"> &quot;The Clean Architecture from the golden Uncle Bob archives&quot;</p>
+<h3 id="domain-events">Domain events</h3>
+<p>Events have to be handled very carefully. Like hooks around services might lead into separating the business logic into independend untestable workflows, the events task and data must be defined clearly and should only be used for independent tasks.</p>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'code-conventions.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../../js/libs/custom-elements.min.js"></script>
+       <script src="../../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../../js/menu-wc.js" defer></script>
+
+       <script src="../../js/libs/bootstrap-native.js"></script>
+
+       <script src="../../js/libs/es6-shim.min.js"></script>
+       <script src="../../js/libs/EventDispatcher.js"></script>
+       <script src="../../js/libs/promise.min.js"></script>
+       <script src="../../js/libs/zepto.min.js"></script>
+
+       <script src="../../js/compodoc.js"></script>
+
+       <script src="../../js/tabs.js"></script>
+       <script src="../../js/menu.js"></script>
+       <script src="../../js/libs/clipboard.min.js"></script>
+       <script src="../../js/libs/prism.js"></script>
+       <script src="../../js/sourceCode.js"></script>
+          <script src="../../js/search/search.js"></script>
+          <script src="../../js/search/lunr.min.js"></script>
+          <script src="../../js/search/search-lunr.js"></script>
+          <script src="../../js/search/search_index.js"></script>
+       <script src="../../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1133 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="changelog">Changelog</h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<p>Allowed Types of change: <code>Added</code>, <code>Changed</code>, <code>Deprecated</code>, <code>Removed</code>, <code>Fixed</code>, <code>Security</code></p>
+<h2 id="unreleased">Unreleased</h2>
+<h2 id="26011---2021-04-13">[26.0.11] - 2021-04-13</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>SC-8748 - bump feathers-mongoose from 6.3.0 to 8.3.1</li>
+</ul>
+<h2 id="26010---2021-04-09">[26.0.10] - 2021-04-09</h2>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>SC-8908 ldap sync: fix lock</li>
+</ul>
+<h2 id="2609---2021-04-06">[26.0.9] - 2021-04-06</h2>
+<ul>
+<li>SC-8779 - fix partial LDAP sync</li>
+</ul>
+<h2 id="2608---2021-03-31">[26.0.8] - 2021-03-31</h2>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+<li>SC-8691 ldap sync: fix potential deadlock while loadind ldap data</li>
+</ul>
+<h2 id="2607---2021-03-31">[26.0.7] - 2021-03-31</h2>
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+<li>SC-8768 ldap sync: in user search include current school</li>
+</ul>
+<h2 id="2606---2021-03-30">[26.0.6] - 2021-03-30</h2>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+<li>SC-8836 - teachers can add classes from other teachers to their courses</li>
+</ul>
+<h2 id="2605---2021-03-29">[26.0.5] - 2021-03-29</h2>
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+<li>SC-8691 - LDAP sync can be run with multiple school in parallel</li>
+</ul>
+<h2 id="2604---2021-03-25">[26.0.4] - 2021-03-25</h2>
+<h3 id="changed-1">Changed</h3>
+<ul>
+<li>SC-8829 - status of logging in rocket chat user is set to offline</li>
+</ul>
+<h2 id="2603---2021-03-17">[26.0.3] - 2021-03-17</h2>
+<h3 id="changed-2">Changed</h3>
+<ul>
+<li>merged hotfixes 25.6.11 and following into 26.0 branch</li>
+</ul>
+<h2 id="2602---2021-03-10">[26.0.2] - 2021-03-10</h2>
+<h3 id="fixed-5">Fixed</h3>
+<ul>
+<li>SC-5202 - fixed an issue with internal pagination in homework-submissions</li>
+</ul>
+<h2 id="2601---2021-03-09">[26.0.1] - 2021-03-09</h2>
+<h3 id="changed-3">Changed</h3>
+<ul>
+<li>merged 25.6.10 into new version</li>
+</ul>
+<h2 id="2600">[26.0.0]</h2>
+<h3 id="fixed-6">Fixed</h3>
+<ul>
+<li>SC-8682 - fix students are editable in externally managed schools</li>
+<li>SC-8534 fix registration link generation</li>
+<li>Allow sorting after search</li>
+</ul>
+<h2 id="25611---2021-03-17">[25.6.11] - 2021-03-17</h2>
+<h2 id="25613---2021-03-16">[25.6.13] - 2021-03-16</h2>
+<ul>
+<li>SC-8782 Migration for changing urls</li>
+</ul>
+<h2 id="25612---2021-03-15">[25.6.12] - 2021-03-15</h2>
+<ul>
+<li>SC-8782 Fixed lesson context Query</li>
+</ul>
+<h2 id="25611---2021-03-15">[25.6.11] - 2021-03-15</h2>
+<h3 id="fixed-7">Fixed</h3>
+<ul>
+<li>SC-8211 - Fixed course events duplications</li>
+</ul>
+<h2 id="25610---2021-03-09">[25.6.10] - 2021-03-09</h2>
+<ul>
+<li>SC-8770 Fixed issue where parent consents were overwritten</li>
+</ul>
+<h2 id="2569---2021-02-26">[25.6.9] - 2021-02-26</h2>
+<h3 id="fixed-8">Fixed</h3>
+<ul>
+<li>SC-8714 Fixed an issue in school creation that could cause the iserv-sync to fail</li>
+</ul>
+<h2 id="2568---2021-02-19">[25.6.8] - 2021-02-19</h2>
+<h3 id="changed-4">Changed</h3>
+<ul>
+<li>SC-8477 LDAP-Sync: Speed up class sync by holding all the school&#39;s users in map while creating/populating classes</li>
+<li>SC-8477 LDAP-Sync: Speed up user sync by grouping users into chunks and loading the chunks from DB instead of individual users</li>
+</ul>
+<h2 id="2567---2021-02-18">[25.6.7] - 2021-02-18</h2>
+<h3 id="security">Security</h3>
+<ul>
+<li>SC-8655 - prevent changes to immutable user attributes</li>
+</ul>
+<h2 id="2566---2021-02-18">[25.6.6] - 2021-02-18</h2>
+<h3 id="fixed-9">Fixed</h3>
+<ul>
+<li>SC-8657 - Recreate shared links for homework</li>
+</ul>
+<h2 id="2565---2021-02-17">[25.6.5] - 2021-02-17</h2>
+<h3 id="fixed-10">Fixed</h3>
+<ul>
+<li>SC-8634 - Recreate shared links for homework</li>
+</ul>
+<h2 id="2564---2021-02-17">[25.6.4] - 2021-02-17</h2>
+<h3 id="changed-5">Changed</h3>
+<ul>
+<li>Reverted Changes for SC-8410</li>
+</ul>
+<h2 id="2563---2021-02-15">[25.6.3] - 2021-02-15</h2>
+<h3 id="security-1">Security</h3>
+<ul>
+<li>VOR-3 - Enable and replace old file links.</li>
+</ul>
+<h2 id="2562---2021-02-11">[25.6.2] - 2021-02-11</h2>
+<h3 id="changed-6">Changed</h3>
+<ul>
+<li>VOR-2 - Adjusted business rules for adding team members from external school.</li>
+</ul>
+<h2 id="2561---2021-02-11">[25.6.1] - 2021-02-11</h2>
+<h3 id="fixed-11">Fixed</h3>
+<ul>
+<li>VOR-1 - Fix passwordRecovery id validation.</li>
+</ul>
+<h2 id="2560---2021-02-09">[25.6.0] - 2021-02-09</h2>
+<h3 id="fixed-12">Fixed</h3>
+<ul>
+<li>SC-8514 - QR Code generation fails</li>
+<li>SC-8390 - Lern-Store collections feature flag was not excluding collections in search</li>
+<li>SC-8322 prevent wrong assignment from school to storage provider</li>
+</ul>
+<h3 id="added">Added</h3>
+<ul>
+<li>SC-8482 - Deletion concept orchestration integration</li>
+<li>SC-8029 - Add deletion concept handling for pseudonyms and registration pins</li>
+<li>SC-6950 - Add access for superhero to change kreisid and officialSchoolNumber</li>
+<li>SC-8206 - Add school tombstone for deleting concept</li>
+<li>SC-7825 - Deletion concept for user data in tasks</li>
+</ul>
+<h3 id="changed-7">Changed</h3>
+<ul>
+<li>SC-8541 - restrict class modifing requests to the teachers, who are inside these classes</li>
+<li>SC-8380 removed reqlib, replaced by normal require to keep referenced types known</li>
+<li>SC-8213 error handling concept</li>
+<li>SC-4576 - sanitize bbb room and member names</li>
+<li>SC-8300 Added user information to LDAP Sync in case of errors</li>
+</ul>
+<h2 id="25516---2021-02-08">[25.5.16] - 2021-02-08</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+<li>SC-8512 - Creating a migration for duplicated events</li>
+</ul>
+<h2 id="25515">[25.5.15]</h2>
+<h3 id="fixed-13">Fixed</h3>
+<ul>
+<li>SC-8571 - New courses does not appear in bettermarks</li>
+</ul>
+<h2 id="25514---2021-02-02">[25.5.14] - 2021-02-02</h2>
+<h3 id="changed-8">Changed</h3>
+<ul>
+<li>SC-8420 - Fix old missing indexes that migration for new indexes can executed. 25.5.3</li>
+</ul>
+<h2 id="25513">[25.5.13]</h2>
+<h3 id="changed-9">Changed</h3>
+<ul>
+<li>SC-8462 - Add logging for homework deletion</li>
+</ul>
+<h2 id="25512">[25.5.12]</h2>
+<h3 id="fixed-14">Fixed</h3>
+<ul>
+<li>SC-8499 - Change order of migrations</li>
+</ul>
+<h2 id="25511">[25.5.11]</h2>
+<h3 id="fixed-15">Fixed</h3>
+<ul>
+<li>SC-8499 - Prevent duplicated pseudonyms</li>
+</ul>
+<h2 id="25510">[25.5.10]</h2>
+<ul>
+<li>SC-8506 - add origin server name to bbb create and join requests</li>
+</ul>
+<h2 id="2559">[25.5.9]</h2>
+<h3 id="fixed-16">Fixed</h3>
+<ul>
+<li>SC-8503 - Clicking on task in BRB and THR shows pencil page</li>
+</ul>
+<h2 id="2558">[25.5.8]</h2>
+<h3 id="changed-10">Changed</h3>
+<ul>
+<li>SC-8480 - Return GeneralError if unknown error code is given to error pipeline</li>
+</ul>
+<h2 id="2557">[25.5.7]</h2>
+<h2 id="added-2">Added</h2>
+<ul>
+<li>SC-8489 - Added permission check for homework deletion</li>
+</ul>
+<h2 id="2556">[25.5.6]</h2>
+<h3 id="fixed-17">Fixed</h3>
+<ul>
+<li>SC-8410 - Verify ldap connection reads the first page of users only to avoid timeouts</li>
+<li>SC-8444 - resolve eventual consistency in course shareToken generation</li>
+</ul>
+<h2 id="2555">[25.5.5]</h2>
+<h3 id="fixed-18">Fixed</h3>
+<ul>
+<li>SC-8303 - fix wrong assignment from school to storage provider</li>
+</ul>
+<h2 id="2554">[25.5.4]</h2>
+<h3 id="added-3">Added</h3>
+<ul>
+<li>SC-8358 - bettermarks: show hint for safari users</li>
+<li>SC-8412 - update swagger documentation of pseudonym/roster/ltitools</li>
+</ul>
+<h3 id="fixed-19">Fixed</h3>
+<ul>
+<li>SC-5287 - Fixed OAuth2 rostering</li>
+<li>SC-5287 - Repair Bettermark&#39;s depseudonymization</li>
+<li>SC-8313 - Bettermarks: depseudonymization iframe needs to use Storage Access API in Safari</li>
+<li>SC-8379 - Secure ltiTools route</li>
+<li>SC-8315 - bettermarks: security check and production configuration</li>
+</ul>
+<h2 id="2553">[25.5.3]</h2>
+<h3 id="added-4">Added</h3>
+<ul>
+<li>SC-8420 - Migration for sync new indexes.</li>
+</ul>
+<h2 id="2552">[25.5.2]</h2>
+<h3 id="fixed-20">Fixed</h3>
+<ul>
+<li>SC-8189 - fix duplicate events by returning updated object at findOneAndUpdate</li>
+</ul>
+<h2 id="2551">[25.5.1]</h2>
+<h3 id="fixed-21">Fixed</h3>
+<ul>
+<li>SC-8303 - fix wrong assignment from school to storage provider</li>
+</ul>
+<h2 id="2550">[25.5.0]</h2>
+<h3 id="added-5">Added</h3>
+<ul>
+<li>SC-7835 - Add deletion concept handling for helpdesk problems</li>
+<li>SC-8229 - Added invalid DN error to ldap-config service error handling</li>
+<li>SC-7825 - Remove user relations from courses</li>
+<li>SC-7827 - Add deletion concept handling for file permissions.</li>
+<li>SC-8030 - Setup orchestrator for deleting concept</li>
+<li>SC-8060 - increase unit test coverage for lernstore counties</li>
+<li>SC-8179 - repaired unit test</li>
+<li>SC-7763 - adds searchable feature flag for lernstore.</li>
+<li>SC-8020 - adds collections filter to edu-sharing service</li>
+<li>SC-8260 - new team indexes and migration to add this</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>SC-8233 - Removed attribute and member as required attributes for the LDAP-config service</li>
+</ul>
+<h3 id="fixed-22">Fixed</h3>
+<ul>
+<li>SC-8329 - Cluster returns old verison of Pin object after patch</li>
+</ul>
+<h2 id="2541">[25.4.1]</h2>
+<ul>
+<li>Update from 25.3.9 into master</li>
+</ul>
+<h2 id="2539">[25.3.9]</h2>
+<ul>
+<li>SC-8198 continue school sync on user issues</li>
+</ul>
+<h2 id="2538">[25.3.8]</h2>
+<h3 id="changed-11">Changed</h3>
+<ul>
+<li>SC-8198 - handle eventually consistent database in THR sync</li>
+</ul>
+<h2 id="2537---2020-12-18">[25.3.7] - 2020-12-18</h2>
+<h3 id="changed-12">Changed</h3>
+<ul>
+<li>SC-8209 - prevent sync from stopping if error occurs for a single student</li>
+</ul>
+<h2 id="2536">[25.3.6]</h2>
+<h3 id="fixed-23">Fixed</h3>
+<ul>
+<li>SC-8235 - repaired reigstration link for students</li>
+</ul>
+<h2 id="2535">[25.3.5]</h2>
+<h3 id="changed-13">Changed</h3>
+<ul>
+<li>SC-8149 - no longer require a registrationPin for internal calls</li>
+</ul>
+<h2 id="2534">[25.3.4]</h2>
+<h3 id="changed-14">Changed</h3>
+<ul>
+<li>SC-7998 - use default service setup for /version</li>
+</ul>
+<h2 id="2533-pick-from-252">[25.3.3] (pick from 25.2)</h2>
+<h3 id="removed-1">Removed</h3>
+<ul>
+<li>SC-8101 - Sanitization for read operations</li>
+</ul>
+<h3 id="fixed-24">Fixed</h3>
+<ul>
+<li>SC-8101 - Make it possible to disable sentry by removing <code>SENTRY_DSN</code></li>
+<li>OPS-1735 - Fixes transaction handling in file service by using the mongoose transaction helper,
+properly closing the session, and using the correct readPreference (everything except primary fails)</li>
+</ul>
+<h2 id="2532">[25.3.2]</h2>
+<h3 id="added-6">Added</h3>
+<ul>
+<li>SC-7734 - Added a hook that takes care of merlin content to generate valid urls for users</li>
+<li>SC-7483 - Updating terms of use for all users for each instance separately</li>
+</ul>
+<h2 id="2531">[25.3.1]</h2>
+<h3 id="fixed-25">Fixed</h3>
+<p>SC-8077 - the migration copy-parents-data-into-children-entities-and-delete-parent-users is broken</p>
+<h2 id="2530">[25.3.0]</h2>
+<h3 id="added-7">Added</h3>
+<ul>
+<li>SC-7841 - remove deleted user from classes</li>
+<li>SC-7836 - Removing registration pin by removing the user</li>
+<li>SC-7838 - move pseudonyms to trashbin</li>
+<li>SC-7142 - Counties/Kreise added to federal states.</li>
+<li>SC-7555 - move user and account to trashbin</li>
+<li>SC-4666 - Added a pool based LDAP system and school sync. LDAP_SYSTEM_SYNCER_POOL_SIZE and LDAP_SCHOOL_SYNCER_POOL_SIZE variables
+determine how many system/school syncers will be run in parallel (at most) during the LDAP sync.</li>
+<li>SC-7615 - reduces the errors in lernstore</li>
+<li>SC-5476 - Extend tests for Matrix messenger config and permission service</li>
+<li>SC-6690 - refactors edu-sharing service and sets defaults</li>
+<li>SC-6738 - Extend search input field in new admin tables to search for full name</li>
+<li>SC-7293 - added Lern-Store view permission and a feature flag</li>
+<li>SC-7357 - Add config service</li>
+<li>SC-7083 - Added officialSchoolNumber to school-model</li>
+<li>Introduce plainSecrets in Configuration</li>
+<li>Introduce FEATURE_PROMETHEUS_ENABLED to have a flag for enable prometheus api metrics</li>
+<li>SC-7411 - add API Specification and validation for /me service</li>
+<li>SC-7411 - add API Specification and validation for /version service</li>
+<li>SC-7205 - create new data seed for QA</li>
+<li>SC-7614 - creates documentation for edu sharing endpoints</li>
+<li>SC-7370 - Add optional rootPath attribute modifier to iserv-idm strategy</li>
+<li>SC-4667 - persist time of last attempted and last successful LDAP sync to database (based on system)</li>
+<li>SC-4667 - Only request and compare LDAP entities that have changed since the last sync (using operational attribute modifyTimestamp with fallback)</li>
+<li>SC-4667 - Add optional <code>forceFullSync</code> option (as get param or json payload) to force a full LDAP sync</li>
+<li>SC-7499 - add API Specification for public services</li>
+<li>SC-7915 - facade locator</li>
+<li>SC-7571 - solved performance issues - bulk QR-code generation</li>
+<li>SC-6294 - Introduce Typescript in schulcloud-server</li>
+<li>SC-7543 - Adds ldap-config service to create, load, and patch LDAP-configs (replaces /ldap endpoints for new client)</li>
+<li>SC-7028 - Add Course Component API Specification document</li>
+<li>SC-7476 - Prevent hash generation if user has account</li>
+<li>SC-6692 - Added Lern-Store counties support for Niedersachsen (Merlin)</li>
+</ul>
+<h3 id="changed-15">Changed</h3>
+<ul>
+<li>request logging disabled for non development environment</li>
+<li>OPS-1289 - moved and updated commons (to hpi-schul-cloud/commons)</li>
+<li>SC-6596 - Changed route for messenger permissions service</li>
+<li>SC-7331 - introduce axios for external requests, implemented in status api</li>
+<li>SC-7395 - Changed ldap general strategy fetching of users from parallel to serialized</li>
+<li>SC-6080 - move REQUEST_TIMEOUT from globals to Configuration</li>
+<li>Dependencies: querystring replaced by qs</li>
+<li>SC-6060 - Updated error handling</li>
+<li>SC-7404 - automatic forwarding for requests without versionnumber if no matching route is found</li>
+<li>SC-7411 - api versioning for /me service</li>
+<li>SC-7411 - api versioning for /version service</li>
+<li>IMP-160 - integration-tests repo renamed to end-to-end-tests</li>
+<li>SC-5900 - Move Synapse synchronization logic into server</li>
+<li>SC-7499 - Fixes documentation for edu sharing endpoints</li>
+<li>SC-7872 - Fix audience of the jwt to new organisation name.</li>
+<li>SC-7543 - deprecates <code>GET /ldap/:id</code> and <code>PATCH /ldap/:id</code> routes</li>
+<li>SC-7868 - Move external request helpers to more present file location</li>
+<li>SC-7474 pull docker container for tests if commit id exists on docker hub</li>
+</ul>
+<h3 id="fixed-26">Fixed</h3>
+<ul>
+<li>SC-6294 fix mocha test execution and build, summarize coverage results</li>
+<li>SC-1589 Trim strings to avoid empty team names</li>
+<li>ARC-138 fix changelog action</li>
+<li>ARC-137 avoid DoS on alerts in error state</li>
+<li>SC-7353 course sharing between teachers</li>
+<li>SC-7530 rename SHOW_VERSION to FEATURE_SHOW_VERSION_ENABLED</li>
+<li>SC-7517 improve oauth test stability</li>
+<li>SC-6586 Repaired migration script</li>
+<li>SC-7454 - Restored invalid birth date fix in adminUsers service</li>
+<li>fixed README badges</li>
+<li>Fix mocha tests</li>
+<li>SC-6151 fixed a bug that prevented api docu from being accessible</li>
+<li>SC-6151 fixed paths to openapi documentation</li>
+<li>Fixed searching for names including a dash</li>
+<li>SC-7572 - Find /users route after hooks - extremely slow</li>
+<li>SC-7573 - Route/hash-broken promise chain</li>
+<li>SC-7884 - Authentication error when accessing any nuxt page in the client.</li>
+<li>Fix typescript compiling error</li>
+</ul>
+<h3 id="removed-2">Removed</h3>
+<ul>
+<li>SC-7413 - Cleanup UnhandledRejection code that is handled from winston now</li>
+</ul>
+<h2 id="2526">[25.2.6]</h2>
+<h3 id="removed-3">Removed</h3>
+<ul>
+<li>SC-8101 - Sanitization for read operations</li>
+</ul>
+<h3 id="fixed-27">Fixed</h3>
+<ul>
+<li>SC-8101 - Make it possible to disable sentry by removing <code>SENTRY_DSN</code></li>
+</ul>
+<h2 id="2525">[25.2.5]</h2>
+<h3 id="fixed-28">Fixed</h3>
+<ul>
+<li>OPS-1735 - Fixes transaction handling in file service by using the mongoose transaction helper,
+properly closing the session, and using the correct readPreference (everything except primary fails)</li>
+</ul>
+<h2 id="2524">[25.2.4]</h2>
+<h3 id="changed-16">Changed</h3>
+<ul>
+<li>SC-6727 - Change email addresses for tickets for Niedersachsen - fixed after review</li>
+</ul>
+<h2 id="2523">[25.2.3]</h2>
+<h3 id="changed-17">Changed</h3>
+<ul>
+<li>SC-6727 - Change email addresses for tickets for Niedersachsen</li>
+</ul>
+<h2 id="2522">[25.2.2]</h2>
+<h3 id="changed-18">Changed</h3>
+<ul>
+<li>SC-7773 - moved config values for antivirus file service</li>
+</ul>
+<h2 id="2521">[25.2.1]</h2>
+<h3 id="fixed-29">Fixed</h3>
+<ul>
+<li>SC-7714 - Fixes script injection issue</li>
+</ul>
+<h2 id="2520">[25.2.0]</h2>
+<h3 id="added-8">Added</h3>
+<ul>
+<li>SC-4385 - Added a user exclusion regex to IServ strategy</li>
+<li>SC-7049 - Added unit tests for Merlin Service</li>
+<li>SC-7157 - add feature flag for Merlin feature with fallback</li>
+<li>SC-6567 - add new application errros</li>
+<li>SC-6766 - Added ESLint rules with Promise rules</li>
+<li>SC-6830 - Added hook to parse request to arrays when &gt; 20 users are requested in adminUsers service</li>
+<li>SC-6769 - Introduce API validation module</li>
+<li>SC-6769 - API validation for users/admin routes</li>
+<li>SC-6510 - Added Merlin Url Generator for Lern Store / Edu-sharing</li>
+<li>SC-5476 - Added school settings to enable students to open own chat rooms</li>
+<li>SC-6567 - Add utils to cleanup incomingMessage stacks by logging errors</li>
+</ul>
+<h3 id="removed-4">Removed</h3>
+<ul>
+<li>SC-6586- Remove parents from users collection to improve maintainability</li>
+</ul>
+<h3 id="changed-19">Changed</h3>
+<ul>
+<li>SC-6986 - Changed a hook in the accounts service that restricts get requests to the same school, it expects a valid userID and matching schoolIds for both the requester and requested users</li>
+<li>SC-6567 - clean up error pipline</li>
+<li>SC-6510, fix a minor syntax error when exporting module</li>
+<li>Update commons to 1.2.7: print configuration on startup, introduce hierarchical configuration file setup</li>
+<li>Support asynchronous calls during server startup</li>
+<li>SC-7091 - Migration to enable the Matrix Messenger for all schools that had RocketChat enabled before</li>
+</ul>
+<h3 id="fixed-30">Fixed</h3>
+<ul>
+<li>fixed README badges</li>
+<li>SC-6151 - fixed a bug that prevented api docu from being accessible</li>
+<li>Fix mocha tests</li>
+</ul>
+<h2 id="25113---2020-11-12">[25.1.13] - 2020-11-12</h2>
+<h3 id="changed-20">Changed</h3>
+<ul>
+<li>SC-7395 - Changed ldap general strategy fetching of users from parallel to serialized</li>
+</ul>
+<h2 id="25112---2020-11-09">[25.1.12] - 2020-11-09</h2>
+<h3 id="added-9">Added</h3>
+<ul>
+<li>SC-7683 - add request logging options</li>
+</ul>
+<h2 id="25111---2020-11-06">[25.1.11] - 2020-11-06</h2>
+<h3 id="security-2">Security</h3>
+<ul>
+<li>SC-7695 - prevent csv user override operations on other schools</li>
+</ul>
+<h2 id="25110---2020-11-05">[25.1.10] - 2020-11-05</h2>
+<h3 id="added-10">Added</h3>
+<ul>
+<li>SC-7683 - Add log metic for memory usage, add async error logging util, catch one unhandledRejection error and remove cronjob task from server.</li>
+</ul>
+<h2 id="2519---2020-11-03">[25.1.9] - 2020-11-03</h2>
+<h3 id="fixed-31">Fixed</h3>
+<ul>
+<li>SC-7638 - fixed pin creation for users with accounts</li>
+</ul>
+<h2 id="2518---2020-10-22">[25.1.8] - 2020-10-22</h2>
+<h3 id="fixed-32">Fixed</h3>
+<ul>
+<li>SC-7333 - fixed creation of homeworks within lessons</li>
+</ul>
+<h2 id="2517---2020-10-28">[25.1.7] - 2020-10-28</h2>
+<h3 id="added-11">Added</h3>
+<ul>
+<li>SC-7491 - Add missing index on users.email to speed up slow query in registrationLink service</li>
+</ul>
+<h2 id="2516---2020-10-23">[25.1.6] - 2020-10-23</h2>
+<h3 id="changed-21">Changed</h3>
+<ul>
+<li>SC-7413 - Remove event listener for unhandled rejections and move this to winston</li>
+</ul>
+<h2 id="2515---2020-10-22">[25.1.5] - 2020-10-22</h2>
+<h3 id="fixed-33">Fixed</h3>
+<ul>
+<li>SC-7452 - fixed time window check for LDAP users</li>
+</ul>
+<h2 id="2514---2020-10-20">[25.1.4] - 2020-10-20</h2>
+<h3 id="changed-22">Changed</h3>
+<ul>
+<li>SC-6986 - Changed permission check for PATCH method in the account service from STUDENT_CREATE to STUDENT_EDIT to allow teachers to change students&#39; password</li>
+</ul>
+<h2 id="2513---2020-10-20">[25.1.3] - 2020-10-20</h2>
+<h3 id="fixed-34">Fixed</h3>
+<ul>
+<li>SC-6986 - Changed a hook in the accounts service that restricts get requests to the same school, it expects a valid userID and matching schoolIds for both the requester and requested users</li>
+</ul>
+<h2 id="2512---2020-10-15">[25.1.2] - 2020-10-15</h2>
+<h3 id="fixed-35">Fixed</h3>
+<ul>
+<li>SC-7085 - fixed importHash error when asking parent consent</li>
+</ul>
+<h3 id="added-12">Added</h3>
+<h3 id="removed-5">Removed</h3>
+<h2 id="2511---2020-10-12">[25.1.1] - 2020-10-12</h2>
+<h3 id="security-3">Security</h3>
+<ul>
+<li>SC-7165 package update for sanitization and add onload handler</li>
+</ul>
+<h2 id="2510---2020-10-12">[25.1.0] - 2020-10-12</h2>
+<h3 id="added-13">Added</h3>
+<h3 id="removed-6">Removed</h3>
+<ul>
+<li>SC-6784 - Removed duplicated birth date formatting code in adminUsers service, which was causing an &quot;Invalid date&quot; output</li>
+<li>SC-6743 - Removed usersForConsent related things in adminUsers service because the client does not send that parameter anymore</li>
+<li>SC-6506 - Remove dependecy to feathers-swagger in routes.test.js</li>
+</ul>
+<h3 id="changed-23">Changed</h3>
+<ul>
+<li>SC-6774 remove no-await-in-loop from eslint exceptions</li>
+<li>Rename statistic mails route, secure it over sync api key now</li>
+<li>SC-6809 - Maintain RabbitMQ connection and channels</li>
+<li>SC-5230 - Unblock Account-Page in Nuxt (securing /accounts and /users routes)</li>
+</ul>
+<h3 id="security-4">Security</h3>
+<ul>
+<li>Added hotfix merges</li>
+</ul>
+<h2 id="25012---2020-10-12">[25.0.12] - 2020-10-12</h2>
+<h3 id="fixed-36">Fixed</h3>
+<ul>
+<li>SC-6676 allows only following roles for registration: teacher/student…</li>
+</ul>
+<h2 id="25011---2020-10-07">[25.0.11] - 2020-10-07</h2>
+<h3 id="fixed-37">Fixed</h3>
+<ul>
+<li>SC-7180 homework create now validates data properly</li>
+</ul>
+<h2 id="25012---2020-10-12-1">[25.0.12] - 2020-10-12</h2>
+<h3 id="fixed-38">Fixed</h3>
+<ul>
+<li>SC-6676 allows only following roles for registration: teacher/student…</li>
+</ul>
+<h2 id="25011---2020-10-07-1">[25.0.11] - 2020-10-07</h2>
+<h3 id="fixed-39">Fixed</h3>
+<ul>
+<li>SC-7180 homework create now validates data properly</li>
+</ul>
+<h2 id="25010---2020-10-07">[25.0.10] - 2020-10-07</h2>
+<h3 id="added-14">Added</h3>
+<ul>
+<li>configured prometheus metrics - bucket sizes</li>
+<li>SC-6766 log unhandledRejection and unhandledException</li>
+</ul>
+<h2 id="2509---2020-10-07">[25.0.9] - 2020-10-07</h2>
+<h3 id="added-15">Added</h3>
+<ul>
+<li>SC-7115 - Reduce mongoose DB role request by enabling minor caching</li>
+</ul>
+<h2 id="2508---2020-10-06">[25.0.8] - 2020-10-06</h2>
+<h3 id="fixed-40">Fixed</h3>
+<ul>
+<li>SC-6676 - Registration: User with role parent should not be able to log-in</li>
+<li>SC-6960 - instead of deleting and recreating users during the rollback of a failed registration, use replace if necessary</li>
+<li>SC-6960 - properly raise exceptions during the registration process</li>
+</ul>
+<h2 id="2507---2020-10-01">[25.0.7] - 2020-10-01</h2>
+<h3 id="removed-7">Removed</h3>
+<ul>
+<li>OPS-1316 - removed custom keep-alive header creation in express middleware</li>
+</ul>
+<h2 id="2506---2020-10-01">[25.0.6] - 2020-10-01</h2>
+<h3 id="added-16">Added</h3>
+<ul>
+<li>OPS-1316 - add indexes for slow files and submission queries</li>
+</ul>
+<h2 id="2505---2020-10-01">[25.0.5] - 2020-10-01</h2>
+<h3 id="added-17">Added</h3>
+<ul>
+<li>SC-6973 - add time window for pin creation</li>
+</ul>
+<h2 id="2504---2020-09-30">[25.0.4] - 2020-09-30</h2>
+<h3 id="added-18">Added</h3>
+<ul>
+<li>Added lead time detection</li>
+</ul>
+<h2 id="2503">[25.0.3]</h2>
+<h3 id="added-19">Added</h3>
+<ul>
+<li>SC-6942 - add parse method to TSP strategy to declare it can handle the request and to keep authentication params clean</li>
+</ul>
+<h3 id="fixed-41">Fixed</h3>
+<ul>
+<li>SC-6942 - don&#39;t override payload defined by authentication method</li>
+<li>SC-6942 - don&#39;t search for account to populate if no username is given in <code>injectUsername</code></li>
+</ul>
+<h2 id="2502">[25.0.2]</h2>
+<h3 id="changed-24">Changed</h3>
+<ul>
+<li>send mail for registration pin after add pin to db</li>
+</ul>
+<h2 id="2501">[25.0.1]</h2>
+<h3 id="fixed-42">Fixed</h3>
+<ul>
+<li>SC-6696 - Fixed query used to determine course membership when checking permissions for course group lessons</li>
+</ul>
+<h2 id="2500">[25.0.0]</h2>
+<h3 id="changed-25">Changed</h3>
+<ul>
+<li>Extend JWT payload by schoolId and roleIds</li>
+</ul>
+<h2 id="2451---2020-09-16">[24.5.1] - 2020-09-16</h2>
+<h3 id="secrutiy">Secrutiy</h3>
+<ul>
+<li>Secure admin routes (update, patch, create)</li>
+</ul>
+<h2 id="2450---2020-09-14">[24.5.0] - 2020-09-14</h2>
+<ul>
+<li>Ignore database seed data with prettier, eslint, and codacy</li>
+<li>SC-6640 - Fixed email check within registration (case insensitive)</li>
+<li>SC-2710 - Adding time zones, default for school and theme</li>
+</ul>
+<h3 id="added---2450">Added - 24.5.0</h3>
+<ul>
+<li>Test changelog has been updated for feature or hotfix branches</li>
+<li>SC-5612 - Adding search feature to the admintables for nuxt-client.</li>
+</ul>
+<h2 id="2446---2020-09-11">[24.4.6] - 2020-09-11</h2>
+<h3 id="changed-26">Changed</h3>
+<ul>
+<li>SC-6733: central personal data does not get updated via CSV import</li>
+</ul>
+<h2 id="2445---2020-09-10">[24.4.5] - 2020-09-10</h2>
+<h3 id="fixed-in-2445">Fixed in 24.4.5</h3>
+<ul>
+<li>SC-6637: generate QR codes for consent print sheets if group size exceeds 20</li>
+</ul>
+<h2 id="2444---2020-09-08">[24.4.4] - 2020-09-08</h2>
+<h3 id="fixed-in-2444">Fixed in 24.4.4]</h3>
+<ul>
+<li>SC-6697: updates/sync account username when user is updated</li>
+</ul>
+<h2 id="2443---2020-09-09">[24.4.3] - 2020-09-09</h2>
+<h3 id="fixed-in-2443">Fixed in 24.4.3</h3>
+<ul>
+<li>SC-6533 - Login not possible if admin reset password</li>
+</ul>
+<h2 id="2442---2020-08-31">[24.4.2] - 2020-08-31</h2>
+<h3 id="fixed-in-2442">Fixed in 24.4.2</h3>
+<ul>
+<li>SC-6554: CSV-Importer no longer allows patching users with different roles</li>
+</ul>
+<h2 id="2441---2020-08-31">[24.4.1] - 2020-08-31</h2>
+<h3 id="fixed-in-2441">Fixed in 24.4.1</h3>
+<ul>
+<li>SC-6511 - LDAP edit button missing.</li>
+</ul>
+<h3 id="changed-in-2441">Changed in 24.4.1</h3>
+<ul>
+<li>SC-5987 Internationalisation: extend user and school model with default language</li>
+</ul>
+<h3 id="added-2441">Added 24.4.1</h3>
+<ul>
+<li>SC-6172: added hooks and checks to look for unique and not disposable emails in adminUsers service</li>
+</ul>
+<h2 id="2440---2020-8-31">[24.4.0] - 2020-8-31</h2>
+<h3 id="fixed-in-2440">Fixed in 24.4.0</h3>
+<ul>
+<li>SC-6122 - Edusharing preload thumbnails in parallel. Edusharing authentication stabilisation.</li>
+</ul>
+<h2 id="2433---2020-08-28">[24.3.3] - 2020-08-28</h2>
+<ul>
+<li>SC-6469: prevent admin access to lessons admins shouldnt have access to.</li>
+</ul>
+<h2 id="2432---2020-08-26">[24.3.2] - 2020-08-26</h2>
+<ul>
+<li>SC-6382: fix handling of consents for users with unknown birthdays. consentStatus: &#39;ok&#39; will be returned for valid consents without birthday.</li>
+</ul>
+<h2 id="2431---2020-08-25">[24.3.1] - 2020-08-25</h2>
+<ul>
+<li>SC-5420: TSC Schuljahreswechsel</li>
+</ul>
+<h2 id="2430---2020-08-25">[24.3.0] - 2020-08-25</h2>
+<h2 id="2425---2020-08-24">[24.2.5] - 2020-08-24</h2>
+<ul>
+<li>SC-6328 add migration to set student_list settings in all non n21 clouds schools to false.</li>
+</ul>
+<h2 id="2424---2020-08-20">[24.2.4] - 2020-08-20</h2>
+<h2 id="2423---2020-08-20">[24.2.3] - 2020-08-20</h2>
+<h2 id="2422---2020-08-20">[24.2.2] - 2020-08-20</h2>
+<h3 id="added-in-2422">Added in 24.2.2</h3>
+<ul>
+<li>SC-5280: the LDAP service will try to reconnect up to three times if the connection was lost or could not be established</li>
+<li>SC-5280: the LDAP service and LDAP syncers now report more errors to the stats object</li>
+<li>SC-5808: added an isExternal check to the create method of AdminUsers service, only users from not external schools can create users</li>
+</ul>
+<h3 id="fixed-in-2422">Fixed in 24.2.2</h3>
+<ul>
+<li>SC-5280: the LDAP sync now handles (timeout/firewall) errors much more gracefully</li>
+<li>SC-5280: LDAP bind operations will only be issued if the connection was established successfully</li>
+<li>SC-5280: aggregated LDAP statistics will now show the number of succesful and failed sub-syncs instead of just 1 or 0</li>
+</ul>
+<h3 id="changed-in-2422">Changed in 24.2.2</h3>
+<ul>
+<li>SC-5280: if disconnected prematurely, the LDAP service will not try to connect again just to unbind from the server</li>
+</ul>
+<h2 id="2402---2020-08-05">[24.0.2] - 2020-08-05</h2>
+<h3 id="fixed-in-2402">Fixed in 24.0.2</h3>
+<ul>
+<li>SC-5835: Starting the new school year automatically - Cluster 4</li>
+</ul>
+<h2 id="2401---2020-07-31">[24.0.1] - 2020-07-31</h2>
+<h3 id="fixed-in-2401">Fixed in 24.0.1</h3>
+<ul>
+<li>SC-5917 Fix activation of LDAP system</li>
+</ul>
+<h2 id="2364---2020-07-29">[23.6.4] - 2020-07-29</h2>
+<h3 id="fixed-in-2364">Fixed in 23.6.4</h3>
+<ul>
+<li>SC-5883: Choose current schoolyear based on the school instead of the date for creating classes.</li>
+</ul>
+<h2 id="2363---2020-07-28">[23.6.3] - 2020-07-28</h2>
+<h3 id="added-in-2363">Added in 23.6.3</h3>
+<ul>
+<li>SC-5754 Added isExternal attribute to school model. If ldapSchoolIdentifier or source is defined, isExternal will be set to true
+otherwise, if none of them are defined it wil be set to false.</li>
+<li>SC-4520 created a new Service called Activation Service; with which jobs can be defined and are
+only executed when an activation link (activation code) is confirmed (e.g.: change of e-mail address/username)
+Also added a sub-service for changing email/username in Activation Service</li>
+<li>SC-5280: the LDAP service will try to reconnect up to three times if the connection was lost or could not be established</li>
+<li>SC-5280: the LDAP service and LDAP syncers now report more errors to the stats object</li>
+</ul>
+<h3 id="fixed-in-2363">Fixed in 23.6.3</h3>
+<ul>
+<li>SC-5250: Fixes the CSV-Import, if there are whitespaces in the columnnames</li>
+<li>SC-5686: only users with the team permission &quot;RENAME_TEAM&quot; can execute the patch method in teams route</li>
+<li>SC-5280: the LDAP sync now handles (timeout/firewall) errors much more gracefully</li>
+<li>SC-5280: LDAP bind operations will only be issued if the connection was established successfully</li>
+<li>SC-5280: aggregated LDAP statistics will now show the number of succesful and failed sub-syncs instead of just 1 or 0</li>
+<li>SC-5416: Enable maintenance Mode for LDAP Schools and change the currentSchoolYear for non-LDAP Schools</li>
+</ul>
+<h3 id="changed-in-2363">Changed in 23.6.3</h3>
+<ul>
+<li>SC-5542: Added an after hook for AdminUsers find method which formats birthday date to DD.MM.YYYY format.</li>
+<li>SC-4289 Changed aggregations in admin tables, classes are now taken only from current year or max grade level, and are sorted
+by numeric ordering.</li>
+<li>SC-5280: if disconnected prematurely, the LDAP service will not try to connect again just to unbind from the server</li>
+</ul>
+<h2 id="2362---2020-07-22">[23.6.2] - 2020-07-22</h2>
+<h3 id="fixed-in-2362">Fixed in 23.6.2</h3>
+<ul>
+<li>SC-5773: LDAPSchoolSyncer now correctly populates classes synced from an LDAP server, even if only students or only teachers are assigned to the class.</li>
+<li>SC-5250: Fixes the CSV-Import, if there are whitespaces in the columnnames</li>
+</ul>
+<h2 id="2361---2020-07-22">[23.6.1] - 2020-07-22</h2>
+<h3 id="fixed-in-2361">Fixed in 23.6.1</h3>
+<ul>
+<li>SC-5733: LDAPSchoolSyncer now uses the Users model service to avoid ignoring indexes due to automatic collation</li>
+</ul>
+<h2 id="2360---2020-07-21">[23.6.0] - 2020-07-21</h2>
+<h3 id="added-in-2360">Added in 23.6.0</h3>
+<ul>
+<li>SC-4142: Added indexes on TSP sync related attributes in user and school schema.</li>
+<li>SC-4142: Adds info about unchanged entities to TSP sync statistics</li>
+</ul>
+<h2 id="2354---2020-07-08">[23.5.4] - 2020-07-08</h2>
+<h3 id="added-in-2354">Added in 23.5.4</h3>
+<ul>
+<li>SC-2714 Added the federal state &quot;Internationale Schule&quot;</li>
+</ul>
+<h2 id="2350---2020-06-15">[23.5.0] - 2020-06-15</h2>
+<h3 id="added-in-2350">Added in 23.5.0</h3>
+<ul>
+<li>SC-4192 add tests that ensure classes on other schools cant be manipulated</li>
+</ul>
+<h3 id="fixed-in-2350">Fixed in 23.5.0</h3>
+<h3 id="changed-in-2350">Changed in 23.5.0</h3>
+<ul>
+<li>SC-4957 user.ldapId and user.ldapDn are now indexed to improve performance</li>
+</ul>
+<h2 id="2347---2020-07-01">[23.4.7] - 2020-07-01</h2>
+<h3 id="fixed-in-2347">Fixed in 23.4.7</h3>
+<ul>
+<li>SC-4965 Converted &quot;consent&quot; subdocument in &quot;users&quot; to a nested document to fix changing consents in administration and removing a bug in registration that resulted in deleted users.</li>
+</ul>
+<h2 id="2345---2020-06-17">[23.4.5] - 2020-06-17</h2>
+<h3 id="fixed-in-2345">Fixed in 23.4.5</h3>
+<ul>
+<li>SC-5007 re-introduces ldap system root path to API result to fix issue with duplicating schools</li>
+</ul>
+<h2 id="2343-nbc---2020-06-15">[23.4.3-nbc] - 2020-06-15</h2>
+<h3 id="fixed-in-2343-nbc">Fixed in 23.4.3-nbc</h3>
+<ul>
+<li>SC-5054 Revert hook restrictions that prevented registration with custom deata privacy documents enabled</li>
+</ul>
+<h2 id="2340-nbc---2020-06-11">[23.4.0-nbc] - 2020-06-11</h2>
+<h3 id="added-in-2340-nbc">Added in 23.4.0-nbc</h3>
+<ul>
+<li>SC-4577 extend consentversions with school specific privacy policy, which can be added by the school admin</li>
+</ul>
+<h2 id="2324---2020-06-05">[23.2.4] - 2020-06-05</h2>
+<h3 id="fixed-in-2324">Fixed in 23.2.4</h3>
+<ul>
+<li>SC-4876 soften sanitization to allow editor actions to be persisted correctly</li>
+</ul>
+<h2 id="2321---2020-06-04">[23.2.1] - 2020-06-04</h2>
+<h3 id="security---2321">Security - 23.2.1</h3>
+<ul>
+<li>SC-4720 improve importhashes for registrationlinks</li>
+</ul>
+<h2 id="2320---2020-06-03">[23.2.0] - 2020-06-03</h2>
+<h3 id="security---2320">Security - 23.2.0</h3>
+<ul>
+<li>SC-4506 Secure Find User Route. Access user list by students is allowed only if they are eligible to create teams.</li>
+<li>SC-4506 Secure Get User Route. Read user details may only users with STUDENT_LIST or TEACHER_LIST permissions</li>
+</ul>
+<h2 id="2314---2020-05-29">[23.1.4] - 2020-05-29</h2>
+<h3 id="fixed-in-2314">Fixed in 23.1.4</h3>
+<ul>
+<li>SC-4749 avoid xss in image onerror event attribute for submissions</li>
+</ul>
+<h2 id="2300---2020-05-19">[23.0.0] - 2020-05-19</h2>
+<h3 id="changed-in-2300">Changed in 23.0.0</h3>
+<ul>
+<li>SC-4075 Teams creation by students logic was changed. New environment enumeration variable <code>STUDENT_TEAM_CREATION</code>
+with possible values <code>disabled</code>, <code>enabled</code>, <code>opt-in</code>, <code>opt-out</code> was introduced. The feature value is set by instance deployment.
+In case of <code>disabled</code>, <code>enabled</code> it is valid for all schools of the instance and cannot be changed by the admin.
+In case of <code>opt-in</code> and <code>opt-out</code> the feature should be enabled/disabled by the school admin.</li>
+</ul>
+<h2 id="22103---2020-05-13">[22.10.3] - 2020-05-13</h2>
+<h3 id="fixed-in-22103">Fixed in 22.10.3</h3>
+<ul>
+<li>Unbind errors no longer stop the LDAP sync if more systems follow</li>
+</ul>
+<h2 id="22102---2020-05-12">[22.10.2] - 2020-05-12</h2>
+<h3 id="fixed-in-22102">Fixed in 22.10.2</h3>
+<ul>
+<li>fixed pagination for students/teacher table</li>
+</ul>
+<h2 id="22100---2020-05-11">[22.10.0] - 2020-05-11</h2>
+<h3 id="added-in-22100">Added in 22.10.0</h3>
+<ul>
+<li>SC-3719 Files now have a <code>creator</code> attribute that references the ID of the user that created the file.
+For old files, it is set to the first user permission inside the permissions array (legacy creator check).</li>
+<li>SC-3719 The <code>files</code> collection now has two additional indexes: <code>{creator}</code> and <code>{permissions.refId, permissions.refPermModel}</code>.</li>
+<li>add MongoDB Collation Support to control sorting behaviour in regards to capitalization.</li>
+<li>SC-3607 CSVSyncer now allows the optional birthday field (formats: dd/mm/yyyy, dd.mm.yyyy, dd-mm-yyyy) in CSV data</li>
+<li>SC-3948 support users query in adminusers routes</li>
+<li>SC-4018 Add additional nexboard permissions</li>
+<li>SC-4008 Migrated generateRegistrationLink Hook from SC-Client into Server</li>
+<li>SC-3686 Added new Registration Link Service for sending mails</li>
+<li>SC-4094 Teachers can now provide feedback in the form of uploaded files</li>
+</ul>
+<h3 id="fixed-in-22100">Fixed in 22.10.0</h3>
+<ul>
+<li>SC-3892 Update Filter of submission in order to work with older submissions</li>
+<li>SC-3395 if fetching the release fails, a error will be thrown</li>
+<li>backup.js now outputs valid json exports</li>
+<li>SC-4105 fixed a problem with new users tests not working with recent hotfix.</li>
+<li>Checks of user consent calculated correct now</li>
+</ul>
+<h3 id="changed-in-22100">Changed in 22.10.0</h3>
+<ul>
+<li>User delete now accepts bulk delete requests</li>
+<li>SC-3958: the &quot;general&quot; LDAP strategy now returns an empty array if classes are not configured properly</li>
+<li>Increase performance - error logging in sentry</li>
+<li>Mergify: add and modified some configs</li>
+</ul>
+<h3 id="removed-in-22100">Removed in 22.10.0</h3>
+<ul>
+<li>SC-3958: the LDAP strategy interface no longer supports synchronizing team members to the never-used original N21-IDM</li>
+<li>SC-3958: the environment variables NBC_IMPORTURL, NBC_IMPORTUSER, and NBC_IMPORTPASSWORD are no longer used and have been removed</li>
+<li>Removed the obsolete commentSchema from the homework service. It was not in use.</li>
+</ul>
+<h2 id="22920">[22.9.20]</h2>
+<h3 id="added-in-22920">Added in 22.9.20</h3>
+<ul>
+<li>SC-4042: Added support for a central IServ-Connector</li>
+</ul>
+<h3 id="changed-in-22920">Changed in 22.9.20</h3>
+<ul>
+<li>LDAP syncs on servers with multiple schools now only sync one school at a time to avoid issues when paging search requests</li>
+<li>LDAP syncs use less memory (because they do a lot less in parallel)</li>
+<li>LDAPSchoolSyncer now returns user and class statistics</li>
+</ul>
+<h3 id="fixed-in-22920">Fixed in 22.9.20</h3>
+<ul>
+<li>Fixed LDAP-Service disconnect method</li>
+<li>LDAPSystemSyncers now properly close their connections after syncing</li>
+<li>Authentication via LDAP now tries to close the connection after login</li>
+<li>Fixed a warning message appearing when patching users via internal request</li>
+</ul>
+<h2 id="22918">[22.9.18]</h2>
+<h3 id="fixed-in-22918">Fixed in 22.9.18</h3>
+<ul>
+<li>SC-4215: Do not allow unprivileged users to find users with non-school roles (expert, parent, etc.)</li>
+</ul>
+<h2 id="22917">[22.9.17]</h2>
+<h3 id="fixed-in-22917">Fixed in 22.9.17</h3>
+<ul>
+<li>SC-4121: File uploads no longer fail if the security scan is misconfigured or errors during enqueuing</li>
+</ul>
+<h2 id="22910">[22.9.10]</h2>
+<h3 id="added-in-22910">Added in 22.9.10</h3>
+<ul>
+<li>enable API key for /mails route</li>
+</ul>
+<h3 id="fixed-in-22910">Fixed in 22.9.10</h3>
+<ul>
+<li>fixed an issue that prevented api-key authenticated calls to function with query.</li>
+</ul>
+<h2 id="2299">[22.9.9]</h2>
+<h3 id="added-in-2299">Added in 22.9.9</h3>
+<ul>
+<li>Sync can now be authenticated with an api-key.</li>
+</ul>
+<h2 id="2298">[22.9.8]</h2>
+<h3 id="fixed-in-2298">Fixed in 22.9.8</h3>
+<ul>
+<li>Fixed an error where ldap users without proper uuid where not filtered correctly.</li>
+</ul>
+<h2 id="2297">[22.9.7]</h2>
+<h3 id="security-in-2297">Security in 22.9.7</h3>
+<ul>
+<li>the /ldap route can now only be triggered for the users own school.</li>
+</ul>
+<h2 id="2296">[22.9.6]</h2>
+<h3 id="added-in-2296">Added in 22.9.6</h3>
+<ul>
+<li>users without <code>SCHOOL_EDIT</code> permission, but with <code>SCHOOL_STUDENT_TEAM_MANAGE</code> permission can now toggle the school feature <code>disableStudentTeamCreation</code>.</li>
+</ul>
+<h3 id="fixed-in-2296">Fixed in 22.9.6</h3>
+<ul>
+<li>Admins in Thuringia can now prevent students from creating teams</li>
+</ul>
+<h2 id="2295">[22.9.5]</h2>
+<h3 id="security-in-2295">Security in 22.9.5</h3>
+<ul>
+<li>increased security for the publicTeachers route.</li>
+</ul>
+<h2 id="2294">[22.9.4]</h2>
+<h3 id="fixed-in-2294">Fixed in 22.9.4</h3>
+<ul>
+<li>fixes an issue with LDAP account updates if more than one account exists for the user (migration from local login to LDAP)</li>
+</ul>
+<h2 id="2293">[22.9.3]</h2>
+<h3 id="fixed-in-2293">Fixed in 22.9.3</h3>
+<ul>
+<li>fixes regression in LDAP sync, that caused incomplete user updates</li>
+</ul>
+<h2 id="2292">[22.9.2]</h2>
+<h3 id="security-in-2292">Security in 22.9.2</h3>
+<ul>
+<li>increased security for user PUT operation</li>
+</ul>
+<h2 id="2291">[22.9.1]</h2>
+<h3 id="fixed-in-2291">Fixed in 22.9.1</h3>
+<ul>
+<li>SC-3994: remove unnecessary bucket creation call that caused school administration and LDAP Sync to throw errors</li>
+</ul>
+<h3 id="changed-in-2291">Changed in 22.9.1</h3>
+<ul>
+<li>use collation for /homeworks, /users, /publicTeachers, /users/admin/teachers, /users/admin/students, /classes, and /courses.</li>
+</ul>
+<h2 id="2290">[22.9.0]</h2>
+<ul>
+<li>Security updates</li>
+</ul>
+<h2 id="2280">[22.8.0]</h2>
+<h3 id="added-in-2280">Added in 22.8.0</h3>
+<ul>
+<li>This changelog has been added</li>
+</ul>
+<h3 id="removed-in-2280">Removed in 22.8.0</h3>
+<ul>
+<li>Clipboard sockets</li>
+<li>This changelog has been added</li>
+<li>Backend route to confirm analog consents in bulk</li>
+<li>Changed Seed Data + Migration Script: Added feature flag for new Editor to <a href="mailto:klara.fall@schul-cloud.org">klara.fall@schul-cloud.org</a></li>
+<li>SC-2922: Enable use of multiple S3 instances as file storage provider<ul>
+<li>A new collection is added to administrate multiple S3 instances</li>
+<li>A migration will automatically use the AWS environment variables to add those as default provider for all existing schools</li>
+<li>For new schools the less used provider is assigned as storage provider</li>
+<li>Environment Variables:<ul>
+<li>FEATURE_MULTIPLE_S3_PROVIDERS_ENABLED=true will activate the feature</li>
+<li>S3_KEY, used for symmetric encryption, already required for the migration because of the secret access key encryption</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed-in-2280">Changed in 22.8.0</h3>
+<ul>
+<li>SC-3767: moved env variables to globals.js, NODE_ENV required to equal &#39;test&#39; for test execution and right database selection</li>
+<li>migrated backup.sh script to node, so it can run platform independant and works on windows.</li>
+</ul>
+<h3 id="fixed-in-2280">Fixed in 22.8.0</h3>
+<ul>
+<li>SC-3821: Fix Co-Teachers and Substitution teachers not being able to Grade Homeworks</li>
+</ul>
+<h2 id="2271">22.7.1</h2>
+<h3 id="fixed-in-2271">Fixed in 22.7.1</h3>
+<ul>
+<li>Admin and teacher user could change other users without changing them self</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="hpi-schul-cloud-server">HPI Schul-Cloud Server</h1>
+<p>Based on <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://feathersjs.com/">Feathers</a></p>
+<p>Develop: <a href="https://travis-ci.com/hpi-schul-cloud/schulcloud-server"><img src="https://travis-ci.com/hpi-schul-cloud/schulcloud-server.svg?branch=develop" alt="Build Status" class="img-responsive"></a> 
+Master: <a href="https://travis-ci.com/hpi-schul-cloud/schulcloud-server"><img src="https://travis-ci.com/hpi-schul-cloud/schulcloud-server.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
+<p>Develop: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/develop"><img src="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/develop/graph/badge.svg" alt="codecov" class="img-responsive"></a>
+Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img src="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a></p>
+<p>Codacy: <a href="https://www.codacy.com/gh/hpi-schul-cloud/schulcloud-server/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hpi-schul-cloud/schulcloud-server&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/c1d53a69d04346fb867f9360b1679422" alt="Codacy Badge" class="img-responsive"></a></p>
+<p><a href="https://github.com/schulcloud/hpi-schul-cloud/releases"><img src="https://img.shields.io/github/release/hpi-schul-cloud/schulcloud-server.svg" alt="Version" class="img-responsive"></a></p>
+<p>Swagger UI documentation when running the server locally, it is served at <a href="http://localhost:3030/docs/">http://localhost:3030/docs/</a>.</p>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>Node.js (see <code>.nvmrc</code> for version)</li>
+<li>MongoDB (<code>4.x</code>)</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>You will need the <a href="https://github.com/hpi-schul-cloud/schulcloud-client">client</a> as well. For more detailed setup instructions, take a look <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Setup">here</a>. It is written for Windows but the procedure is similar for other OS.</p>
+<h2 id="run">Run</h2>
+<ol>
+<li>Go into project folder</li>
+<li>Run <code>mongod</code></li>
+<li>Run <code>npm start</code></li>
+<li>Run <code>npm run setup</code></li>
+</ol>
+<h2 id="debugger-configuration-in-visual-studio-code">Debugger Configuration in Visual Studio Code</h2>
+<p>For more details how to set up Visual Studio Code, read <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Visual+Studio+Code">this document</a>.</p>
+<h2 id="how-to-name-your-branch-and-create-a-pull-request-pr">How to name your branch and create a pull request (PR)</h2>
+<ol>
+<li>Take the Ticket Number from JIRA (ticketsystem.hpi-schul-cloud.org), e.g. SC-999</li>
+<li>Name the feature branch beginning with Ticket Number, all words separated by dash &quot;-&quot;, e.g. <code>feature/SC-999-fantasy-problem</code></li>
+<li>Create a PR on branch develop containing the Ticket Number in PR title</li>
+<li>Keep the <code>WIP</code> label as long as this PR is in development, complete PR checklist (is automatically added), keep or increase code test coverage, and pass all tests before you remove the <code>WIP</code> label. Reviewers will be added automatically. For more information check our Definition of Done <a href="https://docs.hpi-schul-cloud.org/pages/viewpage.action?pageId=92831762">here</a>.</li>
+</ol>
+<h2 id="testing">Testing</h2>
+<h3 id="run-tests">Run tests</h3>
+<ol>
+<li>Go into project folder</li>
+<li>run <code>npm run test</code></li>
+</ol>
+<p>To run a single test, use <code>npm run mocha-single -- &lt;path/to/unit.test.js&gt;</code>.</p>
+<h3 id="create-tests">Create tests</h3>
+<ol>
+<li>Create a folder for the &quot;service&quot; you&#39;re working on in &quot;/test/services&quot;</li>
+<li>Create a file &quot;user.test.js&quot; for frontend tests (e.g. clicking a link or check if URL is available)</li>
+<li>Create a file &quot;unit.test.js&quot; for backend tests (e.g. calculating a number)</li>
+</ol>
+<p><em>Try to cover as many methods as possible unit test wise - goal is 100% of course, so one test per method.</em></p>
+<h2 id="committing">Committing</h2>
+<p>Default branch: develop</p>
+<ol>
+<li>Go into project folder</li>
+<li>Checkout to develop branch (or clone for the first time)</li>
+<li>Run <code>git pull</code></li>
+<li>Create a branch for your new feature named feature/SC-<em>Ticket-ID</em>-<em>Description</em></li>
+<li>Run the tests (see above)</li>
+<li>Commit with a meaningful commit message(!) even at 4 a.m. and not stuff like &quot;dfsdfsf&quot;</li>
+<li>Start a pull request (see above) to branch develop to merge your changes</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
