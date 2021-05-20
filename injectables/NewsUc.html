@@ -127,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html">AuthorizationService</a>)</code>
+<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html">AuthorizationService</a>, logger: <a href="../injectables/ServerLogger.html">ServerLogger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -166,6 +166,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServerLogger.html" target="_self" >ServerLogger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -212,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:60</a></div>
                 </td>
             </tr>
 
@@ -296,8 +308,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -381,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:54</a></div>
                 </td>
             </tr>
 
@@ -465,8 +477,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:32</a></div>
                 </td>
             </tr>
 
@@ -561,8 +573,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:47</a></div>
                 </td>
             </tr>
 
@@ -645,8 +657,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:87</a></div>
                 </td>
             </tr>
 
@@ -729,8 +741,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:83</a></div>
                 </td>
             </tr>
 
@@ -801,8 +813,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:75</a></div>
                 </td>
             </tr>
 
@@ -870,6 +882,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination } from &#x27;../../../shared/domain&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
+import { ServerLogger } from &#x27;../../logger/logger.service&#x27;;
 import { News, SchoolInfo } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
 import { ICreateNews } from &#x27;./create-news.interface&#x27;;
@@ -882,7 +895,13 @@ type AuthorizationSubject &#x3D; { school?: SchoolInfo; targetModel?: string; ta
 
 @Injectable()
 export class NewsUc {
-	constructor(private newsRepo: NewsRepo, private authorizationService: AuthorizationService) {}
+	constructor(
+		private newsRepo: NewsRepo,
+		private authorizationService: AuthorizationService,
+		private logger: ServerLogger
+	) {
+		this.logger.setContext(NewsUc.name);
+	}
 
 	async create(userId: EntityId, params: ICreateNews): Promise&lt;News&gt; {
 		// TODO add school reference (implicit)
@@ -892,6 +911,7 @@ export class NewsUc {
 	}
 
 	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;News[]&gt; {
+		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 		const user &#x3D; await this.authorizationService.getUser(userId);
 
 		const newsList &#x3D; await this.newsRepo.findAllBySchoolAndScope(user.schoolId.toString(), scope, pagination);
@@ -901,6 +921,7 @@ export class NewsUc {
 				// await this.authorizeUserReadNews(news, userId);
 			})
 		);
+		this.logger.log(&#x60;return ${newsList.length} news for user ${userId}&#x60;);
 		return newsList;
 	}
 

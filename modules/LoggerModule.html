@@ -34,7 +34,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>AuthorizationModule</li>
+    <li>LoggerModule</li>
 </ol>
 
 <div class="text-center module-graph-container">
@@ -62,58 +62,46 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_AuthorizationModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="23,-70 23,-268 473,-268 473,-70 23,-70"/>
-</g>
-<g id="clust6" class="cluster">
-<title>cluster_AuthorizationModule_providers</title>
-<polygon fill="none" stroke="black" points="31,-78 31,-130 465,-130 465,-78 31,-78"/>
+<title>cluster_LoggerModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="168,-70 168,-268 328,-268 328,-70 168,-70"/>
 </g>
 <g id="clust4" class="cluster">
-<title>cluster_AuthorizationModule_exports</title>
-<polygon fill="none" stroke="black" points="176,-208 176,-260 332,-260 332,-208 176,-208"/>
+<title>cluster_LoggerModule_exports</title>
+<polygon fill="none" stroke="black" points="192,-208 192,-260 304,-260 304,-208 192,-208"/>
 </g>
-<!-- AuthorizationService  -->
+<g id="clust6" class="cluster">
+<title>cluster_LoggerModule_providers</title>
+<polygon fill="none" stroke="black" points="176,-78 176,-130 320,-130 320,-78 176,-78"/>
+</g>
+<!-- ServerLogger  -->
 <g id="node1" class="node">
-<title>AuthorizationService </title>
-<polygon fill="#fb8072" stroke="black" points="323.74,-252 184.26,-252 184.26,-216 323.74,-216 323.74,-252"/>
-<text text-anchor="middle" x="254" y="-229.8" font-family="Times,serif" font-size="14.00">AuthorizationService </text>
+<title>ServerLogger </title>
+<polygon fill="#fb8072" stroke="black" points="296.46,-252 199.54,-252 199.54,-216 296.46,-216 296.46,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">ServerLogger </text>
 </g>
-<!-- AuthorizationModule -->
+<!-- LoggerModule -->
 <g id="node2" class="node">
-<title>AuthorizationModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="322.81,-187 319.81,-191 298.81,-191 295.81,-187 185.19,-187 185.19,-151 322.81,-151 322.81,-187"/>
-<text text-anchor="middle" x="254" y="-164.8" font-family="Times,serif" font-size="14.00">AuthorizationModule</text>
+<title>LoggerModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="297.98,-187 294.98,-191 273.98,-191 270.98,-187 198.02,-187 198.02,-151 297.98,-151 297.98,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">LoggerModule</text>
 </g>
-<!-- AuthorizationModule&#45;&gt;AuthorizationService  -->
+<!-- LoggerModule&#45;&gt;ServerLogger  -->
 <g id="edge1" class="edge">
-<title>AuthorizationModule&#45;&gt;AuthorizationService </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M254,-187.11C254,-187.11 254,-205.99 254,-205.99"/>
-<polygon fill="black" stroke="black" points="250.5,-205.99 254,-215.99 257.5,-205.99 250.5,-205.99"/>
+<title>LoggerModule&#45;&gt;ServerLogger </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M248,-187.11C248,-187.11 248,-205.99 248,-205.99"/>
+<polygon fill="black" stroke="black" points="244.5,-205.99 248,-215.99 251.5,-205.99 244.5,-205.99"/>
 </g>
-<!-- AuthorizationService -->
+<!-- ServerLogger -->
 <g id="node3" class="node">
-<title>AuthorizationService</title>
-<ellipse fill="#fdb462" stroke="black" cx="363" cy="-104" rx="93.76" ry="18"/>
-<text text-anchor="middle" x="363" y="-99.8" font-family="Times,serif" font-size="14.00">AuthorizationService</text>
+<title>ServerLogger</title>
+<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="64.25" ry="18"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">ServerLogger</text>
 </g>
-<!-- AuthorizationService&#45;&gt;AuthorizationModule -->
+<!-- ServerLogger&#45;&gt;LoggerModule -->
 <g id="edge2" class="edge">
-<title>AuthorizationService&#45;&gt;AuthorizationModule</title>
-<path fill="none" stroke="black" d="M296.01,-116.84C296.01,-116.84 296.01,-140.52 296.01,-140.52"/>
-<polygon fill="black" stroke="black" points="292.51,-140.52 296.01,-150.52 299.51,-140.52 292.51,-140.52"/>
-</g>
-<!-- FeathersServiceProvider -->
-<g id="node4" class="node">
-<title>FeathersServiceProvider</title>
-<ellipse fill="#fdb462" stroke="black" cx="145" cy="-104" rx="105.91" ry="18"/>
-<text text-anchor="middle" x="145" y="-99.8" font-family="Times,serif" font-size="14.00">FeathersServiceProvider</text>
-</g>
-<!-- FeathersServiceProvider&#45;&gt;AuthorizationModule -->
-<g id="edge3" class="edge">
-<title>FeathersServiceProvider&#45;&gt;AuthorizationModule</title>
-<path fill="none" stroke="black" d="M218.15,-117.15C218.15,-117.15 218.15,-140.69 218.15,-140.69"/>
-<polygon fill="black" stroke="black" points="214.65,-140.69 218.15,-150.69 221.65,-140.69 214.65,-140.69"/>
+<title>ServerLogger&#45;&gt;LoggerModule</title>
+<path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
+<polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>
 </g>
 </svg>
@@ -145,7 +133,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/authorization.module.ts</code>
+            <code>apps/server/src/modules/logger/logger.module.ts</code>
         </p>
 
 
@@ -158,10 +146,7 @@
                             title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../injectables/AuthorizationService.html">AuthorizationService</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="../injectables/FeathersServiceProvider.html">FeathersServiceProvider</a>
+                            <a href="../injectables/ServerLogger.html">ServerLogger</a>
                         </li>
                     </ul>
                 </div>
@@ -170,7 +155,7 @@
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../s/AuthorizationService.html">AuthorizationService</a>
+                            <a href="../s/ServerLogger.html">ServerLogger</a>
                         </li>
                     </ul>
                 </div>
@@ -183,14 +168,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
-import { AuthorizationService } from &#x27;./authorization.service&#x27;;
-import { FeathersServiceProvider } from &#x27;./feathers-service.provider&#x27;;
+import { ServerLogger } from &#x27;./logger.service&#x27;;
 
 @Module({
-	providers: [AuthorizationService, FeathersServiceProvider],
-	exports: [AuthorizationService],
+	providers: [ServerLogger],
+	exports: [ServerLogger],
 })
-export class AuthorizationModule {}
+export class LoggerModule {}
 </code></pre>
     </div>
 </div>
@@ -226,7 +210,7 @@ export class AuthorizationModule {}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthorizationModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoggerModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
