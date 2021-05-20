@@ -45,16 +45,14 @@
 <li>find the best way ORM entity discovery</li>
 <li>decide where to put domain interfaces (directory)</li>
 <li>how can we log validation errors during development?</li>
+<li>sanitizer</li>
 </ul>
 <h2 id="accepted">ACCEPTED</h2>
 <p>ceev: ?</p>
 <ul>
-<li>check build &amp; start for production with ops</li>
-<li>load/perf test</li>
-</ul>
-<p>tobi:</p>
-<ul>
-<li><p>404 error handling in feathers has to be replaced (tests too). better: have nest before feathers... but seems not to be working</p>
+<li><p>check build &amp; start for production with ops</p>
+</li>
+<li><p>load/perf test</p>
 </li>
 <li><p>disable legacy ts support (app, tests)</p>
 </li>
@@ -65,20 +63,24 @@
 </ul>
 <h2 id="selected">SELECTED</h2>
 <ul>
+<li>custom error handling (log/response)</li>
 <li>db configuration<ul>
 <li>keep mongoose options as mongo options</li>
 <li>povider for mikroorm options and db url</li>
 <li>test db provider</li>
 <li>entity discovery</li>
+<li>check indexes in mikroorm: when are they updated?</li>
 </ul>
 </li>
 <li>news<ul>
 <li>uc cleanup: 2auth, visibilities</li>
 </ul>
 </li>
+<li>context: user-/request-context (see mikroorm/asynclocalstorage)</li>
 </ul>
 <h2 id="done">DONE</h2>
 <ul>
+<li>404 error handling in feathers has to be replaced (tests too). better: have nest before feathers... but seems not to be working</li>
 <li>remove mongoose</li>
 <li>publish documentation, see <a href="https://hpi-schul-cloud.github.io/schulcloud-server/overview.html">https://hpi-schul-cloud.github.io/schulcloud-server/overview.html</a></li>
 <li>fix all tests (nest/legacy)</li>
