@@ -48,7 +48,9 @@
 		"migration-prune": "migrate prune --config ./config/migrate.js",
 		"migration-persist": "node ./backup.js -b export -p setup/ -c migrations --sort \"{ createdAt: 1 }\"",
 		"migrate-etherpads": "node ./migrate-etherpads.js",
-		"syncIndexes": "node ./scripts/syncIndexes.js"
+		"syncIndexes": "node ./scripts/syncIndexes.js",
+		"schoolExport": "node ./scripts/schoolExport.js",
+		"schoolImport": "node ./scripts/schoolImport.js"
 	},
 	"dependencies": {
 		"@feathersjs/authentication": "^4.5.3",
