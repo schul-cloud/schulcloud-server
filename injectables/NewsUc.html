@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:66</a></div>
                 </td>
             </tr>
 
@@ -393,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:60</a></div>
                 </td>
             </tr>
 
@@ -573,8 +573,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:53</a></div>
                 </td>
             </tr>
 
@@ -657,8 +657,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:93</a></div>
                 </td>
             </tr>
 
@@ -741,8 +741,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:89</a></div>
                 </td>
             </tr>
 
@@ -813,8 +813,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:81</a></div>
                 </td>
             </tr>
 
@@ -911,6 +911,12 @@ export class NewsUc {
 	}
 
 	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;News[]&gt; {
+		// 1. isAuthorized(userId, schoolId, &#x27;NEWS_READ&#x27;)
+		// 2. user, resource, permission
+		// 		yields list of ids
+		// 		getAuthorizedEntities(userId, &#x27;Course&#x27;, &#x27;NEWS_READ&#x27;): EntityId[]
+		// 3. user, resource (by id)
+		// 		getPermissions(userId, &#x27;Course&#x27;, courseId)
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 		const user &#x3D; await this.authorizationService.getUser(userId);
 
