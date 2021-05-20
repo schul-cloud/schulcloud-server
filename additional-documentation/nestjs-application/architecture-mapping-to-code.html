@@ -84,7 +84,7 @@
         - domain // (abstract) domain base entities which will be extended in the modules
         - util/ // helpers, tools, utils can be located here (but find a better name)
 test/ // e2e tests against controllers should use same folder names like controllers
-</code></pre></div><p>For concepts (see <a href="https://docs.nestjs.com/first-steps">https://docs.nestjs.com/first-steps</a>) of NestJS put implementations in shared/core. You might use shared/utils for own solutions, assume TextUtils but when it contains text validators, move it better to shared/core/validators/text.validator.ts before merge. The core concepts of NestJS can be extended with ours (like repo).</p>
+</code></pre></div><p>For concepts (see <a href="https://docs.nestjs.com/first-steps">https://docs.nestjs.com/first-steps</a>) of NestJS put implementations in shared/core. You might use shared/utils for own solutions, assume TextUtils but when it contains text validators, move it better to shared/validators/text.validator.ts before merge. The core concepts of NestJS can be extended with ours (like repo).</p>
 <h2 id="layers">Layers</h2>
 <p>The different layers use separately defined objects that must be mapped when crossing layers.</p>
 <ul>

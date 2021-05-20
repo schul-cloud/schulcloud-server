@@ -394,9 +394,9 @@ import { NewsUc } from &#x27;../uc/news.uc&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
-import { ParseObjectIdPipe } from &#x27;../../../shared/core/pipe/parse-object-id.pipe&#x27;;
+import { ParseObjectIdPipe } from &#x27;../../../shared/pipe/parse-object-id.pipe&#x27;;
 import { CreateNewsParams, NewsResponse } from &#x27;./dto&#x27;;
-import { PaginationQuery } from &#x27;../../../shared/core/controller/dto/pagination.query&#x27;;
+import { PaginationQuery } from &#x27;../../../shared/controller/dto/pagination.query&#x27;;
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
