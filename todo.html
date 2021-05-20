@@ -33,6 +33,7 @@
 <h1 id="technical-todo-around-nest-introduction">Technical TODO around Nest Introduction</h1>
 <h2 id="suggested">SUGGESTED</h2>
 <ul>
+<li>filter logs by request with reflect-metadata (see mikroorm em setup)</li>
 <li>disable Document from window</li>
 <li>find a name for base entity id type</li>
 <li>find a name for base entity class</li>
@@ -46,17 +47,41 @@
 <li>how can we log validation errors during development?</li>
 </ul>
 <h2 id="accepted">ACCEPTED</h2>
+<p>ceev: ?</p>
 <ul>
 <li>check build &amp; start for production with ops</li>
 <li>load/perf test</li>
-<li>404 error handling in feathers has to be replaced (tests too). better: have nest before feathers... but seems not to be working</li>
-<li>disable legacy ts support (app, tests)</li>
-<li>fix all tests (nest/legacy)</li>
-<li>fix .env/config for windows</li>
-<li>watch docs should hot reload on md file change</li>
+</ul>
+<p>tobi:</p>
+<ul>
+<li><p>404 error handling in feathers has to be replaced (tests too). better: have nest before feathers... but seems not to be working</p>
+</li>
+<li><p>disable legacy ts support (app, tests)</p>
+</li>
+<li><p>fix .env/config for windows</p>
+</li>
+<li><p>watch docs should hot reload on md file change</p>
+</li>
+</ul>
+<h2 id="selected">SELECTED</h2>
+<ul>
+<li>db configuration<ul>
+<li>keep mongoose options as mongo options</li>
+<li>povider for mikroorm options and db url</li>
+<li>test db provider</li>
+<li>entity discovery</li>
+</ul>
+</li>
+<li>news<ul>
+<li>uc cleanup: 2auth, visibilities</li>
+</ul>
+</li>
 </ul>
 <h2 id="done">DONE</h2>
 <ul>
+<li>remove mongoose</li>
+<li>publish documentation, see <a href="https://hpi-schul-cloud.github.io/schulcloud-server/overview.html">https://hpi-schul-cloud.github.io/schulcloud-server/overview.html</a></li>
+<li>fix all tests (nest/legacy)</li>
 <li>remove legacy scripts from package json (except tests) goal: have separated tests (legacy/nest) but only execute the nest app</li>
 <li>using legacy database connection string</li>
 <li>v3 with/-out slash: diffenrent routes should respond with different result (/v3 is a resssource, /v3/ === /v3/index)</li>

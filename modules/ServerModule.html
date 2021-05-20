@@ -222,7 +222,6 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { MongooseModule } from &#x27;@nestjs/mongoose&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
 import { NewsModule } from &#x27;./modules/news/news.module&#x27;;
 import { ServerController } from &#x27;./server.controller&#x27;;
@@ -241,8 +240,6 @@ import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 		UsersModule,
 		NewsModule,
 		TaskModule,
-		// TODO remove mongoose
-		MongooseModule.forRoot(DB_URL, {}),
 		MikroOrmModule.forRoot({
 			type: &#x27;mongo&#x27;,
 			// TODO add mongoose options as mongo options (see database.js)
