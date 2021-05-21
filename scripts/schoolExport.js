@@ -5,10 +5,17 @@ const fs = require('fs').promises;
 const appPromise = require('../src/app');
 
 const { schoolModel } = require('../src/services/school/model');
+const { FileModel } = require('../src/services/fileStorage/model');
 const { userModel } = require('../src/services/user/model');
 const { teamsModel } = require('../src/services/teams/model');
 const accountModel = require('../src/services/account/model');
-const { courseModel } = require('../src/services/user-group/model');
+const { courseModel, courseGroupModel, classModel } = require('../src/services/user-group/model');
+const ltiToolModel = require('../src/services/ltiTool/model');
+const { LessonModel } = require('../src/services/lesson/model');
+const passwordRecoveryModel = require('../src/services/passwordRecovery/model');
+const { userModel: rocketChatUserModel, channelModel: rocketChatChannelModel } = require('../src/services/rocketChat/model');
+const { homeworkModel, submissionModel } = require('../src/services/homework/model');
+const { newsModel } = require('../src/services/news/model');
 
 const exportSchool = async (schoolId) => {
 	return schoolModel.findById(schoolId).exec();
@@ -28,6 +35,58 @@ const exportAccounts = async (userId) => {
 const exportTeams = async (schoolId) => {
 	return teamsModel.find({ schoolId: schoolId }).exec();
 };
+
+const exportTeamFiles = async (teamId) => {
+	return FileModel.find({ owner: teamId, refOwnerModel: 'teams' }).exec();
+}
+
+const exportCourseFiles = async (courseId) => {
+	return FileModel.find({ owner: courseId, refOwnerModel: 'course' }).exec();
+}
+
+const exportUserFiles = async (userId) => {
+	return FileModel.find({ owner: userId, refOwnerModel: 'user' }).exec();
+}
+
+const exportCourseGroups = async (courseId) => {
+	return courseGroupModel.find({ courseId: courseId }).exec();
+}
+
+const exportLtiTools = async (ltiToolIds) => {
+	return ltiToolModel.find({ _id: { $in: ltiToolIds }}).exec();
+}
+
+const exportLessons = async (courseId) => {
+	return LessonModel.find({ courseId: courseId }).exec();
+}
+
+const exportPasswordRecoveries = async (accountId) => {
+	return passwordRecoveryModel.find({ account: accountId }).exec();
+}
+
+const exportRocketChatUsers = async (userId) => {
+	return rocketChatUserModel.find({ userId: userId }).exec();
+}
+
+const exportRocketChatChannels = async (teamId) => {
+	return rocketChatChannelModel.find({ teamId: teamId }).exec();
+}
+
+const exportClasses = async (schoolId) => {
+	return classModel.find({ schoolId: schoolId }).exec();
+}
+
+const exportHomework = async (schoolId) => {
+	return homeworkModel.find({ schoolId: schoolId }).exec();
+}
+
+const exportSubmissions = async (schoolId) => {
+	return submissionModel.find({ schoolId: schoolId }).exec();
+}
+
+const exportNews = async (schoolId) => {
+	return newsModel.find({ schoolId: schoolId }).exec();
+}
 
 const baseOfId = 16;
 const idDigitAmount = 24;
