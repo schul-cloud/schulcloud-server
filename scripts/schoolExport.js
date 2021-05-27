@@ -1,9 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const fs = require('fs').promises;
-
 const appPromise = require('../src/app');
-
 const { schoolModel } = require('../src/services/school/model');
 const { FileModel } = require('../src/services/fileStorage/model');
 const { userModel } = require('../src/services/user/model');
@@ -13,134 +11,133 @@ const { courseModel, courseGroupModel, classModel } = require('../src/services/u
 const ltiToolModel = require('../src/services/ltiTool/model');
 const { LessonModel } = require('../src/services/lesson/model');
 const passwordRecoveryModel = require('../src/services/passwordRecovery/model');
-const { userModel: rocketChatUserModel, channelModel: rocketChatChannelModel } = require('../src/services/rocketChat/model');
+const {
+	userModel: rocketChatUserModel,
+	channelModel: rocketChatChannelModel,
+} = require('../src/services/rocketChat/model');
 const { homeworkModel, submissionModel } = require('../src/services/homework/model');
 const { newsModel } = require('../src/services/news/model');
 
-const exportSchool = async (schoolId) => {
-	return schoolModel.findById(schoolId).exec();
-};
-const exportCourses = async (schoolId) => {
-	return courseModel.find({ schoolId: schoolId }).exec();
-};
+const exportSchool = async (schoolId) => schoolModel.findById(schoolId).exec();
 
-const exportUsers = async (schoolId) => {
-	return userModel.find({ schoolId: schoolId }).exec();
-};
+const exportCourses = async (schoolId) => courseModel.find({ schoolId }).exec();
 
-const exportAccounts = async (userId) => {
-	return accountModel.findOne({ userId: userId }).exec();
-};
+const exportUsers = async (schoolId) => userModel.find({ schoolId }).exec();
 
-const exportTeams = async (schoolId) => {
-	return teamsModel.find({ schoolId: schoolId }).exec();
-};
+const exportAccounts = async (userId) => accountModel.findOne({ userId }).exec();
 
-const exportTeamFiles = async (teamId) => {
-	return FileModel.find({ owner: teamId, refOwnerModel: 'teams' }).exec();
-}
+const exportTeams = async (schoolId) => teamsModel.find({ schoolId }).exec();
 
-const exportCourseFiles = async (courseId) => {
-	return FileModel.find({ owner: courseId, refOwnerModel: 'course' }).exec();
-}
+const exportTeamFiles = async (teamId) => FileModel.find({ owner: teamId, refOwnerModel: 'teams' }).exec();
 
-const exportUserFiles = async (userId) => {
-	return FileModel.find({ owner: userId, refOwnerModel: 'user' }).exec();
-}
+const exportCourseFiles = async (courseId) => FileModel.find({ owner: courseId, refOwnerModel: 'course' }).exec();
 
-const exportCourseGroups = async (courseId) => {
-	return courseGroupModel.find({ courseId: courseId }).exec();
-}
+const exportUserFiles = async (userId) => FileModel.find({ owner: userId, refOwnerModel: 'user' }).exec();
 
-const exportLtiTools = async (ltiToolIds) => {
-	return ltiToolModel.find({ _id: { $in: ltiToolIds }}).exec();
-}
+const exportCourseGroups = async (courseId) => courseGroupModel.find({ courseId }).exec();
 
-const exportLessons = async (courseId) => {
-	return LessonModel.find({ courseId: courseId }).exec();
-}
+const exportLtiTools = async (ltiToolIds) => ltiToolModel.find({ _id: { $in: ltiToolIds } }).exec();
 
-const exportPasswordRecoveries = async (accountId) => {
-	return passwordRecoveryModel.find({ account: accountId }).exec();
-}
+const exportLessons = async (courseId) => LessonModel.find({ courseId }).exec();
 
-const exportRocketChatUsers = async (userId) => {
-	return rocketChatUserModel.find({ userId: userId }).exec();
-}
+const exportPasswordRecoveries = async (accountId) => passwordRecoveryModel.find({ account: accountId }).exec();
 
-const exportRocketChatChannels = async (teamId) => {
-	return rocketChatChannelModel.find({ teamId: teamId }).exec();
-}
+const exportRocketChatUsers = async (userId) => rocketChatUserModel.findOne({ userId }).exec();
 
-const exportClasses = async (schoolId) => {
-	return classModel.find({ schoolId: schoolId }).exec();
-}
+const exportRocketChatChannels = async (teamId) => rocketChatChannelModel.findOne({ teamId }).exec();
 
-const exportHomework = async (schoolId) => {
-	return homeworkModel.find({ schoolId: schoolId }).exec();
-}
+const exportClasses = async (schoolId) => classModel.find({ schoolId }).exec();
 
-const exportSubmissions = async (schoolId) => {
-	return submissionModel.find({ schoolId: schoolId }).exec();
-}
+const exportHomework = async (schoolId) => homeworkModel.find({ schoolId }).exec();
 
-const exportNews = async (schoolId) => {
-	return newsModel.find({ schoolId: schoolId }).exec();
-}
+const exportSubmissions = async (schoolId) => submissionModel.find({ schoolId }).exec();
 
-const baseOfId = 16;
-const idDigitAmount = 24;
-const maxIdValue = (BigInt(baseOfId) ** BigInt(idDigitAmount)) - 1n;
-const idRegex = new RegExp('([a-f0-9]{24})', 'g');
-
-const idMapping = {};
-
-/**
- * This function is used to modify the given id
- * by interpretating it as hexadeciaml number,
- * adding a value to it
- * and converting it back to an hexadecimal string.
- * @param {*} id id that should be modified
- * @param {*} addend value that is added to the id value to create a modified id
- * @returns modified id
- */
-const modifyId = (id, addend) => {
-    if (idMapping[id]) {
-        return idMapping[id];
-    }
-    const idBigInt = BigInt('0x' + id);
-    const newId = (idBigInt + BigInt(addend) % maxIdValue).toString(16);
-    idMapping[id] = newId;
-    return newId;
-}
+const exportNews = async (schoolId) => newsModel.find({ schoolId }).exec();
 
 appPromise
-	.then(async (app) => {
-        const targetFile = process.argv[2];
+	.then(async () => {
+		const targetFile = process.argv[2];
 
-		let fullJson = {
+		const fullJson = {
 			school: {},
 			courses: [],
 			users: [],
 			accounts: [],
 			teams: [],
+			files: [],
+			courseGroups: [],
+			ltiTools: [],
+			lessons: [],
+			passwordRecoveries: [],
+			rocketChatUsers: [],
+			rocketChatChannels: [],
+			classes: [],
+			homework: [],
+			news: [],
+			submissions: [],
 		};
 
-		const schoolId = '5f2987e020834114b8efd6f8';
+		const schoolId = '5ad9b559e8d5cb0012396321';
 		const users = await exportUsers(schoolId);
-		const accounts = await Promise.all(users.map((u) => exportAccounts(u._id)));
+		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const accounts = (await Promise.all(users.map((u) => exportAccounts(u._id)))).filter((el) => el !== null);
+		const teams = await exportTeams(schoolId);
+		const teamFiles = (await Promise.all(teams.map((t) => exportTeamFiles(t._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const courses = await exportCourses(schoolId);
+		const courseFiles = (await Promise.all(courses.map((c) => exportCourseFiles(c._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const courseGroups = (await Promise.all(courses.map((c) => exportCourseGroups(c._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const ltiTools = (await Promise.all(courses.map((c) => exportLtiTools(c.ltiToolIds)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const lessons = (await Promise.all(courses.map((c) => exportLessons(c._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const passwordRecoveries = (await Promise.all(accounts.map((a) => exportPasswordRecoveries(a._id)))).filter(
+			(el) => el !== null && el !== ''
+		);
+		const rocketChatUsers = (await Promise.all(users.map((u) => exportRocketChatUsers(u._id)))).filter(
+			(el) => el !== null
+		);
+		const rocketChatChannels = (await Promise.all(teams.map((t) => exportRocketChatChannels(t._id)))).filter(
+			(el) => el !== null
+		);
+		const classes = await exportClasses(schoolId);
+		const homework = await exportHomework(schoolId);
+		const news = await exportNews(schoolId);
+		const submissions = await exportSubmissions(schoolId);
 
 		fullJson.school = (await exportSchool(schoolId)).toJSON();
-		fullJson.courses = (await exportCourses(schoolId)).map((c) => c.toJSON());
-		fullJson.teams = (await exportTeams(schoolId)).map((c) => c.toJSON());
+		fullJson.courses = courses.map((c) => c.toJSON());
+		fullJson.teams = teams.map((c) => c.toJSON());
 		fullJson.users = users.map((c) => c.toJSON());
 		fullJson.accounts = accounts.map((a) => a.toJSON());
+		teamFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
+		courseFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
+		userFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
+		courseGroups.map((cg) => cg.map((cgg) => fullJson.courseGroups.push(cgg)));
+		ltiTools.map((l) => l.map((lt) => fullJson.ltiTools.push(lt)));
+		lessons.map((l) => l.map((le) => fullJson.lessons.push(le)));
+		passwordRecoveries.map((p) => p.map((pr) => fullJson.passwordRecoveries.push(pr)));
+		fullJson.rocketChatUsers = rocketChatUsers.map((u) => u.toJSON());
+		fullJson.rocketChatChannels = rocketChatChannels.map((c) => c.toJSON());
+		fullJson.classes = classes.map((c) => c.toJSON());
+		fullJson.homework = homework.map((h) => h.toJSON());
+		fullJson.news = news.map((n) => n.toJSON());
+		fullJson.submissions = submissions.map((s) => s.toJSON());
 
-		const fullJsonString = JSON.stringify(fullJson).replace(idRegex, (_, idMatch) => modifyId(idMatch, 43));
+		const fullJsonString = JSON.stringify(fullJson);
 
 		await fs.writeFile(targetFile, fullJsonString);
 
-		process.exit(0);
+		return process.exit(0);
 	})
 	.catch((error) => {
 		console.error(error);
