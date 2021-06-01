@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
+const lodash = require('lodash');
 const fs = require('fs').promises;
 const appPromise = require('../src/app');
 const { schoolModel } = require('../src/services/school/model');
@@ -77,7 +78,7 @@ appPromise
 			submissions: [],
 		};
 
-		const schoolId = '5ad9b559e8d5cb0012396321';
+		const schoolId = '5c06890bf5e1230013857639';
 		const users = await exportUsers(schoolId);
 		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id)))).filter(
 			(el) => el !== null && el !== ''
@@ -115,23 +116,24 @@ appPromise
 		const submissions = await exportSubmissions(schoolId);
 
 		fullJson.school = (await exportSchool(schoolId)).toJSON();
-		fullJson.courses = courses.map((c) => c.toJSON());
-		fullJson.teams = teams.map((c) => c.toJSON());
-		fullJson.users = users.map((c) => c.toJSON());
-		fullJson.accounts = accounts.map((a) => a.toJSON());
-		teamFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
-		courseFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
-		userFiles.map((f) => f.map((ff) => fullJson.files.push(ff)));
-		courseGroups.map((cg) => cg.map((cgg) => fullJson.courseGroups.push(cgg)));
-		ltiTools.map((l) => l.map((lt) => fullJson.ltiTools.push(lt)));
-		lessons.map((l) => l.map((le) => fullJson.lessons.push(le)));
-		passwordRecoveries.map((p) => p.map((pr) => fullJson.passwordRecoveries.push(pr)));
-		fullJson.rocketChatUsers = rocketChatUsers.map((u) => u.toJSON());
-		fullJson.rocketChatChannels = rocketChatChannels.map((c) => c.toJSON());
-		fullJson.classes = classes.map((c) => c.toJSON());
-		fullJson.homework = homework.map((h) => h.toJSON());
-		fullJson.news = news.map((n) => n.toJSON());
-		fullJson.submissions = submissions.map((s) => s.toJSON());
+		fullJson.courses = lodash.uniqBy(courses, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.teams = lodash.uniqBy(teams, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.users = lodash.uniqBy(users, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.accounts = lodash.uniqBy(accounts, (e) => e._id.toString()).map((a) => a.toJSON());
+		teamFiles.flat().map((f) => fullJson.files.push(f));
+		courseFiles.flat().map((f) => fullJson.files.push(f));
+		userFiles.flat().map((f) => fullJson.files.push(f));
+		fullJson.files = lodash.uniqBy(fullJson.files, (e) => e._id.toString());
+		fullJson.courseGroups = lodash.uniqBy(courseGroups.flat(), (e) => e._id.toString());
+		fullJson.ltiTools = lodash.uniqBy(ltiTools.flat(), (e) => e._id.toString());
+		fullJson.lessons = lodash.uniqBy(lessons.flat(), (e) => e._id.toString());
+		fullJson.passwordRecoveries = lodash.uniqBy(passwordRecoveries.flat(), (e) => e._id.toString());
+		fullJson.rocketChatUsers = lodash.uniqBy(rocketChatUsers, (e) => e._id.toString()).map((u) => u.toJSON());
+		fullJson.rocketChatChannels = lodash.uniqBy(rocketChatChannels, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.classes = lodash.uniqBy(classes, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.homework = lodash.uniqBy(homework, (e) => e._id.toString()).map((h) => h.toJSON());
+		fullJson.news = lodash.uniqBy(news, (e) => e._id.toString()).map((n) => n.toJSON());
+		fullJson.submissions = lodash.uniqBy(submissions, (e) => e._id.toString()).map((s) => s.toJSON());
 
 		const fullJsonString = JSON.stringify(fullJson);
 
