@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const lodash = require('lodash');
+const { ObjectId } = require('mongoose').Types;
 const fs = require('fs').promises;
 const appPromise = require('../src/app');
 const { schoolModel } = require('../src/services/school/model');
@@ -21,9 +22,9 @@ const { newsModel } = require('../src/services/news/model');
 
 const exportSchool = async (schoolId) => schoolModel.findById(schoolId).exec();
 
-const exportCourses = async (schoolId) => courseModel.find({ schoolId }).exec();
+const exportCourses = (schoolId) => courseModel.collection.find({ schoolId: ObjectId(schoolId) }).toArray();
 
-const exportUsers = async (schoolId) => userModel.find({ schoolId }).exec();
+const exportUsers = async (schoolId) => userModel.collection.find({ schoolId: ObjectId(schoolId) }).toArray();
 
 const exportAccounts = async (userId) => accountModel.findOne({ userId }).exec();
 
@@ -78,7 +79,7 @@ appPromise
 			submissions: [],
 		};
 
-		const schoolId = '5c06890bf5e1230013857639';
+		const schoolId = '5f2987e020834114b8efd6f8';
 		const users = await exportUsers(schoolId);
 		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id)))).filter(
 			(el) => el !== null && el !== ''
