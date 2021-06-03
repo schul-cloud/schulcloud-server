@@ -55,6 +55,18 @@
 <h3 id="typescript">TypeScript</h3>
 <p>Solution: Use in schulcloud-server, extend strong typing over the api via openAPI and use it in nuxt-client.</p>
 <h3 id="mikro-orm">Mikro-ORM</h3>
+<h4 id="typescript-support">Typescript Support</h4>
+<ul>
+<li>strong typed entities</li>
+<li>provide meta data through:<ul>
+<li>classes</li>
+<li>decorators (on classes, properties)<h4 id="mongodb-support">MongoDB Support</h4>
+</li>
+</ul>
+</li>
+<li>full Support for MongoDB</li>
+<li>(as opposed to e.g. TypeORM, Prisma)</li>
+</ul>
 <h4 id="unit-of-work">Unit of Work</h4>
 <ul>
 <li>implicit transactions</li>
@@ -81,7 +93,7 @@
 <ul>
 <li>1:n, 1:1, m:n</li>
 <li>foreign collection relations</li>
-<li>embedded relations (mongodb)</li>
+<li>embedded relations (MongoDB)</li>
 </ul>
 <h4 id="preloading">Preloading</h4>
 <ul>
@@ -90,6 +102,11 @@
 <h4 id="misc">Misc</h4>
 <ul>
 <li>use serialized mongo-id</li>
+</ul>
+<h4 id="issues">Issues</h4>
+<ul>
+<li>no join queries in MongoDB</li>
+<li>no populate in queries over relations</li>
 </ul>
 
                    </div><div class="search-results">
