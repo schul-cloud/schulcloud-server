@@ -24,7 +24,10 @@ const exportSchool = async (schoolId) => schoolModel.findById(schoolId).exec();
 
 const exportCourses = (schoolId) => courseModel.collection.find({ schoolId: ObjectId(schoolId) }).toArray();
 
-const exportUsers = async (schoolId) => userModel.collection.find({ schoolId: ObjectId(schoolId) }).toArray();
+const exportUsers = async (schoolId) => {
+	const userCursor = await userModel.collection.find({ schoolId: ObjectId(schoolId) });
+	return userCursor.toArray();
+};
 
 const exportAccounts = async (userId) => accountModel.findOne({ userId }).exec();
 
@@ -117,9 +120,9 @@ appPromise
 		const submissions = await exportSubmissions(schoolId);
 
 		fullJson.school = (await exportSchool(schoolId)).toJSON();
-		fullJson.courses = lodash.uniqBy(courses, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.courses = lodash.uniqBy(courses, (e) => e._id.toString());
 		fullJson.teams = lodash.uniqBy(teams, (e) => e._id.toString()).map((c) => c.toJSON());
-		fullJson.users = lodash.uniqBy(users, (e) => e._id.toString()).map((c) => c.toJSON());
+		fullJson.users = lodash.uniqBy(users, (e) => e._id.toString());
 		fullJson.accounts = lodash.uniqBy(accounts, (e) => e._id.toString()).map((a) => a.toJSON());
 		teamFiles.flat().map((f) => fullJson.files.push(f));
 		courseFiles.flat().map((f) => fullJson.files.push(f));
