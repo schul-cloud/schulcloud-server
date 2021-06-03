@@ -158,8 +158,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { authConfig } from &#x27;../../../../../src/services/authentication/configuration&#x27;;
-const { secret, jwtOptions } &#x3D; authConfig;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import externalAuthConfig &#x3D; require(&#x27;../../../../../src/services/authentication/configuration&#x27;);
+
+const { authConfig } &#x3D; externalAuthConfig;
 
 export interface JwtConstants {
 	secret: string;
@@ -173,8 +174,8 @@ export interface JwtConstants {
 }
 
 export const jwtConstants: JwtConstants &#x3D; {
-	secret,
-	jwtOptions,
+	secret: authConfig.secret as string,
+	jwtOptions: authConfig.jwtOptions,
 };
 </code></pre>
     </div>

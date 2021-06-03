@@ -59,6 +59,13 @@
             <code>apps/server/src/shared/interceptor/duration-logging.interceptor.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This interceptor is logging the duration of a REST call.</p>
+
+            </p>
 
 
 
@@ -134,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:13</a></div>
                 </td>
             </tr>
 
@@ -216,12 +223,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new ServerLogger(DurationLoggingInterceptor.name)</code>
+                            <i>Default value : </i><code>new Logger(DurationLoggingInterceptor.name)</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -237,17 +244,19 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#x27;@nestjs/common&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { tap } from &#x27;rxjs/operators&#x27;;
-import { ServerLogger } from &#x27;../../modules/logger/logger.service&#x27;;
+import { Logger } from &#x27;../../core/logger/logger.service&#x27;;
 
+/**
+ * This interceptor is logging the duration of a REST call.
+ */
 @Injectable()
 export class DurationLoggingInterceptor implements NestInterceptor {
-	private readonly logger &#x3D; new ServerLogger(DurationLoggingInterceptor.name);
+	private readonly logger &#x3D; new Logger(DurationLoggingInterceptor.name);
 
 	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
-		this.logger.log(&#x27;Before...&#x27;);
-
+		this.logger.verbose(&#x27;Before...&#x27;);
 		const now &#x3D; Date.now();
-		return next.handle().pipe(tap(() &#x3D;&gt; this.logger.log(&#x60;After... ${Date.now() - now}ms&#x60;)));
+		return next.handle().pipe(tap(() &#x3D;&gt; this.logger.verbose(&#x60;After... ${Date.now() - now}ms&#x60;)));
 	}
 }
 </code></pre>

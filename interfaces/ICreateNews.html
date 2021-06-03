@@ -61,9 +61,16 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/news/uc/create-news.interface.ts</code>
+            <code>apps/server/src/modules/news/entity/news.types.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>news interface for ceating news </p>
+
+            </p>
 
 
         <section>
@@ -83,6 +90,9 @@
                                 </li>
                                 <li>
                                         <a href="#displayAt">displayAt</a>
+                                </li>
+                                <li>
+                                        <a href="#target">target</a>
                                 </li>
                                 <li>
                                         <a href="#title">title</a>
@@ -160,6 +170,35 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="target"></a>
+                                        <span class="name"><b>target</b><a href="#target"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>target:         <code><a href="../classes/News.html" target="_self" >NewsTarget</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../classes/News.html" target="_self" >NewsTarget</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="title"></a>
                                         <span class="name"><b>title</b><a href="#title"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
@@ -190,10 +229,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ICreateNews {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
+
+export const NewsTargetModel &#x3D; {
+	School: &#x27;schools&#x27;,
+	Course: &#x27;courses&#x27;,
+	Team: &#x27;teams&#x27;,
+} as const;
+
+// TODO put into shared types
+type ValueOf&lt;T&gt; &#x3D; T[keyof T];
+
+export type NewsTargetModelValue &#x3D; ValueOf&lt;typeof NewsTargetModel&gt;;
+
+/** define the news target for a specific entity  */
+export type NewsTarget &#x3D; { targetModel: NewsTargetModelValue; targetId: EntityId };
+
+/** define the news target for find */
+export type FindNewsTarget &#x3D; { targetModel: NewsTargetModelValue; targetId?: EntityId };
+
+/** news interface for ceating news */
+export interface ICreateNews {
 	title: string;
 	content: string;
 	displayAt: Date;
+	target: NewsTarget;
+}
+
+/** news interface for updating news */
+export type IUpdateNews &#x3D; Partial&lt;ICreateNews&gt;;
+
+/** news interface for finding news */
+export interface INewsScope {
+	target?: FindNewsTarget;
+	unpublished?: boolean;
 }
 </code></pre>
     </div>

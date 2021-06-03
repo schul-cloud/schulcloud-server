@@ -77,19 +77,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUser">getUser</a>
+                                <a href="#checkEntityPermissions">checkEntityPermissions</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserPermissions">getUserPermissions</a>
+                                <a href="#getEntityPermissions">getEntityPermissions</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserSchoolPermissions">getUserSchoolPermissions</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#hasPermission">hasPermission</a>
+                                <a href="#getPermittedEntities">getPermittedEntities</a>
                             </li>
                         </ul>
                     </td>
@@ -109,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html">FeathersServiceProvider</a>)</code>
+<code>constructor(feathersAuthProvider: <a href="../injectables/FeathersAuthProvider.html">FeathersAuthProvider</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -132,10 +128,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>feathersServiceProvider</td>
+                                                        <td>feathersAuthProvider</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/FeathersServiceProvider.html" target="_self" >FeathersServiceProvider</a></code>
+                                                                        <code><a href="../injectables/FeathersAuthProvider.html" target="_self" >FeathersAuthProvider</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -161,34 +157,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUser"></a>
+                    <a name="checkEntityPermissions"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getUser
+                            checkEntityPermissions
                         </b>
-                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                        <a href="#checkEntityPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>checkEntityPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>, permissions: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:37</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Ensure that a user has sufficient permissions for a specific entity</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -213,13 +211,49 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>targetModel</td>
+                                    <td>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+                        <b>Returns : </b>    <code>Promise | never</code>
 
                     </div>
                     <div class="io-description">
@@ -233,34 +267,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUserPermissions"></a>
+                    <a name="getEntityPermissions"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getUserPermissions
+                            getEntityPermissions
                         </b>
-                        <a href="#getUserPermissions"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getEntityPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserPermissions(userId: Types.ObjectId, target: <a href="../interfaces/Target.html">Target</a>)</code>
+                    <code>getEntityPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:17</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get all permissions a user has for a specific entity</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -276,7 +312,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                            <code>Types.ObjectId</code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -286,9 +322,21 @@
 
                                 </tr>
                                 <tr>
-                                    <td>target</td>
+                                    <td>targetModel</td>
                                     <td>
-                                                <code><a href="../interfaces/Target.html" target="_self" >Target</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -307,7 +355,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The list of entity permissions for the user</p>
+
                     </div>
                 </td>
             </tr>
@@ -317,34 +366,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUserSchoolPermissions"></a>
+                    <a name="getPermittedEntities"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getUserSchoolPermissions
+                            getPermittedEntities
                         </b>
-                        <a href="#getUserSchoolPermissions"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getPermittedEntities"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserSchoolPermissions(userId: Types.ObjectId, schoolId: Types.ObjectId)</code>
+                    <code>getPermittedEntities(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, permissions: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:57</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get all entities for which a user has specific permissions</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -360,7 +411,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                            <code>Types.ObjectId</code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -370,81 +421,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>schoolId</td>
+                                    <td>targetModel</td>
                                     <td>
-                                            <code>Types.ObjectId</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasPermission"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            hasPermission
-                        </b>
-                        <a href="#hasPermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermission(userId: Types.ObjectId, permission: <a href="../undefineds/Permission.html">Permission</a>, scope: <a href="../interfaces/Target.html">Target</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                            <code>Types.ObjectId</code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
                                     </td>
 
                                     <td>
@@ -454,21 +433,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>permission</td>
+                                    <td>permissions</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#Permission" target="_self" >Permission</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>scope</td>
-                                    <td>
-                                                <code><a href="../interfaces/Target.html" target="_self" >Target</a></code>
+                                            <code>string[]</code>
                                     </td>
 
                                     <td>
@@ -483,11 +450,12 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>The list of ids of all entities that satisfy the provided permissions for the user</p>
+
                     </div>
                 </td>
             </tr>
@@ -499,67 +467,73 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-	ImATeapotException,
-	Injectable,
-	NotFoundException,
-	UnauthorizedException,
-	UnprocessableEntityException,
-} from &#x27;@nestjs/common&#x27;;
-import { Types } from &#x27;mongoose&#x27;;
-import { FeathersServiceProvider } from &#x27;./feathers-service.provider&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { NewsTargetModel, NewsTargetModelValue } from &#x27;../news/entity&#x27;;
+import { FeathersAuthProvider } from &#x27;./feathers-auth.provider&#x27;;
 
-type Permission &#x3D; &#x27;foo&#x27; | &#x27;bar&#x27;;
-type Model &#x3D; &#x27;school&#x27; | &#x27;course&#x27; | &#x27;team&#x27;; // TODO use it
-interface Target {
-	targetId: Types.ObjectId;
-	targetModel: string;
-}
-
-import CompareHelper &#x3D; require(&#x27;../../../../../src/helper/compare&#x27;); // TODO move to lib
-import { EntityId } from &#x27;../../shared/domain&#x27;;
-const { equal: equalId } &#x3D; CompareHelper.ObjectId;
 @Injectable()
 export class AuthorizationService {
-	constructor(private feathersServiceProvider: FeathersServiceProvider) {}
-	async hasPermission(userId: Types.ObjectId, permission: Permission, scope: Target): Promise&lt;boolean&gt; {
-		// const permissions &#x3D;
-		return false;
+	constructor(private feathersAuthProvider: FeathersAuthProvider) {}
+
+	/**
+	 * Get all permissions a user has for a specific entity
+	 * @param userId
+	 * @param targetModel
+	 * @param targetId
+	 * @returns The list of entity permissions for the user
+	 */
+	async getEntityPermissions(
+		userId: EntityId,
+		targetModel: NewsTargetModelValue,
+		targetId: EntityId
+	): Promise&lt;string[]&gt; {
+		const permissions &#x3D;
+			targetModel &#x3D;&#x3D;&#x3D; NewsTargetModel.School
+				? await this.feathersAuthProvider.getUserSchoolPermissions(userId, targetId)
+				: await this.feathersAuthProvider.getUserTargetPermissions(userId, targetModel, targetId);
+		return permissions;
 	}
 
-	async getUser(userId: EntityId): Promise&lt;any&gt; {
-		const user &#x3D; await this.feathersServiceProvider.get(&#x27;users&#x27;, new Types.ObjectId(userId));
-		return user;
-	}
-
-	async getUserSchoolPermissions(userId: Types.ObjectId, schoolId: Types.ObjectId): Promise&lt;string[]&gt; {
-		const user &#x3D; await this.feathersServiceProvider.get(&#x27;users&#x27;, userId);
-		if (user &#x3D;&#x3D; null) throw new NotFoundException(); // user not null
-
-		// test user is school member
-		const sameSchool &#x3D; equalId(schoolId, user.schoolId);
-		if (sameSchool &amp;&amp; Array.isArray(user.permissions)) {
-			return user.permissions;
+	/**
+	 * Ensure that a user has sufficient permissions for a specific entity
+	 * @param userId
+	 * @param targetModel
+	 * @param targetId
+	 * @param permissions
+	 * @throws UnauthorizedException if the permissions are not satisfied
+	 */
+	async checkEntityPermissions(
+		userId: EntityId,
+		targetModel: NewsTargetModelValue,
+		targetId: EntityId,
+		permissions: string[]
+	): Promise&lt;void&gt; | never {
+		const entityPermissions &#x3D; await this.getEntityPermissions(userId, targetModel, targetId);
+		const hasPermissions &#x3D; permissions.every((p) &#x3D;&gt; entityPermissions.includes(p));
+		if (!hasPermissions) {
+			throw new UnauthorizedException(&#x27;Insufficient permissions&#x27;);
 		}
-		return [];
 	}
 
-	async getUserPermissions(userId: Types.ObjectId, target: Target): Promise&lt;string[]&gt; {
-		const params &#x3D; { route: { scopeId: target.targetId } };
-		if (target.targetModel &#x3D;&#x3D;&#x3D; &#x27;school&#x27;) {
-			const schoolPermissions &#x3D; await this.getUserSchoolPermissions(userId, target.targetId);
-			// TODO service response is string array?
-			return schoolPermissions;
-		}
-		// otherwise a scope must implement userPermissions:
-		// TODO check the service implements userPermissions
-		const targetPermissions: string[] &#x3D; await this.feathersServiceProvider.get(
-			&#x60;${target.targetModel}/:scopeId/userPermissions/&#x60;,
-			userId,
-			params
-		);
-		// TODO service response is string array?
-		return targetPermissions;
+	/**
+	 * Get all entities for which a user has specific permissions
+	 * @param userId
+	 * @param targetModel
+	 * @param permissions
+	 * @returns The list of ids of all entities that satisfy the provided permissions for the user
+	 */
+	async getPermittedEntities(
+		userId: EntityId,
+		targetModel: NewsTargetModelValue,
+		permissions: string[]
+	): Promise&lt;EntityId[]&gt; {
+		const entitiyIds &#x3D;
+			targetModel &#x3D;&#x3D;&#x3D; NewsTargetModel.School
+				? await this.feathersAuthProvider.getPermittedSchools(userId)
+				: await this.feathersAuthProvider.getPermittedTargets(userId, targetModel, permissions);
+
+		return entitiyIds;
 	}
 }
 </code></pre>

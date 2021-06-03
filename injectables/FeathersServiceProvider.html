@@ -56,9 +56,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/feathers-service.provider.ts</code>
+            <code>apps/server/src/modules/feathers/feathers-service.provider.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This Service gives access to legacy feathers services. It is request based injected.
+IMPORTANT: Introduce strong typing immediately when using this modules service.</p>
+
+            </p>
 
 
 
@@ -76,8 +84,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#get">get</a>
+                                <a href="#getService">getService</a>
                             </li>
                         </ul>
                     </td>
@@ -102,7 +109,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/authorization/feathers-service.provider.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/feathers/feathers-service.provider.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -149,28 +156,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="get"></a>
+                    <a name="getService"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            get
+                            getService
                         </b>
-                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getService"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>get(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id: Types.ObjectId, params?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>getService(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-service.provider.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/feathers/feathers-service.provider.ts:37</a></div>
                 </td>
             </tr>
 
@@ -201,37 +206,13 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                            <code>Types.ObjectId</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;any | null&gt;</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/FeathersService.html" target="_self" >FeathersService</a></code>
 
                     </div>
                     <div class="io-description">
@@ -250,16 +231,42 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Scope, Inject } from &#x27;@nestjs/common&#x27;;
 import { REQUEST } from &#x27;@nestjs/core&#x27;;
 import { Request } from &#x27;express&#x27;;
-import { Types } from &#x27;mongoose&#x27;;
+import { Application } from &#x27;@feathersjs/express&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 
+export interface FeathersService {
+	/**
+	 *
+	 * @param id
+	 * @param params
+	 * @deprecated Access legacy eathers service get method
+	 */
+	get(id: EntityId, params?: FeathersServiceParams): Promise&lt;FeathersServiceResponse&gt;;
+	/**
+	 *
+	 * @param params
+	 * @deprecated Access legacy eathers service find method
+	 */
+	find(params?: FeathersServiceParams): Promise&lt;FeathersServiceResponse&gt;;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type FeathersServiceParams &#x3D; Record&lt;string, any&gt;;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type FeathersServiceResponse &#x3D; Record&lt;string, any&gt; | any[];
+
+/**
+ * This Service gives access to legacy feathers services. It is request based injected.
+ * IMPORTANT: Introduce strong typing immediately when using this modules service.
+ */
 @Injectable({ scope: Scope.REQUEST })
 export class FeathersServiceProvider {
 	constructor(@Inject(REQUEST) private request: Request) {}
 
-	async get(path: string, id: Types.ObjectId, params?: any): Promise&lt;any | null&gt; {
-		// TODO take existing request params (auth)
-		const response &#x3D; await (this.request.app as any).service(path).get(id, params);
-		return response;
+	getService(path: string): FeathersService {
+		const service &#x3D; (this.request.app as Application).service(path) as FeathersService;
+		return service;
 	}
 }
 </code></pre>

@@ -87,11 +87,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAll">findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findOne">findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update">update</a>
                             </li>
                         </ul>
                     </td>
@@ -141,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:19</a></div>
                 </td>
             </tr>
 
@@ -205,6 +213,97 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            delete
+                        </b>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newsId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAll"></a>
                     <span class="name">
                         <b>
@@ -218,7 +317,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, pagination: <a href="../classes/PaginationQuery.html">PaginationQuery</a>)</code>
+                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, scope: <a href="../classes/NewsFilterQuery.html">NewsFilterQuery</a>, pagination: <a href="../classes/PaginationQuery.html">PaginationQuery</a>)</code>
                 </td>
             </tr>
 
@@ -232,8 +331,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -265,6 +364,18 @@
 
                                 </tr>
                                 <tr>
+                                    <td>scope</td>
+                                    <td>
+                                                <code><a href="../classes/NewsFilterQuery.html" target="_self" >NewsFilterQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>pagination</td>
                                     <td>
                                                 <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
@@ -282,7 +393,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;NewsResponse[]&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -323,8 +434,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:46</a></div>
                 </td>
             </tr>
 
@@ -385,18 +496,122 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            update
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, params: <a href="../classes/UpdateNewsParams.html">UpdateNewsParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newsId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateNewsParams.html" target="_self" >UpdateNewsParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;NewsResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Param, Query } from &#x27;@nestjs/common&#x27;;
-import { NewsUc } from &#x27;../uc/news.uc&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Param, Query, Patch, Delete } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ParseObjectIdPipe } from &#x27;@shared/pipe&#x27;;
+import { PaginationQuery } from &#x27;@shared/controller&#x27;;
+import { PaginationResponse } from &#x27;@shared/controller/dto/pagination.response&#x27;;
+import { NewsUc } from &#x27;../uc/news.uc&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
-import { ParseObjectIdPipe } from &#x27;../../../shared/pipe/parse-object-id.pipe&#x27;;
-import { CreateNewsParams, NewsResponse } from &#x27;./dto&#x27;;
-import { PaginationQuery } from &#x27;../../../shared/controller/dto/pagination.query&#x27;;
+import { CreateNewsParams, NewsFilterQuery, NewsResponse, UpdateNewsParams } from &#x27;./dto&#x27;;
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
@@ -407,7 +622,11 @@ export class NewsController {
 
 	@Post()
 	async create(@CurrentUser() currentUser: ICurrentUser, @Body() params: CreateNewsParams): Promise&lt;NewsResponse&gt; {
-		const news &#x3D; await this.newsUc.create(currentUser.userId, NewsMapper.mapCreateNewsToDomain(params));
+		const news &#x3D; await this.newsUc.create(
+			currentUser.userId,
+			currentUser.schoolId,
+			NewsMapper.mapCreateNewsToDomain(params)
+		);
 		const dto &#x3D; NewsMapper.mapToResponse(news);
 		return dto;
 	}
@@ -415,16 +634,16 @@ export class NewsController {
 	@Get()
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
+		@Query() scope: NewsFilterQuery,
 		@Query() pagination: PaginationQuery
-	): Promise&lt;NewsResponse[]&gt; {
-		// TODO get scope from dto
-		const newsList &#x3D; await this.newsUc.findAllForUser(
+	): Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt; {
+		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,
-			{ targetId: &#x27;59a3ce58a2049554a93fec6e&#x27;, targetModel: &#x27;courses&#x27; },
+			NewsMapper.mapNewsScopeToDomain(scope),
 			pagination
 		);
 		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
-		return dtoList;
+		return new PaginationResponse(dtoList, count);
 	}
 
 	/** Retrieve a specific news entry by id. A user may only read news of scopes he has the read permission. The news entity has school and user names populated. */
@@ -439,19 +658,25 @@ export class NewsController {
 		return dto;
 	}
 
-	// @Patch(&#x27;:id&#x27;)
-	// update(
-	// 	@Param(&#x27;id&#x27;, ParseObjectIdPipe)
-	// 	newsId: ObjectId,
-	// 	@Body() updateNewsDto: UpdateNewsDto
-	// ) {
-	// 	return this.newsService.update(newsId, updateNewsDto);
-	// }
+	@Patch(&#x27;:id&#x27;)
+	async update(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,
+		@CurrentUser() currentUser: ICurrentUser,
+		@Body() params: UpdateNewsParams
+	): Promise&lt;NewsResponse&gt; {
+		const news &#x3D; await this.newsUc.update(newsId, currentUser.userId, NewsMapper.mapUpdateNewsToDomain(params));
+		const dto &#x3D; NewsMapper.mapToResponse(news);
+		return dto;
+	}
 
-	// @Delete(&#x27;:id&#x27;)
-	// remove(@Param(&#x27;id&#x27;) id: string): Promise&lt;string&gt; {
-	// 	return this.newsService.remove(id);
-	// }
+	@Delete(&#x27;:id&#x27;)
+	async delete(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;string&gt; {
+		const deletedId &#x3D; await this.newsUc.delete(newsId, currentUser.userId);
+		return deletedId;
+	}
 }
 </code></pre>
     </div>

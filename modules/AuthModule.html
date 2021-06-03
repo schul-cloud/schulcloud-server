@@ -69,13 +69,13 @@
 <title>cluster_AuthModule_imports</title>
 <polygon fill="none" stroke="black" points="331,-78 331,-130 439,-130 439,-78 331,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_AuthModule_providers</title>
-<polygon fill="none" stroke="black" points="57,-78 57,-130 323,-130 323,-78 57,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_AuthModule_exports</title>
 <polygon fill="none" stroke="black" points="203,-208 203,-260 309,-260 309,-208 203,-208"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_AuthModule_providers</title>
+<polygon fill="none" stroke="black" points="57,-78 57,-130 323,-130 323,-78 57,-78"/>
 </g>
 <!-- UsersModule -->
 <g id="node1" class="node">
@@ -208,9 +208,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
-import { AuthService } from &#x27;./auth.service&#x27;;
 import { PassportModule } from &#x27;@nestjs/passport&#x27;;
 import { JwtModule } from &#x27;@nestjs/jwt&#x27;;
+import { AuthService } from &#x27;./auth.service&#x27;;
 import { jwtConstants } from &#x27;./constants&#x27;;
 import { UsersModule } from &#x27;../user/users.module&#x27;;
 import { JwtStrategy } from &#x27;./strategy/jwt.strategy&#x27;;
@@ -229,7 +229,7 @@ import { JwtStrategy } from &#x27;./strategy/jwt.strategy&#x27;;
 	providers: [AuthService, JwtStrategy],
 	exports: [AuthService],
 	controllers: [
-		/*AuthController*/
+		/* AuthController */
 	],
 })
 export class AuthModule {}

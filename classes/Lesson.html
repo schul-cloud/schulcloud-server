@@ -157,7 +157,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/task/entity/lesson.entity.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/entity/lesson.entity.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -468,7 +468,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseEntityWithTimestamps } from &#x27;../../../shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
 import { Collection, Entity, ManyToMany, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { UserInfo } from &#x27;../../news/entity&#x27;;
 import { Course } from &#x27;./course.entity&#x27;;
@@ -477,6 +477,7 @@ import { Course } from &#x27;./course.entity&#x27;;
 export class Lesson extends BaseEntityWithTimestamps {
 	@Property()
 	hidden: boolean;
+
 	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
 	course: Course;
 }

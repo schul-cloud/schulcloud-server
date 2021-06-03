@@ -22,21 +22,21 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_LoggerModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="168,-70 168,-268 328,-268 328,-70 168,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="190,-70 190,-268 306,-268 306,-70 190,-70"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_LoggerModule_exports</title>
-<polygon fill="none" stroke="black" points="192,-208 192,-260 304,-260 304,-208 192,-208"/>
+<polygon fill="none" stroke="black" points="210,-208 210,-260 286,-260 286,-208 210,-208"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_LoggerModule_providers</title>
-<polygon fill="none" stroke="black" points="176,-78 176,-130 320,-130 320,-78 176,-78"/>
+<polygon fill="none" stroke="black" points="201,-78 201,-130 295,-130 295,-78 201,-78"/>
 </g>
-<!-- ServerLogger  -->
+<!-- Logger  -->
 <g id="node1" class="node">
-<title>ServerLogger </title>
-<polygon fill="#fb8072" stroke="black" points="296.46,-252 199.54,-252 199.54,-216 296.46,-216 296.46,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">ServerLogger </text>
+<title>Logger </title>
+<polygon fill="#fb8072" stroke="black" points="277.93,-252 218.07,-252 218.07,-216 277.93,-216 277.93,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">Logger </text>
 </g>
 <!-- LoggerModule -->
 <g id="node2" class="node">
@@ -44,21 +44,21 @@
 <polygon fill="#8dd3c7" stroke="black" points="297.98,-187 294.98,-191 273.98,-191 270.98,-187 198.02,-187 198.02,-151 297.98,-151 297.98,-187"/>
 <text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">LoggerModule</text>
 </g>
-<!-- LoggerModule&#45;&gt;ServerLogger  -->
+<!-- LoggerModule&#45;&gt;Logger  -->
 <g id="edge1" class="edge">
-<title>LoggerModule&#45;&gt;ServerLogger </title>
+<title>LoggerModule&#45;&gt;Logger </title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M248,-187.11C248,-187.11 248,-205.99 248,-205.99"/>
 <polygon fill="black" stroke="black" points="244.5,-205.99 248,-215.99 251.5,-205.99 244.5,-205.99"/>
 </g>
-<!-- ServerLogger -->
+<!-- Logger -->
 <g id="node3" class="node">
-<title>ServerLogger</title>
-<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="64.25" ry="18"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">ServerLogger</text>
+<title>Logger</title>
+<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="38.85" ry="18"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">Logger</text>
 </g>
-<!-- ServerLogger&#45;&gt;LoggerModule -->
+<!-- Logger&#45;&gt;LoggerModule -->
 <g id="edge2" class="edge">
-<title>ServerLogger&#45;&gt;LoggerModule</title>
+<title>Logger&#45;&gt;LoggerModule</title>
 <path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
 <polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>

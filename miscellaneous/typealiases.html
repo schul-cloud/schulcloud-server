@@ -58,22 +58,31 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#AuthorizationSubject" title="apps/server/src/modules/news/uc/news.uc.ts"><b>AuthorizationSubject</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
+                            <a href="#Counted" title="apps/server/src/shared/types/counted.ts"><b>Counted</b>&nbsp;&nbsp;&nbsp;(apps/.../counted.ts)</a>
                         </li>
                         <li>
                             <a href="#EntityId" title="apps/server/src/shared/domain/entity-id.ts"><b>EntityId</b>&nbsp;&nbsp;&nbsp;(apps/.../entity-id.ts)</a>
                         </li>
                         <li>
+                            <a href="#FeathersServiceParams" title="apps/server/src/modules/feathers/feathers-service.provider.ts"><b>FeathersServiceParams</b>&nbsp;&nbsp;&nbsp;(apps/.../feathers-service.provider.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FeathersServiceResponse" title="apps/server/src/modules/feathers/feathers-service.provider.ts"><b>FeathersServiceResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../feathers-service.provider.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FindNewsTarget" title="apps/server/src/modules/news/entity/news.types.ts"><b>FindNewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ITaskOption" title="apps/server/src/modules/task/entity/task.option.entity.ts"><b>ITaskOption</b>&nbsp;&nbsp;&nbsp;(apps/.../task.option.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#Model" title="apps/server/src/modules/authorization/authorization.service.ts"><b>Model</b>&nbsp;&nbsp;&nbsp;(apps/.../authorization.service.ts)</a>
+                            <a href="#IUpdateNews" title="apps/server/src/modules/news/entity/news.types.ts"><b>IUpdateNews</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
-                            <a href="#NewsTargetModel" title="apps/server/src/modules/news/entity/news.entity.ts"><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.entity.ts)</a>
+                            <a href="#NewsTarget" title="apps/server/src/modules/news/entity/news.types.ts"><b>NewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
-                            <a href="#Permission" title="apps/server/src/modules/authorization/authorization.service.ts"><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../authorization.service.ts)</a>
+                            <a href="#NewsTargetModelValue" title="apps/server/src/modules/news/entity/news.types.ts"><b>NewsTargetModelValue</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
                             <a href="#Permission" title="apps/server/src/modules/news/uc/news.uc.ts"><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
@@ -82,7 +91,7 @@
                             <a href="#SourceType" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>SourceType</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
                         </li>
                         <li>
-                            <a href="#Target" title="apps/server/src/modules/news/uc/news.uc.ts"><b>Target</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
+                            <a href="#ValueOf" title="apps/server/src/modules/news/entity/news.types.ts"><b>ValueOf</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -91,51 +100,25 @@
     </table>
 </section>
 
-    <h3>apps/server/src/modules/news/uc/news.uc.ts</h3>
+    <h3>apps/server/src/shared/types/counted.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="AuthorizationSubject"></a>
-                    <span class="name"><b>AuthorizationSubject</b><a href="#AuthorizationSubject"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="Counted"></a>
+                    <span class="name"><b>Counted</b><a href="#Counted"><span class="icon ion-ios-link"></span></a></span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>literal type</code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="Permission"></a>
-                    <span class="name"><b>Permission</b><a href="#Permission"><span class="icon ion-ios-link"></span></a></span>
+                    <div class="io-description"><p>Counted numbers inform about total counts beside the amount of items in T.</p>
+</div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>&quot;NEWS_VIEW&quot; | &quot;NEWS_EDIT&quot;</code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="Target"></a>
-                    <span class="name"><b>Target</b><a href="#Target"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>    <code>literal type</code>
+                    <code>    <code>[T, number]</code>
 </code>
                 </td>
             </tr>
@@ -159,6 +142,140 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>apps/server/src/modules/feathers/feathers-service.provider.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FeathersServiceParams"></a>
+                    <span class="name"><b>FeathersServiceParams</b><a href="#FeathersServiceParams"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Record&lt;string | any&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FeathersServiceResponse"></a>
+                    <span class="name"><b>FeathersServiceResponse</b><a href="#FeathersServiceResponse"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Record&lt;string | any&gt; | any[]</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/news/entity/news.types.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FindNewsTarget"></a>
+                    <span class="name"><b>FindNewsTarget</b><a href="#FindNewsTarget"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>define the news target for find </p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IUpdateNews"></a>
+                    <span class="name"><b>IUpdateNews</b><a href="#IUpdateNews"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>news interface for updating news </p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/ICreateNews.html" target="_self" >Partial&lt;ICreateNews&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewsTarget"></a>
+                    <span class="name"><b>NewsTarget</b><a href="#NewsTarget"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>define the news target for a specific entity  </p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewsTargetModelValue"></a>
+                    <span class="name"><b>NewsTargetModelValue</b><a href="#NewsTargetModelValue"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#ValueOf" target="_self" >ValueOf&lt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ValueOf"></a>
+                    <span class="name"><b>ValueOf</b><a href="#ValueOf"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>apps/server/src/modules/task/entity/task.option.entity.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -177,24 +294,8 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>apps/server/src/modules/authorization/authorization.service.ts</h3>
+</section>    <h3>apps/server/src/modules/news/uc/news.uc.ts</h3>
     <section>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="Model"></a>
-                    <span class="name"><b>Model</b><a href="#Model"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>    <code>&quot;school&quot; | &quot;course&quot; | &quot;team&quot;</code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -205,25 +306,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>&quot;foo&quot; | &quot;bar&quot;</code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>apps/server/src/modules/news/entity/news.entity.ts</h3>
-    <section>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="NewsTargetModel"></a>
-                    <span class="name"><b>NewsTargetModel</b><a href="#NewsTargetModel"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>    <code></code>
+                    <code>    <code>&quot;NEWS_VIEW&quot; | &quot;NEWS_EDIT&quot;</code>
 </code>
                 </td>
             </tr>

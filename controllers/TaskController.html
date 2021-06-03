@@ -197,11 +197,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
+import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { TaskResponseDto, TaskQueryDto } from &#x27;./dto&#x27;;
 
 // TODO: swagger doku do not read from combined query object only from passed single parameter in Query(), but this do not allowed optional querys only required querys
@@ -213,10 +213,7 @@ export class TaskController {
 	constructor(private readonly taskUc: TaskUC) {}
 
 	@Get(&#x27;dashboard&#x27;)
-	async findAll(
-		@CurrentUser() currentUser: ICurrentUser,
-		@Query() query: TaskQueryDto,
-	): Promise&lt;TaskResponseDto[]&gt; {
+	async findAll(@CurrentUser() currentUser: ICurrentUser, @Query() query: TaskQueryDto): Promise&lt;TaskResponseDto[]&gt; {
 		const response &#x3D; this.taskUc.findAllOpenForUser(currentUser.userId, query);
 		return response;
 	}

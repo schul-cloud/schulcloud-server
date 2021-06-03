@@ -190,13 +190,10 @@ import { SchoolInfoResponse } from &#x27;../controller/dto&#x27;;
 
 export class SchoolInfoMapper {
 	static mapToResponse(schoolInfo: SchoolInfo): SchoolInfoResponse {
-		if (schoolInfo !&#x3D; null) {
-			const dto &#x3D; new SchoolInfoResponse();
-			dto.id &#x3D; schoolInfo.id;
-			dto.name &#x3D; schoolInfo.name;
-			return dto;
-		}
-		return null;
+		const dto &#x3D; new SchoolInfoResponse();
+		dto.id &#x3D; schoolInfo.id;
+		dto.name &#x3D; schoolInfo.name;
+		return dto;
 	}
 }
 </code></pre>

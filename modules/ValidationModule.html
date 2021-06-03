@@ -27,64 +27,73 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content module">
                    <div class="content-data">
 
 
 
-
-
-
-
-
-
-
-
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
-  <li>IUpdateNews</li>
+    <li>Modules</li>
+    <li>ValidationModule</li>
 </ol>
 
+
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
+    <li  class="active" >
+        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li >
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
 </ul>
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
+
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/news/uc/update-news.interface.ts</code>
+            <code>apps/server/src/core/validation/validation.module.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code>Partial</code>
-            </p>
 
 
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
 
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ICreateNews } from &#x27;./create-news.interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+import { APP_PIPE } from &#x27;@nestjs/core&#x27;;
+import { GlobalValidationPipe } from &#x27;./pipe/global-validation.pipe&#x27;;
 
-export interface IUpdateNews extends Partial&lt;ICreateNews&gt; {}
+@Module({
+	providers: [
+		{
+			provide: APP_PIPE,
+			useClass: GlobalValidationPipe,
+		},
+	],
+})
+export class ValidationModule {}
 </code></pre>
     </div>
 </div>
+
+
+
+
+
+
+
+
 
 
                    
@@ -108,8 +117,8 @@ export interface IUpdateNews extends Partial&lt;ICreateNews&gt; {}
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IUpdateNews.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'ValidationModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

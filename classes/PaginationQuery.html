@@ -141,7 +141,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/controller/dto/pagination.query.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/controller/dto/pagination.query.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -210,6 +210,7 @@ export class PaginationQuery {
 	@Min(0)
 	@ApiProperty({ description: &#x27;number of elements (not pages) to be skipped&#x27; })
 	skip?: number &#x3D; 0;
+
 	@IsInt()
 	@Min(1)
 	@Max(100)

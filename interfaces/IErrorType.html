@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>Target</li>
+  <li>IErrorType</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/authorization.service.ts</code>
+            <code>apps/server/src/core/error/interface/error-type.interface.ts</code>
         </p>
 
 
@@ -79,10 +79,13 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#targetId">targetId</a>
+                                        <a href="#defaultMessage">defaultMessage</a>
                                 </li>
                                 <li>
-                                        <a href="#targetModel">targetModel</a>
+                                        <a href="#title">title</a>
+                                </li>
+                                <li>
+                                        <a href="#type">type</a>
                                 </li>
                             </ul>
                         </td>
@@ -99,13 +102,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="targetId"></a>
-                                        <span class="name"><b>targetId</b><a href="#targetId"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="defaultMessage"></a>
+                                        <span class="name"><b>defaultMessage</b><a href="#defaultMessage"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>targetId:     <code>Types.ObjectId</code>
+                                        <code>defaultMessage:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -113,7 +116,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>Types.ObjectId</code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -128,13 +131,42 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="targetModel"></a>
-                                        <span class="name"><b>targetModel</b><a href="#targetModel"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="title"></a>
+                                        <span class="name"><b>title</b><a href="#title"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>targetModel:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>title:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="type"></a>
+                                        <span class="name"><b>type</b><a href="#type"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>type:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -158,68 +190,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-	ImATeapotException,
-	Injectable,
-	NotFoundException,
-	UnauthorizedException,
-	UnprocessableEntityException,
-} from &#x27;@nestjs/common&#x27;;
-import { Types } from &#x27;mongoose&#x27;;
-import { FeathersServiceProvider } from &#x27;./feathers-service.provider&#x27;;
-
-type Permission &#x3D; &#x27;foo&#x27; | &#x27;bar&#x27;;
-type Model &#x3D; &#x27;school&#x27; | &#x27;course&#x27; | &#x27;team&#x27;; // TODO use it
-interface Target {
-	targetId: Types.ObjectId;
-	targetModel: string;
-}
-
-import CompareHelper &#x3D; require(&#x27;../../../../../src/helper/compare&#x27;); // TODO move to lib
-import { EntityId } from &#x27;../../shared/domain&#x27;;
-const { equal: equalId } &#x3D; CompareHelper.ObjectId;
-@Injectable()
-export class AuthorizationService {
-	constructor(private feathersServiceProvider: FeathersServiceProvider) {}
-	async hasPermission(userId: Types.ObjectId, permission: Permission, scope: Target): Promise&lt;boolean&gt; {
-		// const permissions &#x3D;
-		return false;
-	}
-
-	async getUser(userId: EntityId): Promise&lt;any&gt; {
-		const user &#x3D; await this.feathersServiceProvider.get(&#x27;users&#x27;, new Types.ObjectId(userId));
-		return user;
-	}
-
-	async getUserSchoolPermissions(userId: Types.ObjectId, schoolId: Types.ObjectId): Promise&lt;string[]&gt; {
-		const user &#x3D; await this.feathersServiceProvider.get(&#x27;users&#x27;, userId);
-		if (user &#x3D;&#x3D; null) throw new NotFoundException(); // user not null
-
-		// test user is school member
-		const sameSchool &#x3D; equalId(schoolId, user.schoolId);
-		if (sameSchool &amp;&amp; Array.isArray(user.permissions)) {
-			return user.permissions;
-		}
-		return [];
-	}
-
-	async getUserPermissions(userId: Types.ObjectId, target: Target): Promise&lt;string[]&gt; {
-		const params &#x3D; { route: { scopeId: target.targetId } };
-		if (target.targetModel &#x3D;&#x3D;&#x3D; &#x27;school&#x27;) {
-			const schoolPermissions &#x3D; await this.getUserSchoolPermissions(userId, target.targetId);
-			// TODO service response is string array?
-			return schoolPermissions;
-		}
-		// otherwise a scope must implement userPermissions:
-		// TODO check the service implements userPermissions
-		const targetPermissions: string[] &#x3D; await this.feathersServiceProvider.get(
-			&#x60;${target.targetModel}/:scopeId/userPermissions/&#x60;,
-			userId,
-			params
-		);
-		// TODO service response is string array?
-		return targetPermissions;
-	}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IErrorType {
+	readonly type: string;
+	readonly title: string;
+	readonly defaultMessage: string;
 }
 </code></pre>
     </div>
@@ -248,7 +222,7 @@ export class AuthorizationService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Target.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IErrorType.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

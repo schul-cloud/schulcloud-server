@@ -64,10 +64,16 @@
                             <a href="#bootstrap" title="apps/server/src/main.ts"><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
                         </li>
                         <li>
-                            <a href="#ExposeMongoIdAsString" title="apps/server/src/shared/repo/entity/base.entity.ts"><b>ExposeMongoIdAsString</b>&nbsp;&nbsp;&nbsp;(apps/.../base.entity.ts)</a>
+                            <a href="#createErrorResponseForBusinessError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForBusinessError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
-                            <a href="#ObjectIdToString" title="apps/server/src/shared/repo/entity/base.entity.ts"><b>ObjectIdToString</b>&nbsp;&nbsp;&nbsp;(apps/.../base.entity.ts)</a>
+                            <a href="#createErrorResponseForFeathersError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForFeathersError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createErrorResponseForUnknownError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForUnknownError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ToBoolean" title="apps/server/src/shared/transformer/to-boolean.transformer.ts"><b>ToBoolean</b>&nbsp;&nbsp;&nbsp;(apps/.../to-boolean.transformer.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -159,24 +165,24 @@
 
         </tbody>
     </table>
-</section>    <h3>apps/server/src/shared/repo/entity/base.entity.ts</h3>
+</section>    <h3>apps/server/src/core/error/filter/global-error.filter.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ExposeMongoIdAsString"></a>
+                    <a name="createErrorResponseForBusinessError"></a>
                     <span class="name">
                         <b>
-                            ExposeMongoIdAsString
+                            createErrorResponseForBusinessError
                         </b>
-                        <a href="#ExposeMongoIdAsString"><span class="icon ion-ios-link"></span></a>
+                        <a href="#createErrorResponseForBusinessError"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ExposeMongoIdAsString()</code>
+<code>createErrorResponseForBusinessError(error)</code>
                 </td>
             </tr>
 
@@ -185,39 +191,6 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>decorator: validation and openapi spec for mongo object id </p>
-</div>
-
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ObjectIdToString"></a>
-                    <span class="name">
-                        <b>
-                            ObjectIdToString
-                        </b>
-                        <a href="#ObjectIdToString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ObjectIdToString(undefined)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>decorator: convert mongo ObjectId to string </p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -230,6 +203,7 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>error</td>
 
                                     <td>
                                         No
@@ -241,6 +215,161 @@
                         </table>
                     </div>
                     <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ErrorResponse.html" target="_self" >ErrorResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createErrorResponseForFeathersError"></a>
+                    <span class="name">
+                        <b>
+                            createErrorResponseForFeathersError
+                        </b>
+                        <a href="#createErrorResponseForFeathersError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createErrorResponseForFeathersError(error)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createErrorResponseForUnknownError"></a>
+                    <span class="name">
+                        <b>
+                            createErrorResponseForUnknownError
+                        </b>
+                        <a href="#createErrorResponseForUnknownError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createErrorResponseForUnknownError(error?)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ErrorResponse.html" target="_self" >ErrorResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/transformer/to-boolean.transformer.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ToBoolean"></a>
+                    <span class="name">
+                        <b>
+                            ToBoolean
+                        </b>
+                        <a href="#ToBoolean"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ToBoolean()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>PropertyDecorator</code>
+
                     </div>
                 </td>
             </tr>

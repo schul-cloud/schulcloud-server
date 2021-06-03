@@ -208,7 +208,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -244,7 +244,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -279,7 +279,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -555,8 +555,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
 import { UserInfo } from &#x27;../../news/entity&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;../../../shared/domain&#x27;;
 
 @Entity({ tableName: &#x27;courses&#x27; })
 export class Course extends BaseEntityWithTimestamps {
@@ -564,10 +564,13 @@ export class Course extends BaseEntityWithTimestamps {
 		super();
 		Object.assign(this, partial);
 	}
+
 	@Property()
 	name: string;
+
 	@Property()
 	color: string;
+
 	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserInfo })
 	students &#x3D; new Collection&lt;UserInfo&gt;(this);
 }

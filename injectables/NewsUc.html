@@ -76,18 +76,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#authorizeUserReadNews">authorizeUserReadNews</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#create">create</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#decoratePermissions">decoratePermissions</a>
+                                <a href="#delete">delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -98,12 +92,24 @@
                                 <a href="#findOneByIdForUser">findOneByIdForUser</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserPermissionsForSubject">getUserPermissionsForSubject</a>
+                                <a href="#getNewsPermissions">getNewsPermissions</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#remove">remove</a>
+                                <a href="#getPermittedTargets">getPermittedTargets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#getRequiredPermissions">getRequiredPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getTargetFilters">getTargetFilters</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -127,12 +133,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html">AuthorizationService</a>, logger: <a href="../injectables/ServerLogger.html">ServerLogger</a>)</code>
+<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html">AuthorizationService</a>, logger: <a href="../injectables/Logger.html">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -177,7 +183,7 @@
                                                         <td>logger</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/ServerLogger.html" target="_self" >ServerLogger</a></code>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -203,91 +209,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="authorizeUserReadNews"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            authorizeUserReadNews
-                        </b>
-                        <a href="#authorizeUserReadNews"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>authorizeUserReadNews(news: <a href="../classes/News.html">News</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:66</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>news</td>
-                                    <td>
-                                                <code><a href="../classes/News.html" target="_self" >News</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
                         <b>
@@ -301,15 +222,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(userId: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../interfaces/ICreateNews.html">ICreateNews</a>)</code>
+                    <code>create(userId: <a href="../undefineds/EntityId.html">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../interfaces/ICreateNews.html">ICreateNews</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:26</a></div>
                 </td>
             </tr>
 
@@ -330,6 +251,18 @@
                             <tbody>
                                 <tr>
                                     <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>schoolId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
@@ -372,29 +305,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="decoratePermissions"></a>
+                    <a name="delete"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Private</span>
                             <span class="modifier">Async</span>
-                            decoratePermissions
+                            delete
                         </b>
-                        <a href="#decoratePermissions"><span class="icon ion-ios-link"></span></a>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>decoratePermissions(news: <a href="../classes/News.html">News</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>delete(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:124</a></div>
                 </td>
             </tr>
 
@@ -414,9 +346,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>news</td>
+                                    <td>id</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >News</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -443,7 +375,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -477,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:53</a></div>
                 </td>
             </tr>
 
@@ -539,7 +471,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/News.html" target="_self" >Promise&lt;News[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/News.html" target="_self" >Promise&lt;Counted&lt;News[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -566,15 +498,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneByIdForUser(newsId: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>findOneByIdForUser(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:79</a></div>
                 </td>
             </tr>
 
@@ -594,7 +526,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>newsId</td>
+                                    <td>id</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
@@ -637,28 +569,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUserPermissionsForSubject"></a>
+                    <a name="getNewsPermissions"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Private</span>
                             <span class="modifier">Async</span>
-                            getUserPermissionsForSubject
+                            getNewsPermissions
                         </b>
-                        <a href="#getUserPermissionsForSubject"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getNewsPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserPermissionsForSubject(userId: <a href="../undefineds/EntityId.html">EntityId</a>, subject: <a href="../undefineds/AuthorizationSubject.html">AuthorizationSubject</a>)</code>
+                    <code>getNewsPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, news: <a href="../classes/News.html">News</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:173</a></div>
                 </td>
             </tr>
 
@@ -690,9 +623,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>subject</td>
+                                    <td>news</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#AuthorizationSubject" target="_self" >AuthorizationSubject</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >News</a></code>
                                     </td>
 
                                     <td>
@@ -721,28 +654,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="remove"></a>
+                    <a name="getPermittedTargets"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Private</span>
                             <span class="modifier">Async</span>
-                            remove
+                            getPermittedTargets
                         </b>
-                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getPermittedTargets"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>remove(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html">EntityId</a>, scope: <a href="../interfaces/INewsScope.html">INewsScope | undefined</a>, permissions: <a href="../undefineds/Permission.html">Permission[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:135</a></div>
                 </td>
             </tr>
 
@@ -762,9 +696,33 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>id</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>scope</td>
+                                    <td>
+                                                <code><a href="../interfaces/INewsScope.html" target="_self" >INewsScope | undefined</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permissions</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#Permission" target="_self" >Permission[]</a></code>
                                     </td>
 
                                     <td>
@@ -793,6 +751,176 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getRequiredPermissions"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            getRequiredPermissions
+                        </b>
+                        <a href="#getRequiredPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRequiredPermissions(unpublished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:178</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>unpublished</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Permission" target="_self" >Permission[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTargetFilters"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                            getTargetFilters
+                        </b>
+                        <a href="#getTargetFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTargetFilters(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModels: <a href="../classes/News.html">NewsTargetModelValue[]</a>, permissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetModels</td>
+                                    <td>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/NewsTargetFilter.html" target="_self" >Promise&lt;NewsTargetFilter[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="update"></a>
                     <span class="name">
                         <b>
@@ -806,15 +934,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(id: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../interfaces/IUpdateNews.html">IUpdateNews</a>)</code>
+                    <code>update(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../classes/News.html">IUpdateNews</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -846,9 +974,21 @@
 
                                 </tr>
                                 <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/IUpdateNews.html" target="_self" >IUpdateNews</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >IUpdateNews</a></code>
                                     </td>
 
                                     <td>
@@ -863,7 +1003,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/News.html" target="_self" >Promise&lt;News&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -879,121 +1019,185 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination } from &#x27;../../../shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+import { Counted } from &#x27;@shared/types&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
-import { ServerLogger } from &#x27;../../logger/logger.service&#x27;;
-import { News, SchoolInfo } from &#x27;../entity&#x27;;
+import { Logger } from &#x27;../../../core/logger/logger.service&#x27;;
+import { News, NewsTargetModel, NewsTargetModelValue } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
-import { ICreateNews } from &#x27;./create-news.interface&#x27;;
-import { INewsScope } from &#x27;./news-scope.interface&#x27;;
-import { IUpdateNews } from &#x27;./update-news.interface&#x27;;
+import { ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity/news.types&#x27;;
+import { NewsTargetFilter } from &#x27;../repo/news-target-filter&#x27;;
 
 type Permission &#x3D; &#x27;NEWS_VIEW&#x27; | &#x27;NEWS_EDIT&#x27;;
-type Target &#x3D; { targetModel?: string; target?: { id: string } };
-type AuthorizationSubject &#x3D; { school?: SchoolInfo; targetModel?: string; target?: { id: string } };
 
 @Injectable()
 export class NewsUc {
-	constructor(
-		private newsRepo: NewsRepo,
-		private authorizationService: AuthorizationService,
-		private logger: ServerLogger
-	) {
+	constructor(private newsRepo: NewsRepo, private authorizationService: AuthorizationService, private logger: Logger) {
 		this.logger.setContext(NewsUc.name);
 	}
 
-	async create(userId: EntityId, params: ICreateNews): Promise&lt;News&gt; {
-		// TODO add school reference (implicit)
-		// authorization
-		const news &#x3D; this.newsRepo.create(params);
+	/**
+	 *
+	 * @param userId
+	 * @param schoolId
+	 * @param params
+	 * @returns
+	 */
+	async create(userId: EntityId, schoolId: EntityId, params: ICreateNews): Promise&lt;News&gt; {
+		this.logger.log(&#x60;create news as user ${userId}&#x60;);
+
+		const { targetModel, targetId } &#x3D; params.target;
+		await this.authorizationService.checkEntityPermissions(userId, targetModel, targetId, [&#x27;NEWS_CREATE&#x27;]);
+
+		const { target, ...props } &#x3D; params;
+		const news &#x3D; News.createInstance(targetModel, {
+			...props,
+			school: schoolId,
+			creator: userId,
+			target: targetId,
+		});
+		await this.newsRepo.save(news);
+
+		this.logger.log(&#x60;news ${news.id} created by user ${userId}&#x60;);
+
 		return news;
 	}
 
-	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;News[]&gt; {
-		// 1. isAuthorized(userId, schoolId, &#x27;NEWS_READ&#x27;)
-		// 2. user, resource, permission
-		// 		yields list of ids
-		// 		getAuthorizedEntities(userId, &#x27;Course&#x27;, &#x27;NEWS_READ&#x27;): EntityId[]
-		// 3. user, resource (by id)
-		// 		getPermissions(userId, &#x27;Course&#x27;, courseId)
+	/**
+	 *
+	 * @param userId
+	 * @param scope
+	 * @param pagination
+	 * @returns
+	 */
+	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;Counted&lt;News[]&gt;&gt; {
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
-		const user &#x3D; await this.authorizationService.getUser(userId);
 
-		const newsList &#x3D; await this.newsRepo.findAllBySchoolAndScope(user.schoolId.toString(), scope, pagination);
+		const unpublished &#x3D; !!scope?.unpublished;
+		const permissions: Permission[] &#x3D; NewsUc.getRequiredPermissions(unpublished);
+
+		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
+		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, pagination);
+
 		await Promise.all(
 			newsList.map(async (news: News) &#x3D;&gt; {
-				await this.decoratePermissions(news, userId);
-				// await this.authorizeUserReadNews(news, userId);
+				news.permissions &#x3D; await this.getNewsPermissions(userId, news);
 			})
 		);
+
 		this.logger.log(&#x60;return ${newsList.length} news for user ${userId}&#x60;);
-		return newsList;
+
+		return [newsList, newsCount];
 	}
 
-	async findOneByIdForUser(newsId: EntityId, userId: EntityId): Promise&lt;News&gt; {
-		const news &#x3D; await this.newsRepo.findOneById(newsId);
-		await this.decoratePermissions(news, userId);
-		// await this.authorizeUserReadNews(news, userId);
+	/**
+	 *
+	 * @param id
+	 * @param userId
+	 * @returns
+	 */
+	async findOneByIdForUser(id: EntityId, userId: EntityId): Promise&lt;News&gt; {
+		this.logger.log(&#x60;start find one news ${id}&#x60;);
+
+		const news &#x3D; await this.newsRepo.findOneById(id);
+		const requiredPermissions &#x3D; NewsUc.getRequiredPermissions(news.displayAt &gt; new Date());
+		await this.authorizationService.checkEntityPermissions(
+			userId,
+			news.targetModel,
+			news.target.id,
+			requiredPermissions
+		);
+		news.permissions &#x3D; await this.getNewsPermissions(userId, news);
+
 		return news;
 	}
 
-	private async decoratePermissions(news: News, userId: EntityId) {
-		news.permissions &#x3D; (await this.getUserPermissionsForSubject(userId, news)).filter((permission) &#x3D;&gt;
-			permission.includes(&#x27;NEWS&#x27;)
-		);
-	}
+	/**
+	 *
+	 * @param id
+	 * @param userId
+	 * @param params
+	 * @returns
+	 */
+	async update(id: EntityId, userId: EntityId, params: IUpdateNews): Promise&lt;News&gt; {
+		this.logger.log(&#x60;start update news ${id}&#x60;);
 
-	private async authorizeUserReadNews(news: News, userId: EntityId): Promise&lt;void&gt; {
-		let requiredUserPermission: Permission | null &#x3D; null;
-		const userPermissions &#x3D; news.permissions;
-		// todo new Date was Date.now() before
-		if (news.displayAt &gt; new Date()) {
-			// request read permission for published news
-			requiredUserPermission &#x3D; &#x27;NEWS_VIEW&#x27;;
-		} else {
-			// request write permission for unpublished news
-			requiredUserPermission &#x3D; &#x27;NEWS_EDIT&#x27;;
+		const news &#x3D; await this.newsRepo.findOneById(id);
+		await this.authorizationService.checkEntityPermissions(userId, news.targetModel, news.target.id, [&#x27;NEWS_EDIT&#x27;]);
+
+		// TODO find better way to update entity
+		if (params.title) {
+			news.title &#x3D; params.title;
 		}
-		if (userPermissions.includes(requiredUserPermission)) return;
-		throw new UnauthorizedException(&#x27;Nee nee nee...&#x27;);
+
+		await this.newsRepo.save(news);
+
+		return news;
 	}
 
-	async update(id: EntityId, params: IUpdateNews): Promise&lt;any&gt; {
-		return {
-			title: &#x27;title&#x27;,
-			body: &#x27;content&#x27;,
-			displayAt: new Date(),
-		};
-	}
+	/**
+	 *
+	 * @param id
+	 * @param userId
+	 * @returns
+	 */
+	async delete(id: EntityId, userId: EntityId): Promise&lt;EntityId&gt; {
+		this.logger.log(&#x60;start remove news ${id}&#x60;);
 
-	async remove(id: string) {
+		const news &#x3D; await this.newsRepo.findOneById(id);
+		await this.authorizationService.checkEntityPermissions(userId, news.targetModel, news.target.id, [&#x27;NEWS_EDIT&#x27;]);
+
+		await this.newsRepo.delete(news);
+
 		return id;
 	}
 
-	async getUserPermissionsForSubject(userId: EntityId, subject: AuthorizationSubject): Promise&lt;string[]&gt; {
-		// TODO figure out hoe we can handle targetModel/target in ORM
+	private async getPermittedTargets(userId: EntityId, scope: INewsScope | undefined, permissions: Permission[]) {
+		let targets: NewsTargetFilter[];
 
-		// detect scope of subject
-		// let scope: Target;
-		// if (&#x27;targetModel&#x27; in subject &amp;&amp; subject.targetModel &amp;&amp; &#x27;target&#x27; in subject &amp;&amp; subject.target) {
-		// 	const { target: target, targetModel } &#x3D; subject;
-		// 	scope &#x3D; { targetModel, target };
-		// } else if (&#x27;school&#x27; in subject) {
-		// 	const { schoolId } &#x3D; subject;
-		// 	if (&#x27;name&#x27; in schoolId) {
-		// 		scope &#x3D; { targetModel: &#x27;school&#x27;, targetId: schoolId._id };
-		// 	} else {
-		// 		scope &#x3D; { targetModel: &#x27;school&#x27;, targetId: schoolId };
-		// 	}
-		// } else {
-		// 	// data format not seems to be compatible, throw
-		// 	throw new UnauthorizedException(&#x27;Bääm&#x27;);
-		// }
-		// // scope is now school (generic) or a user group (specific)
-		// const permissions &#x3D; await this.authorizationService.getUserPermissions(userId, scope);
-		// return permissions;
-		return new Promise((resolve) &#x3D;&gt; resolve([&#x27;NEWS_VIEW&#x27;]));
+		if (scope?.target &#x3D;&#x3D; null) {
+			// for all target models
+			targets &#x3D; await this.getTargetFilters(userId, Object.values(NewsTargetModel), permissions);
+		} else {
+			const { targetModel, targetId } &#x3D; scope.target;
+			if (targetModel &amp;&amp; targetId) {
+				// for specific news target
+				await this.authorizationService.checkEntityPermissions(userId, targetModel, targetId, permissions);
+				targets &#x3D; [{ targetModel, targetIds: [targetId] }];
+			} else {
+				// for single target model
+				targets &#x3D; await this.getTargetFilters(userId, [targetModel], permissions);
+			}
+		}
+		return targets;
+	}
+
+	private async getTargetFilters(
+		userId: EntityId,
+		targetModels: NewsTargetModelValue[],
+		permissions: string[]
+	): Promise&lt;NewsTargetFilter[]&gt; {
+		const targets &#x3D; await Promise.all(
+			targetModels.map(async (targetModel) &#x3D;&gt; {
+				return {
+					targetModel,
+					targetIds: await this.authorizationService.getPermittedEntities(userId, targetModel, permissions),
+				};
+			})
+		);
+		const nonEmptyTargets &#x3D; targets.filter((target) &#x3D;&gt; target.targetIds.length &gt; 0);
+
+		return nonEmptyTargets;
+	}
+
+	private async getNewsPermissions(userId: EntityId, news: News): Promise&lt;string[]&gt; {
+		const permissions &#x3D; await this.authorizationService.getEntityPermissions(userId, news.targetModel, news.target.id);
+		return permissions.filter((permission) &#x3D;&gt; permission.includes(&#x27;NEWS&#x27;));
+	}
+
+	private static getRequiredPermissions(unpublished: boolean): Permission[] {
+		return unpublished ? [&#x27;NEWS_EDIT&#x27;] : [&#x27;NEWS_VIEW&#x27;];
 	}
 }
 </code></pre>

@@ -47,9 +47,9 @@
 <li>how can we log validation errors during development?</li>
 <li>sanitizer</li>
 <li>remove non-node async library</li>
+<li>fix async cleanup &amp; remove timeout in tests</li>
 </ul>
 <h2 id="accepted">ACCEPTED</h2>
-<p>ceev: ?</p>
 <ul>
 <li><p>check build &amp; start for production with ops</p>
 </li>
@@ -59,13 +59,11 @@
 </li>
 <li><p>fix .env/config for windows</p>
 </li>
-<li><p>watch docs should hot reload on md file change</p>
-</li>
 </ul>
 <h2 id="selected">SELECTED</h2>
 <ul>
-<li>custom error handling (log/response)</li>
-<li>db configuration<ul>
+<li><p>db configuration</p>
+<ul>
 <li>keep mongoose options as mongo options</li>
 <li>povider for mikroorm options and db url</li>
 <li>test db provider</li>
@@ -73,14 +71,22 @@
 <li>check indexes in mikroorm: when are they updated?</li>
 </ul>
 </li>
-<li>news<ul>
+<li><p>news</p>
+<ul>
 <li>uc cleanup: 2auth, visibilities</li>
+<li>document best practices/layers/orm</li>
 </ul>
 </li>
-<li>context: user-/request-context (see mikroorm/asynclocalstorage)</li>
+<li><p>context: user-/request-context (see mikroorm/asynclocalstorage)</p>
+</li>
+<li><p>fix jest, linter, ...</p>
+</li>
 </ul>
 <h2 id="done">DONE</h2>
 <ul>
+<li>inject APP_FILTER (exception handler) and APP_INTERCEPTOR (logger), see core module</li>
+<li>custom error handling (log/response), see global-error.filter.ts</li>
+<li>watch docs should hot reload on md file change</li>
 <li>404 error handling in feathers has to be replaced (tests too). better: have nest before feathers... but seems not to be working</li>
 <li>remove mongoose</li>
 <li>publish documentation, see <a href="https://hpi-schul-cloud.github.io/schulcloud-server/overview.html">https://hpi-schul-cloud.github.io/schulcloud-server/overview.html</a></li>

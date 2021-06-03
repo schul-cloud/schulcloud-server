@@ -53,10 +53,9 @@
 <h2 id="how-to-start-the-application">How to start the application</h2>
 <p>Beside existing <a href="/">scripts</a>, for the nestJS application the following scripts have been added. Try not changing the scripts as they should match what NestJS defines by default. Execute <code>npm run ...</code></p>
 <ul>
-<li><code>nest:prebuild</code> prebuild nest ressources</li>
+<li><code>nest:prebuild</code> remove existing data from previous build</li>
 <li><code>nest:build</code> compile the applications typescript ressources from apps/server to dist folder, keeps legacy js-code where it is</li>
 <li><code>nest:build:all</code> currently executes <code>nest:build</code>, could additionaly build static assets</li>
-<li><code>nest:clean</code> removes the dist folder</li>
 <li><code>nest:doc:serve</code> builds code documentation and module relations into /documentation folder and serves it on port :8080</li>
 <li><code>nest:start</code> starts the nest application // TODO how?</li>
 <li><code>nest:start:dev</code> run application without build from sources in dev-mode with hot-reload</li>
@@ -65,8 +64,7 @@
 </ul>
 <h1 id="how-to-statically-check-the-code">How to statically check the code</h1>
 <ul>
-<li><code>nest:format</code> run prettier to fix formatting issues</li>
-<li><code>nest:lint</code> run eslint to fix linter issues</li>
+<li><code>nest:lint</code> run eslint to fix linter issues and apply formatting</li>
 </ul>
 <h1 id="how-to-test-the-application">How to test the application?</h1>
 <ul>

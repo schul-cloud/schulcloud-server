@@ -49,16 +49,17 @@
 
 
 <h1 id="cross-cutting-concerns">Cross cutting concerns</h1>
+<p>The cross cutting topics are implemented within of the core-module. </p>
 <h2 id="logging">Logging</h2>
 <p>For logging use the logger ServerLogger, provided by the logger module. It is hooked up in the application on startup, replacing the default logger and can be transient injected into any provider by additionally define set a context into the logger.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">// add Logger module to your feature module imports or unit tests
-import { LoggerModule } from &#39;../../logger/logger.module&#39;;
+import { LoggerModule } from &#39;../core/logger/logger.module&#39;;
 // ...
 imports: [LoggerModule],
 </code></pre></div><div><pre class="line-numbers"><code class="language-TypeScript">// within of a provider (use-case, service, ...)
 
 // import the server logger service
-import { ServerLogger } from &#39;../../logger/logger.service&#39;;
+import { ServerLogger } from &#39;../core/logger/logger.service&#39;;
 
 &#64;Injectable()
 export class YourUc {
@@ -86,6 +87,21 @@ export class YourUc {
     verbose?(message: any, context?: string): any;
 }</code></pre></div><p>Only a string should be provided as a single parameter by default. Ensure not putting complex objects into a log. Think about persisting more complex results for later analysis into a database.</p>
 <p>Optionally in the second parameter, the context can be overridden only.</p>
+<h2 id="exception-handling">Exception Handling</h2>
+<p><img src="../../assets/exception-hierarchy.svg" alt="" class="img-responsive"></p>
+<p>We separate our business exceptions from technical exceptions. While for technical exceptions, we use the predefined HTTPExceptions from NestJS, business exceptions inherit from abstract BusinessException.</p>
+<p>By default, implementations of BusinessException must define</p>
+<div><pre class="line-numbers"><code class="language-JSON">    code: 500
+    type: &quot;CUSTOM_ERROR_TYPE&quot;,
+    title: &quot;Custom Error Type&quot;,
+    message: &quot;Human readable details&quot;,
+    // additional: optionalData</code></pre></div><p>There is a GlobalErrorFilter provided to handle exceptions, which cares about the response format of exceptions and logging. It overrides the default NestJS APP_FILTER in the core/error-module.</p>
+<p>In client applications, for technical errors, evaluate the http-error-code, then for business exceptions, the type can be used as identifier and additional data can be evaluated.</p>
+<p>For business errors we use 409/conflict as default to clearly have all business errors with one error code identified.</p>
+<blockquote>
+<p>Sample: For API validation errors, 409/Bad Request will be extended with <code>validationError: ValidationError[{ field: string, error: string }]</code> and a custom type <code>API_VALIDATION_ERROR</code>.</p>
+</blockquote>
+<p>Pipes can be used as input validation. To get errors reported in the correct format, they can define a custom exception factory when they should produce api validation error or other exceptions, handled by clients.</p>
 
                    </div><div class="search-results">
     <div class="has-results">
