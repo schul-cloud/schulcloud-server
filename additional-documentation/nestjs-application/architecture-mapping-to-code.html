@@ -134,6 +134,7 @@ test/ // e2e tests against controllers should use same folder names like control
 </table>
 <h2 id="components">Components</h2>
 <p>Components are defined as NestJS <a href="https://docs.nestjs.com/modules">Modules</a>. </p>
+<h3 id="communication-between-components">Communication between components</h3>
 <p>To access other modules services, it can be injected anywhere. The usage is allowed only, when the module which owns that service has exported it in the modules definition.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">// modules/feathers/feathers-service.provider.ts
 // modules/feathers/feathers.module.ts
@@ -168,7 +169,9 @@ export class FeathersAuthProvider {
         // ...
         return result;
     }
-</code></pre></div><p>Use the feathers module to get access to legacy services.</p>
+</code></pre></div><h3 id="access-legacy-code">Access legacy Code</h3>
+<p>Use the feathers module introduced above to get access to legacy services.</p>
+<p>It is important to introduce strong typing like it happened above in the FeathersAuthProvider. While the <code>FeathersServiceProvider</code> from the feathers module, has only an abstract implementation for all services, add a concrete service inside your module for a specific feathers-service, like above in <code>FeathersAuthProvider</code>.</p>
 <h2 id="layered-architecture">Layered Architecture</h2>
 <p>The different layers use separately defined objects that must be mapped when crossing layers.</p>
 <ul>
