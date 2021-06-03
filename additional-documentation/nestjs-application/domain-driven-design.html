@@ -55,15 +55,19 @@
 <li>Take those newly discovered terms and embed them in the code, creating a rich domain model that reflects the actual living, breathing business and it&#39;s rules.</li>
 <li>Protect that domain model from all the other technical intricacies involved in creating a web application.</li>
 </ul>
-<h2 id="3-layer-architecture">3 layer architecture</h2>
+<h2 id="clean-architecture">Clean Architecture</h2>
+<p><img src="https://khalilstemmler.com/img/blog/ddd-intro/clean.jpg" alt="" class="img-responsive"> &quot;The Clean Architecture from the golden Uncle Bob archives&quot;</p>
 <p>For the 3-layer architecture this means we have to protect the business layer and domain models from the outside world and infrastructure to keep it clean, fast, testable, ready for changes.</p>
 <h2 id="concepts">Concepts</h2>
-<p>Beside Concepts NestJS introduces, own services like <a href="https://khalilstemmler.com/articles/domain-driven-design-intro/#Repository">repositories</a> might be created. We prefer using use-cases to step in the application over CRUD.</p>
+<h3 id="entities">Entities</h3>
+<p>NestJS does not cover how to persist entities, the heart of our application. We need a solution that not only transfers data like mongoose, instead we want to define business rules on objects with strong typing added.</p>
+<p>Instead of Interface, Model and Schema which describe the view on data, now we define Entities, that get a DRY possibility to be created, loaded, and persisted using en entity manager. The definition of how an entity relates with others or how it is persisted can be added using decorators.</p>
+<p>See <a href="https://github.com/mikro-orm/mikro-orm#-core-features">https://github.com/mikro-orm/mikro-orm#-core-features</a> for further details.</p>
 <h3 id="domain-services">Domain Services</h3>
 <p>Domain Services are most often executed by application layer Application Services / Use Cases. Because Domain Services are a part of the Domain Layer and adhere to the dependency rule, Domain Services aren&#39;t allowed to depend on infrastructure layer concerns like Repositories to get access to the domain entities that they interact with. Application Services fetch the necessary entities, then pass them to domain services to run allow them to interact.</p>
 <p>Sample: Within of a use case we not depend on a user context from outside while for logging, error handling or in a repository it might be used. Like we see in the clean architecture schema.</p>
-<p><img src="https://khalilstemmler.com/img/blog/ddd-intro/clean.jpg" alt="" class="img-responsive"> &quot;The Clean Architecture from the golden Uncle Bob archives&quot;</p>
 <h4 id="use-cases">Use Cases</h4>
+<p>Beside Concepts NestJS introduces, own services like <a href="https://khalilstemmler.com/articles/domain-driven-design-intro/#Repository">repositories</a> or use-cases might be created.</p>
 <p>Use cases either return entities (data) to the user through a query (CRUD) or apply a command (do ... ok/err).
 Further reading: <a href="https://khalilstemmler.com/articles/oop-design-principles/command-query-separation/">https://khalilstemmler.com/articles/oop-design-principles/command-query-separation/</a></p>
 <p>They focus on providing business use cases and should only contain higher logical function calls, that are well-tested and hide their implementation inside of a use-case.</p>
