@@ -54,6 +54,43 @@
 <p>Solution: NestJS</p>
 <h3 id="typescript">TypeScript</h3>
 <p>Solution: Use in schulcloud-server, extend strong</p>
+<h3 id="mikro-orm">Mikro-ORM</h3>
+<h4 id="unit-of-work">Unit of Work</h4>
+<ul>
+<li>implicit transactions</li>
+<li>managed entities / references</li>
+<li>collect changes</li>
+<li>em.flush()</li>
+</ul>
+<h4 id="identity-map">Identity Map</h4>
+<ul>
+<li>always get the same instance of one entity</li>
+<li>good for:<ul>
+<li>optimizations</li>
+<li>caching</li>
+<li>comparison by identity</li>
+</ul>
+</li>
+<li>request scope in web applications</li>
+</ul>
+<h4 id="database-agnostic">Database agnostic</h4>
+<ul>
+<li>can be used with different databases (SQL/NoSQL)</li>
+</ul>
+<h4 id="relation-mapping">Relation mapping</h4>
+<ul>
+<li>1:n, 1:1, m:n</li>
+<li>foreign collection relations</li>
+<li>embedded relations (mongodb)</li>
+</ul>
+<h4 id="preloading">Preloading</h4>
+<ul>
+<li>nested structures can be preloaded via populate</li>
+</ul>
+<h4 id="misc">Misc</h4>
+<ul>
+<li>use serialized mongo-id</li>
+</ul>
 
                    </div><div class="search-results">
     <div class="has-results">
