@@ -2,8 +2,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const fs = require('fs').promises;
+const mongoose = require('mongoose');
 const appPromise = require('../src/app');
-// const mongoose = require('mongoose');
 const { schoolModel } = require('../src/services/school/model');
 const { FileModel } = require('../src/services/fileStorage/model');
 const { userModel } = require('../src/services/user/model');
@@ -33,7 +33,14 @@ appPromise
 		}
 
 		for (const user of fullJson.users) {
-			await userModel.create(user);
+			console.log(typeof user.parents[0]);
+			const changeId = (u) => mongoose.isValidObjectId(u);
+			console.log(changeId(user.parents[0]));
+			if (changeId(user.parents[0])) {
+				user.parents[0] = mongoose.Types.ObjectId(user.parents[0]);
+				console.log(typeof user.parents[0]);
+				await userModel.collection.save(user, { validateBeforeSave: true });
+			}
 		}
 
 		for (const acc of fullJson.accounts) {
