@@ -163,7 +163,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:35</a></div>
                 </td>
             </tr>
 
@@ -271,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:14</a></div>
                 </td>
             </tr>
 
@@ -341,8 +341,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:29</a></div>
                 </td>
             </tr>
 
@@ -415,7 +415,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:9</a></div>
                                 </td>
                             </tr>
 
@@ -427,6 +427,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { EmptyResultQuery } from &#x27;@shared/repo&#x27;;
 import { News } from &#x27;../entity&#x27;;
 import { NewsTargetFilter } from &#x27;./news-target-filter&#x27;;
 
@@ -442,8 +443,14 @@ export class NewsScope {
 		const queries: FilterQuery&lt;News&gt;[] &#x3D; targets.map((target) &#x3D;&gt; {
 			return { $and: [{ targetModel: target.targetModel }, { &#x27;target:in&#x27;: target.targetIds }] };
 		});
-		const combinedQuery &#x3D; queries.length &gt; 1 ? { $or: queries } : queries[0];
-		this.addQuery(combinedQuery);
+		if (queries.length &#x3D;&#x3D;&#x3D; 0) {
+			// mission impossile query to ensure empty query result
+			this.addQuery(EmptyResultQuery);
+		} else if (queries.length &#x3D;&#x3D;&#x3D; 1) {
+			this.addQuery(queries[0]);
+		} else {
+			this.addQuery({ $or: queries });
+		}
 		return this;
 	}
 

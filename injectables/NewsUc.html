@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:125</a></div>
                 </td>
             </tr>
 
@@ -590,8 +590,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:173</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:174</a></div>
                 </td>
             </tr>
 
@@ -675,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="135"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:135</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:136</a></div>
                 </td>
             </tr>
 
@@ -772,8 +772,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="178"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:178</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:184</a></div>
                 </td>
             </tr>
 
@@ -789,6 +789,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -803,18 +804,15 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>news with displayAt set to future date are not published for users with view permission</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Permission" target="_self" >Permission[]</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -845,8 +843,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:155</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:156</a></div>
                 </td>
             </tr>
 
@@ -941,8 +939,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:103</a></div>
                 </td>
             </tr>
 
@@ -1075,7 +1073,7 @@ export class NewsUc {
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 
 		const unpublished &#x3D; !!scope?.unpublished;
-		const permissions: Permission[] &#x3D; NewsUc.getRequiredPermissions(unpublished);
+		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
 		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, pagination);
@@ -1101,7 +1099,8 @@ export class NewsUc {
 		this.logger.log(&#x60;start find one news ${id}&#x60;);
 
 		const news &#x3D; await this.newsRepo.findOneById(id);
-		const requiredPermissions &#x3D; NewsUc.getRequiredPermissions(news.displayAt &gt; new Date());
+		const isPublished &#x3D; news.displayAt &gt; new Date();
+		const requiredPermissions &#x3D; NewsUc.getRequiredPermissions(isPublished);
 		await this.authorizationService.checkEntityPermissions(
 			userId,
 			news.targetModel,
@@ -1196,7 +1195,12 @@ export class NewsUc {
 		return permissions.filter((permission) &#x3D;&gt; permission.includes(&#x27;NEWS&#x27;));
 	}
 
-	private static getRequiredPermissions(unpublished: boolean): Permission[] {
+	/**
+	 *
+	 * @param unpublished news with displayAt set to future date are not published for users with view permission
+	 * @returns
+	 */
+	private static getRequiredPermissions(unpublished: boolean): [Permission] {
 		return unpublished ? [&#x27;NEWS_EDIT&#x27;] : [&#x27;NEWS_VIEW&#x27;];
 	}
 }
