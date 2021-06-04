@@ -24,91 +24,91 @@
 <title>cluster_ServerModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-195 710,-195 710,-70 8,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_ServerModule_providers</title>
-<polygon fill="none" stroke="black" points="556,-78 556,-130 702,-130 702,-78 556,-78"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_ServerModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 548,-130 548,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="170,-78 170,-130 702,-130 702,-78 170,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_ServerModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 162,-130 162,-78 16,-78"/>
 </g>
 <!-- AuthModule -->
 <g id="node1" class="node">
 <title>AuthModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="539.55,-122 536.55,-126 515.55,-126 512.55,-122 452.45,-122 452.45,-86 539.55,-86 539.55,-122"/>
-<text text-anchor="middle" x="496" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="693.55,-122 690.55,-126 669.55,-126 666.55,-122 606.45,-122 606.45,-86 693.55,-86 693.55,-122"/>
+<text text-anchor="middle" x="650" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
 </g>
 <!-- ServerModule -->
 <g id="node6" class="node">
 <title>ServerModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="385.08,-187 382.08,-191 361.08,-191 358.08,-187 288.92,-187 288.92,-151 385.08,-151 385.08,-187"/>
-<text text-anchor="middle" x="337" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="432.08,-187 429.08,-191 408.08,-191 405.08,-187 335.92,-187 335.92,-151 432.08,-151 432.08,-187"/>
+<text text-anchor="middle" x="384" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
 </g>
 <!-- AuthModule&#45;&gt;ServerModule -->
 <g id="edge1" class="edge">
 <title>AuthModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M496,-122.02C496,-139.37 496,-163 496,-163 496,-163 395.14,-163 395.14,-163"/>
-<polygon fill="black" stroke="black" points="395.14,-159.5 385.14,-163 395.14,-166.5 395.14,-159.5"/>
+<path fill="none" stroke="black" d="M650,-122.28C650,-143.32 650,-175 650,-175 650,-175 442.17,-175 442.17,-175"/>
+<polygon fill="black" stroke="black" points="442.17,-171.5 432.17,-175 442.17,-178.5 442.17,-171.5"/>
 </g>
 <!-- CoreModule -->
 <g id="node2" class="node">
 <title>CoreModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="434.26,-122 431.26,-126 410.26,-126 407.26,-122 347.74,-122 347.74,-86 434.26,-86 434.26,-122"/>
-<text text-anchor="middle" x="391" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="588.26,-122 585.26,-126 564.26,-126 561.26,-122 501.74,-122 501.74,-86 588.26,-86 588.26,-122"/>
+<text text-anchor="middle" x="545" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
 </g>
 <!-- CoreModule&#45;&gt;ServerModule -->
 <g id="edge2" class="edge">
 <title>CoreModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M366.33,-122.11C366.33,-122.11 366.33,-140.99 366.33,-140.99"/>
-<polygon fill="black" stroke="black" points="362.83,-140.99 366.33,-150.99 369.83,-140.99 362.83,-140.99"/>
+<path fill="none" stroke="black" d="M545,-122.02C545,-139.37 545,-163 545,-163 545,-163 442.31,-163 442.31,-163"/>
+<polygon fill="black" stroke="black" points="442.31,-159.5 432.31,-163 442.31,-166.5 442.31,-159.5"/>
 </g>
 <!-- NewsModule -->
 <g id="node3" class="node">
 <title>NewsModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="329.92,-122 326.92,-126 305.92,-126 302.92,-122 238.08,-122 238.08,-86 329.92,-86 329.92,-122"/>
-<text text-anchor="middle" x="284" y="-99.8" font-family="Times,serif" font-size="14.00">NewsModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="483.92,-122 480.92,-126 459.92,-126 456.92,-122 392.08,-122 392.08,-86 483.92,-86 483.92,-122"/>
+<text text-anchor="middle" x="438" y="-99.8" font-family="Times,serif" font-size="14.00">NewsModule</text>
 </g>
 <!-- NewsModule&#45;&gt;ServerModule -->
 <g id="edge3" class="edge">
 <title>NewsModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M309.33,-122.11C309.33,-122.11 309.33,-140.99 309.33,-140.99"/>
-<polygon fill="black" stroke="black" points="305.83,-140.99 309.33,-150.99 312.83,-140.99 305.83,-140.99"/>
+<path fill="none" stroke="black" d="M412.17,-122.11C412.17,-122.11 412.17,-140.99 412.17,-140.99"/>
+<polygon fill="black" stroke="black" points="408.67,-140.99 412.17,-150.99 415.67,-140.99 408.67,-140.99"/>
 </g>
 <!-- TaskModule -->
 <g id="node4" class="node">
 <title>TaskModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="220.26,-122 217.26,-126 196.26,-126 193.26,-122 133.74,-122 133.74,-86 220.26,-86 220.26,-122"/>
-<text text-anchor="middle" x="177" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="374.26,-122 371.26,-126 350.26,-126 347.26,-122 287.74,-122 287.74,-86 374.26,-86 374.26,-122"/>
+<text text-anchor="middle" x="331" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
 </g>
 <!-- TaskModule&#45;&gt;ServerModule -->
 <g id="edge4" class="edge">
 <title>TaskModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M177,-122.02C177,-139.37 177,-163 177,-163 177,-163 278.56,-163 278.56,-163"/>
-<polygon fill="black" stroke="black" points="278.56,-166.5 288.56,-163 278.56,-159.5 278.56,-166.5"/>
+<path fill="none" stroke="black" d="M355.17,-122.11C355.17,-122.11 355.17,-140.99 355.17,-140.99"/>
+<polygon fill="black" stroke="black" points="351.67,-140.99 355.17,-150.99 358.67,-140.99 351.67,-140.99"/>
 </g>
 <!-- UsersModule -->
 <g id="node5" class="node">
 <title>UsersModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="115.92,-122 112.92,-126 91.92,-126 88.92,-122 24.08,-122 24.08,-86 115.92,-86 115.92,-122"/>
-<text text-anchor="middle" x="70" y="-99.8" font-family="Times,serif" font-size="14.00">UsersModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="269.92,-122 266.92,-126 245.92,-126 242.92,-122 178.08,-122 178.08,-86 269.92,-86 269.92,-122"/>
+<text text-anchor="middle" x="224" y="-99.8" font-family="Times,serif" font-size="14.00">UsersModule</text>
 </g>
 <!-- UsersModule&#45;&gt;ServerModule -->
 <g id="edge5" class="edge">
 <title>UsersModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M70,-122.28C70,-143.32 70,-175 70,-175 70,-175 278.96,-175 278.96,-175"/>
-<polygon fill="black" stroke="black" points="278.96,-178.5 288.96,-175 278.96,-171.5 278.96,-178.5"/>
+<path fill="none" stroke="black" d="M224,-122.02C224,-139.37 224,-163 224,-163 224,-163 325.56,-163 325.56,-163"/>
+<polygon fill="black" stroke="black" points="325.56,-166.5 335.56,-163 325.56,-159.5 325.56,-166.5"/>
 </g>
 <!-- ServerService -->
 <g id="node7" class="node">
 <title>ServerService</title>
-<ellipse fill="#fdb462" stroke="black" cx="629" cy="-104" rx="65.38" ry="18"/>
-<text text-anchor="middle" x="629" y="-99.8" font-family="Times,serif" font-size="14.00">ServerService</text>
+<ellipse fill="#fdb462" stroke="black" cx="89" cy="-104" rx="65.38" ry="18"/>
+<text text-anchor="middle" x="89" y="-99.8" font-family="Times,serif" font-size="14.00">ServerService</text>
 </g>
 <!-- ServerService&#45;&gt;ServerModule -->
 <g id="edge6" class="edge">
 <title>ServerService&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M629,-122.28C629,-143.32 629,-175 629,-175 629,-175 395.22,-175 395.22,-175"/>
-<polygon fill="black" stroke="black" points="395.22,-171.5 385.22,-175 395.22,-178.5 395.22,-171.5"/>
+<path fill="none" stroke="black" d="M89,-122.28C89,-143.32 89,-175 89,-175 89,-175 325.95,-175 325.95,-175"/>
+<polygon fill="black" stroke="black" points="325.95,-178.5 335.95,-175 325.95,-171.5 325.95,-178.5"/>
 </g>
 </g>
 </svg>
