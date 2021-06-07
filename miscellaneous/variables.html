@@ -142,6 +142,9 @@
                             <a href="#writeErrorLog" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>writeErrorLog</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
+                            <a href="#writeValidationErrors" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>writeValidationErrors</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                        </li>
+                        <li>
                             <a href="#" title="apps/server/src/modules/task/repo/task.schema.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
                         </li>
                         <li>
@@ -658,6 +661,9 @@
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
 		} else if (isBusinessError(error)) {
 			logger.error(error, error.stack, &#x27;Business Error&#x27;);
+			if (error instanceof ApiValidationError) {
+				writeValidationErrors(error, logger);
+			}
 		} else if (isTechnicalError(error)) {
 			logger.error(error, error.stack, &#x27;Technical Error&#x27;);
 		} else {
@@ -666,6 +672,30 @@
 	} else {
 		logger.error(error, &#x27;Unknown error&#x27;);
 	}
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="writeValidationErrors"></a>
+                        <span class="name">
+                            <b>
+                            writeValidationErrors</b>
+                            <a href="#writeValidationErrors"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(error: ApiValidationError, logger: Logger) &#x3D;&gt; {
+	const errorMsg &#x3D; error.validationErrors.map((e) &#x3D;&gt; &#x60;Wrong property ${e.property} : ${JSON.stringify(e.constraints)}&#x60;);
+	logger.error(errorMsg, error.stack);
 }</code>
                         </td>
                     </tr>

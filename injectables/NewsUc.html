@@ -138,7 +138,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -229,8 +229,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:126</a></div>
                 </td>
             </tr>
 
@@ -409,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:52</a></div>
                 </td>
             </tr>
 
@@ -505,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:78</a></div>
                 </td>
             </tr>
 
@@ -590,8 +590,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:175</a></div>
                 </td>
             </tr>
 
@@ -675,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:137</a></div>
                 </td>
             </tr>
 
@@ -772,8 +772,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="184"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:184</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:185</a></div>
                 </td>
             </tr>
 
@@ -843,8 +843,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="156"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:156</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:157</a></div>
                 </td>
             </tr>
 
@@ -939,8 +939,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -1022,9 +1022,8 @@ import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/types&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
 import { Logger } from &#x27;../../../core/logger/logger.service&#x27;;
-import { News, NewsTargetModel, NewsTargetModelValue } from &#x27;../entity&#x27;;
+import { News, NewsTargetModel, NewsTargetModelValue, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
-import { ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity/news.types&#x27;;
 import { NewsTargetFilter } from &#x27;../repo/news-target-filter&#x27;;
 
 type Permission &#x3D; &#x27;NEWS_VIEW&#x27; | &#x27;NEWS_EDIT&#x27;;
@@ -1073,7 +1072,7 @@ export class NewsUc {
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 
 		const unpublished &#x3D; !!scope?.unpublished;
-		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
+		const permissions: Permission[] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
 		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, pagination);
@@ -1125,9 +1124,11 @@ export class NewsUc {
 		const news &#x3D; await this.newsRepo.findOneById(id);
 		await this.authorizationService.checkEntityPermissions(userId, news.targetModel, news.target.id, [&#x27;NEWS_EDIT&#x27;]);
 
-		// TODO find better way to update entity
-		if (params.title) {
-			news.title &#x3D; params.title;
+		// eslint-disable-next-line no-restricted-syntax
+		for (const [key, value] of Object.entries(params)) {
+			if (value) {
+				news[key] &#x3D; value;
+			}
 		}
 
 		await this.newsRepo.save(news);

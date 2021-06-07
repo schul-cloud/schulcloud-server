@@ -149,7 +149,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:102</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:111</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:122</a></div>
                 </td>
             </tr>
 
@@ -329,6 +329,7 @@
 import * as _ from &#x27;lodash&#x27;;
 import { Response } from &#x27;express&#x27;;
 import { BusinessError } from &#x27;@shared/error/business.error&#x27;;
+import { ApiValidationError } from &#x27;@shared/error/api-validation.error&#x27;;
 import { Logger } from &#x27;../../logger/logger.service&#x27;;
 import { ErrorResponse } from &#x27;../dto/error.response&#x27;;
 import { FeathersError } from &#x27;../interface&#x27;;
@@ -408,12 +409,20 @@ const createErrorResponse &#x3D; (error: any, logger: Logger): ErrorResponse &#x
 	}
 };
 
+const writeValidationErrors &#x3D; (error: ApiValidationError, logger: Logger) &#x3D;&gt; {
+	const errorMsg &#x3D; error.validationErrors.map((e) &#x3D;&gt; &#x60;Wrong property ${e.property} : ${JSON.stringify(e.constraints)}&#x60;);
+	logger.error(errorMsg, error.stack);
+};
+
 const writeErrorLog &#x3D; (error: any, logger: Logger): void &#x3D;&gt; {
 	if (error instanceof Error) {
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
 		} else if (isBusinessError(error)) {
 			logger.error(error, error.stack, &#x27;Business Error&#x27;);
+			if (error instanceof ApiValidationError) {
+				writeValidationErrors(error, logger);
+			}
 		} else if (isTechnicalError(error)) {
 			logger.error(error, error.stack, &#x27;Technical Error&#x27;);
 		} else {
