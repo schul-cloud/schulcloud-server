@@ -76,9 +76,6 @@
                             <a href="#CurrentUser" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>CurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
-                            <a href="#e2eConfig" title="apps/server/test/jest-e2e.config.ts"><b>e2eConfig</b>&nbsp;&nbsp;&nbsp;(apps/.../jest-e2e.config.ts)</a>
-                        </li>
-                        <li>
                             <a href="#EmptyResultQuery" title="apps/server/src/shared/repo/query/empty-result.query.ts"><b>EmptyResultQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../empty-result.query.ts)</a>
                         </li>
                         <li>
@@ -269,7 +266,8 @@
                             <i>Default value : </i><code>{
 	moduleFileExtensions: [&#x27;js&#x27;, &#x27;json&#x27;, &#x27;ts&#x27;],
 	rootDir: &#x27;.&#x27;,
-	testRegex: &#x27;\\.spec\\.ts$&#x27;,
+	/* we have tests in src/...*.spec.ts and test/...*.e2e-spec.ts either we test all files via &#x60;npm run nest:test&#x60; or override the regex in npm scripts to separate the execution via &#x60;npm run nest:test:spec&#x60; or &#x60;npm run nest:test:e2e&#x60; */
+	testRegex: &#x27;\\.(e2e-)?spec\\.ts$&#x27;,
 	// ignore legacy mocha tests
 	testPathIgnorePatterns: [&#x27;^src&#x27;, &#x27;^test&#x27;],
 	transform: {
@@ -284,6 +282,7 @@
 	moduleNameMapper: {
 		// add ts-config path&#x27;s here as regex
 		&#x27;^@shared/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/shared/$1&#x27;,
+		&#x27;^@src/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/$1&#x27;,
 	},
 }</code>
                         </td>
@@ -737,40 +736,6 @@
 </div>
                     </td>
                 </tr>
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/test/jest-e2e.config.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="e2eConfig"></a>
-                        <span class="name">
-                            <b>
-                            e2eConfig</b>
-                            <a href="#e2eConfig"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>Config.InitialOptions</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-	...jestConfig,
-	rootDir: &#x27;../../../&#x27;,
-	testRegex: &#x27;.e2e-spec.ts$&#x27;,
-}</code>
-                        </td>
-                    </tr>
-
 
             </tbody>
         </table>
