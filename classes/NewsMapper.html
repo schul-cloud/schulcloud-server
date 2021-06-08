@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:42</a></div>
                 </td>
             </tr>
 
@@ -211,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:28</a></div>
                 </td>
             </tr>
 
@@ -355,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:55</a></div>
                 </td>
             </tr>
 
@@ -426,6 +426,7 @@ export class NewsMapper {
 		dto.content &#x3D; news.content;
 		dto.displayAt &#x3D; news.displayAt;
 		dto.source &#x3D; news.source;
+		dto.sourceDescription &#x3D; news.sourceDescription;
 		dto.targetId &#x3D; news.target?.id;
 		dto.targetModel &#x3D; news.targetModel;
 		dto.school &#x3D; SchoolInfoMapper.mapToResponse(news.school);
@@ -456,7 +457,7 @@ export class NewsMapper {
 	static mapCreateNewsToDomain(params: CreateNewsParams): ICreateNews {
 		const dto &#x3D; {
 			title: params.title,
-			content: params.body,
+			content: params.content,
 			displayAt: params.displayAt,
 			target: {
 				targetModel: params.targetModel as NewsTargetModelValue,
@@ -469,7 +470,7 @@ export class NewsMapper {
 	static mapUpdateNewsToDomain(params: UpdateNewsParams): IUpdateNews {
 		const dto &#x3D; {
 			title: params.title,
-			content: params.body,
+			content: params.content,
 			displayAt: params.displayAt,
 		};
 		return dto;

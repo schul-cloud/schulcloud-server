@@ -88,7 +88,7 @@ A PartialType is a halper which allows to extend an existing class by making all
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#body">body</a>
+                                <a href="#content">content</a>
                             </li>
                             <li>
                                 <a href="#displayAt">displayAt</a>
@@ -119,11 +119,11 @@ A PartialType is a halper which allows to extend an existing class by making all
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="body"></a>
+                        <a name="content"></a>
                         <span class="name">
                             <b>
-                            body</b>
-                            <a href="#body"><span class="icon ion-ios-link"></span></a>
+                            content</b>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -138,13 +138,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />@IsOptional()<br />@IsString()<br />
+                                @IsOptional()<br />@IsString()<br />@ApiPropertyOptional({description: &#x27;Content of the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -174,13 +174,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />@IsOptional()<br />@IsDate()<br />
+                                @IsOptional()<br />@IsDate()<br />@ApiPropertyOptional({description: &#x27;The point in time from when the News entity schould be displayed&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -210,13 +210,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />@IsOptional()<br />@IsString()<br />
+                                @IsOptional()<br />@IsString()<br />@ApiPropertyOptional({description: &#x27;Title of the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/news/controller/dto/update-news.params.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -235,7 +235,7 @@ A PartialType is a halper which allows to extend an existing class by making all
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional, PartialType } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsDate, IsOptional, IsString } from &#x27;class-validator&#x27;;
 
 /**
@@ -243,19 +243,25 @@ import { IsDate, IsOptional, IsString } from &#x27;class-validator&#x27;;
  * A PartialType is a halper which allows to extend an existing class by making all its properties optional.
  */
 export class UpdateNewsParams {
-	@ApiPropertyOptional()
 	@IsOptional()
 	@IsString()
+	@ApiPropertyOptional({
+		description: &#x27;Title of the News entity&#x27;,
+	})
 	title: string;
 
-	@ApiPropertyOptional()
 	@IsOptional()
 	@IsString()
-	body: string;
+	@ApiPropertyOptional({
+		description: &#x27;Content of the News entity&#x27;,
+	})
+	content: string;
 
-	@ApiPropertyOptional()
 	@IsOptional()
 	@IsDate()
+	@ApiPropertyOptional({
+		description: &#x27;The point in time from when the News entity schould be displayed&#x27;,
+	})
 	displayAt: Date;
 }
 </code></pre>

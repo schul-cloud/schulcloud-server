@@ -130,13 +130,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;First name of the user&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -166,13 +166,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
+                                @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;The id of the User entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:5</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -202,13 +202,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;Last name of the user&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/news/controller/dto/user-info.response.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -230,13 +230,20 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export class UserInfoResponse {
-	@ApiProperty({ pattern: &#x27;[a-f0-9]{24}&#x27; })
+	@ApiProperty({
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+		description: &#x27;The id of the User entity&#x27;,
+	})
 	id: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;First name of the user&#x27;,
+	})
 	firstName: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;Last name of the user&#x27;,
+	})
 	lastName: string;
 }
 </code></pre>

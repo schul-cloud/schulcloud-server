@@ -106,10 +106,12 @@
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
+                                <a href="#sourceDescription">sourceDescription</a>
+                            </li>
+                            <li>
                                 <a href="#targetId">targetId</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#targetModel">targetModel</a>
                             </li>
                             <li>
@@ -164,13 +166,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;Content of the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -200,13 +202,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;The creation timestamp&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:75</a></div>
                             </td>
                         </tr>
 
@@ -236,13 +238,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;Reference to the User that created the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -272,13 +274,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;The point in time from when the News entity schould be displayed&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -308,13 +310,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
+                                @ApiProperty({description: &#x27;The id of the News entity&#x27;, pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -344,13 +346,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;List of permissions the current user has for the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:85</a></div>
                             </td>
                         </tr>
 
@@ -380,13 +382,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;The School ownership&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -417,13 +419,50 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional({type: &#x27;string&#x27;, enum: NEWS_SOURCES})<br />
+                                @ApiPropertyOptional({type: &#x27;string&#x27;, enum: NEWS_SOURCES, description: &#x27;The type of source of the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sourceDescription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Optional</span>
+                            sourceDescription</b>
+                            <a href="#sourceDescription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ApiPropertyOptional({description: &#x27;The source description of the News entity&#x27;})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -437,7 +476,6 @@
                         <a name="targetId"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Optional</span>
                             targetId</b>
                             <a href="#targetId"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -454,13 +492,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />
+                                @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the News entity is related&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:55</a></div>
                             </td>
                         </tr>
 
@@ -474,7 +512,6 @@
                         <a name="targetModel"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Optional</span>
                             targetModel</b>
                             <a href="#targetModel"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -491,13 +528,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />
+                                @ApiProperty({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the News entity is related&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -527,13 +564,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;Title of the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -563,13 +600,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiProperty()<br />
+                                @ApiProperty({description: &#x27;The update timestamp&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -600,13 +637,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ApiPropertyOptional()<br />
+                                @ApiPropertyOptional({description: &#x27;Reference to the User that updated the News entity&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -626,50 +663,89 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { Exclude, Expose, Type } from &#x27;class-transformer&#x27;;
+import { NewsTargetModel } from &#x27;../../entity&#x27;;
 import { SchoolInfoResponse } from &#x27;./school-info.response&#x27;;
 import { UserInfoResponse } from &#x27;./user-info.response&#x27;;
 
 const NEWS_SOURCES &#x3D; [&#x27;internal&#x27;, &#x27;rss&#x27;] as const;
+const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
+
 type SourceType &#x3D; typeof NEWS_SOURCES[number];
 export class NewsResponse {
-	@ApiProperty({ pattern: &#x27;[a-f0-9]{24}&#x27; })
+	@ApiProperty({
+		description: &#x27;The id of the News entity&#x27;,
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+	})
 	id: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;Title of the News entity&#x27;,
+	})
 	title: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;Content of the News entity&#x27;,
+	})
 	content: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;The point in time from when the News entity schould be displayed&#x27;,
+	})
 	displayAt: Date;
 
-	@ApiPropertyOptional({ type: &#x27;string&#x27;, enum: NEWS_SOURCES })
+	@ApiPropertyOptional({
+		type: &#x27;string&#x27;,
+		enum: NEWS_SOURCES,
+		description: &#x27;The type of source of the News entity&#x27;,
+	})
 	source?: SourceType;
 
-	@ApiPropertyOptional()
-	targetId?: string;
+	@ApiPropertyOptional({
+		description: &#x27;The source description of the News entity&#x27;,
+	})
+	sourceDescription?: string;
 
-	@ApiPropertyOptional()
-	targetModel?: string;
+	@ApiProperty({
+		enum: TARGET_MODEL_VALUES,
+		enumName: &#x27;NewsTargetModel&#x27;,
+		description: &#x27;Target model to which the News entity is related&#x27;,
+	})
+	targetModel: string;
 
-	@ApiProperty()
+	@ApiProperty({
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+		description: &#x27;Specific target id to which the News entity is related&#x27;,
+	})
+	targetId: string;
+
+	@ApiProperty({
+		description: &#x27;The School ownership&#x27;,
+	})
 	school: SchoolInfoResponse;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;Reference to the User that created the News entity&#x27;,
+	})
 	creator: UserInfoResponse;
 
-	@ApiPropertyOptional()
+	@ApiPropertyOptional({
+		description: &#x27;Reference to the User that updated the News entity&#x27;,
+	})
 	updater?: UserInfoResponse;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;The creation timestamp&#x27;,
+	})
 	createdAt: Date;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;The update timestamp&#x27;,
+	})
 	updatedAt: Date;
 
-	@ApiProperty()
+	@ApiProperty({
+		description: &#x27;List of permissions the current user has for the News entity&#x27;,
+	})
 	permissions: string[];
 }
 </code></pre>

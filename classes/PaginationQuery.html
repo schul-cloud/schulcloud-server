@@ -135,7 +135,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsInt()<br />@Min(1)<br />@Max(100)<br />@ApiProperty({description: &#x27;Page limit, defaults to 10.&#x27;, minimum: 1, maximum: 99})<br />
+                                @IsInt()<br />@Min(1)<br />@Max(100)<br />@ApiPropertyOptional({description: &#x27;Page limit, defaults to 10.&#x27;, minimum: 1, maximum: 99})<br />
                             </code>
                         </td>
                     </tr>
@@ -177,7 +177,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsInt()<br />@Min(0)<br />@ApiProperty({description: &#x27;number of elements (not pages) to be skipped&#x27;})<br />
+                                @IsInt()<br />@Min(0)<br />@ApiPropertyOptional({description: &#x27;Number of elements (not pages) to be skipped&#x27;})<br />
                             </code>
                         </td>
                     </tr>
@@ -203,18 +203,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsInt, Max, Min } from &#x27;class-validator&#x27;;
-import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 
 export class PaginationQuery {
 	@IsInt()
 	@Min(0)
-	@ApiProperty({ description: &#x27;number of elements (not pages) to be skipped&#x27; })
+	@ApiPropertyOptional({ description: &#x27;Number of elements (not pages) to be skipped&#x27; })
 	skip?: number &#x3D; 0;
 
 	@IsInt()
 	@Min(1)
 	@Max(100)
-	@ApiProperty({ description: &#x27;Page limit, defaults to 10.&#x27;, minimum: 1, maximum: 99 })
+	@ApiPropertyOptional({ description: &#x27;Page limit, defaults to 10.&#x27;, minimum: 1, maximum: 99 })
 	limit?: number &#x3D; 10;
 }
 </code></pre>

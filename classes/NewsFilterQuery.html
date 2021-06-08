@@ -134,13 +134,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsMongoId()<br />@IsOptional()<br />@ApiPropertyOptional()<br />
+                                @IsOptional()<br />@IsMongoId()<br />@ApiPropertyOptional({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the news are related (works only together with targetModel)&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -171,13 +171,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsString()<br />@IsOptional()<br />@IsIn(undefined)<br />@ApiProperty()<br />
+                                @IsOptional()<br />@IsString()<br />@IsIn(TARGET_MODEL_VALUES)<br />@ApiPropertyOptional({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the news are related&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -208,13 +208,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsOptional()<br />@IsBoolean()<br />@ToBoolean()<br />@ApiProperty()<br />
+                                @IsOptional()<br />@IsBoolean()<br />@ToBoolean()<br />@ApiPropertyOptional({description: &#x27;Flag that filters if the news should be published or not&#x27;})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -233,27 +233,38 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsBoolean, IsIn, IsMongoId, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import { ToBoolean } from &#x27;@shared/transformer&#x27;;
+import { NewsTargetModel } from &#x27;../../entity&#x27;;
 
-// TODO validate
+const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
+
 export class NewsFilterQuery {
-	@IsString()
 	@IsOptional()
-	@IsIn([&#x27;schools&#x27;, &#x27;courses&#x27;, &#x27;teams&#x27;])
-	@ApiProperty()
+	@IsString()
+	@IsIn(TARGET_MODEL_VALUES)
+	@ApiPropertyOptional({
+		enum: TARGET_MODEL_VALUES,
+		enumName: &#x27;NewsTargetModel&#x27;,
+		description: &#x27;Target model to which the news are related&#x27;,
+	})
 	targetModel?: string;
 
-	@IsMongoId()
 	@IsOptional()
-	@ApiPropertyOptional()
+	@IsMongoId()
+	@ApiPropertyOptional({
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+		description: &#x27;Specific target id to which the news are related (works only together with targetModel)&#x27;,
+	})
 	targetId?: string;
 
 	@IsOptional()
 	@IsBoolean()
 	@ToBoolean()
-	@ApiProperty()
+	@ApiPropertyOptional({
+		description: &#x27;Flag that filters if the news should be published or not&#x27;,
+	})
 	unpublished?: boolean;
 }
 </code></pre>
