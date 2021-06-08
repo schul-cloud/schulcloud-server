@@ -24,10 +24,7 @@ const exportSchool = async (schoolId) => schoolModel.findById(schoolId).exec();
 
 const exportCourses = (schoolId) => courseModel.collection.find({ schoolId: ObjectId(schoolId) }).toArray();
 
-const exportUsers = async (schoolId) => {
-	const userCursor = await userModel.collection.find({ schoolId: ObjectId(schoolId) });
-	return userCursor.toArray();
-};
+const exportUsers = async (schoolId) => userModel.find({ schoolId }).exec();
 
 const exportAccounts = async (userId) => accountModel.findOne({ userId }).exec();
 
@@ -59,6 +56,18 @@ const exportSubmissions = async (schoolId) => submissionModel.find({ schoolId })
 
 const exportNews = async (schoolId) => newsModel.find({ schoolId }).exec();
 
+const exportErrors = [];
+const validateSchema = async (document, model) => {
+	model
+		.validate(document)
+		.then(() => true)
+		.catch((err) => {
+			exportErrors.push(err.message);
+			exportErrors.push(document._id);
+			return false;
+		});
+};
+
 appPromise
 	.then(async () => {
 		const targetFile = process.argv[2];
@@ -82,11 +91,11 @@ appPromise
 			submissions: [],
 		};
 
-		const schoolId = '5f2987e020834114b8efd6f8';
+		const schoolId = '5c06890bf5e1230013857639';
 		const users = await exportUsers(schoolId);
-		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id)))).filter(
-			(el) => el !== null && el !== ''
-		);
+		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
 		const accounts = (await Promise.all(users.map((u) => exportAccounts(u._id)))).filter((el) => el !== null);
 		const teams = await exportTeams(schoolId);
 		const teamFiles = (await Promise.all(teams.map((t) => exportTeamFiles(t._id)))).filter(
@@ -142,6 +151,7 @@ appPromise
 		const fullJsonString = JSON.stringify(fullJson);
 
 		await fs.writeFile(targetFile, fullJsonString);
+		console.log(exportErrors);
 
 		return process.exit(0);
 	})
