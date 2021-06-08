@@ -494,6 +494,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/JwtAuthGuard.html" data-type="entity-link">JwtAuthGuard</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/MongoMemoryDatabaseProvider.html" data-type="entity-link">MongoMemoryDatabaseProvider</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/ParseObjectIdPipe.html" data-type="entity-link">ParseObjectIdPipe</a>
                                 </li>
                                 <li class="link">
