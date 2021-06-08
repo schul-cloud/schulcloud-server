@@ -149,7 +149,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:117</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:125</a></div>
                 </td>
             </tr>
 
@@ -410,7 +410,10 @@ const createErrorResponse &#x3D; (error: any, logger: Logger): ErrorResponse &#x
 };
 
 const writeValidationErrors &#x3D; (error: ApiValidationError, logger: Logger) &#x3D;&gt; {
-	const errorMsg &#x3D; error.validationErrors.map((e) &#x3D;&gt; &#x60;Wrong property ${e.property} : ${JSON.stringify(e.constraints)}&#x60;);
+	const errorMsg &#x3D; error.validationErrors.map(
+		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+		(e) &#x3D;&gt; &#x60;Wrong property ${e.property} got ${e.value} : ${JSON.stringify(e.constraints)}&#x60;
+	);
 	logger.error(errorMsg, error.stack);
 };
 
