@@ -1020,8 +1020,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/types&#x27;;
+import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
-import { Logger } from &#x27;../../../core/logger/logger.service&#x27;;
 import { News, NewsTargetModel, NewsTargetModelValue, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
 import { NewsTargetFilter } from &#x27;../repo/news-target-filter&#x27;;
