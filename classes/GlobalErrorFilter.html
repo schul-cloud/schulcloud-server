@@ -371,7 +371,7 @@ function createErrorResponseForBusinessError(error: BusinessError): ErrorRespons
 	return response;
 }
 
-function createErrorResponseForUnknownError(error?: Error): ErrorResponse {
+function createErrorResponseForUnknownError(error?: unknown): ErrorResponse {
 	const unknownError &#x3D; new InternalServerErrorException(error);
 	const response &#x3D; createErrorResponseForHttpException(unknownError);
 	return response;
@@ -384,7 +384,7 @@ function createErrorResponseForFeathersError(error: FeathersError) {
 	return new ErrorResponse(snakeType, startTitle, message, code);
 }
 
-const createErrorResponse &#x3D; (error: any, logger: Logger): ErrorResponse &#x3D;&gt; {
+const createErrorResponse &#x3D; (error: unknown, logger: Logger): ErrorResponse &#x3D;&gt; {
 	try {
 		if (error instanceof Error) {
 			if (isFeathersError(error)) {
@@ -417,7 +417,7 @@ const writeValidationErrors &#x3D; (error: ApiValidationError, logger: Logger) &
 	logger.error(errorMsg, error.stack);
 };
 
-const writeErrorLog &#x3D; (error: any, logger: Logger): void &#x3D;&gt; {
+const writeErrorLog &#x3D; (error: unknown, logger: Logger): void &#x3D;&gt; {
 	if (error instanceof Error) {
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
@@ -437,7 +437,7 @@ const writeErrorLog &#x3D; (error: any, logger: Logger): void &#x3D;&gt; {
 };
 
 @Catch()
-export class GlobalErrorFilter&lt;T &#x3D; any&gt; implements ExceptionFilter&lt;T&gt; {
+export class GlobalErrorFilter&lt;T &#x3D; unknown&gt; implements ExceptionFilter&lt;T&gt; {
 	private static readonly logger &#x3D; new Logger(&#x27;Error&#x27;);
 
 	// eslint-disable-next-line class-methods-use-this

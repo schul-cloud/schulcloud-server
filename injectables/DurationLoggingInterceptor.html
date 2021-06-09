@@ -191,7 +191,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                        <b>Returns : </b>    <code>Observable&lt;unknown&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -253,7 +253,7 @@ import { Logger } from &#x27;../../core/logger/logger.service&#x27;;
 export class DurationLoggingInterceptor implements NestInterceptor {
 	private readonly logger &#x3D; new Logger(DurationLoggingInterceptor.name);
 
-	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
+	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;unknown&gt; {
 		this.logger.verbose(&#x27;Before...&#x27;);
 		const now &#x3D; Date.now();
 		return next.handle().pipe(tap(() &#x3D;&gt; this.logger.verbose(&#x60;After... ${Date.now() - now}ms&#x60;)));

@@ -61,6 +61,9 @@
                             <a href="#API_PATH" title="apps/server/src/main.ts"><b>API_PATH</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
                         </li>
                         <li>
+                            <a href="#Authenticate" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>Authenticate</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
+                        </li>
+                        <li>
                             <a href="#config" title="jest.config.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(jest.config.ts)</a>
                         </li>
                         <li>
@@ -91,9 +94,6 @@
                             <a href="#jwtConstants" title="apps/server/src/modules/authentication/constants.ts"><b>jwtConstants</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
-                            <a href="#jwtOptionsProvider" title="apps/server/src/modules/authentication/jwt-options.provider.ts"><b>jwtOptionsProvider</b>&nbsp;&nbsp;&nbsp;(apps/.../jwt-options.provider.ts)</a>
-                        </li>
-                        <li>
                             <a href="#LessonSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>LessonSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
                         </li>
                         <li>
@@ -113,6 +113,9 @@
                         </li>
                         <li>
                             <a href="#serverErrorTypes" title="apps/server/src/core/error/server-error-types.ts"><b>serverErrorTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#STRATEGIES" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>STRATEGIES</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
                             <a href="#SubmissionSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>SubmissionSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
@@ -243,6 +246,102 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>&#x27;v3&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/authentication/decorator/auth.decorator.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Authenticate"></a>
+                        <span class="name">
+                            <b>
+                            Authenticate</b>
+                            <a href="#Authenticate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(...strategies: Strategies) &#x3D;&gt; {
+	if (strategies.includes(&#x27;jwt&#x27;)) {
+		const decorators &#x3D; [
+			// apply jwt authentication
+			UseGuards(JwtAuthGuard),
+			// add jwt authentication to openapi spec
+			ApiBearerAuth(),
+		];
+		return applyDecorators(...decorators);
+	}
+	throw new ForbiddenException(&#x27;jwt strategy required&#x27;);
+}</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Authentication Decorator taking care of require authentication header to be present, setting up the user context and extending openAPI spec.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CurrentUser"></a>
+                        <span class="name">
+                            <b>
+                            CurrentUser</b>
+                            <a href="#CurrentUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>createParamDecorator&lt;any, any, ICurrentUser&gt;((data: unknown, ctx: ExecutionContext) &#x3D;&gt; {
+	const { user }: Request &#x3D; ctx.switchToHttp().getRequest();
+	if (!user)
+		throw new UnauthorizedException(
+			&#x27;CurrentUser missing in request context. This route requires jwt authentication guard enabled.&#x27;
+		);
+	return user as ICurrentUser;
+})</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Returns the current authenticated user.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="STRATEGIES"></a>
+                        <span class="name">
+                            <b>
+                            STRATEGIES</b>
+                            <a href="#STRATEGIES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;jwt&#x27;] as const</code>
                         </td>
                     </tr>
 
@@ -519,7 +618,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>(error: any, logger: Logger): ErrorResponse &#x3D;&gt; {
+                            <i>Default value : </i><code>(error: unknown, logger: Logger): ErrorResponse &#x3D;&gt; {
 	try {
 		if (error instanceof Error) {
 			if (isFeathersError(error)) {
@@ -673,7 +772,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>(error: any, logger: Logger): void &#x3D;&gt; {
+                            <i>Default value : </i><code>(error: unknown, logger: Logger): void &#x3D;&gt; {
 	if (error instanceof Error) {
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
@@ -721,43 +820,6 @@
                         </td>
                     </tr>
 
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/authentication/decorator/auth.decorator.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="CurrentUser"></a>
-                        <span class="name">
-                            <b>
-                            CurrentUser</b>
-                            <a href="#CurrentUser"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>createParamDecorator&lt;any, any, ICurrentUser&gt;((data: unknown, ctx: ExecutionContext) &#x3D;&gt; {
-	const { user } &#x3D; ctx.switchToHttp().getRequest();
-	if (!user)
-		throw new UnauthorizedException(
-			&#x27;CurrentUser missing in request context. This route requires jwt authentication guard enabled.&#x27;
-		);
-	return user as ICurrentUser;
-})</code>
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Returns the current authenticated user.</p>
-</div>
-                    </td>
-                </tr>
 
             </tbody>
         </table>
@@ -846,42 +908,6 @@ it should ensure an empty result</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>externalAuthConfig</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/authentication/jwt-options.provider.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="jwtOptionsProvider"></a>
-                        <span class="name">
-                            <b>
-                            jwtOptionsProvider</b>
-                            <a href="#jwtOptionsProvider"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-	provide: &#x27;JWT_MODULE_OPTIONS&#x27;,
-	useValue: {
-		secret: jwtConstants.secret,
-		signOptions: { expiresIn: &#x27;60s&#x27; },
-	},
-}</code>
                         </td>
                     </tr>
 

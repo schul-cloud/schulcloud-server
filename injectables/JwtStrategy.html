@@ -76,7 +76,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#validate">validate</a>
                             </li>
                         </ul>
@@ -122,7 +121,6 @@
                     <a name="validate"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
                             validate
                         </b>
                         <a href="#validate"><span class="icon ion-ios-link"></span></a>
@@ -131,8 +129,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(payload: <a href="../interfaces/JwtPayload.html">JwtPayload</a>)</code>
+<code>validate(payload: <a href="../interfaces/JwtPayload.html">JwtPayload</a>)</code>
                 </td>
             </tr>
 
@@ -177,7 +174,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/JwtPayload.html" target="_self" >JwtPayload</a></code>
 
                     </div>
                     <div class="io-description">
@@ -210,7 +207,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 		});
 	}
 
-	async validate(payload: JwtPayload) {
+	validate(payload: JwtPayload): JwtPayload {
 		// TODO check jwt is whitelisted
 		// TODO check user exist/is active
 		return payload;
