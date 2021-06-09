@@ -92,55 +92,58 @@ appPromise
 		};
 
 		const schoolId = '5c06890bf5e1230013857639';
-		const users = await exportUsers(schoolId);
+		const users = (await exportUsers(schoolId)).filter((el) => validateSchema(el, userModel));
 		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id))))
 			.flat()
 			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
-		const accounts = (await Promise.all(users.map((u) => exportAccounts(u._id)))).filter((el) => el !== null);
-		const teams = await exportTeams(schoolId);
-		const teamFiles = (await Promise.all(teams.map((t) => exportTeamFiles(t._id)))).filter(
-			(el) => el !== null && el !== ''
+		const accounts = (await Promise.all(users.map((u) => exportAccounts(u._id)))).filter(
+			(el) => el !== null && validateSchema(el, accountModel)
 		);
-		const courses = await exportCourses(schoolId);
-		const courseFiles = (await Promise.all(courses.map((c) => exportCourseFiles(c._id)))).filter(
-			(el) => el !== null && el !== ''
-		);
-		const courseGroups = (await Promise.all(courses.map((c) => exportCourseGroups(c._id)))).filter(
-			(el) => el !== null && el !== ''
-		);
-		const ltiTools = (await Promise.all(courses.map((c) => exportLtiTools(c.ltiToolIds)))).filter(
-			(el) => el !== null && el !== ''
-		);
-		const lessons = (await Promise.all(courses.map((c) => exportLessons(c._id)))).filter(
-			(el) => el !== null && el !== ''
-		);
-		const passwordRecoveries = (await Promise.all(accounts.map((a) => exportPasswordRecoveries(a._id)))).filter(
-			(el) => el !== null && el !== ''
-		);
+		const teams = (await exportTeams(schoolId)).filter((el) => validateSchema(el, teamsModel));
+		const teamFiles = (await Promise.all(teams.map((t) => exportTeamFiles(t._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
+		const courses = (await exportCourses(schoolId)).filter((el) => validateSchema(el, courseModel));
+		const courseFiles = (await Promise.all(courses.map((c) => exportCourseFiles(c._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
+		const courseGroups = (await Promise.all(courses.map((c) => exportCourseGroups(c._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, courseGroupModel));
+		const ltiTools = (await Promise.all(courses.map((c) => exportLtiTools(c.ltiToolIds))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, ltiToolModel));
+		const lessons = (await Promise.all(courses.map((c) => exportLessons(c._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, LessonModel));
+		const passwordRecoveries = (await Promise.all(accounts.map((a) => exportPasswordRecoveries(a._id))))
+			.flat()
+			.filter((el) => el !== null && el !== '' && validateSchema(el, passwordRecoveryModel));
 		const rocketChatUsers = (await Promise.all(users.map((u) => exportRocketChatUsers(u._id)))).filter(
-			(el) => el !== null
+			(el) => el !== null && validateSchema(el, rocketChatUserModel)
 		);
 		const rocketChatChannels = (await Promise.all(teams.map((t) => exportRocketChatChannels(t._id)))).filter(
-			(el) => el !== null
+			(el) => el !== null && validateSchema(el, rocketChatChannelModel)
 		);
-		const classes = await exportClasses(schoolId);
-		const homework = await exportHomework(schoolId);
-		const news = await exportNews(schoolId);
-		const submissions = await exportSubmissions(schoolId);
+		const classes = (await exportClasses(schoolId)).filter((el) => validateSchema(el, classModel));
+		const homework = (await exportHomework(schoolId)).filter((el) => validateSchema(el, homeworkModel));
+		const news = (await exportNews(schoolId)).filter((el) => validateSchema(el, newsModel));
+		const submissions = (await exportSubmissions(schoolId)).filter((el) => validateSchema(el, submissionModel));
 
 		fullJson.school = (await exportSchool(schoolId)).toJSON();
+		validateSchema(fullJson.school, schoolModel);
 		fullJson.courses = lodash.uniqBy(courses, (e) => e._id.toString());
 		fullJson.teams = lodash.uniqBy(teams, (e) => e._id.toString()).map((c) => c.toJSON());
 		fullJson.users = lodash.uniqBy(users, (e) => e._id.toString());
 		fullJson.accounts = lodash.uniqBy(accounts, (e) => e._id.toString()).map((a) => a.toJSON());
-		teamFiles.flat().map((f) => fullJson.files.push(f));
-		courseFiles.flat().map((f) => fullJson.files.push(f));
-		userFiles.flat().map((f) => fullJson.files.push(f));
+		teamFiles.map((f) => fullJson.files.push(f));
+		courseFiles.map((f) => fullJson.files.push(f));
+		userFiles.map((f) => fullJson.files.push(f));
 		fullJson.files = lodash.uniqBy(fullJson.files, (e) => e._id.toString());
-		fullJson.courseGroups = lodash.uniqBy(courseGroups.flat(), (e) => e._id.toString());
-		fullJson.ltiTools = lodash.uniqBy(ltiTools.flat(), (e) => e._id.toString());
-		fullJson.lessons = lodash.uniqBy(lessons.flat(), (e) => e._id.toString());
-		fullJson.passwordRecoveries = lodash.uniqBy(passwordRecoveries.flat(), (e) => e._id.toString());
+		fullJson.courseGroups = lodash.uniqBy(courseGroups, (e) => e._id.toString());
+		fullJson.ltiTools = lodash.uniqBy(ltiTools, (e) => e._id.toString());
+		fullJson.lessons = lodash.uniqBy(lessons, (e) => e._id.toString());
+		fullJson.passwordRecoveries = lodash.uniqBy(passwordRecoveries, (e) => e._id.toString());
 		fullJson.rocketChatUsers = lodash.uniqBy(rocketChatUsers, (e) => e._id.toString()).map((u) => u.toJSON());
 		fullJson.rocketChatChannels = lodash.uniqBy(rocketChatChannels, (e) => e._id.toString()).map((c) => c.toJSON());
 		fullJson.classes = lodash.uniqBy(classes, (e) => e._id.toString()).map((c) => c.toJSON());
@@ -152,7 +155,6 @@ appPromise
 
 		await fs.writeFile(targetFile, fullJsonString);
 		console.log(exportErrors);
-
 		return process.exit(0);
 	})
 	.catch((error) => {
