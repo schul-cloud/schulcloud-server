@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:38</a></div>
                 </td>
             </tr>
 
@@ -271,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:17</a></div>
                 </td>
             </tr>
 
@@ -341,8 +341,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:32</a></div>
                 </td>
             </tr>
 
@@ -435,6 +435,9 @@ export class NewsScope {
 	private _queries: FilterQuery&lt;News&gt;[] &#x3D; [];
 
 	get query(): FilterQuery&lt;News&gt; {
+		if (this._queries.length &#x3D;&#x3D;&#x3D; 0) {
+			return EmptyResultQuery;
+		}
 		const query &#x3D; this._queries.length &gt; 1 ? { $and: this._queries } : this._queries[0];
 		return query;
 	}
