@@ -143,8 +143,8 @@ This will not stop the running services behind the controller.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:15</a></div>
                 </td>
             </tr>
 
@@ -263,6 +263,7 @@ export class TimeoutInterceptor implements NestInterceptor {
 	protected static readonly defaultTimeout &#x3D; 5000;
 
 	// constructor(private readonly timeoutMs: number &#x3D; 5000) {}
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
 		return next.handle().pipe(
 			timeout(TimeoutInterceptor.defaultTimeout),
