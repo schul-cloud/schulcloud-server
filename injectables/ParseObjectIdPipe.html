@@ -111,15 +111,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transform(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>transform(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/shared/pipe/parse-object-id.pipe.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/shared/pipe/parse-object-id.pipe.ts:7</a></div>
                 </td>
             </tr>
 
@@ -141,7 +141,7 @@
                                 <tr>
                                     <td>value</td>
                                     <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -156,7 +156,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Types.ObjectId</code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -174,10 +174,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PipeTransform, Injectable, BadRequestException } from &#x27;@nestjs/common&#x27;;
 import { Types } from &#x27;mongoose&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
-export class ParseObjectIdPipe implements PipeTransform&lt;any, Types.ObjectId&gt; {
-	transform(value: any): Types.ObjectId {
+export class ParseObjectIdPipe implements PipeTransform&lt;string, EntityId&gt; {
+	transform(value: string): string {
 		const validObjectId &#x3D; Types.ObjectId.isValid(value);
 
 		if (!validObjectId) {
