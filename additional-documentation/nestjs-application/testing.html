@@ -1,0 +1,343 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schulcloud-server documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+	      <link rel="stylesheet" href="../../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../../" class="navbar-brand">schulcloud-server documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+<h1 id="testing">Testing</h1>
+<p>Automated testing is the essential part of the software development process. 
+It improves the code quality and ensure that the code operates correctly especially after refactoring. </p>
+<p><img src="../../assets/testing-hierarchy.png" alt="Testing Hierarchy" class="img-responsive"></p>
+<p>Our goal is to test each application layer mostly independent of others.</p>
+<ul>
+<li><strong>Repo tests</strong> operate on data access layer. 
+They prove that the database queries are executed correctly. </li>
+<li><strong>Use case tests</strong> operate on logic layer. 
+They verify the correct implementation of the business requirements.</li>
+<li><strong>Mapper tests</strong> operate between logic and service layer.
+They verify the correct mapping between domain objects and objects delivered to the clients via REST API.</li>
+<li><strong>End-to-end tests</strong> operate on all layers of the application. 
+The testing endpoint is the service layer. These tests verify the availability of the expected endpoints and checks 
+the expected status codes and the structure of the received objects.</li>
+</ul>
+<h2 id="testing-utilities">Testing Utilities</h2>
+<p>NestJS:</p>
+<ul>
+<li>provides default tooling (such as test runner that builds an isolated module/application loader)</li>
+<li>provides integration with <strong>Jest</strong> and <strong>Supertest</strong> out of the box</li>
+<li>makes the Nest dependency injection system available in the testing environment for mocking components</li>
+</ul>
+<p>The <code>@nestjs/testing.Test</code> class provides an execution context that mocks the full Nest runtime, but gives
+hooks that can help to manage class instances, including mocking and overriding.</p>
+<p>The method <code>Test.createTestingModule()</code> takes module metadata as argument it returns <code>TestingModule</code> instance.
+The <code>TestingModule</code> instance provides method <code>compile()</code> which bootstraps a module with its dependencies.
+Every provider can be overwritten with custom provider implementation for testing purposes.</p>
+<div><pre class="line-numbers"><code class="language-Typescript">  beforeAll(async () =&gt; {
+      const moduleRef = await Test.createTestingModule({
+          controllers: [SampleController],
+          providers: [SampleService],
+        }).compile();
+
+      sampleService = moduleRef.get&lt;SampleService&gt;(SampleService);
+      sampleController = moduleRef.get&lt;SampleController&gt;(CatsController);
+    });</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
+<p>In Unit Tests we access directly only the layer which is currently testing. 
+Other layers should be mocked or are replaced with default testing implementation.
+Especially the database access and database calls should be mocked.</p>
+<p>In contrast to unit tests the integration tests use access to the database and execute
+real queries using repositories.</p>
+<h3 id="repo-tests">Repo Tests</h3>
+<p>For the data access layer, integration tests can be used to check the repositories base functionality against a database.</p>
+<p>For Queries care DRY principle, they should be tested very carefully.</p>
+<blockquote>
+<p>Use a in-memory database for testing to allow parallel test execution and have isolated execution of tests. </p>
+</blockquote>
+<blockquote>
+<p>A test must define the before and after state of the data set clearly and cleanup the database after execution to the before state. </p>
+</blockquote>
+<blockquote>
+<p>Instead of using predefined data sets, all preconditions should be defined in code through fixtures.</p>
+</blockquote>
+<p>Our repository layer uses <code>mikro-orm/EntityManager</code> to execute the queries. 
+By testing repositories we want to verify the correct behaviour of the repository functions.
+It includes verifying expected database state after executed repository function. 
+Therefore, the <code>*.repo.integration.spec.js</code> should be used.</p>
+<p>The basic structure of the repo integration test:</p>
+<h4 id="preconditions-beforeall">Preconditions (beforeAll):</h4>
+<ol>
+<li>Define <code>MongoMemoryServer</code></li>
+<li>Create <code>Nest JS testing module</code>: 
+2.1 with <code>MikroOrmModule</code> defining entities which are used in tests.
+2.2 provide the repo which should be tested</li>
+<li>Get repo, orm and entityManager from testing module</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-TypeScript">    beforeAll(async () =&gt; {
+        mongod = new MongoMemoryServer();                               (1)
+        const dbUrl = await mongod.getUri();
+        const module: TestingModule = await Test.createTestingModule({  (2)
+             imports: [
+                 MikroOrmModule.forRoot({                               (2.1)
+                     type: &#39;mongo&#39;,
+                     clientUrl: dbUrl,
+                     entities: [News, CourseNews, ...],
+                 }),
+              ],
+             providers: [NewsRepo],                                     (2.2)                          
+      }).compile();
+      repo = module.get&lt;NewsRepo&gt;(NewsRepo);                            (3)
+      orm = module.get&lt;MikroORM&gt;(MikroORM);
+      em = module.get&lt;EntityManager&gt;(EntityManager);
+    })</code></pre></div><h4 id="post-conditions-afterall">Post conditions (afterAll)</h4>
+<p>After all tests are executed close the app and orm to release the resources</p>
+<div><pre class="line-numbers"><code class="language-TypeScript">    afterAll(async () =&gt; {
+        await orm.close();
+        await mongod.stop();         
+    });
+</code></pre></div><h3 id="mapping-tests">Mapping Tests</h3>
+<p>Mapping tests are Unit Tests which verify the correct mapping between entities and Dto objects. 
+These tests should not have any external dependencies to other layers like database or use cases.</p>
+<h3 id="use-case-tests">Use Case Tests</h3>
+<p>Use case tests are Unit Tests which verify the business logic of the application. 
+The database calls are mocked and spyied. So we can check how and with which parameters the repo functions are called.</p>
+<blockquote>
+<p>Use unit-tests to ensure a use-cases logic matches the given requirements (from a [user-]story). </p>
+</blockquote>
+<blockquote>
+<p>A unit test should cover preconditions, allowed input, the result, and expected exceptions defined by the story, and roughly what happens on malformed input (the execution should stop).</p>
+</blockquote>
+<h4 id="preconditions">Preconditions</h4>
+<ol>
+<li>Create <code>Nest JS testing module</code></li>
+<li>Use <code>Repo</code> as provider reimplement the repo functions with some default implementations</li>
+<li>Provide other dependencies like <code>AuthorizationService</code> and provide default implementation for the function, which are called. </li>
+<li>Get repo and uc from testing module</li>
+</ol>
+<div><pre class="line-numbers"><code class="language-TypeScript">      const module: TestingModule = await Test.createTestingModule({ (1)
+            imports: [LoggerModule],
+            providers: [
+                NewsUc,
+                {
+                    provide: NewsRepo,                                  (2)
+                    useValue: {
+                        save() {
+                            ...
+                        },
+                        findAll() {
+                            ...
+                        },
+                    },
+                },
+                {
+                    provide: AuthorizationService,                      (3)
+                    useValue: {
+                        getPermittedEntities(userId, targetModel, permissions) {
+                            ...
+                        },
+                    },
+                },
+            ],
+        }).compile();
+
+        service = module.get&lt;NewsUc&gt;(NewsUc);                           (4)
+        repo = module.get&lt;NewsRepo&gt;(NewsRepo);</code></pre></div><h4 id="test">Test</h4>
+<ol>
+<li>Spy repo function which is called inside the tested use case</li>
+<li>Call the tested function</li>
+<li>Verify that the repo spy is called with the expected functions<div><pre class="line-numbers"><code class="language-Typescript">     it(&#39;should search for news by empty scope &#39;, async () =&gt; {
+         const findAllSpy = jest.spyOn(repo, &#39;findAll&#39;);             (1)
+         await service.findAllForUser(userId, scope, pagination);    (2)
+         const expectedParams = [targets, false, pagination];
+         expect(findAllSpy).toHaveBeenCalledWith(...expectedParams); (3)
+     });</code></pre></div></li>
+</ol>
+<h2 id="e2e-tests">E2E Tests</h2>
+<p>Unlike unit testing, which focuses on individual modules, end-to-end testing covers the interaction between classes and
+modules at a more aggregate level. Automated end-to-end tests help us to ensure that the overall behavior of the system is correct.</p>
+<h3 id="controller-tests">Controller Tests</h3>
+<p>To test the setup behind a controller, use e2e-tests to ensure, use cases and repositories below 
+are correctly mounted and available at a specific path.</p>
+<blockquote>
+<p>A controller unit test should ensure it responds with the correct data-format and a referenced use-case is called correctly.</p>
+</blockquote>
+<blockquote>
+<p>Authentication and response codes can be unit tested.</p>
+</blockquote>
+<blockquote>
+<p>Do not test logic (from the business layer or repository) in e2e-tests, this must be done where the logic is defined within of a unit test. A e2e test should only ensure everything is correctly initialized.</p>
+</blockquote>
+<blockquote>
+<p>Do not put logic (beside mapping) inside a controller, use the logic layer instead. Mapping can be unit tested.</p>
+</blockquote>
+<h4 id="preconditions-1">Preconditions</h4>
+<ol>
+<li><p>Create Nest testing module</p>
+</li>
+<li><p>Import <code>ServerModule</code> as the whole</p>
+</li>
+<li><p>Override authentication using <code>JwAuthGuard</code></p>
+</li>
+<li><p>1 Override authorized user with the mocked user data</p>
+</li>
+<li><p>Override other services for example for authorization</p>
+</li>
+<li><p>Create and initialize the whole Nest Application using <code>createNestApplication()</code></p>
+</li>
+<li><p>Get Orm and Entity Manager from module</p>
+<div><pre class="line-numbers"><code class="language-Typescript">
+ beforeAll(async () =&gt; {
+     const module: TestingModule = await Test.createTestingModule({  (1)
+         imports: [ServerModule],                                    (2)
+     })
+         .overrideGuard(JwtAuthGuard)                                (3)
+         .useValue({
+             canActivate(context: ExecutionContext) {
+                 const req: Request = context.switchToHttp().getRequest();
+                 req.user = {                                        (3.1)
+                         userId: &#39;0000d224816abba584714c9c&#39;,
+                         roles: [],
+                         schoolId: &#39;5f2987e020834114b8efd6f8&#39;,
+                         accountId: &#39;0000d225816abba584714c9d&#39;,
+                 };                                      
+                 return true;
+             },
+         })
+         .overrideProvider(AuthorizationService)                     (4)
+         .useValue({
+             checkEntityPermissions() {},
+             getEntityPermissions() {
+                 return [&#39;NEWS_VIEW&#39;, &#39;NEWS_EDIT&#39;];
+             },
+         })
+         .compile();
+
+     app = module.createNestApplication();                           (5)
+     await app.init();
+     orm = module.get&lt;MikroORM&gt;(MikroORM);                           (6)
+     em = module.get&lt;EntityManager&gt;(EntityManager);
+ });
+
+</code></pre></div></li>
+</ol>
+<div><pre class="line-numbers"><code class="language-none">
+#### Clean up
+
+After Each test delete the created data in test to have a clean database for the next test.
+
+
+```Typescript
+    afterEach(async () =&gt; {
+        await em.nativeDelete(News, {});
+    });</code></pre></div><h4 id="post-conditions">Post Conditions</h4>
+<p>After all tests are executed close the app and orm to release the resources</p>
+<div><pre class="line-numbers"><code class="language-Typescript">    afterAll(async () =&gt; {
+        await app.close();
+        await orm.close();
+    });</code></pre></div><h4 id="test-1">Test</h4>
+<p>An example e2e test uses app http server to call the tested url.
+The <code>request()</code> function from the <code>supertest</code> library simulates HTTP request.
+The response can be verified by checking the response code or by applying some verification to the result object.</p>
+<div><pre class="line-numbers"><code class="language-Typescript">    describe(&#39;GET /news&#39;, () =&gt; {
+      it(&#39;should get empty response if there is no news&#39;, async () =&gt; {
+        const response = await request(app.getHttpServer()).get(`/news`).expect(200);
+        const {data, total} = response.body as PaginationResponse&lt;NewsResponse[]&gt;;
+        expect(total).toBe(0);
+        expect(data.length).toBe(0);
+      });
+    });</code></pre></div><blockquote>
+<p>Don&#39;t forget to test HTTP error codes as well</p>
+</blockquote>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 2;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'testing.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../../js/libs/custom-elements.min.js"></script>
+       <script src="../../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../../js/menu-wc.js" defer></script>
+
+       <script src="../../js/libs/bootstrap-native.js"></script>
+
+       <script src="../../js/libs/es6-shim.min.js"></script>
+       <script src="../../js/libs/EventDispatcher.js"></script>
+       <script src="../../js/libs/promise.min.js"></script>
+       <script src="../../js/libs/zepto.min.js"></script>
+
+       <script src="../../js/compodoc.js"></script>
+
+       <script src="../../js/tabs.js"></script>
+       <script src="../../js/menu.js"></script>
+       <script src="../../js/libs/clipboard.min.js"></script>
+       <script src="../../js/libs/prism.js"></script>
+       <script src="../../js/sourceCode.js"></script>
+          <script src="../../js/search/search.js"></script>
+          <script src="../../js/search/lunr.min.js"></script>
+          <script src="../../js/search/search-lunr.js"></script>
+          <script src="../../js/search/search_index.js"></script>
+       <script src="../../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

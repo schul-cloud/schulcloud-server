@@ -86,6 +86,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                 <a href="additional-documentation/nestjs-application/cross-cutting-concerns.html" data-type="entity-link" data-context="sub-entity" data-context-id="additional">Cross-cutting concerns</a>
                                             </li>
                                             <li class="link for-chapter2">
+                                                <a href="additional-documentation/nestjs-application/testing.html" data-type="entity-link" data-context="sub-entity" data-context-id="additional">Testing</a>
+                                            </li>
+                                            <li class="link for-chapter2">
                                                 <a href="additional-documentation/nestjs-application/decisions.html" data-type="entity-link" data-context="sub-entity" data-context-id="additional">Decisions</a>
                                             </li>
                                             <li class="link for-chapter2">
