@@ -39,8 +39,23 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-9004 - Sync env variables between backend and frontend</li>
 </ul>
-<h2 id="2620">26.2.0</h2>
+<h2 id="2630---2021-06-07">[26.3.0] - 2021-06-07</h2>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>SC-8898 - parallelize LDAP sync using RabbitMQ</li>
+</ul>
+<h2 id="2622---2021-06-04">26.2.2 - 2021-06-04</h2>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fixed dependencies issue</li>
+</ul>
+<h2 id="2621---2021-06-02">26.2.1 - 2021-06-02</h2>
 <h3 id="added">Added</h3>
+<ul>
+<li>SC-9103 - add logging for syncIndexes script</li>
+</ul>
+<h2 id="2620---2021-06-01">26.2.0 - 2021-06-01</h2>
+<h3 id="added-1">Added</h3>
 <ul>
 <li>SC-8250 - add bulk deletion to user service v2</li>
 <li>SC-8341 - add tombstone school to tombstone user</li>
@@ -53,7 +68,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Add run script for sync indexes based on existing and registered schemas.</li>
 <li>SC-9085 - add registration pin deletion for parent emails</li>
 </ul>
-<h3 id="changed">Changed</h3>
+<h3 id="changed-1">Changed</h3>
 <ul>
 <li>SC-6950 - validation for officialSchoonNumber now allows 5 or 6 digits</li>
 <li>SC-8599 - added helparea contact dropdown and send value</li>
@@ -65,18 +80,18 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-7868 - filestorage integration tests are skipped on local test environments if minio is not setup</li>
 <li>SC-8779 - messenger: use user-based fixed device ids</li>
 </ul>
-<h3 id="fixed">Fixed</h3>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>SC-8728 - fix configuration reset in tests</li>
 <li>SC-8873 - fix addUser prioritization for full school Matrix messenger sync</li>
 <li>SC-8982 - fix test setup for on the fly building test like routes jwt</li>
 </ul>
 <h2 id="2610">[26.1.0]</h2>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li>SC-8910 - added an isExternal check to the adminUsers service remove method</li>
 </ul>
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 <ul>
 <li>SC-8732 - change search filter gate and weight of values in indexes. Will reduce amount of results</li>
 <li>SC-8880 - changed the validation for search queries in NAT, now it allows empty</li>
@@ -90,32 +105,32 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </li>
 </ul>
 <h2 id="26015---2021-04-19">[26.0.15] - 2021-04-19</h2>
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 <ul>
 <li>SC-8909 - messenger: use user-based fixed device ids</li>
 </ul>
 <h2 id="26014---2021-04-16">[26.0.14] - 2021-04-16</h2>
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 <ul>
 <li>SC-8934 - no more autosync for the migrations for the mongodb</li>
 </ul>
 <h2 id="26013---2021-04-15">[26.0.13] - 2021-04-15</h2>
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 <ul>
 <li>SC-8917 - verify configuration missing school</li>
 </ul>
 <h2 id="26012---2021-04-14">[26.0.12] - 2021-04-14</h2>
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 <ul>
 <li>SC-8929 - increase performance for alert requests</li>
 </ul>
 <h2 id="26011---2021-04-13">[26.0.11] - 2021-04-13</h2>
-<h3 id="changed-5">Changed</h3>
+<h3 id="changed-6">Changed</h3>
 <ul>
 <li>SC-8748 - bump feathers-mongoose from 6.3.0 to 8.3.1</li>
 </ul>
 <h2 id="26010---2021-04-09">[26.0.10] - 2021-04-09</h2>
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 <ul>
 <li>SC-8908 ldap sync: fix lock</li>
 </ul>
@@ -124,47 +139,47 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8779 - fix partial LDAP sync</li>
 </ul>
 <h2 id="2608---2021-03-31">[26.0.8] - 2021-03-31</h2>
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 <ul>
 <li>SC-8691 ldap sync: fix potential deadlock while loadind ldap data</li>
 </ul>
 <h2 id="2607---2021-03-31">[26.0.7] - 2021-03-31</h2>
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 <ul>
 <li>SC-8768 ldap sync: in user search include current school</li>
 </ul>
 <h2 id="2606---2021-03-30">[26.0.6] - 2021-03-30</h2>
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 <ul>
 <li>SC-8836 - teachers can add classes from other teachers to their courses</li>
 </ul>
 <h2 id="2605---2021-03-29">[26.0.5] - 2021-03-29</h2>
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 <ul>
 <li>SC-8691 - LDAP sync can be run with multiple school in parallel</li>
 </ul>
 <h2 id="2604---2021-03-25">[26.0.4] - 2021-03-25</h2>
-<h3 id="changed-6">Changed</h3>
+<h3 id="changed-7">Changed</h3>
 <ul>
 <li>SC-8829 - status of logging in rocket chat user is set to offline</li>
 </ul>
 <h2 id="2603---2021-03-17">[26.0.3] - 2021-03-17</h2>
-<h3 id="changed-7">Changed</h3>
+<h3 id="changed-8">Changed</h3>
 <ul>
 <li>merged hotfixes 25.6.11 and following into 26.0 branch</li>
 </ul>
 <h2 id="2602---2021-03-10">[26.0.2] - 2021-03-10</h2>
-<h3 id="fixed-7">Fixed</h3>
+<h3 id="fixed-8">Fixed</h3>
 <ul>
 <li>SC-5202 - fixed an issue with internal pagination in homework-submissions</li>
 </ul>
 <h2 id="2601---2021-03-09">[26.0.1] - 2021-03-09</h2>
-<h3 id="changed-8">Changed</h3>
+<h3 id="changed-9">Changed</h3>
 <ul>
 <li>merged 25.6.10 into new version</li>
 </ul>
 <h2 id="2600">[26.0.0]</h2>
-<h3 id="fixed-8">Fixed</h3>
+<h3 id="fixed-9">Fixed</h3>
 <ul>
 <li>SC-6679 - fixed table styling in topic text-component</li>
 <li>SC-8534 - fix registration link generation</li>
@@ -182,7 +197,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8782 Fixed lesson context Query</li>
 </ul>
 <h2 id="25611---2021-03-15">[25.6.11] - 2021-03-15</h2>
-<h3 id="fixed-9">Fixed</h3>
+<h3 id="fixed-10">Fixed</h3>
 <ul>
 <li>SC-8211 - Fixed course events duplications</li>
 </ul>
@@ -191,12 +206,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8770 Fixed issue where parent consents were overwritten</li>
 </ul>
 <h2 id="2569---2021-02-26">[25.6.9] - 2021-02-26</h2>
-<h3 id="fixed-10">Fixed</h3>
+<h3 id="fixed-11">Fixed</h3>
 <ul>
 <li>SC-8714 Fixed an issue in school creation that could cause the iserv-sync to fail</li>
 </ul>
 <h2 id="2568---2021-02-19">[25.6.8] - 2021-02-19</h2>
-<h3 id="changed-9">Changed</h3>
+<h3 id="changed-10">Changed</h3>
 <ul>
 <li>SC-8477 LDAP-Sync: Speed up class sync by holding all the school&#39;s users in map while creating/populating classes</li>
 <li>SC-8477 LDAP-Sync: Speed up user sync by grouping users into chunks and loading the chunks from DB instead of individual users</li>
@@ -207,17 +222,17 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8655 - prevent changes to immutable user attributes</li>
 </ul>
 <h2 id="2566---2021-02-18">[25.6.6] - 2021-02-18</h2>
-<h3 id="fixed-11">Fixed</h3>
+<h3 id="fixed-12">Fixed</h3>
 <ul>
 <li>SC-8657 - Recreate shared links for homework</li>
 </ul>
 <h2 id="2565---2021-02-17">[25.6.5] - 2021-02-17</h2>
-<h3 id="fixed-12">Fixed</h3>
+<h3 id="fixed-13">Fixed</h3>
 <ul>
 <li>SC-8634 - Recreate shared links for homework</li>
 </ul>
 <h2 id="2564---2021-02-17">[25.6.4] - 2021-02-17</h2>
-<h3 id="changed-10">Changed</h3>
+<h3 id="changed-11">Changed</h3>
 <ul>
 <li>Reverted Changes for SC-8410</li>
 </ul>
@@ -227,23 +242,23 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>VOR-3 - Enable and replace old file links.</li>
 </ul>
 <h2 id="2562---2021-02-11">[25.6.2] - 2021-02-11</h2>
-<h3 id="changed-11">Changed</h3>
+<h3 id="changed-12">Changed</h3>
 <ul>
 <li>VOR-2 - Adjusted business rules for adding team members from external school.</li>
 </ul>
 <h2 id="2561---2021-02-11">[25.6.1] - 2021-02-11</h2>
-<h3 id="fixed-13">Fixed</h3>
+<h3 id="fixed-14">Fixed</h3>
 <ul>
 <li>VOR-1 - Fix passwordRecovery id validation.</li>
 </ul>
 <h2 id="2560---2021-02-09">[25.6.0] - 2021-02-09</h2>
-<h3 id="fixed-14">Fixed</h3>
+<h3 id="fixed-15">Fixed</h3>
 <ul>
 <li>SC-8514 - QR Code generation fails</li>
 <li>SC-8390 - Lern-Store collections feature flag was not excluding collections in search</li>
 <li>SC-8322 prevent wrong assignment from school to storage provider</li>
 </ul>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li>SC-8482 - Deletion concept orchestration integration</li>
 <li>SC-8029 - Add deletion concept handling for pseudonyms and registration pins</li>
@@ -251,7 +266,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8206 - Add school tombstone for deleting concept</li>
 <li>SC-7825 - Deletion concept for user data in tasks</li>
 </ul>
-<h3 id="changed-12">Changed</h3>
+<h3 id="changed-13">Changed</h3>
 <ul>
 <li>SC-8541 - restrict class modifing requests to the teachers, who are inside these classes</li>
 <li>SC-8380 removed reqlib, replaced by normal require to keep referenced types known</li>
@@ -260,32 +275,32 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8300 Added user information to LDAP Sync in case of errors</li>
 </ul>
 <h2 id="25516---2021-02-08">[25.5.16] - 2021-02-08</h2>
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 <ul>
 <li>SC-8512 - Creating a migration for duplicated events</li>
 </ul>
 <h2 id="25515">[25.5.15]</h2>
-<h3 id="fixed-15">Fixed</h3>
+<h3 id="fixed-16">Fixed</h3>
 <ul>
 <li>SC-8571 - New courses does not appear in bettermarks</li>
 </ul>
 <h2 id="25514---2021-02-02">[25.5.14] - 2021-02-02</h2>
-<h3 id="changed-13">Changed</h3>
+<h3 id="changed-14">Changed</h3>
 <ul>
 <li>SC-8420 - Fix old missing indexes that migration for new indexes can executed. 25.5.3</li>
 </ul>
 <h2 id="25513">[25.5.13]</h2>
-<h3 id="changed-14">Changed</h3>
+<h3 id="changed-15">Changed</h3>
 <ul>
 <li>SC-8462 - Add logging for homework deletion</li>
 </ul>
 <h2 id="25512">[25.5.12]</h2>
-<h3 id="fixed-16">Fixed</h3>
+<h3 id="fixed-17">Fixed</h3>
 <ul>
 <li>SC-8499 - Change order of migrations</li>
 </ul>
 <h2 id="25511">[25.5.11]</h2>
-<h3 id="fixed-17">Fixed</h3>
+<h3 id="fixed-18">Fixed</h3>
 <ul>
 <li>SC-8499 - Prevent duplicated pseudonyms</li>
 </ul>
@@ -294,38 +309,38 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8506 - add origin server name to bbb create and join requests</li>
 </ul>
 <h2 id="2559">[25.5.9]</h2>
-<h3 id="fixed-18">Fixed</h3>
+<h3 id="fixed-19">Fixed</h3>
 <ul>
 <li>SC-8503 - Clicking on task in BRB and THR shows pencil page</li>
 </ul>
 <h2 id="2558">[25.5.8]</h2>
-<h3 id="changed-15">Changed</h3>
+<h3 id="changed-16">Changed</h3>
 <ul>
 <li>SC-8480 - Return GeneralError if unknown error code is given to error pipeline</li>
 </ul>
 <h2 id="2557">[25.5.7]</h2>
-<h2 id="added-4">Added</h2>
+<h2 id="added-5">Added</h2>
 <ul>
 <li>SC-8489 - Added permission check for homework deletion</li>
 </ul>
 <h2 id="2556">[25.5.6]</h2>
-<h3 id="fixed-19">Fixed</h3>
+<h3 id="fixed-20">Fixed</h3>
 <ul>
 <li>SC-8410 - Verify ldap connection reads the first page of users only to avoid timeouts</li>
 <li>SC-8444 - resolve eventual consistency in course shareToken generation</li>
 </ul>
 <h2 id="2555">[25.5.5]</h2>
-<h3 id="fixed-20">Fixed</h3>
+<h3 id="fixed-21">Fixed</h3>
 <ul>
 <li>SC-8303 - fix wrong assignment from school to storage provider</li>
 </ul>
 <h2 id="2554">[25.5.4]</h2>
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 <ul>
 <li>SC-8358 - bettermarks: show hint for safari users</li>
 <li>SC-8412 - update swagger documentation of pseudonym/roster/ltitools</li>
 </ul>
-<h3 id="fixed-21">Fixed</h3>
+<h3 id="fixed-22">Fixed</h3>
 <ul>
 <li>SC-5287 - Fixed OAuth2 rostering</li>
 <li>SC-5287 - Repair Bettermark&#39;s depseudonymization</li>
@@ -334,22 +349,22 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8315 - bettermarks: security check and production configuration</li>
 </ul>
 <h2 id="2553">[25.5.3]</h2>
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 <ul>
 <li>SC-8420 - Migration for sync new indexes.</li>
 </ul>
 <h2 id="2552">[25.5.2]</h2>
-<h3 id="fixed-22">Fixed</h3>
+<h3 id="fixed-23">Fixed</h3>
 <ul>
 <li>SC-8189 - fix duplicate events by returning updated object at findOneAndUpdate</li>
 </ul>
 <h2 id="2551">[25.5.1]</h2>
-<h3 id="fixed-23">Fixed</h3>
+<h3 id="fixed-24">Fixed</h3>
 <ul>
 <li>SC-8303 - fix wrong assignment from school to storage provider</li>
 </ul>
 <h2 id="2550">[25.5.0]</h2>
-<h3 id="added-7">Added</h3>
+<h3 id="added-8">Added</h3>
 <ul>
 <li>SC-7835 - Add deletion concept handling for helpdesk problems</li>
 <li>SC-8229 - Added invalid DN error to ldap-config service error handling</li>
@@ -362,7 +377,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8020 - adds collections filter to edu-sharing service</li>
 <li>SC-8260 - new team indexes and migration to add this</li>
 </ul>
-<h3 id="fixed-24">Fixed</h3>
+<h3 id="fixed-25">Fixed</h3>
 <ul>
 <li>SC-8230 - fix deletion of teachers via new route</li>
 </ul>
@@ -370,7 +385,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8233 - Removed attribute and member as required attributes for the LDAP-config service</li>
 </ul>
-<h3 id="fixed-25">Fixed</h3>
+<h3 id="fixed-26">Fixed</h3>
 <ul>
 <li>SC-8329 - Cluster returns old verison of Pin object after patch</li>
 </ul>
@@ -383,27 +398,27 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8198 continue school sync on user issues</li>
 </ul>
 <h2 id="2538">[25.3.8]</h2>
-<h3 id="changed-16">Changed</h3>
+<h3 id="changed-17">Changed</h3>
 <ul>
 <li>SC-8198 - handle eventually consistent database in THR sync</li>
 </ul>
 <h2 id="2537---2020-12-18">[25.3.7] - 2020-12-18</h2>
-<h3 id="changed-17">Changed</h3>
+<h3 id="changed-18">Changed</h3>
 <ul>
 <li>SC-8209 - prevent sync from stopping if error occurs for a single student</li>
 </ul>
 <h2 id="2536">[25.3.6]</h2>
-<h3 id="fixed-26">Fixed</h3>
+<h3 id="fixed-27">Fixed</h3>
 <ul>
 <li>SC-8235 - repaired reigstration link for students</li>
 </ul>
 <h2 id="2535">[25.3.5]</h2>
-<h3 id="changed-18">Changed</h3>
+<h3 id="changed-19">Changed</h3>
 <ul>
 <li>SC-8149 - no longer require a registrationPin for internal calls</li>
 </ul>
 <h2 id="2534">[25.3.4]</h2>
-<h3 id="changed-19">Changed</h3>
+<h3 id="changed-20">Changed</h3>
 <ul>
 <li>SC-7998 - use default service setup for /version</li>
 </ul>
@@ -412,23 +427,23 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
-<h3 id="fixed-27">Fixed</h3>
+<h3 id="fixed-28">Fixed</h3>
 <ul>
 <li>SC-8101 - Make it possible to disable sentry by removing <code>SENTRY_DSN</code></li>
 <li>OPS-1735 - Fixes transaction handling in file service by using the mongoose transaction helper,
 properly closing the session, and using the correct readPreference (everything except primary fails)</li>
 </ul>
 <h2 id="2532">[25.3.2]</h2>
-<h3 id="added-8">Added</h3>
+<h3 id="added-9">Added</h3>
 <ul>
 <li>SC-7734 - Added a hook that takes care of merlin content to generate valid urls for users</li>
 <li>SC-7483 - Updating terms of use for all users for each instance separately</li>
 </ul>
 <h2 id="2531">[25.3.1]</h2>
-<h3 id="fixed-28">Fixed</h3>
+<h3 id="fixed-29">Fixed</h3>
 <p>SC-8077 - the migration copy-parents-data-into-children-entities-and-delete-parent-users is broken</p>
 <h2 id="2530">[25.3.0]</h2>
-<h3 id="added-9">Added</h3>
+<h3 id="added-10">Added</h3>
 <ul>
 <li>SC-7841 - remove deleted user from classes</li>
 <li>SC-7836 - Removing registration pin by removing the user</li>
@@ -463,7 +478,7 @@ determine how many system/school syncers will be run in parallel (at most) durin
 <li>SC-7476 - Prevent hash generation if user has account</li>
 <li>SC-6692 - Added Lern-Store counties support for Niedersachsen (Merlin)</li>
 </ul>
-<h3 id="changed-20">Changed</h3>
+<h3 id="changed-21">Changed</h3>
 <ul>
 <li>request logging disabled for non development environment</li>
 <li>OPS-1289 - moved and updated commons (to hpi-schul-cloud/commons)</li>
@@ -484,7 +499,7 @@ determine how many system/school syncers will be run in parallel (at most) durin
 <li>SC-7868 - Move external request helpers to more present file location</li>
 <li>SC-7474 pull docker container for tests if commit id exists on docker hub</li>
 </ul>
-<h3 id="fixed-29">Fixed</h3>
+<h3 id="fixed-30">Fixed</h3>
 <ul>
 <li>SC-6294 fix mocha test execution and build, summarize coverage results</li>
 <li>SC-1589 Trim strings to avoid empty team names</li>
@@ -514,38 +529,38 @@ determine how many system/school syncers will be run in parallel (at most) durin
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
-<h3 id="fixed-30">Fixed</h3>
+<h3 id="fixed-31">Fixed</h3>
 <ul>
 <li>SC-8101 - Make it possible to disable sentry by removing <code>SENTRY_DSN</code></li>
 </ul>
 <h2 id="2525">[25.2.5]</h2>
-<h3 id="fixed-31">Fixed</h3>
+<h3 id="fixed-32">Fixed</h3>
 <ul>
 <li>OPS-1735 - Fixes transaction handling in file service by using the mongoose transaction helper,
 properly closing the session, and using the correct readPreference (everything except primary fails)</li>
 </ul>
 <h2 id="2524">[25.2.4]</h2>
-<h3 id="changed-21">Changed</h3>
+<h3 id="changed-22">Changed</h3>
 <ul>
 <li>SC-6727 - Change email addresses for tickets for Niedersachsen - fixed after review</li>
 </ul>
 <h2 id="2523">[25.2.3]</h2>
-<h3 id="changed-22">Changed</h3>
+<h3 id="changed-23">Changed</h3>
 <ul>
 <li>SC-6727 - Change email addresses for tickets for Niedersachsen</li>
 </ul>
 <h2 id="2522">[25.2.2]</h2>
-<h3 id="changed-23">Changed</h3>
+<h3 id="changed-24">Changed</h3>
 <ul>
 <li>SC-7773 - moved config values for antivirus file service</li>
 </ul>
 <h2 id="2521">[25.2.1]</h2>
-<h3 id="fixed-32">Fixed</h3>
+<h3 id="fixed-33">Fixed</h3>
 <ul>
 <li>SC-7714 - Fixes script injection issue</li>
 </ul>
 <h2 id="2520">[25.2.0]</h2>
-<h3 id="added-10">Added</h3>
+<h3 id="added-11">Added</h3>
 <ul>
 <li>SC-4385 - Added a user exclusion regex to IServ strategy</li>
 <li>SC-7049 - Added unit tests for Merlin Service</li>
@@ -563,7 +578,7 @@ properly closing the session, and using the correct readPreference (everything e
 <ul>
 <li>SC-6586- Remove parents from users collection to improve maintainability</li>
 </ul>
-<h3 id="changed-24">Changed</h3>
+<h3 id="changed-25">Changed</h3>
 <ul>
 <li>SC-6986 - Changed a hook in the accounts service that restricts get requests to the same school, it expects a valid userID and matching schoolIds for both the requester and requested users</li>
 <li>SC-6567 - clean up error pipline</li>
@@ -572,19 +587,19 @@ properly closing the session, and using the correct readPreference (everything e
 <li>Support asynchronous calls during server startup</li>
 <li>SC-7091 - Migration to enable the Matrix Messenger for all schools that had RocketChat enabled before</li>
 </ul>
-<h3 id="fixed-33">Fixed</h3>
+<h3 id="fixed-34">Fixed</h3>
 <ul>
 <li>fixed README badges</li>
 <li>SC-6151 - fixed a bug that prevented api docu from being accessible</li>
 <li>Fix mocha tests</li>
 </ul>
 <h2 id="25113---2020-11-12">[25.1.13] - 2020-11-12</h2>
-<h3 id="changed-25">Changed</h3>
+<h3 id="changed-26">Changed</h3>
 <ul>
 <li>SC-7395 - Changed ldap general strategy fetching of users from parallel to serialized</li>
 </ul>
 <h2 id="25112---2020-11-09">[25.1.12] - 2020-11-09</h2>
-<h3 id="added-11">Added</h3>
+<h3 id="added-12">Added</h3>
 <ul>
 <li>SC-7683 - add request logging options</li>
 </ul>
@@ -594,51 +609,51 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-7695 - prevent csv user override operations on other schools</li>
 </ul>
 <h2 id="25110---2020-11-05">[25.1.10] - 2020-11-05</h2>
-<h3 id="added-12">Added</h3>
+<h3 id="added-13">Added</h3>
 <ul>
 <li>SC-7683 - Add log metic for memory usage, add async error logging util, catch one unhandledRejection error and remove cronjob task from server.</li>
 </ul>
 <h2 id="2519---2020-11-03">[25.1.9] - 2020-11-03</h2>
-<h3 id="fixed-34">Fixed</h3>
+<h3 id="fixed-35">Fixed</h3>
 <ul>
 <li>SC-7638 - fixed pin creation for users with accounts</li>
 </ul>
 <h2 id="2518---2020-10-22">[25.1.8] - 2020-10-22</h2>
-<h3 id="fixed-35">Fixed</h3>
+<h3 id="fixed-36">Fixed</h3>
 <ul>
 <li>SC-7333 - fixed creation of homeworks within lessons</li>
 </ul>
 <h2 id="2517---2020-10-28">[25.1.7] - 2020-10-28</h2>
-<h3 id="added-13">Added</h3>
+<h3 id="added-14">Added</h3>
 <ul>
 <li>SC-7491 - Add missing index on users.email to speed up slow query in registrationLink service</li>
 </ul>
 <h2 id="2516---2020-10-23">[25.1.6] - 2020-10-23</h2>
-<h3 id="changed-26">Changed</h3>
+<h3 id="changed-27">Changed</h3>
 <ul>
 <li>SC-7413 - Remove event listener for unhandled rejections and move this to winston</li>
 </ul>
 <h2 id="2515---2020-10-22">[25.1.5] - 2020-10-22</h2>
-<h3 id="fixed-36">Fixed</h3>
+<h3 id="fixed-37">Fixed</h3>
 <ul>
 <li>SC-7452 - fixed time window check for LDAP users</li>
 </ul>
 <h2 id="2514---2020-10-20">[25.1.4] - 2020-10-20</h2>
-<h3 id="changed-27">Changed</h3>
+<h3 id="changed-28">Changed</h3>
 <ul>
 <li>SC-6986 - Changed permission check for PATCH method in the account service from STUDENT_CREATE to STUDENT_EDIT to allow teachers to change students&#39; password</li>
 </ul>
 <h2 id="2513---2020-10-20">[25.1.3] - 2020-10-20</h2>
-<h3 id="fixed-37">Fixed</h3>
+<h3 id="fixed-38">Fixed</h3>
 <ul>
 <li>SC-6986 - Changed a hook in the accounts service that restricts get requests to the same school, it expects a valid userID and matching schoolIds for both the requester and requested users</li>
 </ul>
 <h2 id="2512---2020-10-15">[25.1.2] - 2020-10-15</h2>
-<h3 id="fixed-38">Fixed</h3>
+<h3 id="fixed-39">Fixed</h3>
 <ul>
 <li>SC-7085 - fixed importHash error when asking parent consent</li>
 </ul>
-<h3 id="added-14">Added</h3>
+<h3 id="added-15">Added</h3>
 <h3 id="removed-6">Removed</h3>
 <h2 id="2511---2020-10-12">[25.1.1] - 2020-10-12</h2>
 <h3 id="security-3">Security</h3>
@@ -646,14 +661,14 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-7165 package update for sanitization and add onload handler</li>
 </ul>
 <h2 id="2510---2020-10-12">[25.1.0] - 2020-10-12</h2>
-<h3 id="added-15">Added</h3>
+<h3 id="added-16">Added</h3>
 <h3 id="removed-7">Removed</h3>
 <ul>
 <li>SC-6784 - Removed duplicated birth date formatting code in adminUsers service, which was causing an &quot;Invalid date&quot; output</li>
 <li>SC-6743 - Removed usersForConsent related things in adminUsers service because the client does not send that parameter anymore</li>
 <li>SC-6506 - Remove dependecy to feathers-swagger in routes.test.js</li>
 </ul>
-<h3 id="changed-28">Changed</h3>
+<h3 id="changed-29">Changed</h3>
 <ul>
 <li>SC-6774 remove no-await-in-loop from eslint exceptions</li>
 <li>Rename statistic mails route, secure it over sync api key now</li>
@@ -665,38 +680,38 @@ properly closing the session, and using the correct readPreference (everything e
 <li>Added hotfix merges</li>
 </ul>
 <h2 id="25012---2020-10-12">[25.0.12] - 2020-10-12</h2>
-<h3 id="fixed-39">Fixed</h3>
+<h3 id="fixed-40">Fixed</h3>
 <ul>
 <li>SC-6676 allows only following roles for registration: teacher/student…</li>
 </ul>
 <h2 id="25011---2020-10-07">[25.0.11] - 2020-10-07</h2>
-<h3 id="fixed-40">Fixed</h3>
+<h3 id="fixed-41">Fixed</h3>
 <ul>
 <li>SC-7180 homework create now validates data properly</li>
 </ul>
 <h2 id="25012---2020-10-12-1">[25.0.12] - 2020-10-12</h2>
-<h3 id="fixed-41">Fixed</h3>
+<h3 id="fixed-42">Fixed</h3>
 <ul>
 <li>SC-6676 allows only following roles for registration: teacher/student…</li>
 </ul>
 <h2 id="25011---2020-10-07-1">[25.0.11] - 2020-10-07</h2>
-<h3 id="fixed-42">Fixed</h3>
+<h3 id="fixed-43">Fixed</h3>
 <ul>
 <li>SC-7180 homework create now validates data properly</li>
 </ul>
 <h2 id="25010---2020-10-07">[25.0.10] - 2020-10-07</h2>
-<h3 id="added-16">Added</h3>
+<h3 id="added-17">Added</h3>
 <ul>
 <li>configured prometheus metrics - bucket sizes</li>
 <li>SC-6766 log unhandledRejection and unhandledException</li>
 </ul>
 <h2 id="2509---2020-10-07">[25.0.9] - 2020-10-07</h2>
-<h3 id="added-17">Added</h3>
+<h3 id="added-18">Added</h3>
 <ul>
 <li>SC-7115 - Reduce mongoose DB role request by enabling minor caching</li>
 </ul>
 <h2 id="2508---2020-10-06">[25.0.8] - 2020-10-06</h2>
-<h3 id="fixed-43">Fixed</h3>
+<h3 id="fixed-44">Fixed</h3>
 <ul>
 <li>SC-6676 - Registration: User with role parent should not be able to log-in</li>
 <li>SC-6960 - instead of deleting and recreating users during the rollback of a failed registration, use replace if necessary</li>
@@ -708,42 +723,42 @@ properly closing the session, and using the correct readPreference (everything e
 <li>OPS-1316 - removed custom keep-alive header creation in express middleware</li>
 </ul>
 <h2 id="2506---2020-10-01">[25.0.6] - 2020-10-01</h2>
-<h3 id="added-18">Added</h3>
+<h3 id="added-19">Added</h3>
 <ul>
 <li>OPS-1316 - add indexes for slow files and submission queries</li>
 </ul>
 <h2 id="2505---2020-10-01">[25.0.5] - 2020-10-01</h2>
-<h3 id="added-19">Added</h3>
+<h3 id="added-20">Added</h3>
 <ul>
 <li>SC-6973 - add time window for pin creation</li>
 </ul>
 <h2 id="2504---2020-09-30">[25.0.4] - 2020-09-30</h2>
-<h3 id="added-20">Added</h3>
+<h3 id="added-21">Added</h3>
 <ul>
 <li>Added lead time detection</li>
 </ul>
 <h2 id="2503">[25.0.3]</h2>
-<h3 id="added-21">Added</h3>
+<h3 id="added-22">Added</h3>
 <ul>
 <li>SC-6942 - add parse method to TSP strategy to declare it can handle the request and to keep authentication params clean</li>
 </ul>
-<h3 id="fixed-44">Fixed</h3>
+<h3 id="fixed-45">Fixed</h3>
 <ul>
 <li>SC-6942 - don&#39;t override payload defined by authentication method</li>
 <li>SC-6942 - don&#39;t search for account to populate if no username is given in <code>injectUsername</code></li>
 </ul>
 <h2 id="2502">[25.0.2]</h2>
-<h3 id="changed-29">Changed</h3>
+<h3 id="changed-30">Changed</h3>
 <ul>
 <li>send mail for registration pin after add pin to db</li>
 </ul>
 <h2 id="2501">[25.0.1]</h2>
-<h3 id="fixed-45">Fixed</h3>
+<h3 id="fixed-46">Fixed</h3>
 <ul>
 <li>SC-6696 - Fixed query used to determine course membership when checking permissions for course group lessons</li>
 </ul>
 <h2 id="2500">[25.0.0]</h2>
-<h3 id="changed-30">Changed</h3>
+<h3 id="changed-31">Changed</h3>
 <ul>
 <li>Extend JWT payload by schoolId and roleIds</li>
 </ul>
@@ -764,7 +779,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-5612 - Adding search feature to the admintables for nuxt-client.</li>
 </ul>
 <h2 id="2446---2020-09-11">[24.4.6] - 2020-09-11</h2>
-<h3 id="changed-31">Changed</h3>
+<h3 id="changed-32">Changed</h3>
 <ul>
 <li>SC-6733: central personal data does not get updated via CSV import</li>
 </ul>
