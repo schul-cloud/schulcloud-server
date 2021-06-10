@@ -1,14 +1,15 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-import { install } from 'source-map-support';
-install(); // TODO register source-map-support to
+// register source-map-support for debugging
+import { install as sourceMapInstall } from 'source-map-support';
 
+// application imports
+import { ServerModule } from './server.module';
 import legacyAppPromise = require('../../../src/app');
 
-import { ServerModule } from './server.module';
+sourceMapInstall();
 
 const ROUTE_PRAEFIX = 'v3';
 const API_PATH = 'api';
@@ -18,45 +19,13 @@ async function bootstrap() {
 	// load the legacy feathers/express server
 	const legacyApp = await legacyAppPromise;
 	const adapter = new ExpressAdapter(legacyApp);
-	await legacyApp.setup();
+	legacyApp.setup();
 
 	// create the NestJS application adapting the legacy  server
-	const app = await NestFactory.create(ServerModule, adapter);
+	const app = await NestFactory.create(ServerModule, adapter, {});
 
 	// for all NestJS controller routes, prepend ROUTE_PRAEFIX
 	app.setGlobalPrefix(ROUTE_PRAEFIX);
-
-	/** *********************************************
-	 * Global Pipe setup
-	 * **********************************************
-	 * Validation of DTOs will base on type-checking
-	 * which is enabled by default. To you might use
-	 * the class-validator decorators to extend
-	 * validation.
-	 */
-	// transform and -options enables setting of defaults or initialization of empty arrays
-	app.useGlobalPipes(
-		// validation pipe ensures DTO validation globally
-		new ValidationPipe({
-			// enable DTO instance creation for incoming data
-			transform: true,
-			transformOptions: {
-				// enable type coersion, requires transform:true
-				enableImplicitConversion: true,
-			},
-			whitelist: true, // only pass valid @ApiProperty-decorated DTO properties, remove others
-			forbidNonWhitelisted: true, // when whitelist is true, fail when additional invalid parameters are received
-		})
-	);
-	/** *********************************************
-	 * Global Interceptor setup
-	 * **********************************************
-	 * Validation of DTOs will base on type-checking
-	 * which is enabled by default. To you might use
-	 * the class-validator decorators to extend
-	 * validation.
-	 */
-	// app.useGlobalInterceptors(ClassSerializerInterceptor);
 
 	/** *********************************************
 	 * OpenAPI docs setup
@@ -76,11 +45,11 @@ async function bootstrap() {
 		.addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
 		.build();
 	const document = SwaggerModule.createDocument(app, config);
-	const apiDocsPath = ROUTE_PRAEFIX + '/api';
+	const apiDocsPath = `${ROUTE_PRAEFIX}/${API_PATH}`;
 	SwaggerModule.setup(apiDocsPath, app, document);
 
 	await app.init();
 
 	adapter.listen(PORT);
 }
-bootstrap();
+void bootstrap();
