@@ -149,7 +149,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:115</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:118</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:126</a></div>
                 </td>
             </tr>
 
@@ -414,7 +414,7 @@ const writeValidationErrors &#x3D; (error: ApiValidationError, logger: Logger) &
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		(e) &#x3D;&gt; &#x60;Wrong property ${e.property} got ${e.value} : ${JSON.stringify(e.constraints)}&#x60;
 	);
-	logger.error(errorMsg, error.stack);
+	logger.error(errorMsg, error.stack, &#x27;API Validation Error&#x27;);
 };
 
 const writeErrorLog &#x3D; (error: unknown, logger: Logger): void &#x3D;&gt; {
@@ -422,9 +422,10 @@ const writeErrorLog &#x3D; (error: unknown, logger: Logger): void &#x3D;&gt; {
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
 		} else if (isBusinessError(error)) {
-			logger.error(error, error.stack, &#x27;Business Error&#x27;);
 			if (error instanceof ApiValidationError) {
 				writeValidationErrors(error, logger);
+			} else {
+				logger.error(error, error.stack, &#x27;Business Error&#x27;);
 			}
 		} else if (isTechnicalError(error)) {
 			logger.error(error, error.stack, &#x27;Technical Error&#x27;);

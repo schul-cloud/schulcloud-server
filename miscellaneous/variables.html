@@ -777,9 +777,10 @@
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
 		} else if (isBusinessError(error)) {
-			logger.error(error, error.stack, &#x27;Business Error&#x27;);
 			if (error instanceof ApiValidationError) {
 				writeValidationErrors(error, logger);
+			} else {
+				logger.error(error, error.stack, &#x27;Business Error&#x27;);
 			}
 		} else if (isTechnicalError(error)) {
 			logger.error(error, error.stack, &#x27;Technical Error&#x27;);
@@ -815,7 +816,7 @@
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		(e) &#x3D;&gt; &#x60;Wrong property ${e.property} got ${e.value} : ${JSON.stringify(e.constraints)}&#x60;
 	);
-	logger.error(errorMsg, error.stack);
+	logger.error(errorMsg, error.stack, &#x27;API Validation Error&#x27;);
 }</code>
                         </td>
                     </tr>
