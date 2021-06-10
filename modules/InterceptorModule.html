@@ -102,7 +102,7 @@ import { TimeoutInterceptor } from &#x27;../../shared/interceptor/timeout.interc
 			useClass: ClassSerializerInterceptor,
 		},
 		{
-			provide: APP_INTERCEPTOR,
+			provide: APP_INTERCEPTOR, // TODO remove (for testing)
 			useClass: TimeoutInterceptor,
 		},
 	],

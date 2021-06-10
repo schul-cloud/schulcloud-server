@@ -404,13 +404,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Task.html" data-type="entity-link">Task</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TaskOptionsEntry.html" data-type="entity-link">TaskOptionsEntry</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TaskQueryDto.html" data-type="entity-link">TaskQueryDto</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TaskResponseDto.html" data-type="entity-link">TaskResponseDto</a>
+                                <a href="classes/TaskResponse.html" data-type="entity-link">TaskResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TeamInfo.html" data-type="entity-link">TeamInfo</a>

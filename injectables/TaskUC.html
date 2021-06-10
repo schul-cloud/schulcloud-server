@@ -162,7 +162,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, option: <a href="../classes/Task.html">ITaskOption</a>)</code>
+                    <code>findAllOpenForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, pagination: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
                 </td>
             </tr>
 
@@ -202,9 +202,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>option</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >ITaskOption</a></code>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
                                     </td>
 
                                     <td>
@@ -219,7 +219,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;ITaskMetadata[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -236,18 +236,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
-import { ITaskOption, ITaskMetadata } from &#x27;../entity&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+import { Counted } from &#x27;@shared/types&#x27;;
 import { TaskRepo } from &#x27;../repo/task.repo&#x27;;
+import { Task } from &#x27;../entity&#x27;;
 
 // filter tasks older than 3 weeks
-// TODO: move dtos folder one level higher
 @Injectable()
 export class TaskUC {
 	constructor(private taskRepo: TaskRepo) {}
 
-	async findAllOpenForUser(userId: EntityId, option: ITaskOption): Promise&lt;ITaskMetadata[]&gt; {
-		return this.taskRepo.findAllOpenByStudent(userId, option);
+	async findAllOpenForUser(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+		// TODO authorization (user conditions -&gt; permissions?)
+		// TODO get permitted tasks...
+
+		const [tasks, total] &#x3D; await this.taskRepo.findAllOpenByStudent(userId, pagination);
+		return [tasks, total];
 	}
 }
 </code></pre>
