@@ -50,6 +50,7 @@
 
 <h1 id="hpi-schul-cloud-nestjs-server">HPI Schul-Cloud NestJS server</h1>
 <p>This application extends the existing server-application based on feathers and express by introducing dependency injection supporting unit testing and modularization, the possibility to develop against interfaces, and start implementation of modules using TypeScript.</p>
+<p>You find the whole <a href="https://hpi-schul-cloud.github.io/schulcloud-server/additional-documentation/nestjs-application.html">documentation published as GitHub Page</a></p>
 <h2 id="how-to-start-the-application">How to start the application</h2>
 <p>Beside existing <a href="/">scripts</a>, for the nestJS application the following scripts have been added. Try not changing the scripts as they should match what NestJS defines by default. Execute <code>npm run ...</code></p>
 <ul>
@@ -64,21 +65,25 @@
 </ul>
 <h1 id="how-to-statically-check-the-code">How to statically check the code</h1>
 <ul>
-<li><code>nest:lint</code> run eslint to fix linter issues and apply formatting</li>
+<li><code>nest:lint</code> run eslint to report linter issues and apply formatting</li>
+<li><code>nest:lint:fix</code> run eslint to report and auto-fix fixable linter issues and apply formatting </li>
 </ul>
 <h1 id="how-to-test-the-application">How to test the application?</h1>
 <ul>
-<li><code>nest:test</code> executes jest tests, to separate them from existing tests, not use _.test.[ts|js] as filename but instead either _.spec.ts beside providers or *.e2e-spec.ts in test folders</li>
+<li><code>nest:test</code> executes all jest  (NestJS) tests, to separate them from existing tests, not use _.test.[ts|js] as filename but instead either *.spec.ts beside tested files or *.e2e-spec.ts in test folder</li>
 <li><code>nest:test:watch</code> executes changed tests again on save</li>
 <li><code>nest:test:cov</code> reports coverage results</li>
 <li><code>nest:test:debug</code> executes tests for debugging</li>
-<li><code>nest:test:e2e</code> beside unit tests on providers which are placed beside the providers (executed by statements above), e2e tests can be added in test folder</li>
+<li><code>nest:test:e2e</code> execute e2e tests only</li>
+<li><code>nest:test:spec</code> execute spec tests (without e2e) only</li>
 </ul>
+<h2 id="static-code-analysis">Static Code Analysis</h2>
+<p>Based on <code>npm run nest:test:all</code> you can ensure the code is accepted to be merged. This executes all tests, checks for linter issues and code coverage. </p>
 <h2 id="how-to-get-full-documentation">How to get full documentation</h2>
-<p>The documentation is provided by compodoc, run <code>npm run nest:dev:serve</code>, check generated compodoc features, custom information can be found in additional information section. Your console will tell you, where it is served.</p>
+<p>The documentation is provided by compodoc, run <code>npm run nest:docs:serve</code>, check generated compodoc features, custom information can be found in additional information section. Your console will tell you, where it is served.</p>
+<p>The updated documentation is published as <a href="https://hpi-schul-cloud.github.io/schulcloud-server/additional-documentation/nestjs-application.html">GitHub Page</a></p>
 <h2 id="content">Content</h2>
 <p>For further reading, browse <code>apps/server/doc</code>.</p>
-<h2 id="development">Development</h2>
 <h3 id="nestjs-cli">NestJS CLI</h3>
 <p>To use the NestJS CLI, <a href="https://docs.nestjs.com/#installation">install the nest cli globally</a>.</p>
 <div><pre class="line-numbers"><code class="language-bash">$ npm i -g &#64;nestjs/cli</code></pre></div><p>Then you may use features like <code>nest g service foo</code> within of <code>/apps/server/src</code>.</p>
