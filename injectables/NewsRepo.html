@@ -186,8 +186,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:45</a></div>
                 </td>
             </tr>
 
@@ -365,8 +365,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:49</a></div>
                 </td>
             </tr>
 
@@ -448,8 +448,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:40</a></div>
                 </td>
             </tr>
 
@@ -608,7 +608,8 @@ export class NewsRepo {
 		const scope &#x3D; new NewsScope();
 		scope.byTargets(targets);
 		scope.byUnpublished(unpublished);
-
+		// TODO sort by publishedAt?
+		// scope.sortBy(...)
 		const countedNewsList &#x3D; await this.findNewsAndCount(scope.query, pagination);
 		return countedNewsList;
 	}

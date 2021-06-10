@@ -356,9 +356,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/GlobalValidationPipe.html" data-type="entity-link">GlobalValidationPipe</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ITaskMetadata.html" data-type="entity-link">ITaskMetadata</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/Lesson.html" data-type="entity-link">Lesson</a>
                             </li>
                             <li class="link">
@@ -402,6 +399,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Task.html" data-type="entity-link">Task</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskMapper.html" data-type="entity-link">TaskMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TaskResponse.html" data-type="entity-link">TaskResponse</a>
