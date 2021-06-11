@@ -59,7 +59,7 @@ const exportNews = async (schoolId) => newsModel.find({ schoolId }).exec();
 const exportErrors = [];
 const validateSchema = async (document, model) => {
 	model
-		.validate(document)
+		.validate(document, null, document)
 		.then(() => true)
 		.catch((err) => {
 			exportErrors.push(err.message);

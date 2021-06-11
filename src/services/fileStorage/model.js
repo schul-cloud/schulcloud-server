@@ -53,20 +53,20 @@ const SecurityCheckStatusTypes = Object.freeze({
  * @param permissions [Permission] - given permission for this file
  * @param lockId {ObjectId} - indicates whether a file is locked for editing or not (wopi-related)
  */
-const fileSchemaObject = {
+const fileSchema = new Schema({
 	isDirectory: { type: Boolean, default: false }, // should be required
 	name: { type: String, required: true },
 	size: {
 		type: Number,
 		required() {
-			return !fileSchemaObject.isDirectory;
+			return !this.isDirectory;
 		},
 	},
 	type: { type: String }, // todo add required but then wopi fails
 	storageFileName: {
 		type: String,
 		required() {
-			return !fileSchemaObject.isDirectory;
+			return !this.isDirectory;
 		},
 	},
 	thumbnail: { type: String },
@@ -102,9 +102,7 @@ const fileSchemaObject = {
 	lockId: { type: Schema.Types.ObjectId, ref: 'user' },
 	createdAt: { type: Date, default: Date.now },
 	updatedAt: { type: Date, default: Date.now },
-};
-
-const fileSchema = new Schema(fileSchemaObject);
+});
 
 enableAuditLog(fileSchema);
 
