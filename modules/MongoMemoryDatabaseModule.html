@@ -166,6 +166,48 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopServer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                            stopServer
+                        </b>
+                        <a href="#stopServer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopServer()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="28"
                             class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:28</a></div>
                 </td>
@@ -192,18 +234,18 @@
 import { DynamicModule, Module, OnApplicationShutdown } from &#x27;@nestjs/common&#x27;;
 import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
 
+let mongod: MongoMemoryServer;
+
 @Module({})
 export class MongoMemoryDatabaseModule implements OnApplicationShutdown {
-	static mongod: MongoMemoryServer;
-
 	static forRoot(options?: Omit&lt;MikroOrmModuleSyncOptions, &#x27;type&#x27; | &#x27;clientUrl&#x27; | &#x27;dbName&#x27;&gt;): DynamicModule {
 		return {
 			module: MongoMemoryDatabaseModule,
 			imports: [
 				MikroOrmModule.forRootAsync({
 					useFactory: async () &#x3D;&gt; {
-						MongoMemoryDatabaseModule.mongod &#x3D; new MongoMemoryServer();
-						const clientUrl &#x3D; await MongoMemoryDatabaseModule.mongod.getUri();
+						mongod &#x3D; new MongoMemoryServer();
+						const clientUrl &#x3D; await mongod.getUri();
 						return {
 							...options,
 							type: &#x27;mongo&#x27;,
@@ -215,8 +257,17 @@ export class MongoMemoryDatabaseModule implements OnApplicationShutdown {
 		};
 	}
 
+	static async stopServer(): Promise&lt;void&gt; {
+		if (mongod) {
+			await mongod.stop();
+		}
+	}
+
+	// NOTE doesn&#x27;t get called unless enabled by calling module.enableShutdownHooks()
+	// however we should better not do that in jest because of resource implications
+	// see: https://docs.nestjs.com/fundamentals/lifecycle-events
 	async onApplicationShutdown(): Promise&lt;void&gt; {
-		await MongoMemoryDatabaseModule.mongod.stop();
+		await mongod.stop();
 	}
 }
 </code></pre>
