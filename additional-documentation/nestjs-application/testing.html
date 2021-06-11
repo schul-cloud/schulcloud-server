@@ -258,18 +258,11 @@ are correctly mounted and available at a specific path.</p>
      await app.init();
      orm = module.get&lt;MikroORM&gt;(MikroORM);                           (6)
      em = module.get&lt;EntityManager&gt;(EntityManager);
- });
-
-</code></pre></div></li>
+ });</code></pre></div></li>
 </ol>
-<div><pre class="line-numbers"><code class="language-none">
-#### Clean up
-
-After Each test delete the created data in test to have a clean database for the next test.
-
-
-```Typescript
-    afterEach(async () =&gt; {
+<h4 id="clean-up">Clean up</h4>
+<p>After Each test delete the created data in test to have a clean database for the next test.</p>
+<div><pre class="line-numbers"><code class="language-Typescript">    afterEach(async () =&gt; {
         await em.nativeDelete(News, {});
     });</code></pre></div><h4 id="post-conditions">Post Conditions</h4>
 <p>After all tests are executed close the app and orm to release the resources</p>
