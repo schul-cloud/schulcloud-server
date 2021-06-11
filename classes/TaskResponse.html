@@ -153,7 +153,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -189,7 +189,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -226,7 +226,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -263,7 +263,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -299,7 +299,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -335,7 +335,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -371,7 +371,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Expose()<br />
+                                @ApiProperty()<br />
                             </code>
                         </td>
                     </tr>
@@ -396,31 +396,31 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Expose } from &#x27;class-transformer&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 /**
  * DTO for returning a task document via api.
  */
 export class TaskResponse {
-	@Expose()
+	@ApiProperty()
 	name: string;
 
-	@Expose()
+	@ApiProperty()
 	duedate?: Date;
 
-	@Expose()
+	@ApiProperty()
 	courseName?: string;
 
-	@Expose()
+	@ApiProperty()
 	displayColor?: string;
 
-	@Expose()
+	@ApiProperty()
 	id: string;
 
-	@Expose()
+	@ApiProperty()
 	createdAt: Date;
 
-	@Expose()
+	@ApiProperty()
 	updatedAt: Date;
 
 	// status: string;
