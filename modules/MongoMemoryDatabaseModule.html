@@ -87,15 +87,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options?: Omit<MikroOrmModuleSyncOptions | "type" | "clientUrl" | "dbName">)</code>
+                    <code>forRoot(options?: MikroOrmModuleSyncOptions)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:47</a></div>
                 </td>
             </tr>
 
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                            <code>Omit&lt;MikroOrmModuleSyncOptions | &quot;type&quot; | &quot;clientUrl&quot; | &quot;dbName&quot;&gt;</code>
+                                            <code>MikroOrmModuleSyncOptions</code>
                                     </td>
 
                                     <td>
@@ -146,70 +146,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onApplicationShutdown"></a>
+                    <a name="onModuleDestroy"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            onApplicationShutdown
+                            onModuleDestroy
                         </b>
-                        <a href="#onApplicationShutdown"><span class="icon ion-ios-link"></span></a>
+                        <a href="#onModuleDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onApplicationShutdown()</code>
+                    <code>onModuleDestroy()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="stopServer"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            <span class="modifier">Async</span>
-                            stopServer
-                        </b>
-                        <a href="#stopServer"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>stopServer()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:57</a></div>
                 </td>
             </tr>
 
@@ -230,44 +188,65 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
-import { DynamicModule, Module, OnApplicationShutdown } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MikroORM } from &#x27;@mikro-orm/core&#x27;;
+import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
+import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
+import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
 
-let mongod: MongoMemoryServer;
+const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
+	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
+		providers: [
+			{
+				provide: MongoMemoryServer,
+				useFactory: () &#x3D;&gt; {
+					return new MongoMemoryServer();
+				},
+			},
+		],
+		useFactory: async (mongod: MongoMemoryServer) &#x3D;&gt; {
+			const clientUrl &#x3D; await mongod.getUri();
+			return {
+				...options,
+				type: &#x27;mongo&#x27;,
+				clientUrl,
+			};
+		},
+		inject: [MongoMemoryServer],
+	});
+
+	// TODO maybe we can find a better way to export the MongoMemoryServer provider
+	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
+	const mikroOrmCoreModule &#x3D; (mikroOrmModule.imports || [])[0] as DynamicModule;
+	if (mikroOrmCoreModule) {
+		mikroOrmCoreModule.exports ||&#x3D; [];
+		mikroOrmCoreModule.exports.push(MongoMemoryServer);
+	}
+
+	return mikroOrmModule;
+};
 
 @Module({})
-export class MongoMemoryDatabaseModule implements OnApplicationShutdown {
-	static forRoot(options?: Omit&lt;MikroOrmModuleSyncOptions, &#x27;type&#x27; | &#x27;clientUrl&#x27; | &#x27;dbName&#x27;&gt;): DynamicModule {
+export class MongoMemoryDatabaseModule implements OnModuleDestroy {
+	constructor(
+		@Inject(MikroORM) private orm: MikroORM,
+		@Inject(MongoMemoryServer) private mongod: MongoMemoryServer,
+		private readonly moduleRef: ModuleRef
+	) {}
+
+	static forRoot(options?: MikroOrmModuleSyncOptions): DynamicModule {
 		return {
 			module: MongoMemoryDatabaseModule,
-			imports: [
-				MikroOrmModule.forRootAsync({
-					useFactory: async () &#x3D;&gt; {
-						mongod &#x3D; new MongoMemoryServer();
-						const clientUrl &#x3D; await mongod.getUri();
-						return {
-							...options,
-							type: &#x27;mongo&#x27;,
-							clientUrl,
-						};
-					},
-				}),
-			],
+			imports: [createMikroOrmModule(options || {})],
+			exports: [MikroOrmModule],
 		};
 	}
 
-	static async stopServer(): Promise&lt;void&gt; {
-		if (mongod) {
-			await mongod.stop();
-		}
-	}
-
-	// NOTE doesn&#x27;t get called unless enabled by calling module.enableShutdownHooks()
-	// however we should better not do that in jest because of resource implications
-	// see: https://docs.nestjs.com/fundamentals/lifecycle-events
-	async onApplicationShutdown(): Promise&lt;void&gt; {
-		await mongod.stop();
+	// close db connection and stop mongo server
+	// NOTE: we have to call close() on this module to make nest call this callback
+	async onModuleDestroy(): Promise&lt;void&gt; {
+		await this.orm.close();
+		await this.mongod.stop();
 	}
 }
 </code></pre>

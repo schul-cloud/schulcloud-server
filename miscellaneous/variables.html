@@ -76,6 +76,9 @@
                             <a href="#createErrorResponseForHttpException" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForHttpException</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
+                            <a href="#createMikroOrmModule" title="apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts"><b>createMikroOrmModule</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-memory-database.module.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CurrentUser" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>CurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
@@ -95,9 +98,6 @@
                         </li>
                         <li>
                             <a href="#LessonSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>LessonSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#mongod" title="apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts"><b>mongod</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-memory-database.module.ts)</a>
                         </li>
                         <li>
                             <a href="#NEWS_SOURCES" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>NEWS_SOURCES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
@@ -828,6 +828,60 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createMikroOrmModule"></a>
+                        <span class="name">
+                            <b>
+                            createMikroOrmModule</b>
+                            <a href="#createMikroOrmModule"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
+	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
+		providers: [
+			{
+				provide: MongoMemoryServer,
+				useFactory: () &#x3D;&gt; {
+					return new MongoMemoryServer();
+				},
+			},
+		],
+		useFactory: async (mongod: MongoMemoryServer) &#x3D;&gt; {
+			const clientUrl &#x3D; await mongod.getUri();
+			return {
+				...options,
+				type: &#x27;mongo&#x27;,
+				clientUrl,
+			};
+		},
+		inject: [MongoMemoryServer],
+	});
+
+	// TODO maybe we can find a better way to export the MongoMemoryServer provider
+	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
+	const mikroOrmCoreModule &#x3D; (mikroOrmModule.imports || [])[0] as DynamicModule;
+	if (mikroOrmCoreModule) {
+		mikroOrmCoreModule.exports ||&#x3D; [];
+		mikroOrmCoreModule.exports.push(MongoMemoryServer);
+	}
+
+	return mikroOrmModule;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/shared/repo/query/empty-result.query.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -912,31 +966,6 @@ it should ensure an empty result</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>externalAuthConfig</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="mongod"></a>
-                        <span class="name">
-                            <b>
-                            mongod</b>
-                            <a href="#mongod"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>MongoMemoryServer</code>
-
                         </td>
                     </tr>
 
