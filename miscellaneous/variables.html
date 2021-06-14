@@ -387,15 +387,15 @@
 	collectCoverageFrom: [&#x27;apps/**/*.(t|j)s&#x27;],
 	coverageDirectory: &#x27;./coverage&#x27;,
 	coveragePathIgnorePatterns: [&#x27;.module.ts$&#x27;, &#x27;index.ts$&#x27;, &#x27;spec.ts$&#x27;],
-	coverageThreshold: {
-		global: {
-			branches: 80,
-			functions: 80,
-			lines: 80,
-			statements: -5,
-		},
-		// add custom paths: &#x27;./apps/server/path...&#x27;: { branches: X, functions: ... }
-	},
+	// coverageThreshold: {
+	// 	global: {
+	// 		branches: 80,
+	// 		functions: 80,
+	// 		lines: 80,
+	// 		statements: -5,
+	// 	},
+	// 	// add custom paths: &#x27;./apps/server/path...&#x27;: { branches: X, functions: ... }
+	// },
 	testEnvironment: &#x27;node&#x27;,
 	// detectOpenHandles: true,
 	// detectLeaks: true,
