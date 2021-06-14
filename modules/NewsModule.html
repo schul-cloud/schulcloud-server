@@ -194,15 +194,6 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" title="Official documentation about module controllers"><span
-                                class="icon ion-ios-information-circle-outline"></a></h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="../controllers/NewsController.html">NewsController</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
@@ -240,7 +231,14 @@ import { LoggerModule } from &#x27;../../core/logger/logger.module&#x27;;
 
 @Module({
 	imports: [AuthorizationModule, LoggerModule],
-	controllers: [NewsController],
+	controllers: [
+		/* NewsController
+		 * to enable:
+		 * - unskip e2e tests
+		 * - execute migration news_add_target_schools (in migrations/scheduled)
+		 * - update backup/setup/news.json from db after migration has been executed
+		 */
+	],
 	providers: [NewsUc, NewsRepo],
 	exports: [NewsUc],
 })

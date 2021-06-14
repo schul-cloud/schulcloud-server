@@ -201,30 +201,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/NewsModule.html" data-type="entity-link">NewsModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' : 'data-target="#xs-controllers-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' }>
-                                            <span class="icon ion-md-swap"></span>
-                                            <span>Controllers</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' :
-                                            'id="xs-controllers-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' }>
-                                            <li class="link">
-                                                <a href="controllers/NewsController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NewsController</a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' : 'data-target="#xs-injectables-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' }>
+                                        'data-target="#injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' : 'data-target="#xs-injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' :
-                                        'id="xs-injectables-links-module-NewsModule-2ebff9b8b5581165b3b38b5ee916ca73"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' :
+                                        'id="xs-injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' }>
                                         <li class="link">
                                             <a href="injectables/NewsRepo.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>NewsRepo</a>
@@ -311,6 +296,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                 </ul>
                 </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#controllers-links"' :
+                                'data-target="#xs-controllers-links"' }>
+                                <span class="icon ion-md-swap"></span>
+                                <span>Controllers</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="controllers-links"' : 'id="xs-controllers-links"' }>
+                                <li class="link">
+                                    <a href="controllers/NewsController.html" data-type="entity-link">NewsController</a>
+                                </li>
+                            </ul>
+                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>
