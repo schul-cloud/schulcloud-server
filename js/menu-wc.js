@@ -381,9 +381,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PaginationResponse.html" data-type="entity-link">PaginationResponse</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SampleError.html" data-type="entity-link">SampleError</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/SchoolInfo.html" data-type="entity-link">SchoolInfo</a>
                             </li>
                             <li class="link">

@@ -398,22 +398,6 @@ export abstract class BusinessError extends HttpException {
 		return new ErrorResponse(this.type, this.title, this.message, this.code);
 	}
 }
-
-/**
- * sample business error implementation
- */
-export class SampleError extends BusinessError {
-	constructor(message?: string) {
-		super(
-			{
-				type: &#x27;SAMPLE_ERROR&#x27;,
-				title: &#x27;Sample Error&#x27;,
-				defaultMessage: message || &#x27;default sample error message&#x27;,
-			},
-			HttpStatus.NOT_IMPLEMENTED
-		);
-	}
-}
 </code></pre>
     </div>
 </div>
