@@ -173,13 +173,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PipeTransform, Injectable, BadRequestException } from &#x27;@nestjs/common&#x27;;
-import { Types } from &#x27;mongoose&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class ParseObjectIdPipe implements PipeTransform&lt;string, EntityId&gt; {
 	transform(value: string): string {
-		const validObjectId &#x3D; Types.ObjectId.isValid(value);
+		const validObjectId &#x3D; ObjectId.isValid(value);
 
 		if (!validObjectId) {
 			throw new BadRequestException(&#x27;Invalid ObjectId&#x27;);
