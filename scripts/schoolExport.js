@@ -91,7 +91,7 @@ appPromise
 			submissions: [],
 		};
 
-		const schoolId = '5c06890bf5e1230013857639';
+		const schoolId = '5cbf0d9e7883770010ff920d';
 		const users = (await exportUsers(schoolId)).filter((el) => validateSchema(el, userModel));
 		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id))))
 			.flat()
@@ -150,6 +150,11 @@ appPromise
 		fullJson.homework = lodash.uniqBy(homework, (e) => e._id.toString()).map((h) => h.toJSON());
 		fullJson.news = lodash.uniqBy(news, (e) => e._id.toString()).map((n) => n.toJSON());
 		fullJson.submissions = lodash.uniqBy(submissions, (e) => e._id.toString()).map((s) => s.toJSON());
+
+		if (exportErrors.length > 0) {
+			console.log(exportErrors);
+			return process.exit(1);
+		}
 
 		const fullJsonString = JSON.stringify(fullJson);
 

@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const fs = require('fs').promises;
-// const mongoose = require('mongoose');
 const appPromise = require('../src/app');
 const { schoolModel } = require('../src/services/school/model');
 const { FileModel } = require('../src/services/fileStorage/model');
