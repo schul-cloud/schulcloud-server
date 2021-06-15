@@ -208,7 +208,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsOptional()<br />@IsBoolean()<br />@ToBoolean()<br />@ApiPropertyOptional({description: &#x27;Flag that filters if the news should be published or not&#x27;})<br />
+                                @IsOptional()<br />@IsBoolean()<br />@StringToBoolean()<br />@ApiPropertyOptional({description: &#x27;Flag that filters if the news should be published or not&#x27;})<br />
                             </code>
                         </td>
                     </tr>
@@ -235,7 +235,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsBoolean, IsIn, IsMongoId, IsOptional, IsString } from &#x27;class-validator&#x27;;
-import { ToBoolean } from &#x27;@shared/transformer&#x27;;
+import { StringToBoolean } from &#x27;@shared/transformer&#x27;;
 import { NewsTargetModel } from &#x27;../../entity&#x27;;
 
 const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
@@ -261,7 +261,7 @@ export class NewsFilterQuery {
 
 	@IsOptional()
 	@IsBoolean()
-	@ToBoolean()
+	@StringToBoolean()
 	@ApiPropertyOptional({
 		description: &#x27;Flag that filters if the news should be published or not&#x27;,
 	})
