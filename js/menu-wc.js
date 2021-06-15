@@ -327,9 +327,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ApiValidationErrorResponse.html" data-type="entity-link">ApiValidationErrorResponse</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AuthEntity.html" data-type="entity-link">AuthEntity</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/BaseEntity.html" data-type="entity-link">BaseEntity</a>
                             </li>
                             <li class="link">
@@ -415,9 +412,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link">UpdateNewsParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/UserDTO.html" data-type="entity-link">UserDTO</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserInfo.html" data-type="entity-link">UserInfo</a>
