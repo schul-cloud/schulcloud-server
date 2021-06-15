@@ -209,7 +209,7 @@ export class FeathersAuthProvider {
 	async getUserSchoolPermissions(userId: EntityId, schoolId: EntityId): Promise&lt;string[]&gt; | never {
 		const user &#x3D; await this.getUser(userId);
 		// test user is school member
-		const sameSchool &#x3D; user.schoolId.equals(schoolId);
+		const sameSchool &#x3D; user.schoolId.toString() &#x3D;&#x3D;&#x3D; schoolId;
 		if (sameSchool &amp;&amp; Array.isArray(user.permissions)) {
 			return user.permissions;
 		}
