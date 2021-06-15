@@ -83,9 +83,13 @@ This will not stop the running services behind the controller.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#_timeout">_timeout</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Static</span>
-                                    <span class="modifier">Readonly</span>
                                 <a href="#defaultTimeout">defaultTimeout</a>
                             </li>
                         </ul>
@@ -111,6 +115,20 @@ This will not stop the running services behind the controller.</p>
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#timeout">timeout</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -143,8 +161,8 @@ This will not stop the running services behind the controller.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:17</a></div>
                 </td>
             </tr>
 
@@ -213,14 +231,13 @@ This will not stop the running services behind the controller.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="defaultTimeout"></a>
+                        <a name="_timeout"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Protected</span>
-                                <span class="modifier">Static</span>
-                                <span class="modifier">Readonly</span>
-                            defaultTimeout</b>
-                            <a href="#defaultTimeout"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Optional</span>
+                            _timeout</b>
+                            <a href="#_timeout"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -230,14 +247,37 @@ This will not stop the running services behind the controller.</p>
 
                         </td>
                     </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultTimeout"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                                <span class="modifier">Static</span>
+                            defaultTimeout</b>
+                            <a href="#defaultTimeout"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>5000</code>
+                            <i>Default value : </i><code>REQUEST_TIMEOUT</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -246,6 +286,80 @@ This will not stop the running services behind the controller.</p>
         </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timeout"></a>
+                        <span class="name"><b>timeout</b><a href="#timeout"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>timeout()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:29</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>timeout(milliseconds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/interceptor/timeout.interceptor.ts:33</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>milliseconds</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
     </div>
 
 
@@ -253,6 +367,7 @@ This will not stop the running services behind the controller.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NestInterceptor, ExecutionContext, CallHandler, RequestTimeoutException } from &#x27;@nestjs/common&#x27;;
 import { Observable, throwError, TimeoutError } from &#x27;rxjs&#x27;;
 import { catchError, timeout } from &#x27;rxjs/operators&#x27;;
+import { REQUEST_TIMEOUT } from &#x27;./constants&#x27;;
 
 /**
  * This interceptor leaves the request execution after a given timeout in ms.
@@ -260,13 +375,14 @@ import { catchError, timeout } from &#x27;rxjs/operators&#x27;;
  */
 @Injectable()
 export class TimeoutInterceptor implements NestInterceptor {
-	protected static readonly defaultTimeout &#x3D; 5000; // todo take from globals
+	protected static defaultTimeout &#x3D; REQUEST_TIMEOUT;
 
-	// constructor(private readonly timeoutMs: number &#x3D; 5000) {}
+	private _timeout?: number;
+
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
 		return next.handle().pipe(
-			timeout(TimeoutInterceptor.defaultTimeout),
+			timeout(this.timeout),
 			catchError((err) &#x3D;&gt; {
 				if (err instanceof TimeoutError) {
 					return throwError(new RequestTimeoutException());
@@ -274,6 +390,14 @@ export class TimeoutInterceptor implements NestInterceptor {
 				return throwError(err);
 			})
 		);
+	}
+
+	get timeout(): number {
+		return this._timeout || TimeoutInterceptor.defaultTimeout;
+	}
+
+	set timeout(milliseconds: number) {
+		this._timeout &#x3D; milliseconds;
 	}
 }
 </code></pre>

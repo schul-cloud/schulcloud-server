@@ -79,7 +79,13 @@
                             <a href="#createMikroOrmModule" title="apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts"><b>createMikroOrmModule</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-memory-database.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#createTestModule" title="apps/server/src/shared/interceptor/test/create-test.module.ts"><b>createTestModule</b>&nbsp;&nbsp;&nbsp;(apps/.../create-test.module.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CurrentUser" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>CurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#delay" title="apps/server/src/shared/interceptor/test/create-test.module.ts"><b>delay</b>&nbsp;&nbsp;&nbsp;(apps/.../create-test.module.ts)</a>
                         </li>
                         <li>
                             <a href="#EmptyResultQuery" title="apps/server/src/shared/repo/query/empty-result.query.ts"><b>EmptyResultQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../empty-result.query.ts)</a>
@@ -110,6 +116,9 @@
                         </li>
                         <li>
                             <a href="#PORT" title="apps/server/src/main.ts"><b>PORT</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REQUEST_TIMEOUT" title="apps/server/src/shared/interceptor/constants.ts"><b>REQUEST_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#ROUTE_PRAEFIX" title="apps/server/src/main.ts"><b>ROUTE_PRAEFIX</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
@@ -149,6 +158,9 @@
                         </li>
                         <li>
                             <a href="#" title="apps/server/src/modules/authentication/constants.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/shared/interceptor/constants.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#writeErrorLog" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>writeErrorLog</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
@@ -882,6 +894,61 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/shared/interceptor/test/create-test.module.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createTestModule"></a>
+                        <span class="name">
+                            <b>
+                            createTestModule</b>
+                            <a href="#createTestModule"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(interceptor: NestInterceptor): Promise&lt;TestingModule&gt; &#x3D;&gt; {
+	return Test.createTestingModule({
+		providers: [
+			{
+				provide: APP_INTERCEPTOR,
+				useValue: interceptor,
+			},
+		],
+		controllers: [DelayController],
+	}).compile();
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delay"></a>
+                        <span class="name">
+                            <b>
+                            delay</b>
+                            <a href="#delay"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(ms) &#x3D;&gt; new Promise((resolve) &#x3D;&gt; setTimeout(resolve, ms))</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/shared/repo/query/empty-result.query.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1121,6 +1188,51 @@ it should ensure an empty result</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>serverErrorTypes</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/shared/interceptor/constants.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="REQUEST_TIMEOUT"></a>
+                        <span class="name">
+                            <b>
+                            REQUEST_TIMEOUT</b>
+                            <a href="#REQUEST_TIMEOUT"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Configuration.get(&#x27;REQUEST_TIMEOUT&#x27;) as number</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name=""></a>
+                        <span class="name">
+                            <b>
+                            </b>
+                            <a href="#"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>config</code>
                         </td>
                     </tr>
 
