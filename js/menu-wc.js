@@ -479,9 +479,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/NewsTargetFilter.html" data-type="entity-link">NewsTargetFilter</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PaginationModel.html" data-type="entity-link">PaginationModel</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link">User</a>
                             </li>
                         </ul>

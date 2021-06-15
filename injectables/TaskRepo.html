@@ -102,7 +102,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -162,15 +162,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenByStudent(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/PaginationModel.html">PaginationModel</a>)</code>
+                    <code>findAllOpenByStudent(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:14</a></div>
                 </td>
             </tr>
 
@@ -206,7 +206,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                                <code><a href="../interfaces/PaginationModel.html" target="_self" >PaginationModel</a></code>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
                                     </td>
 
                                     <td>
@@ -242,9 +242,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
-import { PaginationModel } from &#x27;@shared/repo&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { Task, Submission, Course, Lesson } from &#x27;../entity&#x27;;
 
@@ -254,7 +253,7 @@ export class TaskRepo {
 
 	// WARNING: this is used to deal with the current datamodel, and needs to be changed.
 	// DO NOT DO THIS AT HOME!!
-	async findAllOpenByStudent(userId: EntityId, { limit, skip }: PaginationModel &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+	async findAllOpenByStudent(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		// todo: handle coursegroups
 
 		// TODO move BL to UC
