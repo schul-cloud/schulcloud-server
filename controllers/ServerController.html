@@ -124,8 +124,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/server.controller.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/server.controller.ts:7</a></div>
                 </td>
             </tr>
 
@@ -148,16 +148,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { ServerService } from &#x27;./server.service&#x27;;
 
 @Controller()
 export class ServerController {
-	constructor(private readonly serverService: ServerService) {}
-
 	/** default route to test public access */
 	@Get()
 	getHello(): string {
-		return this.serverService.getHello();
+		return &#x27;Schulcloud Server API&#x27;;
 	}
 }
 </code></pre>

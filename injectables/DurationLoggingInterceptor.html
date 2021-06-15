@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/interceptor/duration-logging.interceptor.ts</code>
+            <code>apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts</code>
         </p>
 
             <p class="comment">
@@ -142,7 +142,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:13</a></div>
+                            class="link-to-prism">apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts:13</a></div>
                 </td>
             </tr>
 
@@ -228,7 +228,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/interceptor/duration-logging.interceptor.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -244,7 +244,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from &#x27;@nestjs/common&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { tap } from &#x27;rxjs/operators&#x27;;
-import { Logger } from &#x27;../../core/logger/logger.service&#x27;;
+import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 
 /**
  * This interceptor is logging the duration of a REST call.

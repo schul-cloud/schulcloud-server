@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/error/business.error.ts</code>
+            <code>apps/server/src/shared/common/error/business.error.ts</code>
         </p>
 
             <p class="comment">
@@ -147,7 +147,7 @@ within of a client or inside of the application.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/error/business.error.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -222,7 +222,7 @@ within of a client or inside of the application.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/error/business.error.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -250,7 +250,7 @@ within of a client or inside of the application.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/error/business.error.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -278,7 +278,7 @@ within of a client or inside of the application.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/error/business.error.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -306,7 +306,7 @@ within of a client or inside of the application.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/error/business.error.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -343,7 +343,7 @@ within of a client or inside of the application.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/error/business.error.ts:26</a></div>
+                            class="link-to-prism">apps/server/src/shared/common/error/business.error.ts:26</a></div>
                 </td>
             </tr>
 
@@ -370,8 +370,8 @@ within of a client or inside of the application.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpException, HttpStatus } from &#x27;@nestjs/common&#x27;;
-import { IErrorType } from &#x27;../../core/error/interface&#x27;;
-import { ErrorResponse } from &#x27;../../core/error/dto/error.response&#x27;;
+import { ErrorResponse } from &#x27;@src/core/error/dto/error.response&#x27;;
+import { IErrorType } from &#x27;@src/core/error/interface&#x27;;
 
 /**
  * Abstract base class for business errors, errors that are handled
