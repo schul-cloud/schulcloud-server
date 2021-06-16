@@ -69,13 +69,13 @@
 <title>cluster_NewsModule_providers</title>
 <polygon fill="none" stroke="black" points="296,-78 296,-130 525,-130 525,-78 296,-78"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_NewsModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 288,-130 288,-78 16,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_NewsModule_exports</title>
 <polygon fill="none" stroke="black" points="237,-208 237,-260 321,-260 321,-208 237,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_NewsModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 288,-130 288,-78 16,-78"/>
 </g>
 <!-- AuthorizationModule -->
 <g id="node1" class="node">
@@ -194,6 +194,15 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" title="Official documentation about module controllers"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../controllers/NewsController.html">NewsController</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
@@ -229,16 +238,15 @@ import { NewsController } from &#x27;./controller/news.controller&#x27;;
 import { AuthorizationModule } from &#x27;../authorization/authorization.module&#x27;;
 import { LoggerModule } from &#x27;../../core/logger/logger.module&#x27;;
 
+/* NewsController
+ * to enable:
+ * - unskip e2e tests
+ * - execute migration news_add_target_schools (in migrations/scheduled)
+ * - update backup/setup/news.json from db after migration has been executed
+ */
 @Module({
 	imports: [AuthorizationModule, LoggerModule],
-	controllers: [
-		/* NewsController
-		 * to enable:
-		 * - unskip e2e tests
-		 * - execute migration news_add_target_schools (in migrations/scheduled)
-		 * - update backup/setup/news.json from db after migration has been executed
-		 */
-	],
+	controllers: [NewsController],
 	providers: [NewsUc, NewsRepo],
 	exports: [NewsUc],
 })

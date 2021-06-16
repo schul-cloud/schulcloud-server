@@ -201,15 +201,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/NewsModule.html" data-type="entity-link">NewsModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' : 'data-target="#xs-controllers-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' :
+                                            'id="xs-controllers-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' }>
+                                            <li class="link">
+                                                <a href="controllers/NewsController.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NewsController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' : 'data-target="#xs-injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' }>
+                                        'data-target="#injectables-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' : 'data-target="#xs-injectables-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' :
-                                        'id="xs-injectables-links-module-NewsModule-d0bd9b157e547e701749ca7c635376ba"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' :
+                                        'id="xs-injectables-links-module-NewsModule-6cf3b21e823990337a0681d947ddcf8c"' }>
                                         <li class="link">
                                             <a href="injectables/NewsRepo.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>NewsRepo</a>
@@ -225,13 +240,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link">ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-a8ed1640a67b8042d8788ef317f40352"' : 'data-target="#xs-controllers-links-module-ServerModule-a8ed1640a67b8042d8788ef317f40352"' }>
+                                            'data-target="#controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' : 'data-target="#xs-controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-a8ed1640a67b8042d8788ef317f40352"' :
-                                            'id="xs-controllers-links-module-ServerModule-a8ed1640a67b8042d8788ef317f40352"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' :
+                                            'id="xs-controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerController</a>
@@ -291,9 +306,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse " ${ isNormalMode ? 'id="controllers-links"' : 'id="xs-controllers-links"' }>
                                 <li class="link">
                                     <a href="controllers/DelayController.html" data-type="entity-link">DelayController</a>
-                                </li>
-                                <li class="link">
-                                    <a href="controllers/NewsController.html" data-type="entity-link">NewsController</a>
                                 </li>
                             </ul>
                         </li>
