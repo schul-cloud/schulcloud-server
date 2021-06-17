@@ -80,19 +80,20 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8898 - parallelize LDAP sync using RabbitMQ</li>
 </ul>
-<h2 id="2622---2021-06-04">26.2.2 - 2021-06-04</h2>
+<h2 id="2622---2021-06-04">[26.2.2] - 2021-06-04</h2>
 <h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>Fixed dependencies issue</li>
 </ul>
-<h2 id="2621---2021-06-02">26.2.1 - 2021-06-02</h2>
+<h2 id="2621---2021-06-02">[26.2.1] - 2021-06-02</h2>
 <h3 id="added-2">Added</h3>
 <ul>
 <li>SC-9103 - add logging for syncIndexes script</li>
 </ul>
-<h2 id="2620---2021-06-01">26.2.0 - 2021-06-01</h2>
+<h2 id="2620---2021-06-01">[26.2.0] - 2021-06-01</h2>
 <h3 id="added-3">Added</h3>
 <ul>
+<li>OPS-2418 - Change buildpipelines (Server, Client, Nuxt) to execute E2E tests according QF decision</li>
 <li>SC-8250 - add bulk deletion to user service v2</li>
 <li>SC-8341 - add tombstone school to tombstone user</li>
 <li>SC-8408 - added delete events by scope Id route</li>
@@ -103,9 +104,14 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>OPS-1499 - Add feature to CI Pipeline and provide manual deployments of branches and automatic deploy of release to staging</li>
 <li>Add run script for sync indexes based on existing and registered schemas.</li>
 <li>SC-9085 - add registration pin deletion for parent emails</li>
+<li>SC-9004 - Sync env variables between backend and frontend</li>
+<li>OPS-1499 - Add feature to CI Pipeline and provide manual deployments of branches</li>
+<li>Add run script for sync indexes based on existing and registered schemas.</li>
 </ul>
 <h3 id="changed-2">Changed</h3>
 <ul>
+<li>SC-8440 - fixed open api validation for manual consent</li>
+<li>SC-9055 - changed Edu-Sharing permissions for Brandenburg Sportinhalt content</li>
 <li>SC-6950 - validation for officialSchoonNumber now allows 5 or 6 digits</li>
 <li>SC-8599 - added helparea contact dropdown and send value</li>
 <li>SC-7944 - use persistent ids for Lern-Store content items</li>
@@ -115,9 +121,11 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-5202 - homework tests refactoring</li>
 <li>SC-7868 - filestorage integration tests are skipped on local test environments if minio is not setup</li>
 <li>SC-8779 - messenger: use user-based fixed device ids</li>
+<li>Move envs from global to default.schema.json</li>
 </ul>
 <h3 id="fixed-2">Fixed</h3>
 <ul>
+<li>SC-8933 - fix date format on first login</li>
 <li>SC-8728 - fix configuration reset in tests</li>
 <li>SC-8873 - fix addUser prioritization for full school Matrix messenger sync</li>
 <li>SC-8982 - fix test setup for on the fly building test like routes jwt</li>
