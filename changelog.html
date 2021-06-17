@@ -46,10 +46,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-6294 Restructure NestJS Sources: Testing, Core Module, Entities, Shared. See details in <a href="https://hpi-schul-cloud.github.io/schulcloud-server/">https://hpi-schul-cloud.github.io/schulcloud-server/</a></li>
 </ul>
-<h3 id="removed">Removed</h3>
-<ul>
-<li>SC-9153 - removed sentry from code and configuration</li>
-</ul>
 <h2 id="2644---2021-06-16">[26.4.4] - 2021-06-16</h2>
 <h3 id="change">Change</h3>
 <ul>
@@ -84,20 +80,19 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8898 - parallelize LDAP sync using RabbitMQ</li>
 </ul>
-<h2 id="2622---2021-06-04">[26.2.2] - 2021-06-04</h2>
+<h2 id="2622---2021-06-04">26.2.2 - 2021-06-04</h2>
 <h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>Fixed dependencies issue</li>
 </ul>
-<h2 id="2621---2021-06-02">[26.2.1] - 2021-06-02</h2>
+<h2 id="2621---2021-06-02">26.2.1 - 2021-06-02</h2>
 <h3 id="added-2">Added</h3>
 <ul>
 <li>SC-9103 - add logging for syncIndexes script</li>
 </ul>
-<h2 id="2620---2021-06-01">[26.2.0] - 2021-06-01</h2>
+<h2 id="2620---2021-06-01">26.2.0 - 2021-06-01</h2>
 <h3 id="added-3">Added</h3>
 <ul>
-<li>OPS-2418 - Change buildpipelines (Server, Client, Nuxt) to execute E2E tests according QF decision</li>
 <li>SC-8250 - add bulk deletion to user service v2</li>
 <li>SC-8341 - add tombstone school to tombstone user</li>
 <li>SC-8408 - added delete events by scope Id route</li>
@@ -108,14 +103,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>OPS-1499 - Add feature to CI Pipeline and provide manual deployments of branches and automatic deploy of release to staging</li>
 <li>Add run script for sync indexes based on existing and registered schemas.</li>
 <li>SC-9085 - add registration pin deletion for parent emails</li>
-<li>SC-9004 - Sync env variables between backend and frontend</li>
-<li>OPS-1499 - Add feature to CI Pipeline and provide manual deployments of branches</li>
-<li>Add run script for sync indexes based on existing and registered schemas.</li>
 </ul>
 <h3 id="changed-2">Changed</h3>
 <ul>
-<li>SC-8440 - fixed open api validation for manual consent</li>
-<li>SC-9055 - changed Edu-Sharing permissions for Brandenburg Sportinhalt content</li>
 <li>SC-6950 - validation for officialSchoonNumber now allows 5 or 6 digits</li>
 <li>SC-8599 - added helparea contact dropdown and send value</li>
 <li>SC-7944 - use persistent ids for Lern-Store content items</li>
@@ -128,7 +118,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h3 id="fixed-2">Fixed</h3>
 <ul>
-<li>SC-8933 - fix date format on first login</li>
 <li>SC-8728 - fix configuration reset in tests</li>
 <li>SC-8873 - fix addUser prioritization for full school Matrix messenger sync</li>
 <li>SC-8982 - fix test setup for on the fly building test like routes jwt</li>
@@ -144,7 +133,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8880 - changed the validation for search queries in NAT, now it allows empty</li>
 </ul>
 <h2 id="26016---2021-04-20">[26.0.16] - 2021-04-20</h2>
-<h3 id="removed-1">Removed</h3>
+<h3 id="removed">Removed</h3>
 <ul>
 <li><ul>
 <li>SC-8748 - revert: bump feathers-mongoose from 6.3.0 to 8.3.1</li>
@@ -428,7 +417,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8230 - fix deletion of teachers via new route</li>
 </ul>
-<h3 id="removed-2">Removed</h3>
+<h3 id="removed-1">Removed</h3>
 <ul>
 <li>SC-8233 - Removed attribute and member as required attributes for the LDAP-config service</li>
 </ul>
@@ -470,7 +459,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-7998 - use default service setup for /version</li>
 </ul>
 <h2 id="2533-pick-from-252">[25.3.3] (pick from 25.2)</h2>
-<h3 id="removed-3">Removed</h3>
+<h3 id="removed-2">Removed</h3>
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
@@ -567,12 +556,12 @@ determine how many system/school syncers will be run in parallel (at most) durin
 <li>SC-7884 - Authentication error when accessing any nuxt page in the client.</li>
 <li>Fix typescript compiling error</li>
 </ul>
-<h3 id="removed-4">Removed</h3>
+<h3 id="removed-3">Removed</h3>
 <ul>
 <li>SC-7413 - Cleanup UnhandledRejection code that is handled from winston now</li>
 </ul>
 <h2 id="2526">[25.2.6]</h2>
-<h3 id="removed-5">Removed</h3>
+<h3 id="removed-4">Removed</h3>
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
@@ -621,7 +610,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-5476 - Added school settings to enable students to open own chat rooms</li>
 <li>SC-6567 - Add utils to cleanup incomingMessage stacks by logging errors</li>
 </ul>
-<h3 id="removed-6">Removed</h3>
+<h3 id="removed-5">Removed</h3>
 <ul>
 <li>SC-6586- Remove parents from users collection to improve maintainability</li>
 </ul>
@@ -701,7 +690,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-7085 - fixed importHash error when asking parent consent</li>
 </ul>
 <h3 id="added-17">Added</h3>
-<h3 id="removed-7">Removed</h3>
+<h3 id="removed-6">Removed</h3>
 <h2 id="2511---2020-10-12">[25.1.1] - 2020-10-12</h2>
 <h3 id="security-3">Security</h3>
 <ul>
@@ -709,7 +698,7 @@ properly closing the session, and using the correct readPreference (everything e
 </ul>
 <h2 id="2510---2020-10-12">[25.1.0] - 2020-10-12</h2>
 <h3 id="added-18">Added</h3>
-<h3 id="removed-8">Removed</h3>
+<h3 id="removed-7">Removed</h3>
 <ul>
 <li>SC-6784 - Removed duplicated birth date formatting code in adminUsers service, which was causing an &quot;Invalid date&quot; output</li>
 <li>SC-6743 - Removed usersForConsent related things in adminUsers service because the client does not send that parameter anymore</li>
@@ -765,7 +754,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-6960 - properly raise exceptions during the registration process</li>
 </ul>
 <h2 id="2507---2020-10-01">[25.0.7] - 2020-10-01</h2>
-<h3 id="removed-9">Removed</h3>
+<h3 id="removed-8">Removed</h3>
 <ul>
 <li>OPS-1316 - removed custom keep-alive header creation in express middleware</li>
 </ul>
