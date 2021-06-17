@@ -95,12 +95,6 @@
                                 <a href="#students">students</a>
                             </li>
                             <li>
-                                <a href="#substitutionTeachers">substitutionTeachers</a>
-                            </li>
-                            <li>
-                                <a href="#teachers">teachers</a>
-                            </li>
-                            <li>
                                 <a href="#_id">_id</a>
                             </li>
                             <li>
@@ -285,77 +279,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:20</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="substitutionTeachers"></a>
-                        <span class="name">
-                            <b>
-                            substitutionTeachers</b>
-                            <a href="#substitutionTeachers"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;UserInfo&gt;(this)</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToMany({fieldName: &#x27;substitutionIds&#x27;, type: UserInfo})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:27</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="teachers"></a>
-                        <span class="name">
-                            <b>
-                            teachers</b>
-                            <a href="#teachers"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;UserInfo&gt;(this)</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToMany({fieldName: &#x27;teacherIds&#x27;, type: UserInfo})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/task/entity/course.entity.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -647,16 +571,8 @@ export class Course extends BaseEntityWithTimestamps {
 	@Property()
 	color: string;
 
-	// TODO: @Property() ?
 	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserInfo })
 	students &#x3D; new Collection&lt;UserInfo&gt;(this);
-
-	// TODO: combine teachers and substitutionTeachers
-	@ManyToMany({ fieldName: &#x27;teacherIds&#x27;, type: UserInfo })
-	teachers &#x3D; new Collection&lt;UserInfo&gt;(this);
-
-	@ManyToMany({ fieldName: &#x27;substitutionIds&#x27;, type: UserInfo })
-	substitutionTeachers &#x3D; new Collection&lt;UserInfo&gt;(this);
 }
 </code></pre>
     </div>
