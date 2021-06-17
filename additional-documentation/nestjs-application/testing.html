@@ -49,21 +49,66 @@
 
 
 <h1 id="testing">Testing</h1>
-<p>Automated testing is the essential part of the software development process. 
-It improves the code quality and ensure that the code operates correctly especially after refactoring. </p>
-<p><img src="../../assets/testing-hierarchy.png" alt="Testing Hierarchy" class="img-responsive"></p>
+<p>Automated testing is the essential part of the software development process.
+It improves the code quality and ensure that the code operates correctly especially after refactoring.</p>
+<h2 id="the-different-tests">The Different Tests</h2>
+<img src="../../assets/testing-hierarchy.png" alt="Testing Hierarchy" style="float:right;width:300px;">
+
 <p>Our goal is to test each application layer mostly independent of others.</p>
 <ul>
-<li><strong>Repo tests</strong> operate on data access layer. 
-They prove that the database queries are executed correctly. </li>
-<li><strong>Use case tests</strong> operate on logic layer. 
+<li><strong>Repo tests</strong> operate on data access layer.
+They prove that the database queries are executed correctly.</li>
+<li><strong>Use case tests</strong> operate on logic layer.
 They verify the correct implementation of the business requirements.</li>
 <li><strong>Mapper tests</strong> operate between logic and service layer.
 They verify the correct mapping between domain objects and objects delivered to the clients via REST API.</li>
-<li><strong>End-to-end tests</strong> operate on all layers of the application. 
-The testing endpoint is the service layer. These tests verify the availability of the expected endpoints and checks 
+<li><strong>End-to-end tests</strong> operate on all layers of the application.
+The testing endpoint is the service layer. These tests verify the availability of the expected endpoints and checks
 the expected status codes and the structure of the received objects.</li>
 </ul>
+<h2 id="general-test-conventions">General Test Conventions</h2>
+<h3 id="lean-tests">Lean Tests</h3>
+<p>The tests should be as simple to read and understand as possible. They should be effortless to write and change, in order to not slow down development. Wherever possible:</p>
+<ul>
+<li>avoid complex logic</li>
+<li>cover only one case per test</li>
+<li>only use clearly named and widely used helper functions</li>
+<li>stick to blackbox testing: think about the unit from the outside, not its inner workings.</li>
+<li>its okay to duplicate code for each test</li>
+</ul>
+<h3 id="naming-convention">Naming Convention</h3>
+<p>When a test fails, the name of the test is the first hint to the developer (or any other person) to what went wrong where. (along with the &quot;describe&quot; blocks the test is in).
+Thus, your describe structure and testcase names should be designed to enable a person unfamiliar with the code to identify the problem as fast as possible. It should tell him:</p>
+<ul>
+<li>what component is being tested</li>
+<li>under what condition</li>
+<li>the expected outcome</li>
+</ul>
+<p>To facilitate this, your tests should be wrapped in at least two describe levels.</p>
+<div><pre class="line-numbers"><code class="language-TypeScript">// Name of the unit under test
+describe(&quot;Course Service&quot;, (() =&gt; {
+    // a &quot;when...&quot; sentence
+    describe(&quot;When a student tries to create a course&quot;, (() =&gt; {
+        // a &quot;should...&quot; sentence
+        it(&quot;should fail&quot;, async () =&gt; {
+            ...
+        });
+    });
+});</code></pre></div><h3 id="isolation">Isolation</h3>
+<p>Each test should be able to run alone, as well as together with any other tests. To ensure this, it is important that the test does not depend on any preexisting data.</p>
+<ul>
+<li>Each test should generate the data it needs, and ensure that its data is deleted afterwards. (this is usually done via mocha&#39;s &quot;afterEach&quot; function.</li>
+<li>When you create objects with fields that have to be globally unique, like the account username, you must ensure the name you choose is unique. This can be done by including a timestamp.</li>
+<li>Never use seeddata.</li>
+</ul>
+<h3 id="test-structure">Test Structure</h3>
+<p>Your test should be structured in three seperate areas, each distinguished by at least an empty line:</p>
+<ul>
+<li>Arrange - set up your testdata</li>
+<li>Act - call the function you want to test</li>
+<li>Assert - check the result</li>
+</ul>
+<p>this is known as the AAA-pattern.</p>
 <h2 id="testing-utilities">Testing Utilities</h2>
 <p>NestJS:</p>
 <ul>
@@ -85,7 +130,7 @@ Every provider can be overwritten with custom provider implementation for testin
       sampleService = moduleRef.get&lt;SampleService&gt;(SampleService);
       sampleController = moduleRef.get&lt;SampleController&gt;(CatsController);
     });</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
-<p>In Unit Tests we access directly only the layer which is currently testing. 
+<p>In Unit Tests we access directly only the layer which is currently testing.
 Other layers should be mocked or are replaced with default testing implementation.
 Especially the database access and database calls should be mocked.</p>
 <p>In contrast to unit tests the integration tests use access to the database and execute
@@ -94,57 +139,59 @@ real queries using repositories.</p>
 <p>For the data access layer, integration tests can be used to check the repositories base functionality against a database.</p>
 <p>For Queries care DRY principle, they should be tested very carefully.</p>
 <blockquote>
-<p>Use a in-memory database for testing to allow parallel test execution and have isolated execution of tests. </p>
+<p>Use a in-memory database for testing to allow parallel test execution and have isolated execution of tests.</p>
 </blockquote>
 <blockquote>
-<p>A test must define the before and after state of the data set clearly and cleanup the database after execution to the before state. </p>
+<p>A test must define the before and after state of the data set clearly and cleanup the database after execution to the before state.</p>
 </blockquote>
 <blockquote>
 <p>Instead of using predefined data sets, all preconditions should be defined in code through fixtures.</p>
 </blockquote>
-<p>Our repository layer uses <code>mikro-orm/EntityManager</code> to execute the queries. 
+<p>Our repository layer uses <code>mikro-orm/EntityManager</code> to execute the queries.
 By testing repositories we want to verify the correct behaviour of the repository functions.
-It includes verifying expected database state after executed repository function. 
+It includes verifying expected database state after executed repository function.
 Therefore, the <code>*.repo.integration.spec.js</code> should be used.</p>
 <p>The basic structure of the repo integration test:</p>
 <h4 id="preconditions-beforeall">Preconditions (beforeAll):</h4>
 <ol>
-<li>Define <code>MongoMemoryServer</code></li>
-<li>Create <code>Nest JS testing module</code>: 
-2.1 with <code>MikroOrmModule</code> defining entities which are used in tests.
-2.2 provide the repo which should be tested</li>
+<li>Create <code>Nest JS testing module</code>:
+1.1 with <code>MongoMemoryDatabaseModule</code> defining entities which are used in tests. This will wrap MikroOrmModule.forRoot() with running a MongoDB in memory.
+1.2 provide the repo which should be tested</li>
 <li>Get repo, orm and entityManager from testing module</li>
 </ol>
-<div><pre class="line-numbers"><code class="language-TypeScript">    beforeAll(async () =&gt; {
-        mongod = new MongoMemoryServer();                               (1)
-        const dbUrl = await mongod.getUri();
-        const module: TestingModule = await Test.createTestingModule({  (2)
+<div><pre class="line-numbers"><code class="language-TypeScript">    import { MongoMemoryDatabaseModule } from &#39;&#64;src/modules/database&#39;;
+
+    let repo: NewsRepo;
+    let em: EntityManager;
+    let testModule: TestingModule;
+
+    beforeAll(async () =&gt; {
+        testModule: TestingModule = await Test.createTestingModule({    (1)
              imports: [
-                 MikroOrmModule.forRoot({                               (2.1)
-                     type: &#39;mongo&#39;,
-                     clientUrl: dbUrl,
-                     entities: [News, CourseNews, ...],
-                 }),
+                     MongoMemoryDatabaseModule.forRoot({                 (1.1)
+                    entities: [News, CourseNews, ...],
+                }),
               ],
-             providers: [NewsRepo],                                     (2.2)                          
+             providers: [NewsRepo],                                     (1.2)
       }).compile();
-      repo = module.get&lt;NewsRepo&gt;(NewsRepo);                            (3)
-      orm = module.get&lt;MikroORM&gt;(MikroORM);
-      em = module.get&lt;EntityManager&gt;(EntityManager);
-    })</code></pre></div><h4 id="post-conditions-afterall">Post conditions (afterAll)</h4>
-<p>After all tests are executed close the app and orm to release the resources</p>
+      repo = testModule.get&lt;NewsRepo&gt;(NewsRepo);                        (2)
+      orm = testModule.get&lt;MikroORM&gt;(MikroORM);
+      em = testModule.get&lt;EntityManager&gt;(EntityManager);
+    })</code></pre></div><h4 id="post-conditions-afterall-teardown">Post conditions (afterAll), Teardown</h4>
+<p>After all tests are executed close the app and orm to release the resources by closing the test module.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">    afterAll(async () =&gt; {
-        await orm.close();
-        await mongod.stop();         
-    });
-</code></pre></div><h3 id="mapping-tests">Mapping Tests</h3>
-<p>Mapping tests are Unit Tests which verify the correct mapping between entities and Dto objects. 
+        await testModule.close();
+    });</code></pre></div><blockquote>
+<p>When Jest reports open handles that not have been closed, ensure all Promises are awaited and all application parts started are correctly closed.</p>
+</blockquote>
+<h3 id="mapping-tests">Mapping Tests</h3>
+<p>Mapping tests are Unit Tests which verify the correct mapping between entities and Dto objects.
 These tests should not have any external dependencies to other layers like database or use cases.</p>
 <h3 id="use-case-tests">Use Case Tests</h3>
-<p>Use case tests are Unit Tests which verify the business logic of the application. 
+<p>Use case tests are Unit Tests which verify the business logic of the application.
 The database calls are mocked and spyied. So we can check how and with which parameters the repo functions are called.</p>
 <blockquote>
-<p>Use unit-tests to ensure a use-cases logic matches the given requirements (from a [user-]story). </p>
+<p>Use unit-tests to ensure a use-cases logic matches the given requirements (from a [user-]story).</p>
 </blockquote>
 <blockquote>
 <p>A unit test should cover preconditions, allowed input, the result, and expected exceptions defined by the story, and roughly what happens on malformed input (the execution should stop).</p>
@@ -153,7 +200,7 @@ The database calls are mocked and spyied. So we can check how and with which par
 <ol>
 <li>Create <code>Nest JS testing module</code></li>
 <li>Use <code>Repo</code> as provider reimplement the repo functions with some default implementations</li>
-<li>Provide other dependencies like <code>AuthorizationService</code> and provide default implementation for the function, which are called. </li>
+<li>Provide other dependencies like <code>AuthorizationService</code> and provide default implementation for the function, which are called.</li>
 <li>Get repo and uc from testing module</li>
 </ol>
 <div><pre class="line-numbers"><code class="language-TypeScript">      const module: TestingModule = await Test.createTestingModule({ (1)
@@ -187,18 +234,18 @@ The database calls are mocked and spyied. So we can check how and with which par
 <ol>
 <li>Spy repo function which is called inside the tested use case</li>
 <li>Call the tested function</li>
-<li>Verify that the repo spy is called with the expected functions<div><pre class="line-numbers"><code class="language-Typescript">     it(&#39;should search for news by empty scope &#39;, async () =&gt; {
-         const findAllSpy = jest.spyOn(repo, &#39;findAll&#39;);             (1)
-         await service.findAllForUser(userId, scope, pagination);    (2)
-         const expectedParams = [targets, false, pagination];
-         expect(findAllSpy).toHaveBeenCalledWith(...expectedParams); (3)
-     });</code></pre></div></li>
+<li>Verify that the repo spy is called with the expected functions</li>
 </ol>
-<h2 id="e2e-tests">E2E Tests</h2>
+<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should search for news by empty scope &#39;, async () =&gt; {
+            const findAllSpy = jest.spyOn(repo, &#39;findAll&#39;);             (1)
+            await service.findAllForUser(userId, scope, pagination);    (2)
+            const expectedParams = [targets, false, pagination];
+            expect(findAllSpy).toHaveBeenCalledWith(...expectedParams); (3)
+        });</code></pre></div><h2 id="e2e-tests">E2E Tests</h2>
 <p>Unlike unit testing, which focuses on individual modules, end-to-end testing covers the interaction between classes and
 modules at a more aggregate level. Automated end-to-end tests help us to ensure that the overall behavior of the system is correct.</p>
 <h3 id="controller-tests">Controller Tests</h3>
-<p>To test the setup behind a controller, use e2e-tests to ensure, use cases and repositories below 
+<p>To test the setup behind a controller, use e2e-tests to ensure, use cases and repositories below
 are correctly mounted and available at a specific path.</p>
 <blockquote>
 <p>A controller unit test should ensure it responds with the correct data-format and a referenced use-case is called correctly.</p>
@@ -214,53 +261,46 @@ are correctly mounted and available at a specific path.</p>
 </blockquote>
 <h4 id="preconditions-1">Preconditions</h4>
 <ol>
-<li><p>Create Nest testing module</p>
-</li>
-<li><p>Import <code>ServerModule</code> as the whole</p>
-</li>
-<li><p>Override authentication using <code>JwAuthGuard</code></p>
-</li>
-<li><p>1 Override authorized user with the mocked user data</p>
-</li>
-<li><p>Override other services for example for authorization</p>
-</li>
-<li><p>Create and initialize the whole Nest Application using <code>createNestApplication()</code></p>
-</li>
-<li><p>Get Orm and Entity Manager from module</p>
-<div><pre class="line-numbers"><code class="language-Typescript">
- beforeAll(async () =&gt; {
-     const module: TestingModule = await Test.createTestingModule({  (1)
-         imports: [ServerModule],                                    (2)
-     })
-         .overrideGuard(JwtAuthGuard)                                (3)
-         .useValue({
-             canActivate(context: ExecutionContext) {
-                 const req: Request = context.switchToHttp().getRequest();
-                 req.user = {                                        (3.1)
-                         userId: &#39;0000d224816abba584714c9c&#39;,
-                         roles: [],
-                         schoolId: &#39;5f2987e020834114b8efd6f8&#39;,
-                         accountId: &#39;0000d225816abba584714c9d&#39;,
-                 };                                      
-                 return true;
-             },
-         })
-         .overrideProvider(AuthorizationService)                     (4)
-         .useValue({
-             checkEntityPermissions() {},
-             getEntityPermissions() {
-                 return [&#39;NEWS_VIEW&#39;, &#39;NEWS_EDIT&#39;];
-             },
-         })
-         .compile();
-
-     app = module.createNestApplication();                           (5)
-     await app.init();
-     orm = module.get&lt;MikroORM&gt;(MikroORM);                           (6)
-     em = module.get&lt;EntityManager&gt;(EntityManager);
- });</code></pre></div></li>
+<li>Create Nest testing module</li>
+<li>Import <code>ServerModule</code> as the whole</li>
+<li>Override authentication using <code>JwAuthGuard</code>
+3.1 Override authorized user with the mocked user data</li>
+<li>Override other services for example for authorization</li>
+<li>Create and initialize the whole Nest Application using <code>createNestApplication()</code></li>
+<li>Get Orm and Entity Manager from module</li>
 </ol>
-<h4 id="clean-up">Clean up</h4>
+<div><pre class="line-numbers"><code class="language-Typescript">
+    beforeAll(async () =&gt; {
+        const module: TestingModule = await Test.createTestingModule({  (1)
+            imports: [ServerModule],                                    (2)
+        })
+            .overrideGuard(JwtAuthGuard)                                (3)
+            .useValue({
+                canActivate(context: ExecutionContext) {
+                    const req: Request = context.switchToHttp().getRequest();
+                    req.user = {                                        (3.1)
+                            userId: &#39;0000d224816abba584714c9c&#39;,
+                            roles: [],
+                            schoolId: &#39;5f2987e020834114b8efd6f8&#39;,
+                            accountId: &#39;0000d225816abba584714c9d&#39;,
+                    };
+                    return true;
+                },
+            })
+            .overrideProvider(AuthorizationService)                     (4)
+            .useValue({
+                checkEntityPermissions() {},
+                getEntityPermissions() {
+                    return [&#39;NEWS_VIEW&#39;, &#39;NEWS_EDIT&#39;];
+                },
+            })
+            .compile();
+
+        app = module.createNestApplication();                           (5)
+        await app.init();
+        orm = module.get&lt;MikroORM&gt;(MikroORM);                           (6)
+        em = module.get&lt;EntityManager&gt;(EntityManager);
+    });</code></pre></div><h4 id="clean-up">Clean up</h4>
 <p>After Each test delete the created data in test to have a clean database for the next test.</p>
 <div><pre class="line-numbers"><code class="language-Typescript">    afterEach(async () =&gt; {
         await em.nativeDelete(News, {});
@@ -283,6 +323,8 @@ The response can be verified by checking the response code or by applying some v
     });</code></pre></div><blockquote>
 <p>Don&#39;t forget to test HTTP error codes as well</p>
 </blockquote>
+<h2 id="references">References</h2>
+<p>This guide is inspired by <a href="https://github.com/goldbergyoni/javascript-testing-best-practices/">https://github.com/goldbergyoni/javascript-testing-best-practices/</a></p>
 
                    </div><div class="search-results">
     <div class="has-results">

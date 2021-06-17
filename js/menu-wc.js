@@ -240,13 +240,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link">ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' : 'data-target="#xs-controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' }>
+                                            'data-target="#controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' : 'data-target="#xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' :
-                                            'id="xs-controllers-links-module-ServerModule-ff56b2e9b450e2e1ff11afc6e9064844"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' :
+                                            'id="xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerController</a>
@@ -459,6 +459,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/FeathersService.html" data-type="entity-link">FeathersService</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/GlobalConstants.html" data-type="entity-link">GlobalConstants</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICreateNews.html" data-type="entity-link">ICreateNews</a>
