@@ -274,7 +274,7 @@ export class TaskRepo {
 		const submissionsOfStudent &#x3D; await this.em.find(Submission, {
 			student: userId,
 		});
-		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.homeworkId);
+		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.homework.id);
 
 		const oneWeekAgo &#x3D; new Date();
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
