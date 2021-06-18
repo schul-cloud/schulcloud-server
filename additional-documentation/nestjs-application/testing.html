@@ -104,14 +104,16 @@ describe(&quot;Course Service&quot;, (() =&gt; {
         const result = doSomethingCrazy(x,y,z)
         expect(result).to... // here we can simply debug
     })
-</code></pre></div><h3 id="promises-and-tests">Promises and tests</h3>
+</code></pre></div><h3 id="promises-and-timouts-in-tests">Promises and Timouts in tests</h3>
 <p>When using asynchronous functions and/opr promises, results must be awaited within of an async test function instead of using promise chains. While for expexting error conditions it might be helpful to use catch for extracting a value from an expected error, in every case avoid writing long promise chains. </p>
 <ul>
 <li>Instead of using done callback, use async test functions. </li>
 <li>Use await instead of (long) promise chains </li>
+<li>never manually set a timeout</li>
 </ul>
 <div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : Promise&lt;retValue&gt;
-    it(&#39;bad async sample&#39;, async (done) =&gt; {
+    it(&#39;bad async sample&#39;, async function (done) =&gt; {
+        this.timeout(10000);
         return doSomethingCrazy(x,y,z).then(result=&gt;{
             expect(result).to...
             done() // expected done
@@ -121,6 +123,7 @@ describe(&quot;Course Service&quot;, (() =&gt; {
         })
     })
     it(&#39;good async sample&#39;, async () =&gt; {
+        // no timeout set
         const result = await doSomethingCrazy(x,y,z)
         expect(result).to...
     })</code></pre></div><blockquote>
