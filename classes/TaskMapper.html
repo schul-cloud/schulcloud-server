@@ -198,12 +198,6 @@ export class TaskMapper {
 		dto.displayColor &#x3D; task.course?.color;
 		dto.createdAt &#x3D; task.createdAt;
 		dto.updatedAt &#x3D; task.updatedAt;
-		dto.status &#x3D; {
-			submitted: task.submitted,
-			maxSubmissions: task.maxSubmissions,
-			graded: task.graded,
-
-		}
 		return dto;
 	}
 }
