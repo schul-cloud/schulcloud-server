@@ -116,7 +116,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(props: literal type)</code>
+<code>constructor(partial: <a href="../interfaces/User.html">Partial<UserTaskInfo></a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -139,10 +139,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>props</td>
+                                                        <td>partial</td>
                                                   
                                                         <td>
-                                                                    <code>literal type</code>
+                                                                        <code><a href="../interfaces/User.html" target="_self" >Partial&lt;UserTaskInfo&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -345,10 +345,9 @@ export class UserTaskInfo extends BaseEntity {
 	@Property()
 	lastName!: string;
 
-	constructor(props: { firstName: string; lastName: string }) {
+	constructor(partial: Partial&lt;UserTaskInfo&gt;) {
 		super();
-		this.firstName &#x3D; props.firstName;
-		this.lastName &#x3D; props.lastName;
+		Object.assign(this, partial);
 	}
 }
 </code></pre>

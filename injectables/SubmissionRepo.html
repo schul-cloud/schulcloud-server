@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>TaskUC</li>
+  <li>SubmissionRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/uc/task.uc.ts</code>
+            <code>apps/server/src/modules/task/repo/submission.repo.ts</code>
         </p>
 
 
@@ -77,11 +77,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllOpenForUser">findAllOpenForUser</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getTaskSubmissionMetadata">getTaskSubmissionMetadata</a>
+                                <a href="#getSubmissionsByTask">getSubmissionsByTask</a>
                             </li>
                         </ul>
                     </td>
@@ -101,12 +97,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html">TaskRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html">SubmissionRepo</a>)</code>
+<code>constructor(em: EntityManager)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -124,22 +120,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>taskRepo</td>
+                                                        <td>em</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>submissionRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SubmissionRepo.html" target="_self" >SubmissionRepo</a></code>
+                                                                    <code>EntityManager</code>
                                                         </td>
                                                   
                                                     <td>
@@ -165,112 +149,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllOpenForUser"></a>
+                    <a name="getSubmissionsByTask"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            findAllOpenForUser
+                            getSubmissionsByTask
                         </b>
-                        <a href="#findAllOpenForUser"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getSubmissionsByTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, pagination: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+                    <code>getSubmissionsByTask(task: <a href="../classes/Task.html">Task</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:16</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getTaskSubmissionMetadata"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getTaskSubmissionMetadata
-                        </b>
-                        <a href="#getTaskSubmissionMetadata"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getTaskSubmissionMetadata(task: <a href="../classes/Task.html">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:10</a></div>
                 </td>
             </tr>
 
@@ -307,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#TaskSubmissionsMetaData" target="_self" >Promise&lt;TaskSubmissionsMetaData&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Counted&lt;Submission[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -323,44 +223,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
-import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { TaskRepo } from &#x27;../repo/task.repo&#x27;;
-import { Task } from &#x27;../entity&#x27;;
-import { SubmissionRepo } from &#x27;../repo/submission.repo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Counted } from &#x27;../../../shared/domain&#x27;;
+import { Submission, Task } from &#x27;../entity&#x27;;
 
-// TODO move to different file
-export type TaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
-
-// filter tasks older than 3 weeks
 @Injectable()
-export class TaskUC {
-	constructor(private taskRepo: TaskRepo, private submissionRepo: SubmissionRepo) {}
+export class SubmissionRepo {
+	constructor(private readonly em: EntityManager) {}
 
-	async findAllOpenForUser(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		// TODO authorization (user conditions -&gt; permissions?)
-		// TODO get permitted tasks...
-		// TODO have BL from repo here
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllOpenByStudent(userId, pagination);
-		return [tasks, total];
-	}
-
-	// TODO move somewhere more private
-	async getTaskSubmissionMetadata(task: Task): Promise&lt;TaskSubmissionsMetaData&gt; {
-		const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
-		const submittedUsers &#x3D; new Set();
-
-		taskSubmissions.forEach((submission) &#x3D;&gt; {
-			submittedUsers.add(submission.student.id);
+	async getSubmissionsByTask(task: Task): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
+		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {
+			homework: task,
 		});
-
-		return Promise.resolve({
-			submitted: submittedUsers.size,
-			maxSubmissions: -1,
-			graded: -1,
-		});
+		return [submissions, count];
 	}
 }
 </code></pre>
@@ -396,7 +272,7 @@ export class TaskUC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'TaskUC.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubmissionRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

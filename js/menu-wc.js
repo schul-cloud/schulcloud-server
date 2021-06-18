@@ -258,13 +258,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TaskModule.html" data-type="entity-link">TaskModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' : 'data-target="#xs-controllers-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' }>
+                                            'data-target="#controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' : 'data-target="#xs-controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' :
-                                            'id="xs-controllers-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' :
+                                            'id="xs-controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
                                             <li class="link">
                                                 <a href="controllers/TaskController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">TaskController</a>
@@ -273,13 +273,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' : 'data-target="#xs-injectables-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' }>
+                                        'data-target="#injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' : 'data-target="#xs-injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' :
-                                        'id="xs-injectables-links-module-TaskModule-44fb09518cf99b36f0a8bc3fa8811340"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' :
+                                        'id="xs-injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
+                                        <li class="link">
+                                            <a href="injectables/SubmissionRepo.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>SubmissionRepo</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/TaskRepo.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>TaskRepo</a>
