@@ -220,7 +220,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -256,7 +256,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -292,7 +292,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -328,7 +328,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -364,7 +364,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -400,7 +400,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -436,7 +436,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -724,6 +724,7 @@ export class Submission extends BaseEntityWithTimestamps {
 		Object.assign(this, partial);
 	}
 
+	// TODO: adding task entity is not possible import circle and typescript before defined, maybe we must add a new task entity
 	@Property()
 	homeworkId: ObjectId;
 
