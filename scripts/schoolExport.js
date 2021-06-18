@@ -70,7 +70,7 @@ const validateSchema = async (document, model) => {
 
 appPromise
 	.then(async () => {
-		const targetFile = process.argv[2];
+		const targetFile = process.argv[3];
 
 		const fullJson = {
 			school: {},
@@ -91,7 +91,7 @@ appPromise
 			submissions: [],
 		};
 
-		const schoolId = '5cbf0d9e7883770010ff920d';
+		const schoolId = process.argv[2];
 		const users = (await exportUsers(schoolId)).filter((el) => validateSchema(el, userModel));
 		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id))))
 			.flat()
