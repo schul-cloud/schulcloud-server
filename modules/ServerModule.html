@@ -187,13 +187,12 @@ import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
 import { ServerController } from &#x27;./server.controller&#x27;;
 import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;./config&#x27;;
-
-import { CoreModule } from &#x27;./core/core.module&#x27;;
 import { TaskModule } from &#x27;./modules/task/task.module&#x27;;
-
-import { CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo, CourseInfo, TeamInfo } from &#x27;./modules/news/entity&#x27;;
-import { Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTaskInfo } from &#x27;./modules/task/entity&#x27;;
-
+import { CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo } from &#x27;./modules/news/entity&#x27;;
+import { Task, Lesson, Course, Submission } from &#x27;./modules/task/entity&#x27;;
+import { CoreModule } from &#x27;./core/core.module&#x27;;
+import { CourseInfo } from &#x27;./modules/news/entity/course-info.entity&#x27;;
+import { TeamInfo } from &#x27;./modules/news/entity/team-info.entity&#x27;;
 
 @Module({
 	imports: [
@@ -215,10 +214,8 @@ import { Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTas
 				TeamInfo,
 				UserInfo,
 				Task,
-				LessonTaskInfo,
-				CourseTaskInfo,
-				FileTaskInfo,
-				UserTaskInfo,
+				Lesson,
+				Course,
 				Submission,
 			],
 			findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
