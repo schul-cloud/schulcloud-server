@@ -136,11 +136,11 @@ describe(&quot;Course Service&quot;, (() =&gt; {
         const code = await doSomethingCrazy(x,y,z).catch(err =&gt; err.code)
         expect(code).to...
     })
-    it(&#39;good sample expecting an error type&#39;, async () =&gt; {
+    it(&#39;good sample expecting an error type from a sync function&#39;, () =&gt; {
         expect(() =&gt; doSomethingCrazySync(wrong, param)).toThrow(BadRequestException);
     })
     it(&#39;good sample expecting an error type from an async function&#39;, async () =&gt; {
-        await expect(() =&gt; doSomethingCrazySync(wrong, param)).toThrow(BadRequestException);
+        await expect(doSomethingCrazySync(wrong, param)).rejects.toThrow(BadRequestException);
     })</code></pre></div><h3 id="isolation">Isolation</h3>
 <p>Each test should be able to run alone, as well as together with any other tests. To ensure this, it is important that the test does not depend on any preexisting data.</p>
 <ul>
