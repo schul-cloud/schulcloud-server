@@ -148,7 +148,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -220,7 +220,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -262,7 +262,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -304,7 +304,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -339,7 +339,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -375,7 +375,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -411,7 +411,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -446,7 +446,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -723,8 +723,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Collection, Property, ManyToMany } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
-import { UserInfo } from &#x27;../../news/entity&#x27;;
-import { Task, FileInfo } from &#x27;./&#x27;;
+import { UserInfo } from &#x27;./user-info.entity&#x27;;
+import { Task } from &#x27;./task.entity&#x27;;
+import { FileInfo } from &#x27;./file-info.entity&#x27;;
 
 @Entity({ tableName: &#x27;submissions&#x27; })
 export class Submission extends BaseEntityWithTimestamps {
