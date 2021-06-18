@@ -94,21 +94,37 @@ describe(&quot;Course Service&quot;, (() =&gt; {
             ...
         });
     });
-});</code></pre></div><h3 id="handling-of-function-return-values">Handling of function return values</h3>
+});</code></pre></div><h3 id="isolation">Isolation</h3>
+<p>Each test should be able to run alone, as well as together with any other tests. To ensure this, it is important that the test does not depend on any preexisting data.</p>
+<ul>
+<li>Each test should generate the data it needs, and ensure that its data is deleted afterwards. (this is usually done via mocha&#39;s &quot;afterEach&quot; function.</li>
+<li>When you create objects with fields that have to be globally unique, like the account username, you must ensure the name you choose is unique. This can be done by including a timestamp.</li>
+<li>Never use seeddata.</li>
+</ul>
+<h3 id="test-structure">Test Structure</h3>
+<p>Your test should be structured in three seperate areas, each distinguished by at least an empty line:</p>
+<ul>
+<li>Arrange - set up your testdata</li>
+<li>Act - call the function you want to test</li>
+<li>Assert - check the result</li>
+</ul>
+<p>this is known as the AAA-pattern.</p>
+<h2 id="testing-samples">Testing Samples</h2>
+<h3 id="handling-of-function-return-values">Handling of function return values</h3>
 <p>When assigning a value to an expect, separate the function call from the expectation to simplify debugging. This later helps when you not know about the return value type or if it&#39;s an promise or not. This is good style not only for tests.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : retValue
     it(&#39;bad sample&#39;, () =&gt; {
-        expect(doSomethingCrazy(x,y,z)).to... 
+        expect(doSomethingCrazy(x,y,z)).to...
     })
     it(&#39;good sample&#39;, () =&gt; {
         const result = doSomethingCrazy(x,y,z)
         expect(result).to... // here we can simply debug
     })
 </code></pre></div><h3 id="promises-and-timouts-in-tests">Promises and Timouts in tests</h3>
-<p>When using asynchronous functions and/opr promises, results must be awaited within of an async test function instead of using promise chains. While for expexting error conditions it might be helpful to use catch for extracting a value from an expected error, in every case avoid writing long promise chains. </p>
+<p>When using asynchronous functions and/opr promises, results must be awaited within of an async test function instead of using promise chains. While for expexting error conditions it might be helpful to use catch for extracting a value from an expected error, in every case avoid writing long promise chains.</p>
 <ul>
-<li>Instead of using done callback, use async test functions. </li>
-<li>Use await instead of (long) promise chains </li>
+<li>Instead of using done callback, use async test functions.</li>
+<li>Use await instead of (long) promise chains</li>
 <li>never manually set a timeout</li>
 </ul>
 <div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : Promise&lt;retValue&gt;
@@ -132,7 +148,7 @@ describe(&quot;Course Service&quot;, (() =&gt; {
 <h3 id="expecting-errors-in-tests">Expecting errors in tests</h3>
 <p>When expecting an error, you might take values from an error, test for the error type thrown and must care of promises.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : Promise&lt;retValue&gt;
-    it(&#39;bad async sample expecting an error&#39;, async () =&gt; {
+    it(&#39;bad async sample expecting an error&#39;, () =&gt; {
         expect(doSomethingCrazy(x,y,z)).to...
     })
     it(&#39;good async sample expecting an error value&#39;, async () =&gt; {
@@ -144,22 +160,7 @@ describe(&quot;Course Service&quot;, (() =&gt; {
     })
     it(&#39;good sample expecting an error type from an async function&#39;, async () =&gt; {
         await expect(doSomethingCrazySync(wrong, param)).rejects.toThrow(BadRequestException);
-    })</code></pre></div><h3 id="isolation">Isolation</h3>
-<p>Each test should be able to run alone, as well as together with any other tests. To ensure this, it is important that the test does not depend on any preexisting data.</p>
-<ul>
-<li>Each test should generate the data it needs, and ensure that its data is deleted afterwards. (this is usually done via mocha&#39;s &quot;afterEach&quot; function.</li>
-<li>When you create objects with fields that have to be globally unique, like the account username, you must ensure the name you choose is unique. This can be done by including a timestamp.</li>
-<li>Never use seeddata.</li>
-</ul>
-<h3 id="test-structure">Test Structure</h3>
-<p>Your test should be structured in three seperate areas, each distinguished by at least an empty line:</p>
-<ul>
-<li>Arrange - set up your testdata</li>
-<li>Act - call the function you want to test</li>
-<li>Assert - check the result</li>
-</ul>
-<p>this is known as the AAA-pattern.</p>
-<h2 id="testing-utilities">Testing Utilities</h2>
+    })</code></pre></div><h2 id="testing-utilities">Testing Utilities</h2>
 <p>NestJS:</p>
 <ul>
 <li>provides default tooling (such as test runner that builds an isolated module/application loader)</li>
@@ -307,7 +308,7 @@ are correctly mounted and available at a specific path.</p>
 <p>Do not test logic (from the business layer or repository) in e2e-tests, this must be done where the logic is defined within of a unit test. A e2e test should only ensure everything is correctly initialized.</p>
 </blockquote>
 <blockquote>
-<p>Do not put logic (beside statements, transactions, mapping) inside a controller, use the logic layer instead. </p>
+<p>Do not put logic (beside statements, transactions, mapping) inside a controller, use the logic layer instead.</p>
 </blockquote>
 <blockquote>
 <p>Mappers must be unit tested.</p>
