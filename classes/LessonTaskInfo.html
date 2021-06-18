@@ -151,7 +151,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Property()<br />
+                                @ManyToOne({fieldName: &#x27;courseId&#x27;})<br />
                             </code>
                         </td>
                     </tr>
@@ -469,7 +469,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
-import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
+import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { CourseTaskInfo } from &#x27;./course-task-info.entity&#x27;;
 
 @Entity({ tableName: &#x27;lessons&#x27; })
@@ -477,7 +477,7 @@ export class LessonTaskInfo extends BaseEntityWithTimestamps {
 	@Property()
 	hidden: boolean;
 
-	@Property()
+	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
 	course: CourseTaskInfo;
 }
 </code></pre>

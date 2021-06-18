@@ -647,7 +647,7 @@ export class CourseTaskInfo extends BaseEntityWithTimestamps {
 	@Property()
 	color: string;
 
-	// TODO: we do not use any populate of it ManyToMany is not related at the moment
+	// TODO: @Property() ?
 	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserTaskInfo })
 	students &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
 
