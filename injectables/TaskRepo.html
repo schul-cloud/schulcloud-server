@@ -245,7 +245,7 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { Task, Submission, CourseInfo, LessonInfo } from &#x27;../entity&#x27;;
+import { Task, Submission, CourseTaskInfo, LessonInfo } from &#x27;../entity&#x27;;
 
 @Injectable()
 export class TaskRepo {
@@ -263,7 +263,7 @@ export class TaskRepo {
 		// order by duedate
 		// pagination
 
-		const coursesOfStudent &#x3D; await this.em.find(CourseInfo, {
+		const coursesOfStudent &#x3D; await this.em.find(CourseTaskInfo, {
 			students: userId,
 		});
 		const lessonsOfStudent &#x3D; await this.em.find(LessonInfo, {

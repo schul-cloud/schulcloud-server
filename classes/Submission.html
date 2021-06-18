@@ -325,7 +325,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;FileInfo&gt;(this)</code>
+                            <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
                         </td>
                     </tr>
                     <tr>
@@ -333,7 +333,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ManyToOne({fieldName: &#x27;gradeFileIds&#x27;, type: FileInfo})<br />
+                                @ManyToOne({fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo})<br />
                             </code>
                         </td>
                     </tr>
@@ -396,7 +396,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserInfo</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
 
                         </td>
                     </tr>
@@ -432,7 +432,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;FileInfo&gt;(this)</code>
+                            <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
                         </td>
                     </tr>
                     <tr>
@@ -440,7 +440,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ManyToOne({fieldName: &#x27;fileIds&#x27;, type: FileInfo})<br />
+                                @ManyToOne({fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo})<br />
                             </code>
                         </td>
                     </tr>
@@ -723,9 +723,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Collection, Property, ManyToMany } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
-import { UserInfo } from &#x27;./user-info.entity&#x27;;
+import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
-import { FileInfo } from &#x27;./file-info.entity&#x27;;
+import { FileTaskInfo } from &#x27;./file-task-info.entity&#x27;;
 
 @Entity({ tableName: &#x27;submissions&#x27; })
 export class Submission extends BaseEntityWithTimestamps {
@@ -738,14 +738,14 @@ export class Submission extends BaseEntityWithTimestamps {
 	homework: Task;
 
 	@ManyToOne({ fieldName: &#x27;studentId&#x27; })
-	student: UserInfo;
+	student: UserTaskInfo;
 
 	/***** student uploads *****/
 	@Property()
 	comment: string;
 
-	@ManyToOne({ fieldName: &#x27;fileIds&#x27;, type: FileInfo })
-	studentFiles &#x3D; new Collection&lt;FileInfo&gt;(this);
+	@ManyToOne({ fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo })
+	studentFiles &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
 
 	/***** teacher uploads *****/
 	@Property()
@@ -754,9 +754,8 @@ export class Submission extends BaseEntityWithTimestamps {
 	@Property()
 	gradeComment: string;
 
-	@ManyToOne({ fieldName: &#x27;gradeFileIds&#x27;, type: FileInfo })
-	gradeFileIds &#x3D; new Collection&lt;FileInfo&gt;(this);
-
+	@ManyToOne({ fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo })
+	gradeFileIds &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
 }
 </code></pre>
     </div>
