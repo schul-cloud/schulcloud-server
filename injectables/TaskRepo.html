@@ -266,8 +266,9 @@ export class TaskRepo {
 		const coursesOfStudent &#x3D; await this.em.find(CourseTaskInfo, {
 			students: userId,
 		});
+		const $in &#x3D; coursesOfStudent.map(({ _id }) &#x3D;&gt; _id);
 		const lessonsOfStudent &#x3D; await this.em.find(LessonTaskInfo, {
-			course: { $in: coursesOfStudent },
+			courseId: { $in },
 			hidden: false,
 		});
 
