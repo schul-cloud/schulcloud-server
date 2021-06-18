@@ -77,6 +77,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findAllAssignedByTeacher">findAllAssignedByTeacher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAllOpenByStudent">findAllOpenByStudent</a>
                             </li>
                         </ul>
@@ -145,6 +149,78 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllAssignedByTeacher"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            findAllAssignedByTeacher
+                        </b>
+                        <a href="#findAllAssignedByTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllAssignedByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -297,6 +373,27 @@ export class TaskRepo {
 		);
 
 		return [usersTasks, total];
+	}
+
+	async findAllAssignedByTeacher(userId: EntityId): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+		// TODO: merge overlaps with findAllOpenByStudent
+		// TODO: use Query Builder
+		const coursesOfTeacher &#x3D; await this.em.find(CourseTaskInfo, {
+			teachers: userId,
+		});
+		const publishedLessons &#x3D; await this.em.find(LessonTaskInfo, {
+			course: { $in: coursesOfTeacher },
+			hidden: false,
+		});
+
+		const [usersTasks, count] &#x3D; await this.em.findAndCount(Task, {
+			$and: [
+				{ course: { $in: coursesOfTeacher } },
+				{ private: { $ne: true } },
+				{ $or: [{ lesson: null }, { lesson: { $in: publishedLessons } }] },
+			],
+		});
+		return [usersTasks, count];
 	}
 }
 </code></pre>
