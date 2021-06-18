@@ -3,6 +3,7 @@
 const lodash = require('lodash');
 const { ObjectId } = require('mongoose').Types;
 const fs = require('fs').promises;
+const fsSync = require('fs');
 const appPromise = require('../src/app');
 const { schoolModel } = require('../src/services/school/model');
 const { FileModel } = require('../src/services/fileStorage/model');
@@ -68,9 +69,42 @@ const validateSchema = async (document, model) => {
 		});
 };
 
+async function writeUserFiles(entityName, outerEntities, getFilesForEntity, destinationFileName) {
+    const stream = fsSync.createWriteStream(destinationFileName, {flags: 'a'})
+    stream.write('[')
+
+    let outerCounter = 0;
+    const outerTotalLength = outerEntities.length +1;
+
+    for (const outer of outerEntities) {
+        outerCounter++;
+        console.log('' + outerCounter + ' / ' + outerTotalLength + ' ' + entityName + ' files');
+        const files = await getFilesForEntity(outer._id);
+
+        const filesTotalLength = files.length +1 ;
+        let innerCounter = 0;
+        files
+            .flat()
+            .forEach(innerFile => {
+                innerCounter++;
+                if (innerFile !== null && innerFile !== '' && validateSchema(innerFile, FileModel)) {
+
+                    stream.write(JSON.stringify(innerFile));
+                    if (filesTotalLength !== innerCounter && outerTotalLength !== outerCounter) {
+                        stream.write(',')
+                    }
+                }
+
+            });
+    }
+    stream.write(']');
+    stream.close();
+}
+
 appPromise
 	.then(async () => {
-		const targetFile = process.argv[3];
+		const targetDirectory = process.argv[3];
+		await fs.mkdir(targetDirectory)
 
 		const fullJson = {
 			school: {},
@@ -78,7 +112,6 @@ appPromise
 			users: [],
 			accounts: [],
 			teams: [],
-			files: [],
 			courseGroups: [],
 			ltiTools: [],
 			lessons: [],
@@ -93,20 +126,11 @@ appPromise
 
 		const schoolId = process.argv[2];
 		const users = (await exportUsers(schoolId)).filter((el) => validateSchema(el, userModel));
-		const userFiles = (await Promise.all(users.map((u) => exportUserFiles(u._id))))
-			.flat()
-			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
 		const accounts = (await Promise.all(users.map((u) => exportAccounts(u._id)))).filter(
 			(el) => el !== null && validateSchema(el, accountModel)
 		);
 		const teams = (await exportTeams(schoolId)).filter((el) => validateSchema(el, teamsModel));
-		const teamFiles = (await Promise.all(teams.map((t) => exportTeamFiles(t._id))))
-			.flat()
-			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
 		const courses = (await exportCourses(schoolId)).filter((el) => validateSchema(el, courseModel));
-		const courseFiles = (await Promise.all(courses.map((c) => exportCourseFiles(c._id))))
-			.flat()
-			.filter((el) => el !== null && el !== '' && validateSchema(el, FileModel));
 		const courseGroups = (await Promise.all(courses.map((c) => exportCourseGroups(c._id))))
 			.flat()
 			.filter((el) => el !== null && el !== '' && validateSchema(el, courseGroupModel));
@@ -136,9 +160,6 @@ appPromise
 		fullJson.teams = lodash.uniqBy(teams, (e) => e._id.toString()).map((c) => c.toJSON());
 		fullJson.users = lodash.uniqBy(users, (e) => e._id.toString());
 		fullJson.accounts = lodash.uniqBy(accounts, (e) => e._id.toString()).map((a) => a.toJSON());
-		teamFiles.map((f) => fullJson.files.push(f));
-		courseFiles.map((f) => fullJson.files.push(f));
-		userFiles.map((f) => fullJson.files.push(f));
 		fullJson.files = lodash.uniqBy(fullJson.files, (e) => e._id.toString());
 		fullJson.courseGroups = lodash.uniqBy(courseGroups, (e) => e._id.toString());
 		fullJson.ltiTools = lodash.uniqBy(ltiTools, (e) => e._id.toString());
@@ -155,14 +176,19 @@ appPromise
 			console.log(exportErrors);
 			return process.exit(1);
 		}
+		console.log('start exporting files')
 
-		const fullJsonString = JSON.stringify(fullJson);
+        await writeUserFiles('user', users, exportUserFiles, targetDirectory + '/userFiles.json');
+        await writeUserFiles('course', courses, exportCourseFiles, targetDirectory + '/courseFiles.json');
+        await writeUserFiles('team', teams, exportTeamFiles, targetDirectory + '/teamFiles.json');
 
-		await fs.writeFile(targetFile, fullJsonString);
-		console.log(exportErrors);
-		return process.exit(0);
-	})
-	.catch((error) => {
-		console.error(error);
-		return process.exit(1);
-	});
+        const fullJsonString = JSON.stringify(fullJson);
+
+        await fs.writeFile(targetDirectory + "/main.json", fullJsonString);
+        console.log(exportErrors);
+        return process.exit(0);
+    })
+    .catch((error) => {
+        console.error(error);
+        return process.exit(1);
+    });
