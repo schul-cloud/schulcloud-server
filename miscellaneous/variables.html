@@ -398,19 +398,32 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>(taskSubmissions: Submission[]): ITaskSubmissionsMetaData &#x3D;&gt; {
-	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
+                            <i>Default value : </i><code>(taskSubmissions: Submission[], task: Task): ITaskSubmissionsMetaData &#x3D;&gt; {
 	const submittedUsers &#x3D; new Set();
 	const gradedUsers &#x3D; new Set();
 
-	taskSubmissions.forEach((submission) &#x3D;&gt; {
-		submittedUsers.add(submission.student.id);
-		if (submission.grade || submission.gradeComment || submission.gradeFileIds) gradedUsers.add(submission.student.id);
+	const sortedSubmissions &#x3D; [...taskSubmissions].sort((a: Submission, b: Submission) &#x3D;&gt; {
+		if (a.createdAt &gt; b.createdAt) {
+			return 1;
+		}
+		return -1;
 	});
+
+	sortedSubmissions.forEach((submission) &#x3D;&gt; {
+		if (
+			!submittedUsers.has(submission.student.id) &amp;&amp;
+			(submission.grade || submission.gradeComment || submission.gradeFileIds)
+		) {
+			gradedUsers.add(submission.student.id);
+		}
+		submittedUsers.add(submission.student.id);
+	});
+	// TODO: consider coursegroups
+	const studentsInTasksCourse &#x3D; task.course.students.length;
 
 	return {
 		submitted: submittedUsers.size,
-		maxSubmissions: -1,
+		maxSubmissions: studentsInTasksCourse,
 		graded: gradedUsers.size,
 	};
 }</code>

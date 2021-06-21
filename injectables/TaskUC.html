@@ -106,7 +106,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:45</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:48</a></div>
                 </td>
             </tr>
 
@@ -269,8 +269,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:57</a></div>
                 </td>
             </tr>
 
@@ -348,19 +348,32 @@ import { TaskResponse } from &#x27;../controller/dto&#x27;;
 // TODO: move to different file and use it in mapper
 export type ITaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
 
-export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[]): ITaskSubmissionsMetaData &#x3D;&gt; {
-	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
+export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[], task: Task): ITaskSubmissionsMetaData &#x3D;&gt; {
 	const submittedUsers &#x3D; new Set();
 	const gradedUsers &#x3D; new Set();
 
-	taskSubmissions.forEach((submission) &#x3D;&gt; {
-		submittedUsers.add(submission.student.id);
-		if (submission.grade || submission.gradeComment || submission.gradeFileIds) gradedUsers.add(submission.student.id);
+	const sortedSubmissions &#x3D; [...taskSubmissions].sort((a: Submission, b: Submission) &#x3D;&gt; {
+		if (a.createdAt &gt; b.createdAt) {
+			return 1;
+		}
+		return -1;
 	});
+
+	sortedSubmissions.forEach((submission) &#x3D;&gt; {
+		if (
+			!submittedUsers.has(submission.student.id) &amp;&amp;
+			(submission.grade || submission.gradeComment || submission.gradeFileIds)
+		) {
+			gradedUsers.add(submission.student.id);
+		}
+		submittedUsers.add(submission.student.id);
+	});
+	// TODO: consider coursegroups
+	const studentsInTasksCourse &#x3D; task.course.students.length;
 
 	return {
 		submitted: submittedUsers.size,
-		maxSubmissions: -1,
+		maxSubmissions: studentsInTasksCourse,
 		graded: gradedUsers.size,
 	};
 };
@@ -379,11 +392,13 @@ export class TaskUC {
 	}
 
 	async tempFindAllOpenByTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskResponse[]&gt;&gt; {
-		// TODO: pagination
-		const [tasks, total] &#x3D; await this.taskRepo.findAllAssignedByTeacher(userId);
-		const submissions &#x3D; await this.submissionRepo.getSubmissionsByTasksList(tasks);
-		// TODO get only newest submission because only this give us information about teacher has answer
-		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task, computeSubmissionMetadata(submissions)));
+		const [tasks, total] &#x3D; await this.taskRepo.findAllAssignedByTeacher(userId, pagination);
+		const [submissions] &#x3D; await this.submissionRepo.getSubmissionsByTasksList(tasks);
+
+		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; {
+			const taskSubmissions &#x3D; submissions.filter((sub) &#x3D;&gt; sub.task &#x3D;&#x3D;&#x3D; task);
+			return TaskMapper.mapToResponse(task, computeSubmissionMetadata(taskSubmissions, task));
+		});
 		return [computedTasks, total];
 	}
 }

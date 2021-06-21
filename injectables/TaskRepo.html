@@ -170,7 +170,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllAssignedByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>findAllAssignedByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
                 </td>
             </tr>
 
@@ -194,6 +194,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -207,6 +208,22 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -469,7 +486,7 @@ export class TaskRepo {
 		return [usersTasks, total];
 	}
 
-	async findAllAssignedByTeacher(userId: EntityId): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+	async findAllAssignedByTeacher(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		// TODO: merge overlaps with findAllOpenByStudent
 		// TODO: use Query Builder
 		const coursesOfUser &#x3D; await this.getCourseOfUser(userId);
@@ -479,13 +496,17 @@ export class TaskRepo {
 			hidden: false,
 		});
 
-		const [usersTasks, count] &#x3D; await this.em.findAndCount(Task, {
-			$and: [
-				{ course: { $in: coursesOfUser } },
-				{ private: { $ne: true } },
-				{ $or: [{ lesson: null }, { lesson: { $in: publishedLessons } }] },
-			],
-		});
+		const [usersTasks, count] &#x3D; await this.em.findAndCount(
+			Task,
+			{
+				$and: [
+					{ course: { $in: coursesOfUser } },
+					{ private: { $ne: true } },
+					{ $or: [{ lesson: null }, { lesson: { $in: publishedLessons } }] },
+				],
+			},
+			{ populate: [&#x27;course&#x27;], limit, offset: skip, orderBy: { createdAt: QueryOrder.DESC } }
+		);
 		return [usersTasks, count];
 	}
 }
