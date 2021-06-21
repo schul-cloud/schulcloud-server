@@ -66,6 +66,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#computeSubmissionMetadata">computeSubmissionMetadata</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -106,7 +120,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +199,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:50</a></div>
                 </td>
             </tr>
 
@@ -269,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:59</a></div>
                 </td>
             </tr>
 
@@ -330,6 +344,38 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="computeSubmissionMetadata"></a>
+                        <span class="name">
+                            <b>
+                            computeSubmissionMetadata</b>
+                            <a href="#computeSubmissionMetadata"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
     </div>
 
@@ -348,39 +394,41 @@ import { TaskResponse } from &#x27;../controller/dto&#x27;;
 // TODO: move to different file and use it in mapper
 export type ITaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
 
-export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[], task: Task): ITaskSubmissionsMetaData &#x3D;&gt; {
-	const submittedUsers &#x3D; new Set();
-	const gradedUsers &#x3D; new Set();
-
-	const sortedSubmissions &#x3D; [...taskSubmissions].sort((a: Submission, b: Submission) &#x3D;&gt; {
-		if (a.createdAt &gt; b.createdAt) {
-			return 1;
-		}
-		return -1;
-	});
-
-	sortedSubmissions.forEach((submission) &#x3D;&gt; {
-		if (
-			!submittedUsers.has(submission.student.id) &amp;&amp;
-			(submission.grade || submission.gradeComment || submission.gradeFileIds)
-		) {
-			gradedUsers.add(submission.student.id);
-		}
-		submittedUsers.add(submission.student.id);
-	});
-	// TODO: consider coursegroups
-	const studentsInTasksCourse &#x3D; task.course.students.length;
-
-	return {
-		submitted: submittedUsers.size,
-		maxSubmissions: studentsInTasksCourse,
-		graded: gradedUsers.size,
-	};
-};
 // filter tasks older than 3 weeks
 @Injectable()
 export class TaskUC {
 	constructor(private taskRepo: TaskRepo, private submissionRepo: SubmissionRepo) {}
+
+	// TODO: move into seperate UC
+	computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[], task: Task): ITaskSubmissionsMetaData &#x3D;&gt; {
+		const submittedUsers &#x3D; new Set();
+		const gradedUsers &#x3D; new Set();
+
+		const sortedSubmissions &#x3D; [...taskSubmissions].sort((a: Submission, b: Submission) &#x3D;&gt; {
+			if (a.createdAt &gt; b.createdAt) {
+				return 1;
+			}
+			return -1;
+		});
+
+		sortedSubmissions.forEach((submission) &#x3D;&gt; {
+			if (
+				!submittedUsers.has(submission.student.id) &amp;&amp;
+				(submission.grade || submission.gradeComment || submission.gradeFileIds)
+			) {
+				gradedUsers.add(submission.student.id);
+			}
+			submittedUsers.add(submission.student.id);
+		});
+		// TODO: consider coursegroups
+		const studentsInTasksCourse &#x3D; task.course.students.length;
+
+		return {
+			submitted: submittedUsers.size,
+			maxSubmissions: studentsInTasksCourse,
+			graded: gradedUsers.size,
+		};
+	};
 
 	async findAllOpenForUser(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		// TODO authorization (user conditions -&gt; permissions?)
@@ -397,7 +445,7 @@ export class TaskUC {
 
 		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; {
 			const taskSubmissions &#x3D; submissions.filter((sub) &#x3D;&gt; sub.task &#x3D;&#x3D;&#x3D; task);
-			return TaskMapper.mapToResponse(task, computeSubmissionMetadata(taskSubmissions, task));
+			return TaskMapper.mapToResponse(task, this.computeSubmissionMetadata(taskSubmissions, task));
 		});
 		return [computedTasks, total];
 	}

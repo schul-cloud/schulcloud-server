@@ -64,9 +64,6 @@
                             <a href="#Authenticate" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>Authenticate</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
-                            <a href="#computeSubmissionMetadata" title="apps/server/src/modules/task/uc/task.uc.ts"><b>computeSubmissionMetadata</b>&nbsp;&nbsp;&nbsp;(apps/.../task.uc.ts)</a>
-                        </li>
-                        <li>
                             <a href="#config" title="jest.config.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(jest.config.ts)</a>
                         </li>
                         <li>
@@ -375,58 +372,6 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>[&#x27;jwt&#x27;] as const</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/task/uc/task.uc.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="computeSubmissionMetadata"></a>
-                        <span class="name">
-                            <b>
-                            computeSubmissionMetadata</b>
-                            <a href="#computeSubmissionMetadata"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(taskSubmissions: Submission[], task: Task): ITaskSubmissionsMetaData &#x3D;&gt; {
-	const submittedUsers &#x3D; new Set();
-	const gradedUsers &#x3D; new Set();
-
-	const sortedSubmissions &#x3D; [...taskSubmissions].sort((a: Submission, b: Submission) &#x3D;&gt; {
-		if (a.createdAt &gt; b.createdAt) {
-			return 1;
-		}
-		return -1;
-	});
-
-	sortedSubmissions.forEach((submission) &#x3D;&gt; {
-		if (
-			!submittedUsers.has(submission.student.id) &amp;&amp;
-			(submission.grade || submission.gradeComment || submission.gradeFileIds)
-		) {
-			gradedUsers.add(submission.student.id);
-		}
-		submittedUsers.add(submission.student.id);
-	});
-	// TODO: consider coursegroups
-	const studentsInTasksCourse &#x3D; task.course.students.length;
-
-	return {
-		submitted: submittedUsers.size,
-		maxSubmissions: studentsInTasksCourse,
-		graded: gradedUsers.size,
-	};
-}</code>
                         </td>
                     </tr>
 
