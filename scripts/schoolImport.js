@@ -19,6 +19,15 @@ const {
 const { homeworkModel, submissionModel } = require('../src/services/homework/model');
 const { newsModel } = require('../src/services/news/model');
 
+async function importFiles(type, files) {
+	const totalLength = files.length;
+	let i = 1;
+	for (const file of files) {
+		console.log('importing ' + type + ' ' +  + i++ + ' of ' + totalLength)
+		await FileModel.create(file);
+	}
+}
+
 appPromise
 	.then(async () => {
 		// variable importDirectory needs to be created beforehand with schoolExport.js
@@ -85,19 +94,9 @@ appPromise
 
 		console.log('importing files')
 
-		const userFiles = JSON.parse(await fs.readFile(importDirectory + '/userFiles.json', {encoding: 'utf-8'}));
-		for (const file of userFiles) {
-			await FileModel.create(file);
-		}
-		const teamFiles = JSON.parse(await fs.readFile(importDirectory + '/teamFiles.json', {encoding: 'utf-8'}));
-		for (const file of teamFiles) {
-			await FileModel.create(file);
-		}
-
-		const courseFiles = JSON.parse(await fs.readFile(importDirectory + '/courseFiles.json', {encoding: 'utf-8'}));
-		for (const file of courseFiles) {
-			await FileModel.create(file);
-		}
+		await importFiles('users', JSON.parse(await fs.readFile(importDirectory + '/userFiles.json', {encoding: 'utf-8'})));
+		await importFiles('teams', JSON.parse(await fs.readFile(importDirectory + '/teamFiles.json', {encoding: 'utf-8'})));
+		await importFiles('courses', JSON.parse(await fs.readFile(importDirectory + '/courseFiles.json', {encoding: 'utf-8'})));
 
 		console.log('done');
 
