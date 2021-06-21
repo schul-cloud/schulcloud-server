@@ -120,15 +120,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(task: <a href="../classes/Task.html">Task</a>)</code>
+                    <code>mapToResponse(task: <a href="../classes/Task.html">Task</a>, status?: <a href="../undefineds/ITaskSubmissionsMetaData.html">ITaskSubmissionsMetaData</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:14</a></div>
                 </td>
             </tr>
 
@@ -155,6 +155,18 @@
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>status</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#ITaskSubmissionsMetaData" target="_self" >ITaskSubmissionsMetaData</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -188,8 +200,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskResponse } from &#x27;../controller/dto&#x27;;
 import { Task } from &#x27;../entity&#x27;;
 
+// TODO: look to task.uc has the same interface
+export type ITaskSubmissionsMetaData &#x3D; {
+	submitted: number;
+	maxSubmissions: number;
+	graded: number;
+};
+
 export class TaskMapper {
-	static mapToResponse(task: Task): TaskResponse {
+	static mapToResponse(task: Task, status?: ITaskSubmissionsMetaData): TaskResponse {
 		const dto &#x3D; new TaskResponse();
 		dto.id &#x3D; task.id;
 		dto.name &#x3D; task.name;
@@ -198,11 +217,7 @@ export class TaskMapper {
 		dto.displayColor &#x3D; task.course?.color;
 		dto.createdAt &#x3D; task.createdAt;
 		dto.updatedAt &#x3D; task.updatedAt;
-		/* dto.status &#x3D; {
-			submitted: task.submitted,
-			maxSubmissions: task.maxSubmissions,
-			graded: task.graded,
-		}; */
+		dto.status &#x3D; status || {};
 		return dto;
 	}
 }

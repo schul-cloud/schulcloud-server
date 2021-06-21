@@ -79,6 +79,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findAllOpenForUser">findAllOpenForUser</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#tempFindAllOpenByTeacher">tempFindAllOpenByTeacher</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -102,7 +106,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -181,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:35</a></div>
                 </td>
             </tr>
 
@@ -241,6 +245,90 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tempFindAllOpenByTeacher"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            tempFindAllOpenByTeacher
+                        </b>
+                        <a href="#tempFindAllOpenByTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>tempFindAllOpenByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>, pagination: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;TaskResponse[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -253,11 +341,14 @@ import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { TaskRepo } from &#x27;../repo/task.repo&#x27;;
 import { Task, Submission } from &#x27;../entity&#x27;;
 import { SubmissionRepo } from &#x27;../repo/submission.repo&#x27;;
+import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
+// TODO: define own type
+import { TaskResponse } from &#x27;../controller/dto&#x27;;
 
-// TODO move to different file
-export type TaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
+// TODO: move to different file and use it in mapper
+export type ITaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
 
-export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[]): TaskSubmissionsMetaData &#x3D;&gt; {
+export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[]): ITaskSubmissionsMetaData &#x3D;&gt; {
 	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
 	const submittedUsers &#x3D; new Set();
 	const gradedUsers &#x3D; new Set();
@@ -287,9 +378,14 @@ export class TaskUC {
 		return [tasks, total];
 	}
 
-	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
-	// TODO move somewhere more private
-	// computeSubmissionMetadata(taskSubmissions: Submission[]): TaskSubmissionsMetaData 
+	async tempFindAllOpenByTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskResponse[]&gt;&gt; {
+		// TODO: pagination
+		const [tasks, total] &#x3D; await this.taskRepo.findAllAssignedByTeacher(userId);
+		// TODO get submissions
+		const submissions &#x3D; [];
+		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task, computeSubmissionMetadata(submissions)));
+		return [computedTasks, total];
+	}
 }
 </code></pre>
     </div>
