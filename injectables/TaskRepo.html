@@ -444,7 +444,7 @@ export class TaskRepo {
 		});
 
 		// TODO: filter via query ..exist not exist, orm return null ? Add test for it!
-		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.homework.id);
+		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
 
 		const oneWeekAgo &#x3D; new Date();
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);

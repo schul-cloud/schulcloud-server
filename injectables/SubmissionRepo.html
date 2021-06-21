@@ -234,7 +234,7 @@ export class SubmissionRepo {
 
 	async getSubmissionsByTask(task: Task): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
 		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {
-			homework: task,
+			task,
 		});
 		return [submissions, count];
 	}
