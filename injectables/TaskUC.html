@@ -79,10 +79,6 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findAllOpenForUser">findAllOpenForUser</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getTaskSubmissionMetadata">getTaskSubmissionMetadata</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -106,7 +102,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +181,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
                 </td>
             </tr>
 
@@ -245,78 +241,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getTaskSubmissionMetadata"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getTaskSubmissionMetadata
-                        </b>
-                        <a href="#getTaskSubmissionMetadata"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getTaskSubmissionMetadata(task: <a href="../classes/Task.html">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#TaskSubmissionsMetaData" target="_self" >Promise&lt;TaskSubmissionsMetaData&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -327,12 +251,28 @@
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { TaskRepo } from &#x27;../repo/task.repo&#x27;;
-import { Task } from &#x27;../entity&#x27;;
+import { Task, Submission } from &#x27;../entity&#x27;;
 import { SubmissionRepo } from &#x27;../repo/submission.repo&#x27;;
 
 // TODO move to different file
 export type TaskSubmissionsMetaData &#x3D; { submitted: number; maxSubmissions: number; graded: number };
 
+export const computeSubmissionMetadata &#x3D; (taskSubmissions: Submission[]): TaskSubmissionsMetaData &#x3D;&gt; {
+	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
+	const submittedUsers &#x3D; new Set();
+	const gradedUsers &#x3D; new Set();
+
+	taskSubmissions.forEach((submission) &#x3D;&gt; {
+		submittedUsers.add(submission.student.id);
+		if (submission.grade || submission.gradeComment || submission.gradeFileIds) gradedUsers.add(submission.student.id);
+	});
+
+	return {
+		submitted: submittedUsers.size,
+		maxSubmissions: -1,
+		graded: gradedUsers.size,
+	};
+};
 // filter tasks older than 3 weeks
 @Injectable()
 export class TaskUC {
@@ -347,24 +287,9 @@ export class TaskUC {
 		return [tasks, total];
 	}
 
+	// const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
 	// TODO move somewhere more private
-	async getTaskSubmissionMetadata(task: Task): Promise&lt;TaskSubmissionsMetaData&gt; {
-		const [taskSubmissions, count] &#x3D; await this.submissionRepo.getSubmissionsByTask(task);
-		const submittedUsers &#x3D; new Set();
-		const gradedUsers &#x3D; new Set();
-
-		taskSubmissions.forEach((submission) &#x3D;&gt; {
-			submittedUsers.add(submission.student.id);
-			if (submission.grade || submission.gradeComment || submission.gradeFileIds)
-				gradedUsers.add(submission.student.id);
-		});
-
-		return Promise.resolve({
-			submitted: submittedUsers.size,
-			maxSubmissions: -1,
-			graded: gradedUsers.size,
-		});
-	}
+	// computeSubmissionMetadata(taskSubmissions: Submission[]): TaskSubmissionsMetaData 
 }
 </code></pre>
     </div>
