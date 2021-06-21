@@ -142,7 +142,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -205,6 +205,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
+                            <i>Default value : </i><code>COURSE_DEFAULT_COLOR</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
                             <b>Decorators : </b>
                             <br />
                             <code>
@@ -214,7 +219,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -250,7 +255,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -285,7 +290,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -320,7 +325,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -355,7 +360,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -634,6 +639,8 @@
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
 import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
 
+export const COURSE_DEFAULT_COLOR &#x3D; &#x27;#ACACAC&#x27;;
+
 @Entity({ tableName: &#x27;courses&#x27; })
 export class CourseTaskInfo extends BaseEntityWithTimestamps {
 	constructor(partial: Partial&lt;CourseTaskInfo&gt;) {
@@ -645,7 +652,7 @@ export class CourseTaskInfo extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Property()
-	color: string;
+	color: string &#x3D; COURSE_DEFAULT_COLOR;
 
 	// TODO: @Property() ?
 	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserTaskInfo })
