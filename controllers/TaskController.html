@@ -223,6 +223,7 @@ export class TaskController {
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
 		const [tasks, total] &#x3D; await this.taskUc.findAllOpenForUser(currentUser.userId, paginationQuery);
+		// TODO: move to uc
 		const tasksResponse &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task));
 		const { skip, limit } &#x3D; paginationQuery;
 		const result &#x3D; new PaginationResponse(tasksResponse, total, skip, limit);
