@@ -381,8 +381,8 @@ export class TaskUC {
 	async tempFindAllOpenByTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskResponse[]&gt;&gt; {
 		// TODO: pagination
 		const [tasks, total] &#x3D; await this.taskRepo.findAllAssignedByTeacher(userId);
-		// TODO get submissions
-		const submissions &#x3D; [];
+		const submissions &#x3D; await this.submissionRepo.getSubmissionsByTasksList(tasks);
+		// TODO get only newest submission because only this give us information about teacher has answer
 		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task, computeSubmissionMetadata(submissions)));
 		return [computedTasks, total];
 	}
