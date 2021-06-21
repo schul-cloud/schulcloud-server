@@ -23,7 +23,7 @@ appPromise
 	.then(async () => {
 		// variable importDirectory needs to be created beforehand with schoolExport.js
 		const importDirectory = process.argv[2]
-		const fullJson = JSON.parse(await fs.readFile(importDirectory + "/main.json", {encoding: 'utf-8'}) + "/main.json");
+		const fullJson = JSON.parse(await fs.readFile(importDirectory + "/main.json", {encoding: 'utf-8'}));
 
 		await schoolModel.create(fullJson.school);
 
