@@ -127,7 +127,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -194,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:72</a></div>
                 </td>
             </tr>
 
@@ -266,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:61</a></div>
                 </td>
             </tr>
 
@@ -338,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:83</a></div>
                 </td>
             </tr>
 
@@ -412,7 +412,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -439,7 +439,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -459,35 +459,43 @@ import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 // import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { Role } from &#x27;../entity&#x27;;
 
-interface RoleMap {
-	[name: string]: Role;
+interface CacheEntry {
+	[name: string]: { value: Role; validUntil: number };
 }
 
-// TODO: time reset
+// TODO: no query handled at the moment
 class RoleCache {
-	cache: RoleMap;
+	cache: CacheEntry;
 
 	name: string;
+
+	clearInterval: 60000;
 
 	constructor(name &#x3D; &#x27;&#x27;) {
 		this.cache &#x3D; {};
 		this.name &#x3D; name;
 	}
 
-	get(selector: string): Role {
-		return this.cache[selector];
+	get(selector: string): Role | undefined {
+		const entry &#x3D; this.cache[selector];
+		if (!entry || entry.validUntil &lt; Date.now()) return undefined;
+		return entry.value;
 	}
 
+	/*
 	has(selector: string): boolean {
 		return Object.prototype.hasOwnProperty.call(this.cache, selector);
 	}
-
+	*/
 	add(selector: string, role: Role) {
-		this.cache[selector] &#x3D; role;
+		this.cache[selector] &#x3D; {
+			value: role,
+			validUntil: Date.now() + this.clearInterval, // TODO: test if it is work
+		};
 	}
 
 	// we do not registred changes by calling the old endpoint
-	cleanup() {
+	clear() {
 		this.cache &#x3D; {};
 	}
 }
@@ -505,32 +513,30 @@ export class RoleRepo {
 	}
 
 	async findByName(name: string): Promise&lt;Role&gt; {
-		let role: Role;
-
-		if (this.cl1.has(name)) {
-			role &#x3D; this.cl1.get(name);
-		} else {
-			role &#x3D; await this.em.findOneOrFail(Role, { name });
-			this.cl1.add(name, role);
+		if (this.cl1.get(name)) {
+			return this.cl1.get(name) as Role;
 		}
+
+		const role &#x3D; await this.em.findOneOrFail(Role, { name });
+		this.cl1.add(name, role);
+
 		return role;
 	}
 
 	async findById(id: EntityId): Promise&lt;Role&gt; {
-		let role: Role;
-
-		if (this.cl1.has(id)) {
-			role &#x3D; this.cl1.get(id);
-		} else {
-			role &#x3D; await this.em.findOneOrFail(Role, { id });
-			this.cl1.add(id, role);
+		if (this.cl1.get(id)) {
+			return this.cl1.get(id) as Role;
 		}
+
+		const role &#x3D; await this.em.findOneOrFail(Role, { id });
+		this.cl1.add(id, role);
+
 		return role;
 	}
 
 	async resolvePermissionsByName(name: string): Promise&lt;Role&gt; {
-		if (this.cl2.has(name)) {
-			return this.cl2.get(name);
+		if (this.cl2.get(name)) {
+			return this.cl2.get(name) as Role;
 		}
 
 		const role &#x3D; await this.findByName(name);
