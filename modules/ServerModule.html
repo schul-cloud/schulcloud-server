@@ -197,11 +197,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
 import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
+import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;@src/config&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
 import { ServerController } from &#x27;./server.controller&#x27;;
-import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;./config&#x27;;
 import { TaskModule } from &#x27;./modules/task/task.module&#x27;;
 import { CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo } from &#x27;./modules/news/entity&#x27;;
 import { Task, Submission, Lesson, Course } from &#x27;./modules/task/entity&#x27;;

@@ -70,6 +70,9 @@
                             <a href="#config" title="apps/server/src/shared/controller/swagger.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../swagger.ts)</a>
                         </li>
                         <li>
+                            <a href="#connections" title="apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts"><b>connections</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-shared-connection.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CourseSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>CourseSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
                         </li>
                         <li>
@@ -115,9 +118,6 @@
                             <a href="#NEWS_SOURCES" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>NEWS_SOURCES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
                         </li>
                         <li>
-                            <a href="#NewsTargetModel" title="apps/server/src/modules/news/entity/news.types.ts"><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
-                        </li>
-                        <li>
                             <a href="#NOT_FOUND_ERROR_TYPE" title="apps/server/src/core/error/server-error-types.ts"><b>NOT_FOUND_ERROR_TYPE</b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
                         </li>
                         <li>
@@ -133,7 +133,7 @@
                             <a href="#serverErrorTypes" title="apps/server/src/core/error/server-error-types.ts"><b>serverErrorTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrder" title="apps/server/src/shared/domain/interface/sorting.ts"><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.ts)</a>
+                            <a href="#sharedClient" title="apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts"><b>sharedClient</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-shared-connection.ts)</a>
                         </li>
                         <li>
                             <a href="#STRATEGIES" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts"><b>STRATEGIES</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
@@ -537,6 +537,58 @@ must use @ApiProperty</p>
 	const document &#x3D; SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup(path, app, document);
 }</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="connections"></a>
+                        <span class="name">
+                            <b>
+                            connections</b>
+                            <a href="#connections"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/MongoSharedConnection.html" target="_self" >Array&lt;MongoSharedConnection&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sharedClient"></a>
+                        <span class="name">
+                            <b>
+                            sharedClient</b>
+                            <a href="#sharedClient"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MongoClient | undefined</code>
+
                         </td>
                     </tr>
 
@@ -1162,34 +1214,6 @@ it should ensure an empty result</p>
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/news/entity/news.types.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="NewsTargetModel"></a>
-                        <span class="name">
-                            <b>
-                            NewsTargetModel</b>
-                            <a href="#NewsTargetModel"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-	School: &#x27;schools&#x27;,
-	Course: &#x27;courses&#x27;,
-	Team: &#x27;teams&#x27;,
-} as const</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>apps/server/src/core/error/server-error-types.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1310,33 +1334,6 @@ it should ensure an empty result</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>config</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/shared/domain/interface/sorting.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="SortOrder"></a>
-                        <span class="name">
-                            <b>
-                            SortOrder</b>
-                            <a href="#SortOrder"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-	asc: &#x27;asc&#x27;,
-	desc: &#x27;desc&#x27;,
-} as const</code>
                         </td>
                     </tr>
 

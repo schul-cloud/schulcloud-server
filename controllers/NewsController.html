@@ -640,7 +640,7 @@ export class NewsController {
 		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,
 			NewsMapper.mapNewsScopeToDomain(scope),
-			pagination
+			{ pagination }
 		);
 		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
 		return new PaginationResponse(dtoList, count);

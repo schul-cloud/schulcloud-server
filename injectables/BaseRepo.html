@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AuthorizationService</li>
+  <li>BaseRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/authorization.service.ts</code>
+            <code>apps/server/src/shared/repo/base.repo.ts</code>
         </p>
 
 
@@ -77,15 +77,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#checkEntityPermissions">checkEntityPermissions</a>
+                                <a href="#delete">delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getEntityPermissions">getEntityPermissions</a>
+                                <a href="#deleteAll">deleteAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedEntities">getPermittedEntities</a>
+                                <a href="#flush">flush</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#save">save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAll">saveAll</a>
                             </li>
                         </ul>
                     </td>
@@ -105,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(feathersAuthProvider: <a href="../injectables/FeathersAuthProvider.html">FeathersAuthProvider</a>)</code>
+<code>constructor(em: EntityManager)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -128,10 +136,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>feathersAuthProvider</td>
+                                                        <td>em</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/FeathersAuthProvider.html" target="_self" >FeathersAuthProvider</a></code>
+                                                                    <code>EntityManager</code>
                                                         </td>
                                                   
                                                     <td>
@@ -157,35 +165,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkEntityPermissions"></a>
+                    <a name="delete"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            checkEntityPermissions
+                            delete
                         </b>
-                        <a href="#checkEntityPermissions"><span class="icon ion-ios-link"></span></a>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkEntityPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModel</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>, permissions: string[])</code>
+                    <code>delete(objs: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:43</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Ensure that a user has sufficient permissions for a specific entity</p>
+                    <div class="io-description"><p>In order to delete multiple entities use {@code deleteAll}
+Due to multiple transactions consistency</p>
 </div>
 
                     <div class="io-description">
@@ -200,45 +209,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>objs</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetModel</td>
-                                    <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>permissions</td>
-                                    <td>
-                                            <code>string[]</code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -253,7 +226,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise | never</code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -267,36 +240,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getEntityPermissions"></a>
+                    <a name="deleteAll"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getEntityPermissions
+                            deleteAll
                         </b>
-                        <a href="#getEntityPermissions"><span class="icon ion-ios-link"></span></a>
+                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getEntityPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModel</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>deleteAll(objs: T[], autoFlush)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:47</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Get all permissions a user has for a specific entity</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -306,43 +277,36 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>objs</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                            <code>T[]</code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
-                                    <td>targetModel</td>
+                                    <td>autoFlush</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-
-                                </tr>
-                                <tr>
-                                    <td>targetId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                        <code>true</code>
                                     </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
 
                                 </tr>
                             </tbody>
@@ -351,11 +315,51 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        <p>The list of entity permissions for the user</p>
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flush"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            flush
+                        </b>
+                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flush()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                 </td>
@@ -366,35 +370,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getPermittedEntities"></a>
+                    <a name="save"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getPermittedEntities
+                            save
                         </b>
-                        <a href="#getPermittedEntities"><span class="icon ion-ios-link"></span></a>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedEntities(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModel</a>, permissions: string[])</code>
+                    <code>save(obj: T, autoFlush)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:15</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Get all entities for which a user has specific permissions</p>
+                    <div class="io-description"><p>In order to save multiple entities use {@code saveAll}
+Due to multiple transactions consistency</p>
 </div>
 
                     <div class="io-description">
@@ -405,43 +410,36 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>obj</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
-                                    <td>targetModel</td>
+                                    <td>autoFlush</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-
-                                </tr>
-                                <tr>
-                                    <td>permissions</td>
                                     <td>
-                                            <code>string[]</code>
+                                        <code>true</code>
                                     </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
 
                                 </tr>
                             </tbody>
@@ -450,12 +448,100 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        <p>The list of ids of all entities that satisfy the provided permissions for the user</p>
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveAll"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            saveAll
+                        </b>
+                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAll(objs: T[], autoFlush)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>objs</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>autoFlush</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -467,69 +553,57 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
-import { NewsTargetModel } from &#x27;../news/entity&#x27;;
-import { FeathersAuthProvider } from &#x27;./feathers-auth.provider&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { BaseEntity } from &#x27;@shared/domain&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
 @Injectable()
-export class AuthorizationService {
-	constructor(private feathersAuthProvider: FeathersAuthProvider) {}
+export class BaseRepo&lt;T extends BaseEntity&gt; {
+	constructor(protected readonly em: EntityManager) {}
 
 	/**
-	 * Get all permissions a user has for a specific entity
-	 * @param userId
-	 * @param targetModel
-	 * @param targetId
-	 * @returns The list of entity permissions for the user
+	 * In order to save multiple entities use {@code saveAll}
+	 * Due to multiple transactions consistency
+	 * @param obj
+	 * @param autoFlush
 	 */
-	async getEntityPermissions(userId: EntityId, targetModel: NewsTargetModel, targetId: EntityId): Promise&lt;string[]&gt; {
-		const permissions &#x3D;
-			targetModel &#x3D;&#x3D;&#x3D; NewsTargetModel.School
-				? await this.feathersAuthProvider.getUserSchoolPermissions(userId, targetId)
-				: await this.feathersAuthProvider.getUserTargetPermissions(userId, targetModel, targetId);
-		return permissions;
-	}
-
-	/**
-	 * Ensure that a user has sufficient permissions for a specific entity
-	 * @param userId
-	 * @param targetModel
-	 * @param targetId
-	 * @param permissions
-	 * @throws UnauthorizedException if the permissions are not satisfied
-	 */
-	async checkEntityPermissions(
-		userId: EntityId,
-		targetModel: NewsTargetModel,
-		targetId: EntityId,
-		permissions: string[]
-	): Promise&lt;void&gt; | never {
-		const entityPermissions &#x3D; await this.getEntityPermissions(userId, targetModel, targetId);
-		const hasPermissions &#x3D; permissions.every((p) &#x3D;&gt; entityPermissions.includes(p));
-		if (!hasPermissions) {
-			throw new UnauthorizedException(&#x27;Insufficient permissions&#x27;);
+	async save(obj: T, autoFlush &#x3D; true): Promise&lt;T&gt; {
+		this.em.persist(obj);
+		if (autoFlush) {
+			await this.flush();
 		}
+		return obj;
+	}
+
+	async saveAll(objs: T[], autoFlush &#x3D; true): Promise&lt;T[]&gt; {
+		const persisted &#x3D; objs.map((n) &#x3D;&gt; {
+			this.em.persist(n);
+			return n;
+		});
+		if (autoFlush) {
+			await this.em.flush();
+		}
+		return persisted;
+	}
+
+	async flush(): Promise&lt;void&gt; {
+		await this.em.flush();
 	}
 
 	/**
-	 * Get all entities for which a user has specific permissions
-	 * @param userId
-	 * @param targetModel
-	 * @param permissions
-	 * @returns The list of ids of all entities that satisfy the provided permissions for the user
+	 * In order to delete multiple entities use {@code deleteAll}
+	 * Due to multiple transactions consistency
+	 * @param objs
 	 */
-	async getPermittedEntities(
-		userId: EntityId,
-		targetModel: NewsTargetModel,
-		permissions: string[]
-	): Promise&lt;EntityId[]&gt; {
-		const entitiyIds &#x3D;
-			targetModel &#x3D;&#x3D;&#x3D; NewsTargetModel.School
-				? await this.feathersAuthProvider.getPermittedSchools(userId)
-				: await this.feathersAuthProvider.getPermittedTargets(userId, targetModel, permissions);
+	async delete(objs: T): Promise&lt;void&gt; {
+		await this.em.removeAndFlush(objs);
+	}
 
-		return entitiyIds;
+	async deleteAll(objs: T[], autoFlush &#x3D; true): Promise&lt;void&gt; {
+		objs.map((n) &#x3D;&gt; this.em.remove(n));
+		if (autoFlush) {
+			await this.flush();
+		}
 	}
 }
 </code></pre>
@@ -565,7 +639,7 @@ export class AuthorizationService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthorizationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BaseRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
