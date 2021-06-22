@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -36,9 +36,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>TaskRepo</li>
+  <li>Classes</li>
+  <li>RoleCache</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,8 +60,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/repo/task.repo.ts</code>
+            <code>apps/server/src/modules/user/repo/role.repo.ts</code>
         </p>
+
 
 
 
@@ -66,6 +71,23 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cache">cache</a>
+                            </li>
+                            <li>
+                                <a href="#name">name</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -76,16 +98,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllAssignedByTeacher">findAllAssignedByTeacher</a>
+                                <a href="#add">add</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllOpenByStudent">findAllOpenByStudent</a>
+                                <a href="#cleanup">cleanup</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getCourseOfUser">getCourseOfUser</a>
+                                <a href="#get">get</a>
+                            </li>
+                            <li>
+                                <a href="#has">has</a>
                             </li>
                         </ul>
                     </td>
@@ -105,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
+<code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -128,10 +150,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>em</td>
+                                                        <td>name</td>
                                                   
                                                         <td>
-                                                                    <code>EntityManager</code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -150,6 +172,67 @@
 
             <section>
     
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cache"></a>
+                        <span class="name">
+                            <b>
+                            cache</b>
+                            <a href="#cache"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RoleMap.html" target="_self" >RoleMap</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name">
+                            <b>
+                            name</b>
+                            <a href="#name"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
     <h3 id="methods">
         Methods
     </h3>
@@ -157,28 +240,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllAssignedByTeacher"></a>
+                    <a name="add"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            findAllAssignedByTeacher
+                            add
                         </b>
-                        <a href="#findAllAssignedByTeacher"><span class="icon ion-ios-link"></span></a>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllAssignedByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+<code>add(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, role: <a href="../classes/Role.html">Role</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -194,36 +275,31 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>selector</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
+                                    <td>role</td>
                                     <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                                <code><a href="../classes/Role.html" target="_self" >Role</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -232,7 +308,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -246,28 +322,65 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllOpenByStudent"></a>
+                    <a name="cleanup"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            findAllOpenByStudent
+                            cleanup
                         </b>
-                        <a href="#findAllOpenByStudent"><span class="icon ion-ios-link"></span></a>
+                        <a href="#cleanup"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenByStudent(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+<code>cleanup()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <b>
+                            get
+                        </b>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>get(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -283,36 +396,19 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>selector</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -321,7 +417,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Role.html" target="_self" >Role</a></code>
 
                     </div>
                     <div class="io-description">
@@ -335,28 +431,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getCourseOfUser"></a>
+                    <a name="has"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            getCourseOfUser
+                            has
                         </b>
-                        <a href="#getCourseOfUser"><span class="icon ion-ios-link"></span></a>
+                        <a href="#has"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getCourseOfUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+<code>has(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -376,9 +470,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>selector</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -393,7 +487,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;CourseTaskInfo[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -405,6 +499,10 @@
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
@@ -412,112 +510,104 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
-import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
-import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { Task, Submission, CourseTaskInfo, LessonTaskInfo } from &#x27;../entity&#x27;;
+// import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
+// import { Counted } from &#x27;@shared/domain/types&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
+interface RoleMap {
+	[name: string]: Role;
+}
+
+class RoleCache {
+	cache: RoleMap;
+
+	name: string;
+
+	constructor(name &#x3D; &#x27;&#x27;) {
+		this.cache &#x3D; {};
+		this.name &#x3D; name;
+	}
+
+	get(selector: string): Role {
+		return this.cache[selector];
+	}
+
+	has(selector: string): boolean {
+		return Object.prototype.hasOwnProperty.call(this.cache, selector);
+	}
+
+	add(selector: string, role: Role) {
+		this.cache[selector] &#x3D; role;
+	}
+
+	cleanup() {
+		this.cache &#x3D; {};
+	}
+}
+
+// caching ?
 @Injectable()
-export class TaskRepo {
-	constructor(private readonly em: EntityManager) {}
+export class RoleRepo {
+	cl1: RoleCache;
 
-	// TODO: move to seperate repo
-	async getCourseOfUser(userId: EntityId): Promise&lt;CourseTaskInfo[]&gt; {
-		const coursesOfUser &#x3D; await this.em.find(CourseTaskInfo, {
-			$or: [
-				{
-					students: userId,
-				},
-				{
-					teachers: userId,
-				},
-				{
-					substitutionTeachers: userId,
-				},
-			],
-		});
-		return coursesOfUser;
+	cl2: RoleCache;
+
+	constructor(private readonly em: EntityManager) {
+		this.cl1 &#x3D; new RoleCache(&#x27;level1&#x27;);
+		this.cl2 &#x3D; new RoleCache(&#x27;level2&#x27;);
 	}
 
-	// WARNING: this is used to deal with the current datamodel, and needs to be changed.
-	// DO NOT DO THIS AT HOME!!
-	async findAllOpenByStudent(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		// todo: handle coursegroups
+	async findByName(name: string): Promise&lt;Role&gt; {
+		let role: Role;
 
-		// TODO move BL to UC
-		// we have following logical groups:
-		// filter for all news a user might read
-		// filter by tasks not yet done
-		// order by duedate
-		// pagination
-
-		const [coursesOfUser, submissionsOfStudent] &#x3D; await Promise.all([
-			this.getCourseOfUser(userId),
-			this.em.find(Submission, { student: userId }),
-		]);
-
-		const lessonsOfStudent &#x3D; await this.em.find(LessonTaskInfo, {
-			course: { $in: coursesOfUser },
-			hidden: false,
-		});
-
-		// TODO: filter via query ..exist not exist, orm return null ? Add test for it!
-		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
-
-		const oneWeekAgo &#x3D; new Date();
-		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-		const [usersTasks, total] &#x3D; await this.em.findAndCount(
-			Task,
-			{
-				// TODO task query builder, see NewsScope
-				$and: [
-					// TODO move into a logic group / director
-					{ id: { $nin: homeworksWithSubmissions } },
-					{ private: { $ne: true } },
-					{ course: { $in: coursesOfUser } },
-					{ $or: [{ lesson: null }, { lesson: { $in: lessonsOfStudent } }] },
-					{ $or: [{ dueDate: { $gte: oneWeekAgo } }, { dueDate: null }] },
-				],
-			},
-			// TODO Populate in separate step
-			// TODO extract pagination, oderby
-			{ populate: [&#x27;course&#x27;], limit, offset: skip, orderBy: { dueDate: QueryOrder.ASC } }
-		);
-
-		return [usersTasks, total];
+		if (this.cl1.has(name)) {
+			role &#x3D; this.cl1.get(name);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { name });
+			this.cl1.add(name, role);
+		}
+		return role;
 	}
 
-	async findAllAssignedByTeacher(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		// TODO: merge overlaps with findAllOpenByStudent
-		// TODO: use Query Builder
-		const coursesOfUser &#x3D; await this.getCourseOfUser(userId);
+	async findById(id: EntityId): Promise&lt;Role&gt; {
+		let role: Role;
 
-		const publishedLessons &#x3D; await this.em.find(LessonTaskInfo, {
-			course: { $in: coursesOfUser },
-			hidden: false,
-		});
+		if (this.cl1.has(id)) {
+			role &#x3D; this.cl1.get(id);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { id });
+			this.cl1.add(id, role);
+		}
+		return role;
+	}
 
-		const [usersTasks, count] &#x3D; await this.em.findAndCount(
-			Task,
-			{
-				$and: [
-					{ course: { $in: coursesOfUser } },
-					{ private: { $ne: true } },
-					{ $or: [{ lesson: null }, { lesson: { $in: publishedLessons } }] },
-				],
-			},
-			{ populate: [&#x27;course&#x27;], limit, offset: skip, orderBy: { createdAt: QueryOrder.DESC } }
-		);
-		return [usersTasks, count];
+	async resolvePermissionsByName(name: string): Promise&lt;Role&gt; {
+		if (this.cl2.has(name)) {
+			return this.cl2.get(name);
+		}
+
+		const role &#x3D; await this.findByName(name);
+		let { permissions } &#x3D; role;
+		const { roles } &#x3D; role;
+
+		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
+			const subRoleId &#x3D; roles[i];
+			// eslint-disable-next-line no-await-in-loop
+			const { name: subRoleName } &#x3D; await this.findById(subRoleId);
+			// eslint-disable-next-line no-await-in-loop
+			const resolvedSubRole &#x3D; await this.resolvePermissionsByName(subRoleName);
+			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
+		}
+
+		const uniquePermissions &#x3D; [...new Set(permissions)];
+		role.permissions &#x3D; uniquePermissions;
+		this.cl2.add(name, role);
+		return role;
 	}
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -542,8 +632,8 @@ export class TaskRepo {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'TaskRepo.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'RoleCache.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Task</li>
+  <li>FileTaskInfo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/task.entity.ts</code>
+            <code>apps/server/src/modules/task/entity/file-task-info.entity.ts</code>
         </p>
 
 
@@ -86,22 +86,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#course">course</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#dueDate">dueDate</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#lesson">lesson</a>
+                                <a href="#creator">creator</a>
                             </li>
                             <li>
                                 <a href="#name">name</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#private">private</a>
                             </li>
                             <li>
                                 <a href="#_id">_id</a>
@@ -140,12 +128,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(partial: <a href="../classes/Task.html">Partial<Task></a>)</code>
+<code>constructor(partial: Partial<FileTaskInfo>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -166,7 +154,7 @@
                                                         <td>partial</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Task.html" target="_self" >Partial&lt;Task&gt;</a></code>
+                                                                    <code>Partial&lt;FileTaskInfo&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -192,54 +180,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="course"></a>
+                        <a name="creator"></a>
                         <span class="name">
                             <b>
-                            course</b>
-                            <a href="#course"><span class="icon ion-ios-link"></span></a>
+                            creator</b>
+                            <a href="#creator"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/CourseTaskInfo.html" target="_self" >CourseTaskInfo</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToOne({fieldName: &#x27;courseId&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:23</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="dueDate"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            dueDate</b>
-                            <a href="#dueDate"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
 
                         </td>
                     </tr>
@@ -254,44 +205,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:17</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="lesson"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            lesson</b>
-                            <a href="#lesson"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/LessonTaskInfo.html" target="_self" >LessonTaskInfo</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToOne({fieldName: &#x27;lessonId&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -327,44 +241,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:14</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="private"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            private</b>
-                            <a href="#private"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @Property()<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -639,14 +516,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
-import { CourseTaskInfo } from &#x27;./course-task-info.entity&#x27;;
-import { LessonTaskInfo } from &#x27;./lesson-task-info.entity&#x27;;
+import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
 
-@Entity({ tableName: &#x27;homeworks&#x27; })
-export class Task extends BaseEntityWithTimestamps {
-	constructor(partial: Partial&lt;Task&gt;) {
+@Entity({ tableName: &#x27;files&#x27; })
+export class FileTaskInfo extends BaseEntityWithTimestamps {
+	constructor(partial: Partial&lt;FileTaskInfo&gt;) {
 		super();
 		Object.assign(this, partial);
 	}
@@ -655,16 +531,7 @@ export class Task extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Property()
-	dueDate?: Date;
-
-	@Property()
-	private?: boolean;
-
-	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
-	course: CourseTaskInfo;
-
-	@ManyToOne({ fieldName: &#x27;lessonId&#x27; })
-	lesson?: LessonTaskInfo;
+	creator: UserTaskInfo;
 }
 </code></pre>
     </div>
@@ -694,7 +561,7 @@ export class Task extends BaseEntityWithTimestamps {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Task.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileTaskInfo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
