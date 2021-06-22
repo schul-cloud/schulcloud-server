@@ -77,15 +77,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllAssignedByTeacher">findAllAssignedByTeacher</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#findAllOpenByStudent">findAllOpenByStudent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getCourseOfUser">getCourseOfUser</a>
                             </li>
                         </ul>
                     </td>
@@ -157,95 +149,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllAssignedByTeacher"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findAllAssignedByTeacher
-                        </b>
-                        <a href="#findAllAssignedByTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllAssignedByTeacher(userId: <a href="../undefineds/EntityId.html">EntityId</a>, undefined: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:78</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="findAllOpenByStudent"></a>
                     <span class="name">
                         <b>
@@ -266,8 +169,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:14</a></div>
                 </td>
             </tr>
 
@@ -331,78 +234,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getCourseOfUser"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getCourseOfUser
-                        </b>
-                        <a href="#getCourseOfUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getCourseOfUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:13</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;CourseTaskInfo[]&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -414,29 +245,11 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { Task, Submission, CourseTaskInfo, LessonTaskInfo } from &#x27;../entity&#x27;;
+import { Task, Submission, Course, Lesson } from &#x27;../entity&#x27;;
 
 @Injectable()
 export class TaskRepo {
 	constructor(private readonly em: EntityManager) {}
-
-	// TODO: move to seperate repo
-	async getCourseOfUser(userId: EntityId): Promise&lt;CourseTaskInfo[]&gt; {
-		const coursesOfUser &#x3D; await this.em.find(CourseTaskInfo, {
-			$or: [
-				{
-					students: userId,
-				},
-				{
-					teachers: userId,
-				},
-				{
-					substitutionTeachers: userId,
-				},
-			],
-		});
-		return coursesOfUser;
-	}
 
 	// WARNING: this is used to deal with the current datamodel, and needs to be changed.
 	// DO NOT DO THIS AT HOME!!
@@ -450,18 +263,18 @@ export class TaskRepo {
 		// order by duedate
 		// pagination
 
-		const [coursesOfUser, submissionsOfStudent] &#x3D; await Promise.all([
-			this.getCourseOfUser(userId),
-			this.em.find(Submission, { student: userId }),
-		]);
-
-		const lessonsOfStudent &#x3D; await this.em.find(LessonTaskInfo, {
-			course: { $in: coursesOfUser },
+		const coursesOfStudent &#x3D; await this.em.find(Course, {
+			students: userId,
+		});
+		const lessonsOfStudent &#x3D; await this.em.find(Lesson, {
+			course: { $in: coursesOfStudent },
 			hidden: false,
 		});
 
-		// TODO: filter via query ..exist not exist, orm return null ? Add test for it!
-		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
+		const submissionsOfStudent &#x3D; await this.em.find(Submission, {
+			student: userId,
+		});
+		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.homework.id);
 
 		const oneWeekAgo &#x3D; new Date();
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -473,7 +286,7 @@ export class TaskRepo {
 					// TODO move into a logic group / director
 					{ id: { $nin: homeworksWithSubmissions } },
 					{ private: { $ne: true } },
-					{ course: { $in: coursesOfUser } },
+					{ course: { $in: coursesOfStudent } },
 					{ $or: [{ lesson: null }, { lesson: { $in: lessonsOfStudent } }] },
 					{ $or: [{ dueDate: { $gte: oneWeekAgo } }, { dueDate: null }] },
 				],
@@ -484,30 +297,6 @@ export class TaskRepo {
 		);
 
 		return [usersTasks, total];
-	}
-
-	async findAllAssignedByTeacher(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		// TODO: merge overlaps with findAllOpenByStudent
-		// TODO: use Query Builder
-		const coursesOfUser &#x3D; await this.getCourseOfUser(userId);
-
-		const publishedLessons &#x3D; await this.em.find(LessonTaskInfo, {
-			course: { $in: coursesOfUser },
-			hidden: false,
-		});
-
-		const [usersTasks, count] &#x3D; await this.em.findAndCount(
-			Task,
-			{
-				$and: [
-					{ course: { $in: coursesOfUser } },
-					{ private: { $ne: true } },
-					{ $or: [{ lesson: null }, { lesson: { $in: publishedLessons } }] },
-				],
-			},
-			{ populate: [&#x27;course&#x27;], limit, offset: skip, orderBy: { createdAt: QueryOrder.DESC } }
-		);
-		return [usersTasks, count];
 	}
 }
 </code></pre>

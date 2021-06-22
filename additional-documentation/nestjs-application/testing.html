@@ -109,7 +109,58 @@ describe(&quot;Course Service&quot;, (() =&gt; {
 <li>Assert - check the result</li>
 </ul>
 <p>this is known as the AAA-pattern.</p>
-<h2 id="testing-utilities">Testing Utilities</h2>
+<h2 id="testing-samples">Testing Samples</h2>
+<h3 id="handling-of-function-return-values">Handling of function return values</h3>
+<p>When assigning a value to an expect, separate the function call from the expectation to simplify debugging. This later helps when you not know about the return value type or if it&#39;s an promise or not. This is good style not only for tests.</p>
+<div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : retValue
+    it(&#39;bad sample&#39;, () =&gt; {
+        expect(doSomethingCrazy(x,y,z)).to...
+    })
+    it(&#39;good sample&#39;, () =&gt; {
+        const result = doSomethingCrazy(x,y,z)
+        expect(result).to... // here we can simply debug
+    })
+</code></pre></div><h3 id="promises-and-timouts-in-tests">Promises and Timouts in tests</h3>
+<p>When using asynchronous functions and/opr promises, results must be awaited within of an async test function instead of using promise chains. While for expexting error conditions it might be helpful to use catch for extracting a value from an expected error, in every case avoid writing long promise chains.</p>
+<ul>
+<li>Instead of using done callback, use async test functions.</li>
+<li>Use await instead of (long) promise chains</li>
+<li>never manually set a timeout</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : Promise&lt;retValue&gt;
+    it(&#39;bad async sample&#39;, async function (done) =&gt; {
+        this.timeout(10000);
+        return doSomethingCrazy(x,y,z).then(result=&gt;{
+            expect(result).to...
+            done() // expected done
+        }).catch(()=&gt;{
+            logger.info(`Could not ... ${error}`);
+            done() // unexpected done, test will always succeed which is wrong
+        })
+    })
+    it(&#39;good async sample&#39;, async () =&gt; {
+        // no timeout set
+        const result = await doSomethingCrazy(x,y,z)
+        expect(result).to...
+    })</code></pre></div><blockquote>
+<p>Timeouts must not be used, when async handling is correctly defined!</p>
+</blockquote>
+<h3 id="expecting-errors-in-tests">Expecting errors in tests</h3>
+<p>When expecting an error, you might take values from an error, test for the error type thrown and must care of promises.</p>
+<div><pre class="line-numbers"><code class="language-TypeScript">    // doSomethingCrazy : Promise&lt;retValue&gt;
+    it(&#39;bad async sample expecting an error&#39;, () =&gt; {
+        expect(doSomethingCrazy(x,y,z)).to...
+    })
+    it(&#39;good async sample expecting an error value&#39;, async () =&gt; {
+        const code = await doSomethingCrazy(x,y,z).catch(err =&gt; err.code)
+        expect(code).to...
+    })
+    it(&#39;good sample expecting an error type from a sync function&#39;, () =&gt; {
+        expect(() =&gt; doSomethingCrazySync(wrong, param)).toThrow(BadRequestException);
+    })
+    it(&#39;good sample expecting an error type from an async function&#39;, async () =&gt; {
+        await expect(doSomethingCrazySync(wrong, param)).rejects.toThrow(BadRequestException);
+    })</code></pre></div><h2 id="testing-utilities">Testing Utilities</h2>
 <p>NestJS:</p>
 <ul>
 <li>provides default tooling (such as test runner that builds an isolated module/application loader)</li>
@@ -257,7 +308,7 @@ are correctly mounted and available at a specific path.</p>
 <p>Do not test logic (from the business layer or repository) in e2e-tests, this must be done where the logic is defined within of a unit test. A e2e test should only ensure everything is correctly initialized.</p>
 </blockquote>
 <blockquote>
-<p>Do not put logic (beside statements, transactions, mapping) inside a controller, use the logic layer instead. </p>
+<p>Do not put logic (beside statements, transactions, mapping) inside a controller, use the logic layer instead.</p>
 </blockquote>
 <blockquote>
 <p>Mappers must be unit tested.</p>
