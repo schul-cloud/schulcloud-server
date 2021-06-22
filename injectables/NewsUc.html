@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:131</a></div>
                 </td>
             </tr>
 
@@ -507,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:83</a></div>
                 </td>
             </tr>
 
@@ -592,8 +592,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:176</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:180</a></div>
                 </td>
             </tr>
 
@@ -677,8 +677,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -774,8 +774,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="186"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:186</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:190</a></div>
                 </td>
             </tr>
 
@@ -845,8 +845,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:158</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:162</a></div>
                 </td>
             </tr>
 
@@ -941,8 +941,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:107</a></div>
                 </td>
             </tr>
 
@@ -1020,7 +1020,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions, SortOrder } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
@@ -1077,7 +1077,11 @@ export class NewsUc {
 		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
-		// todo order by displayAt by default, most current first
+
+		if (options &#x3D;&#x3D; null) options &#x3D; {};
+		// by default show latest news first
+		if (options.order &#x3D;&#x3D; null) options.order &#x3D; { displayAt: SortOrder.desc };
+
 		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, options);
 
 		await Promise.all(
