@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -36,13 +36,9 @@
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>MongoSharedConnection</li>
+  <li>Injectables</li>
+  <li>SubmissionRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,16 +56,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts</code>
+            <code>apps/server/src/modules/task/repo/submission.repo.ts</code>
         </p>
 
-
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code>MongoConnection</code>
-            </p>
 
 
 
@@ -88,11 +77,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#close">close</a>
+                                <a href="#getSubmissionsByTask">getSubmissionsByTask</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#connect">connect</a>
+                                <a href="#getSubmissionsByTasksList">getSubmissionsByTasksList</a>
                             </li>
                         </ul>
                     </td>
@@ -106,7 +95,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(em: EntityManager)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:7</a></div>
+                            </td>
+                        </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>em</td>
+                                                  
+                                                        <td>
+                                                                    <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -117,28 +153,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="close"></a>
+                    <a name="getSubmissionsByTask"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            close
+                            getSubmissionsByTask
                         </b>
-                        <a href="#close"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getSubmissionsByTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>close(force?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getSubmissionsByTask(task: <a href="../classes/Task.html">Task</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:10</a></div>
                 </td>
             </tr>
 
@@ -158,13 +194,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>force</td>
+                                    <td>task</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
@@ -175,7 +211,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Counted&lt;Submission[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -189,28 +225,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="connect"></a>
+                    <a name="getSubmissionsByTasksList"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            connect
+                            getSubmissionsByTasksList
                         </b>
-                        <a href="#connect"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getSubmissionsByTasksList"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>connect()</code>
+                    <code>getSubmissionsByTasksList(tasks: <a href="../classes/Task.html">Task[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-database/mongo-shared-connection.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -219,8 +255,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tasks</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task[]</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Counted&lt;Submission[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -228,46 +295,42 @@
     </table>
 </section>
 
-
-
-
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MongoConnection } from &#x27;@mikro-orm/mongodb&#x27;;
-import { MongoClient } from &#x27;mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Counted } from &#x27;../../../shared/domain&#x27;;
+import { Submission, Task } from &#x27;../entity&#x27;;
 
-// the shared mongo client
-let sharedClient: MongoClient | undefined;
+@Injectable()
+export class SubmissionRepo {
+	constructor(private readonly em: EntityManager) {}
 
-// keep a list of references to all open mikro-orm mongo connections
-const connections: Array&lt;MongoSharedConnection&gt; &#x3D; [];
-
-export class MongoSharedConnection extends MongoConnection {
-	async connect(): Promise&lt;void&gt; {
-		if (!sharedClient) {
-			sharedClient &#x3D; await MongoClient.connect(this.config.getClientUrl(), this.getConnectionOptions());
-		}
-		connections.push(this);
-		this.client &#x3D; sharedClient;
-		this.db &#x3D; this.client.db(this.config.get(&#x27;dbName&#x27;));
+	async getSubmissionsByTask(task: Task): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
+		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {
+			task,
+		});
+		return [submissions, count];
 	}
 
-	async close(force?: boolean): Promise&lt;void&gt; {
-		// remove from list of references
-		connections.splice(connections.indexOf(this), 1);
-		if (connections.length &#x3D;&#x3D;&#x3D; 0) {
-			// close client when there are no more references
-			await sharedClient?.close(force);
-			sharedClient &#x3D; undefined;
-		}
+	async getSubmissionsByTasksList(tasks: Task[]): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
+		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {
+			task: { $in: tasks },
+		});
+
+		return [submissions, count];
 	}
 }
 </code></pre>
     </div>
+
 </div>
+
+
+
+
 
 
 
@@ -292,8 +355,8 @@ export class MongoSharedConnection extends MongoConnection {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'MongoSharedConnection.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubmissionRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

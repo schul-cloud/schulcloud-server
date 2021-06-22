@@ -414,7 +414,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreateNewsParams, NewsFilterQuery, NewsResponse, UpdateNewsParams } from &#x27;../controller/dto&#x27;;
-import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetModel } from &#x27;../entity&#x27;;
+import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetModelValue } from &#x27;../entity&#x27;;
 import { SchoolInfoMapper } from &#x27;./school-info.mapper&#x27;;
 import { UserInfoMapper } from &#x27;./user-info.mapper&#x27;;
 
@@ -444,7 +444,7 @@ export class NewsMapper {
 		const dto: INewsScope &#x3D; {};
 		if (query.targetModel) {
 			dto.target &#x3D; {
-				targetModel: query.targetModel as NewsTargetModel,
+				targetModel: query.targetModel as NewsTargetModelValue,
 				targetId: query.targetId,
 			};
 		}
@@ -460,7 +460,7 @@ export class NewsMapper {
 			content: params.content,
 			displayAt: params.displayAt,
 			target: {
-				targetModel: params.targetModel as NewsTargetModel,
+				targetModel: params.targetModel as NewsTargetModelValue,
 				targetId: params.targetId,
 			},
 		};

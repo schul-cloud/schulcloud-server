@@ -108,6 +108,10 @@
                                 <a href="#name">name</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#status">status</a>
+                            </li>
+                            <li>
                                 <a href="#updatedAt">updatedAt</a>
                             </li>
                         </ul>
@@ -352,6 +356,43 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="status"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Optional</span>
+                            status</b>
+                            <a href="#status"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ApiProperty()<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="updatedAt"></a>
                         <span class="name">
                             <b>
@@ -423,7 +464,12 @@ export class TaskResponse {
 	@ApiProperty()
 	updatedAt: Date;
 
-	// status: string;
+	@ApiProperty()
+	status?: {
+		submitted?: number;
+		maxSubmissions?: number;
+		graded?: number;
+	};
 }
 </code></pre>
     </div>

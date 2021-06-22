@@ -205,9 +205,9 @@ import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
+import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 import { TaskResponse } from &#x27;./dto&#x27;;
-import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 // TODO: swagger doku do not read from combined query object only from passed single parameter in Query(), but this do not allowed optional querys only required querys
 
@@ -222,6 +222,7 @@ export class TaskController {
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
+		// const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
 		const [tasks, total] &#x3D; await this.taskUc.findAllOpenForUser(currentUser.userId, paginationQuery);
 		const tasksResponse &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task));
 		const { skip, limit } &#x3D; paginationQuery;

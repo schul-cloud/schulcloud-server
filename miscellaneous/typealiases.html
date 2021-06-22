@@ -70,16 +70,31 @@
                             <a href="#FeathersServiceResponse" title="apps/server/src/modules/feathers/feathers-service.provider.ts"><b>FeathersServiceResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../feathers-service.provider.ts)</a>
                         </li>
                         <li>
+                            <a href="#FindNewsTarget" title="apps/server/src/modules/news/entity/news.types.ts"><b>FindNewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ForbiddenOptions" title="apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts"><b>ForbiddenOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-memory-database.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ISubmissionStatus" title="apps/server/src/modules/task/entity/status.type.ts"><b>ISubmissionStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../status.type.ts)</a>
+                        </li>
+                        <li>
                             <a href="#IUpdateNews" title="apps/server/src/modules/news/entity/news.types.ts"><b>IUpdateNews</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
-                            <a href="#NoOptions" title="apps/server/src/modules/database/mongo-database/mongo-database.module.ts"><b>NoOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-database.module.ts)</a>
+                            <a href="#NewsTarget" title="apps/server/src/modules/news/entity/news.types.ts"><b>NewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NewsTargetModelValue" title="apps/server/src/modules/news/entity/news.types.ts"><b>NewsTargetModelValue</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
                             <a href="#Permission" title="apps/server/src/modules/news/uc/news.uc.ts"><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrderMap" title="apps/server/src/shared/domain/interface/find-options.ts"><b>SortOrderMap</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
+                            <a href="#SortOrderMap" title="apps/server/src/shared/domain/interface/sorting.ts"><b>SortOrderMap</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SortOrderValue" title="apps/server/src/shared/domain/interface/sorting.ts"><b>SortOrderValue</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.ts)</a>
                         </li>
                         <li>
                             <a href="#SourceType" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>SourceType</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
@@ -185,6 +200,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="FindNewsTarget"></a>
+                    <span class="name"><b>FindNewsTarget</b><a href="#FindNewsTarget"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>define the news target for find </p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="IUpdateNews"></a>
                     <span class="name"><b>IUpdateNews</b><a href="#IUpdateNews"><span class="icon ion-ios-link"></span></a></span>
                 </td>
@@ -203,19 +240,81 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>apps/server/src/modules/database/mongo-database/mongo-database.module.ts</h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewsTarget"></a>
+                    <span class="name"><b>NewsTarget</b><a href="#NewsTarget"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>define the news target for a specific entity  </p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NewsTargetModelValue"></a>
+                    <span class="name"><b>NewsTargetModelValue</b><a href="#NewsTargetModelValue"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#ValueOf" target="_self" >ValueOf&lt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="NoOptions"></a>
-                    <span class="name"><b>NoOptions</b><a href="#NoOptions"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="ForbiddenOptions"></a>
+                    <span class="name"><b>ForbiddenOptions</b><a href="#ForbiddenOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>options we not allow to pass as they are internally replaced by using the in memory mongo  </p>
+</div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <code>    <code>&quot;type&quot; | &quot;driver&quot; | &quot;clientUrl&quot; | &quot;dbName&quot; | &quot;user&quot; | &quot;password&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/task/entity/status.type.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ISubmissionStatus"></a>
+                    <span class="name"><b>ISubmissionStatus</b><a href="#ISubmissionStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
 </code>
                 </td>
             </tr>
@@ -239,7 +338,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
+</section>    <h3>apps/server/src/shared/domain/interface/sorting.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
@@ -251,7 +350,23 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../miscellaneous/enumerations.html#SortOrder" target="_self" >Partial&lt;Record&lt;T, SortOrder&gt;&gt;</a></code>
+                    <code>        <code><a href="../miscellaneous/variables.html#SortOrder" target="_self" >Partial&lt;Record&lt;T, SortOrderValue&gt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SortOrderValue"></a>
+                    <span class="name"><b>SortOrderValue</b><a href="#SortOrderValue"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#ValueOf" target="_self" >ValueOf&lt;&gt;</a></code>
 </code>
                 </td>
             </tr>

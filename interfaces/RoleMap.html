@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content interface">
                    <div class="content-data">
 
 
@@ -40,9 +40,10 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>MongoSharedDriver</li>
+  <li>Interfaces</li>
+  <li>RoleMap</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,105 +61,139 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/database/mongo-database/mongo-shared-driver.ts</code>
+            <code>apps/server/src/modules/user/repo/role.repo.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code>MongoDriver</code>
-            </p>
 
 
 
             <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#connection">connection</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
+    <h3 id="inputs">Indexable</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="connection"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                                <span class="modifier">Readonly</span>
-                            connection</b>
-                            <a href="#connection"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <code>[name: string]:        <code><a href="../classes/Role.html" target="_self" >Role</a></code>
+</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new MongoSharedConnection(this.config)</code>
-                        </td>
-                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/database/mongo-database/mongo-shared-driver.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:8</a></div>
                             </td>
                         </tr>
-
-
             </tbody>
         </table>
 </section>
-
-
-
-
-
-
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MongoDriver } from &#x27;@mikro-orm/mongodb&#x27;;
-import { MongoSharedConnection } from &#x27;./mongo-shared-connection&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+// import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
+// import { Counted } from &#x27;@shared/domain/types&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
-export class MongoSharedDriver extends MongoDriver {
-	protected readonly connection &#x3D; new MongoSharedConnection(this.config);
+interface RoleMap {
+	[name: string]: Role;
+}
+
+// TODO: time reset
+class RoleCache {
+	cache: RoleMap;
+
+	name: string;
+
+	constructor(name &#x3D; &#x27;&#x27;) {
+		this.cache &#x3D; {};
+		this.name &#x3D; name;
+	}
+
+	get(selector: string): Role {
+		return this.cache[selector];
+	}
+
+	has(selector: string): boolean {
+		return Object.prototype.hasOwnProperty.call(this.cache, selector);
+	}
+
+	add(selector: string, role: Role) {
+		this.cache[selector] &#x3D; role;
+	}
+
+	// we do not registred changes by calling the old endpoint
+	cleanup() {
+		this.cache &#x3D; {};
+	}
+}
+
+// caching ?
+@Injectable()
+export class RoleRepo {
+	cl1: RoleCache;
+
+	cl2: RoleCache;
+
+	constructor(private readonly em: EntityManager) {
+		this.cl1 &#x3D; new RoleCache(&#x27;level1&#x27;);
+		this.cl2 &#x3D; new RoleCache(&#x27;level2&#x27;);
+	}
+
+	async findByName(name: string): Promise&lt;Role&gt; {
+		let role: Role;
+
+		if (this.cl1.has(name)) {
+			role &#x3D; this.cl1.get(name);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { name });
+			this.cl1.add(name, role);
+		}
+		return role;
+	}
+
+	async findById(id: EntityId): Promise&lt;Role&gt; {
+		let role: Role;
+
+		if (this.cl1.has(id)) {
+			role &#x3D; this.cl1.get(id);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { id });
+			this.cl1.add(id, role);
+		}
+		return role;
+	}
+
+	async resolvePermissionsByName(name: string): Promise&lt;Role&gt; {
+		if (this.cl2.has(name)) {
+			return this.cl2.get(name);
+		}
+
+		const role &#x3D; await this.findByName(name);
+		let { permissions } &#x3D; role;
+		const { roles } &#x3D; role;
+
+		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
+			const subRoleId &#x3D; roles[i];
+			// eslint-disable-next-line no-await-in-loop
+			const { name: subRoleName } &#x3D; await this.findById(subRoleId);
+			// eslint-disable-next-line no-await-in-loop
+			const resolvedSubRole &#x3D; await this.resolvePermissionsByName(subRoleName);
+			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
+		}
+
+		const uniquePermissions &#x3D; [...new Set(permissions)];
+		role.permissions &#x3D; uniquePermissions;
+		this.cl2.add(name, role);
+		return role;
+	}
 }
 </code></pre>
     </div>
 </div>
-
 
 
                    
@@ -182,8 +217,8 @@ export class MongoSharedDriver extends MongoDriver {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'MongoSharedDriver.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'RoleMap.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

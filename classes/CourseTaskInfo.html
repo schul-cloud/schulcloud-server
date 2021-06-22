@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Submission</li>
+  <li>CourseTaskInfo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/submission.entity.ts</code>
+            <code>apps/server/src/modules/task/entity/course-task-info.entity.ts</code>
         </p>
 
 
@@ -86,25 +86,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#comment">comment</a>
+                                <a href="#color">color</a>
                             </li>
                             <li>
-                                <a href="#grade">grade</a>
+                                <a href="#name">name</a>
                             </li>
                             <li>
-                                <a href="#gradeComment">gradeComment</a>
+                                <a href="#students">students</a>
                             </li>
                             <li>
-                                <a href="#gradeFileIds">gradeFileIds</a>
+                                <a href="#substitutionTeachers">substitutionTeachers</a>
                             </li>
                             <li>
-                                <a href="#student">student</a>
-                            </li>
-                            <li>
-                                <a href="#studentFiles">studentFiles</a>
-                            </li>
-                            <li>
-                                <a href="#task">task</a>
+                                <a href="#teachers">teachers</a>
                             </li>
                             <li>
                                 <a href="#_id">_id</a>
@@ -137,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(partial: <a href="../classes/Submission.html">Partial<Submission></a>)</code>
+<code>constructor(partial: Partial<CourseTaskInfo>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -163,7 +157,7 @@
                                                         <td>partial</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/Submission.html" target="_self" >Partial&lt;Submission&gt;</a></code>
+                                                                    <code>Partial&lt;CourseTaskInfo&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -189,11 +183,52 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="comment"></a>
+                        <a name="color"></a>
                         <span class="name">
                             <b>
-                            comment</b>
-                            <a href="#comment"><span class="icon ion-ios-link"></span></a>
+                            color</b>
+                            <a href="#color"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>COURSE_DEFAULT_COLOR</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @Property()<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name">
+                            <b>
+                            name</b>
+                            <a href="#name"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -214,7 +249,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -225,18 +260,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="grade"></a>
+                        <a name="students"></a>
                         <span class="name">
                             <b>
-                            grade</b>
-                            <a href="#grade"><span class="icon ion-ios-link"></span></a>
+                            students</b>
+                            <a href="#students"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                            <i>Default value : </i><code>new Collection&lt;UserTaskInfo&gt;(this)</code>
                         </td>
                     </tr>
                     <tr>
@@ -244,13 +278,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Property()<br />
+                                @ManyToMany({fieldName: &#x27;userIds&#x27;, type: UserTaskInfo})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -261,18 +295,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="gradeComment"></a>
+                        <a name="substitutionTeachers"></a>
                         <span class="name">
                             <b>
-                            gradeComment</b>
-                            <a href="#gradeComment"><span class="icon ion-ios-link"></span></a>
+                            substitutionTeachers</b>
+                            <a href="#substitutionTeachers"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                            <i>Default value : </i><code>new Collection&lt;UserTaskInfo&gt;(this)</code>
                         </td>
                     </tr>
                     <tr>
@@ -280,13 +313,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @Property()<br />
+                                @ManyToMany({fieldName: &#x27;substitutionIds&#x27;, type: UserTaskInfo})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -297,17 +330,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="gradeFileIds"></a>
+                        <a name="teachers"></a>
                         <span class="name">
                             <b>
-                            gradeFileIds</b>
-                            <a href="#gradeFileIds"><span class="icon ion-ios-link"></span></a>
+                            teachers</b>
+                            <a href="#teachers"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
+                            <i>Default value : </i><code>new Collection&lt;UserTaskInfo&gt;(this)</code>
                         </td>
                     </tr>
                     <tr>
@@ -315,120 +348,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ManyToMany({fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo})<br />
+                                @ManyToMany({fieldName: &#x27;teacherIds&#x27;, type: UserTaskInfo})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:35</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="student"></a>
-                        <span class="name">
-                            <b>
-                            student</b>
-                            <a href="#student"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToOne({fieldName: &#x27;studentId&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:18</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="studentFiles"></a>
-                        <span class="name">
-                            <b>
-                            studentFiles</b>
-                            <a href="#studentFiles"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToMany({fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:25</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="task"></a>
-                        <span class="name">
-                            <b>
-                            task</b>
-                            <a href="#task"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ManyToOne({fieldName: &#x27;homeworkId&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/entity/course-task-info.entity.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -617,41 +543,35 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Collection, Property, ManyToMany } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
 import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
-import { FileTaskInfo } from &#x27;./file-task-info.entity&#x27;;
-import { Task } from &#x27;./task.entity&#x27;;
 
-@Entity({ tableName: &#x27;submissions&#x27; })
-export class Submission extends BaseEntityWithTimestamps {
-	constructor(partial: Partial&lt;Submission&gt;) {
+export const COURSE_DEFAULT_COLOR &#x3D; &#x27;#ACACAC&#x27;;
+
+@Entity({ tableName: &#x27;courses&#x27; })
+export class CourseTaskInfo extends BaseEntityWithTimestamps {
+	constructor(partial: Partial&lt;CourseTaskInfo&gt;) {
 		super();
 		Object.assign(this, partial);
 	}
 
-	@ManyToOne({ fieldName: &#x27;homeworkId&#x27; })
-	task: Task;
-
-	@ManyToOne({ fieldName: &#x27;studentId&#x27; })
-	student: UserTaskInfo;
-
-	/* ***** student uploads ***** */
 	@Property()
-	comment: string;
-
-	@ManyToMany({ fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo })
-	studentFiles &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
-
-	/* ***** teacher uploads ***** */
-	@Property()
-	grade: number;
+	name: string;
 
 	@Property()
-	gradeComment: string;
+	color: string &#x3D; COURSE_DEFAULT_COLOR;
 
-	@ManyToMany({ fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo })
-	gradeFileIds &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
+	// TODO: @Property() ?
+	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserTaskInfo })
+	students &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
+
+	// TODO: combine teachers and substitutionTeachers
+	@ManyToMany({ fieldName: &#x27;teacherIds&#x27;, type: UserTaskInfo })
+	teachers &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
+
+	@ManyToMany({ fieldName: &#x27;substitutionIds&#x27;, type: UserTaskInfo })
+	substitutionTeachers &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
 }
 </code></pre>
     </div>
@@ -681,7 +601,7 @@ export class Submission extends BaseEntityWithTimestamps {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Submission.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseTaskInfo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

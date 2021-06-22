@@ -22,65 +22,65 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_ServerModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="29,-70 29,-195 467,-195 467,-70 29,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="31.5,-70 31.5,-195 464.5,-195 464.5,-70 31.5,-70"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_ServerModule_imports</title>
-<polygon fill="none" stroke="black" points="37,-78 37,-130 459,-130 459,-78 37,-78"/>
+<polygon fill="none" stroke="black" points="39.5,-78 39.5,-130 456.5,-130 456.5,-78 39.5,-78"/>
 </g>
 <!-- AuthModule -->
 <g id="node1" class="node">
 <title>AuthModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="450.55,-122 447.55,-126 426.55,-126 423.55,-122 363.45,-122 363.45,-86 450.55,-86 450.55,-122"/>
-<text text-anchor="middle" x="407" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="448.05,-122 445.05,-126 424.05,-126 421.05,-122 360.95,-122 360.95,-86 448.05,-86 448.05,-122"/>
+<text text-anchor="middle" x="404.5" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
 </g>
 <!-- ServerModule -->
 <g id="node5" class="node">
 <title>ServerModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="296.08,-187 293.08,-191 272.08,-191 269.08,-187 199.92,-187 199.92,-151 296.08,-151 296.08,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="294.58,-187 291.58,-191 270.58,-191 267.58,-187 198.42,-187 198.42,-151 294.58,-151 294.58,-187"/>
+<text text-anchor="middle" x="246.5" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
 </g>
 <!-- AuthModule&#45;&gt;ServerModule -->
 <g id="edge1" class="edge">
 <title>AuthModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M407,-122.11C407,-141.34 407,-169 407,-169 407,-169 306.14,-169 306.14,-169"/>
-<polygon fill="black" stroke="black" points="306.14,-165.5 296.14,-169 306.14,-172.5 306.14,-165.5"/>
+<path fill="none" stroke="black" d="M404.5,-122.11C404.5,-141.34 404.5,-169 404.5,-169 404.5,-169 304.76,-169 304.76,-169"/>
+<polygon fill="black" stroke="black" points="304.76,-165.5 294.76,-169 304.76,-172.5 304.76,-165.5"/>
 </g>
 <!-- CoreModule -->
 <g id="node2" class="node">
 <title>CoreModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="345.26,-122 342.26,-126 321.26,-126 318.26,-122 258.74,-122 258.74,-86 345.26,-86 345.26,-122"/>
-<text text-anchor="middle" x="302" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="342.76,-122 339.76,-126 318.76,-126 315.76,-122 256.24,-122 256.24,-86 342.76,-86 342.76,-122"/>
+<text text-anchor="middle" x="299.5" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
 </g>
 <!-- CoreModule&#45;&gt;ServerModule -->
 <g id="edge2" class="edge">
 <title>CoreModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M277.33,-122.11C277.33,-122.11 277.33,-140.99 277.33,-140.99"/>
-<polygon fill="black" stroke="black" points="273.83,-140.99 277.33,-150.99 280.83,-140.99 273.83,-140.99"/>
-</g>
-<!-- NewsModule -->
-<g id="node3" class="node">
-<title>NewsModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="240.92,-122 237.92,-126 216.92,-126 213.92,-122 149.08,-122 149.08,-86 240.92,-86 240.92,-122"/>
-<text text-anchor="middle" x="195" y="-99.8" font-family="Times,serif" font-size="14.00">NewsModule</text>
-</g>
-<!-- NewsModule&#45;&gt;ServerModule -->
-<g id="edge3" class="edge">
-<title>NewsModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M220.33,-122.11C220.33,-122.11 220.33,-140.99 220.33,-140.99"/>
-<polygon fill="black" stroke="black" points="216.83,-140.99 220.33,-150.99 223.83,-140.99 216.83,-140.99"/>
+<path fill="none" stroke="black" d="M275.33,-122.11C275.33,-122.11 275.33,-140.99 275.33,-140.99"/>
+<polygon fill="black" stroke="black" points="271.83,-140.99 275.33,-150.99 278.83,-140.99 271.83,-140.99"/>
 </g>
 <!-- TaskModule -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>TaskModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="131.26,-122 128.26,-126 107.26,-126 104.26,-122 44.74,-122 44.74,-86 131.26,-86 131.26,-122"/>
-<text text-anchor="middle" x="88" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="237.76,-122 234.76,-126 213.76,-126 210.76,-122 151.24,-122 151.24,-86 237.76,-86 237.76,-122"/>
+<text text-anchor="middle" x="194.5" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
 </g>
 <!-- TaskModule&#45;&gt;ServerModule -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>TaskModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M88,-122.11C88,-141.34 88,-169 88,-169 88,-169 189.56,-169 189.56,-169"/>
-<polygon fill="black" stroke="black" points="189.56,-172.5 199.56,-169 189.56,-165.5 189.56,-172.5"/>
+<path fill="none" stroke="black" d="M218.17,-122.11C218.17,-122.11 218.17,-140.99 218.17,-140.99"/>
+<polygon fill="black" stroke="black" points="214.67,-140.99 218.17,-150.99 221.67,-140.99 214.67,-140.99"/>
+</g>
+<!-- UserModule -->
+<g id="node4" class="node">
+<title>UserModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="133.48,-122 130.48,-126 109.48,-126 106.48,-122 47.52,-122 47.52,-86 133.48,-86 133.48,-122"/>
+<text text-anchor="middle" x="90.5" y="-99.8" font-family="Times,serif" font-size="14.00">UserModule</text>
+</g>
+<!-- UserModule&#45;&gt;ServerModule -->
+<g id="edge4" class="edge">
+<title>UserModule&#45;&gt;ServerModule</title>
+<path fill="none" stroke="black" d="M90.5,-122.11C90.5,-141.34 90.5,-169 90.5,-169 90.5,-169 188.42,-169 188.42,-169"/>
+<polygon fill="black" stroke="black" points="188.42,-172.5 198.42,-169 188.42,-165.5 188.42,-172.5"/>
 </g>
 </g>
 </svg>

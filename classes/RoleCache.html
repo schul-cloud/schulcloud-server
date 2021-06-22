@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -36,9 +36,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>BaseRepo</li>
+  <li>Classes</li>
+  <li>RoleCache</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,8 +60,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/repo/base.repo.ts</code>
+            <code>apps/server/src/modules/user/repo/role.repo.ts</code>
         </p>
+
 
 
 
@@ -66,6 +71,23 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cache">cache</a>
+                            </li>
+                            <li>
+                                <a href="#name">name</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -76,24 +98,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete">delete</a>
+                                <a href="#add">add</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#deleteAll">deleteAll</a>
+                                <a href="#cleanup">cleanup</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#flush">flush</a>
+                                <a href="#get">get</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#save">save</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#saveAll">saveAll</a>
+                                <a href="#has">has</a>
                             </li>
                         </ul>
                     </td>
@@ -113,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
+<code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -136,10 +150,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>em</td>
+                                                        <td>name</td>
                                                   
                                                         <td>
-                                                                    <code>EntityManager</code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -158,6 +172,67 @@
 
             <section>
     
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cache"></a>
+                        <span class="name">
+                            <b>
+                            cache</b>
+                            <a href="#cache"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/RoleMap.html" target="_self" >RoleMap</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name">
+                            <b>
+                            name</b>
+                            <a href="#name"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
     <h3 id="methods">
         Methods
     </h3>
@@ -165,103 +240,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
+                    <a name="add"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            delete
+                            add
                         </b>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(objs: T)</code>
+<code>add(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, role: <a href="../classes/Role.html">Role</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:43</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>In order to delete multiple entities use {@code deleteAll}
-Due to multiple transactions consistency</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>objs</td>
-                                    <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteAll"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            deleteAll
-                        </b>
-                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteAll(objs: T[], autoFlush)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:31</a></div>
                 </td>
             </tr>
 
@@ -277,36 +275,31 @@ Due to multiple transactions consistency</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>objs</td>
+                                    <td>selector</td>
                                     <td>
-                                            <code>T[]</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
-                                    <td>autoFlush</td>
+                                    <td>role</td>
                                     <td>
+                                                <code><a href="../classes/Role.html" target="_self" >Role</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                        <code>true</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -315,7 +308,7 @@ Due to multiple transactions consistency</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -329,28 +322,26 @@ Due to multiple transactions consistency</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="flush"></a>
+                    <a name="cleanup"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            flush
+                            cleanup
                         </b>
-                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
+                        <a href="#cleanup"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>flush()</code>
+<code>cleanup()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -359,7 +350,7 @@ Due to multiple transactions consistency</p>
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -370,112 +361,18 @@ Due to multiple transactions consistency</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="save"></a>
+                    <a name="get"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
-                            save
+                            get
                         </b>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(obj: T, autoFlush)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:15</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>In order to save multiple entities use {@code saveAll}
-Due to multiple transactions consistency</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>obj</td>
-                                    <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>autoFlush</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>true</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="saveAll"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            saveAll
-                        </b>
-                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>saveAll(objs: T[], autoFlush)</code>
+<code>get(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -483,7 +380,7 @@ Due to multiple transactions consistency</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:23</a></div>
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:23</a></div>
                 </td>
             </tr>
 
@@ -499,36 +396,19 @@ Due to multiple transactions consistency</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>objs</td>
+                                    <td>selector</td>
                                     <td>
-                                            <code>T[]</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>autoFlush</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>true</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -537,7 +417,77 @@ Due to multiple transactions consistency</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/Role.html" target="_self" >Role</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="has"></a>
+                    <span class="name">
+                        <b>
+                            has
+                        </b>
+                        <a href="#has"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>has(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -549,71 +499,117 @@ Due to multiple transactions consistency</p>
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BaseEntity } from &#x27;@shared/domain&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+// import { QueryOrder } from &#x27;@mikro-orm/core&#x27;;
+// import { Counted } from &#x27;@shared/domain/types&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
+interface RoleMap {
+	[name: string]: Role;
+}
+
+// TODO: time reset
+class RoleCache {
+	cache: RoleMap;
+
+	name: string;
+
+	constructor(name &#x3D; &#x27;&#x27;) {
+		this.cache &#x3D; {};
+		this.name &#x3D; name;
+	}
+
+	get(selector: string): Role {
+		return this.cache[selector];
+	}
+
+	has(selector: string): boolean {
+		return Object.prototype.hasOwnProperty.call(this.cache, selector);
+	}
+
+	add(selector: string, role: Role) {
+		this.cache[selector] &#x3D; role;
+	}
+
+	// we do not registred changes by calling the old endpoint
+	cleanup() {
+		this.cache &#x3D; {};
+	}
+}
+
+// caching ?
 @Injectable()
-export class BaseRepo&lt;T extends BaseEntity&gt; {
-	constructor(protected readonly em: EntityManager) {}
+export class RoleRepo {
+	cl1: RoleCache;
 
-	/**
-	 * In order to save multiple entities use {@code saveAll}
-	 * Due to multiple transactions consistency
-	 * @param obj
-	 * @param autoFlush
-	 */
-	async save(obj: T, autoFlush &#x3D; true): Promise&lt;T&gt; {
-		this.em.persist(obj);
-		if (autoFlush) {
-			await this.flush();
+	cl2: RoleCache;
+
+	constructor(private readonly em: EntityManager) {
+		this.cl1 &#x3D; new RoleCache(&#x27;level1&#x27;);
+		this.cl2 &#x3D; new RoleCache(&#x27;level2&#x27;);
+	}
+
+	async findByName(name: string): Promise&lt;Role&gt; {
+		let role: Role;
+
+		if (this.cl1.has(name)) {
+			role &#x3D; this.cl1.get(name);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { name });
+			this.cl1.add(name, role);
 		}
-		return obj;
+		return role;
 	}
 
-	async saveAll(objs: T[], autoFlush &#x3D; true): Promise&lt;T[]&gt; {
-		const persisted &#x3D; objs.map((n) &#x3D;&gt; {
-			this.em.persist(n);
-			return n;
-		});
-		if (autoFlush) {
-			await this.em.flush();
+	async findById(id: EntityId): Promise&lt;Role&gt; {
+		let role: Role;
+
+		if (this.cl1.has(id)) {
+			role &#x3D; this.cl1.get(id);
+		} else {
+			role &#x3D; await this.em.findOneOrFail(Role, { id });
+			this.cl1.add(id, role);
 		}
-		return persisted;
+		return role;
 	}
 
-	async flush(): Promise&lt;void&gt; {
-		await this.em.flush();
-	}
-
-	/**
-	 * In order to delete multiple entities use {@code deleteAll}
-	 * Due to multiple transactions consistency
-	 * @param objs
-	 */
-	async delete(objs: T): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(objs);
-	}
-
-	async deleteAll(objs: T[], autoFlush &#x3D; true): Promise&lt;void&gt; {
-		objs.map((n) &#x3D;&gt; this.em.remove(n));
-		if (autoFlush) {
-			await this.flush();
+	async resolvePermissionsByName(name: string): Promise&lt;Role&gt; {
+		if (this.cl2.has(name)) {
+			return this.cl2.get(name);
 		}
+
+		const role &#x3D; await this.findByName(name);
+		let { permissions } &#x3D; role;
+		const { roles } &#x3D; role;
+
+		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
+			const subRoleId &#x3D; roles[i];
+			// eslint-disable-next-line no-await-in-loop
+			const { name: subRoleName } &#x3D; await this.findById(subRoleId);
+			// eslint-disable-next-line no-await-in-loop
+			const resolvedSubRole &#x3D; await this.resolvePermissionsByName(subRoleName);
+			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
+		}
+
+		const uniquePermissions &#x3D; [...new Set(permissions)];
+		role.permissions &#x3D; uniquePermissions;
+		this.cl2.add(name, role);
+		return role;
 	}
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -638,8 +634,8 @@ export class BaseRepo&lt;T extends BaseEntity&gt; {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'BaseRepo.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'RoleCache.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

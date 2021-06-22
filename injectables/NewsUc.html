@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:131</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:126</a></div>
                 </td>
             </tr>
 
@@ -402,7 +402,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, scope?: <a href="../interfaces/INewsScope.html">INewsScope</a>, options?: <a href="../interfaces/IFindOptions.html">IFindOptions<News></a>)</code>
+                    <code>findAllForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, scope?: <a href="../interfaces/INewsScope.html">INewsScope</a>, pagination?: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
                 </td>
             </tr>
 
@@ -417,8 +417,6 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Provides news for a user, by default odered by displayAt to show latest news first.</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -456,9 +454,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>options</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;News&gt;</a></code>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
                                     </td>
 
                                     <td>
@@ -507,8 +505,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:78</a></div>
                 </td>
             </tr>
 
@@ -592,8 +590,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="180"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:180</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:175</a></div>
                 </td>
             </tr>
 
@@ -677,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:137</a></div>
                 </td>
             </tr>
 
@@ -774,8 +772,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:185</a></div>
                 </td>
             </tr>
 
@@ -838,15 +836,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getTargetFilters(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModels: <a href="../classes/News.html">NewsTargetModel[]</a>, permissions: string[])</code>
+                    <code>getTargetFilters(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModels: <a href="../classes/News.html">NewsTargetModelValue[]</a>, permissions: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="162"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:162</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:157</a></div>
                 </td>
             </tr>
 
@@ -880,7 +878,7 @@
                                 <tr>
                                     <td>targetModels</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel[]</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue[]</a></code>
                                     </td>
 
                                     <td>
@@ -941,8 +939,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -1020,11 +1018,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IFindOptions, SortOrder } from &#x27;@shared/domain&#x27;;
+import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
-import { News, NewsTargetModel, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
+import { News, NewsTargetModel, NewsTargetModelValue, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
 import { NewsTargetFilter } from &#x27;../repo/news-target-filter&#x27;;
 
@@ -1064,25 +1062,20 @@ export class NewsUc {
 	}
 
 	/**
-	 * Provides news for a user, by default odered by displayAt to show latest news first.
+	 *
 	 * @param userId
 	 * @param scope
 	 * @param pagination
 	 * @returns
 	 */
-	async findAllForUser(userId: EntityId, scope?: INewsScope, options?: IFindOptions&lt;News&gt;): Promise&lt;Counted&lt;News[]&gt;&gt; {
+	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;Counted&lt;News[]&gt;&gt; {
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 
 		const unpublished &#x3D; !!scope?.unpublished; // default is only published news
 		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
-
-		if (options &#x3D;&#x3D; null) options &#x3D; {};
-		// by default show latest news first
-		if (options.order &#x3D;&#x3D; null) options.order &#x3D; { displayAt: SortOrder.desc };
-
-		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, options);
+		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, pagination);
 
 		await Promise.all(
 			newsList.map(async (news: News) &#x3D;&gt; {
@@ -1182,7 +1175,7 @@ export class NewsUc {
 
 	private async getTargetFilters(
 		userId: EntityId,
-		targetModels: NewsTargetModel[],
+		targetModels: NewsTargetModelValue[],
 		permissions: string[]
 	): Promise&lt;NewsTargetFilter[]&gt; {
 		const targets &#x3D; await Promise.all(

@@ -251,7 +251,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModel</a>, permissions: string[])</code>
+                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, permissions: string[])</code>
                 </td>
             </tr>
 
@@ -293,7 +293,7 @@
                                 <tr>
                                     <td>targetModel</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
                                     </td>
 
                                     <td>
@@ -504,7 +504,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserTargetPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModel</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>getUserTargetPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -546,7 +546,7 @@
                                 <tr>
                                     <td>targetModel</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
                                     </td>
 
                                     <td>
@@ -592,7 +592,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { BaseEntity, EntityId } from &#x27;@shared/domain&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { NewsTargetModel } from &#x27;../news/entity&#x27;;
+import { NewsTargetModelValue } from &#x27;../news/entity&#x27;;
 import { FeathersServiceProvider } from &#x27;../feathers/feathers-service.provider&#x27;;
 
 interface User {
@@ -617,7 +617,7 @@ export class FeathersAuthProvider {
 
 	async getUserTargetPermissions(
 		userId: EntityId,
-		targetModel: NewsTargetModel,
+		targetModel: NewsTargetModelValue,
 		targetId: EntityId
 	): Promise&lt;string[]&gt; {
 		const service &#x3D; this.feathersServiceProvider.getService(&#x60;${targetModel}/:scopeId/userPermissions/&#x60;);
@@ -629,7 +629,7 @@ export class FeathersAuthProvider {
 
 	async getPermittedTargets(
 		userId: EntityId,
-		targetModel: NewsTargetModel,
+		targetModel: NewsTargetModelValue,
 		permissions: string[]
 	): Promise&lt;EntityId[]&gt; {
 		const service &#x3D; this.feathersServiceProvider.getService(&#x60;/users/:scopeId/${targetModel}&#x60;);

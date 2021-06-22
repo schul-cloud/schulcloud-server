@@ -441,7 +441,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntity, BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
 import { CourseInfo } from &#x27;./course-info.entity&#x27;;
-import { NewsTargetModel } from &#x27;./news.types&#x27;;
+import { NewsTargetModel, NewsTargetModelValue } from &#x27;./news.types&#x27;;
 import { SchoolInfo } from &#x27;./school-info.entity&#x27;;
 import { TeamInfo } from &#x27;./team-info.entity&#x27;;
 import { UserInfo } from &#x27;./user-info.entity&#x27;;
@@ -488,17 +488,17 @@ export abstract class News extends BaseEntityWithTimestamps {
 
 	/** id reference to a collection */
 	@ManyToOne()
-	target!: BaseEntity;
+	target: BaseEntity;
 
 	/** name of a collection which is referenced in target */
 	@Property()
-	targetModel: NewsTargetModel;
+	targetModel: NewsTargetModelValue;
 
 	@ManyToOne({ fieldName: &#x27;schoolId&#x27; })
-	school!: SchoolInfo;
+	school: SchoolInfo;
 
 	@ManyToOne({ fieldName: &#x27;creatorId&#x27; })
-	creator!: UserInfo;
+	creator: UserInfo;
 
 	@ManyToOne({ fieldName: &#x27;updaterId&#x27; })
 	updater?: UserInfo;
@@ -513,7 +513,7 @@ export abstract class News extends BaseEntityWithTimestamps {
 		Object.assign(this, { school: props.school, creator: props.creator, target: props.target });
 	}
 
-	static createInstance(targetModel: NewsTargetModel, props: INewsProperties): News {
+	static createInstance(targetModel: NewsTargetModelValue, props: INewsProperties): News {
 		let news: News;
 		if (targetModel &#x3D;&#x3D;&#x3D; NewsTargetModel.Course) {
 			// eslint-disable-next-line @typescript-eslint/no-use-before-define
