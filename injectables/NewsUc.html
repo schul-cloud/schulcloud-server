@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:127</a></div>
                 </td>
             </tr>
 
@@ -417,6 +417,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Provides news for a user, by default odered by displayAt to show latest news first.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -505,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:79</a></div>
                 </td>
             </tr>
 
@@ -590,8 +592,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="175"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:175</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:176</a></div>
                 </td>
             </tr>
 
@@ -675,8 +677,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:138</a></div>
                 </td>
             </tr>
 
@@ -772,8 +774,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:186</a></div>
                 </td>
             </tr>
 
@@ -843,8 +845,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:158</a></div>
                 </td>
             </tr>
 
@@ -939,8 +941,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:103</a></div>
                 </td>
             </tr>
 
@@ -1062,7 +1064,7 @@ export class NewsUc {
 	}
 
 	/**
-	 *
+	 * Provides news for a user, by default odered by displayAt to show latest news first.
 	 * @param userId
 	 * @param scope
 	 * @param pagination
@@ -1075,6 +1077,7 @@ export class NewsUc {
 		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
+		// todo order by displayAt by default, most current first
 		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, options);
 
 		await Promise.all(
