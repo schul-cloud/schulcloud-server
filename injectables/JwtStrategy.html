@@ -76,6 +76,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#validate">validate</a>
                             </li>
                         </ul>
@@ -96,15 +97,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(userUC: <a href="../injectables/UserUC.html">UserUC</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userUC</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserUC.html" target="_self" >UserUC</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -121,6 +152,7 @@
                     <a name="validate"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Async</span>
                             validate
                         </b>
                         <a href="#validate"><span class="icon ion-ios-link"></span></a>
@@ -129,15 +161,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validate(payload: <a href="../interfaces/JwtPayload.html">JwtPayload</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validate(payload: <a href="../interfaces/JwtPayload.html">JwtPayload</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:19</a></div>
                 </td>
             </tr>
 
@@ -174,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/JwtPayload.html" target="_self" >JwtPayload</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/JwtPayload.html" target="_self" >Promise&lt;JwtPayload&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -195,10 +228,11 @@ import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { jwtConstants } from &#x27;../constants&#x27;;
 import { JwtPayload } from &#x27;../interface/jwt-payload&#x27;;
+import { UserUC } from &#x27;../../user/uc&#x27;;
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-	constructor() {
+	constructor(private readonly userUC: UserUC) {
 		super({
 			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 			ignoreExpiration: false,
@@ -207,11 +241,13 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 		});
 	}
 
-	validate(payload: JwtPayload): JwtPayload {
+	async validate(payload: JwtPayload): Promise&lt;JwtPayload&gt; {
 		// TODO: check jwt is whitelisted
 		// TODO: use user module for:
 		// TODO: --&gt; check user exist/is active
 		// TODO: --&gt; populate roles&gt;permissions
+		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(payload);
+		payload.user &#x3D; resolvedUser;
 		return payload;
 	}
 }

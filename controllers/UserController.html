@@ -201,9 +201,8 @@ export class UserController {
 
 	@Get(&#x27;me&#x27;)
 	async get(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		// const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
-		const resolvedUser &#x3D; await this.userUc.getUserWithPermissions(currentUser);
-		return resolvedUser;
+		const resolvedUser &#x3D; currentUser.user as ResolvedUser;
+		return Promise.resolve(resolvedUser);
 	}
 }
 </code></pre>
