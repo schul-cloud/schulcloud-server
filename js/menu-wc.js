@@ -197,9 +197,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
-                                <a href="modules/MongoDatabaseModule.html" data-type="entity-link">MongoDatabaseModule</a>
-                            </li>
-                            <li class="link">
                                 <a href="modules/MongoMemoryDatabaseModule.html" data-type="entity-link">MongoMemoryDatabaseModule</a>
                             </li>
                             <li class="link">
@@ -243,13 +240,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link">ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-2f9cc2508e0f47a0955aed96871943dd"' : 'data-target="#xs-controllers-links-module-ServerModule-2f9cc2508e0f47a0955aed96871943dd"' }>
+                                            'data-target="#controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' : 'data-target="#xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-2f9cc2508e0f47a0955aed96871943dd"' :
-                                            'id="xs-controllers-links-module-ServerModule-2f9cc2508e0f47a0955aed96871943dd"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' :
+                                            'id="xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerController</a>
@@ -360,12 +357,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Lesson.html" data-type="entity-link">Lesson</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MongoSharedConnection.html" data-type="entity-link">MongoSharedConnection</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/MongoSharedDriver.html" data-type="entity-link">MongoSharedDriver</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/News.html" data-type="entity-link">News</a>
                             </li>
                             <li class="link">
@@ -442,9 +433,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/BaseRepo.html" data-type="entity-link">BaseRepo</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/DurationLoggingInterceptor.html" data-type="entity-link">DurationLoggingInterceptor</a>
                                 </li>
                                 <li class="link">
@@ -485,9 +473,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IErrorType.html" data-type="entity-link">IErrorType</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IFindOptions.html" data-type="entity-link">IFindOptions</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/ILogger.html" data-type="entity-link">ILogger</a>
                             </li>
                             <li class="link">
@@ -521,9 +506,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
-                            <li class="link">
-                                <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
-                            </li>
                             <li class="link">
                                 <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
                             </li>

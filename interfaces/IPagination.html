@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/interface/find-options.ts</code>
+            <code>apps/server/src/shared/domain/interface/pagination.interface.ts</code>
         </p>
 
 
@@ -173,18 +173,6 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IPagination {
 	skip?: number;
 	limit?: number;
-}
-
-export enum SortOrder {
-	asc &#x3D; &#x27;asc&#x27;,
-	desc &#x3D; &#x27;desc&#x27;,
-}
-
-export type SortOrderMap&lt;T&gt; &#x3D; Partial&lt;Record&lt;keyof T, SortOrder&gt;&gt;;
-
-export interface IFindOptions&lt;T&gt; {
-	pagination?: IPagination;
-	order?: SortOrderMap&lt;T&gt;;
 }
 </code></pre>
     </div>

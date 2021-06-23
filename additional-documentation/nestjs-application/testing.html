@@ -292,18 +292,6 @@ The database calls are mocked and spyied. So we can check how and with which par
             await service.findAllForUser(userId, scope, pagination);    (2)
             const expectedParams = [targets, false, pagination];
             expect(findAllSpy).toHaveBeenCalledWith(...expectedParams); (3)
-        });</code></pre></div><h4 id="testing-expected-error">Testing expected error</h4>
-<ol>
-<li>Execute the function with the expected exception in expect context than define how and with which exception
-the function should be rejected</li>
-</ol>
-<blockquote>
-<p>Don&#39;t forget to add &#39;await&#39; before expect, otherwise the test will be executed successfully regardless assertions
-and throw an error in log after the test execution.</p>
-</blockquote>
-<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should throw not found exception if news was not found&#39;, async () =&gt; {
-            const anotherNewsId = new ObjectId().toHexString();
-            await expect(service.findOneByIdForUser(anotherNewsId, userId)).rejects.toThrow(NotFoundException);  (1)
         });</code></pre></div><h2 id="e2e-tests">E2E Tests</h2>
 <p>Unlike unit testing, which focuses on individual modules, end-to-end testing covers the interaction between classes and
 modules at a more aggregate level. Automated end-to-end tests help us to ensure that the overall behavior of the system is correct.</p>
@@ -391,10 +379,7 @@ The response can be verified by checking the response code or by applying some v
 </blockquote>
 <h2 id="references">References</h2>
 <p>This guide is inspired by <a href="https://github.com/goldbergyoni/javascript-testing-best-practices/">https://github.com/goldbergyoni/javascript-testing-best-practices/</a></p>
-<div><pre class="line-numbers"><code class="language-Typescript">        it(&#39;should throw not found error, if news doesnt exists&#39;, async () =&gt; {
-            const newsId = new ObjectId().toHexString();
-            await request(app.getHttpServer()).delete(`/news/${newsId}`).expect(404);
-        });</code></pre></div>
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
