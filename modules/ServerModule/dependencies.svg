@@ -22,53 +22,65 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_ServerModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="83.5,-70 83.5,-195 412.5,-195 412.5,-70 83.5,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="31.5,-70 31.5,-195 464.5,-195 464.5,-70 31.5,-70"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_ServerModule_imports</title>
-<polygon fill="none" stroke="black" points="91.5,-78 91.5,-130 404.5,-130 404.5,-78 91.5,-78"/>
+<polygon fill="none" stroke="black" points="39.5,-78 39.5,-130 456.5,-130 456.5,-78 39.5,-78"/>
 </g>
 <!-- AuthModule -->
 <g id="node1" class="node">
 <title>AuthModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="396.05,-122 393.05,-126 372.05,-126 369.05,-122 308.95,-122 308.95,-86 396.05,-86 396.05,-122"/>
-<text text-anchor="middle" x="352.5" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="448.05,-122 445.05,-126 424.05,-126 421.05,-122 360.95,-122 360.95,-86 448.05,-86 448.05,-122"/>
+<text text-anchor="middle" x="404.5" y="-99.8" font-family="Times,serif" font-size="14.00">AuthModule</text>
 </g>
 <!-- ServerModule -->
-<g id="node4" class="node">
+<g id="node5" class="node">
 <title>ServerModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="295.58,-187 292.58,-191 271.58,-191 268.58,-187 199.42,-187 199.42,-151 295.58,-151 295.58,-187"/>
-<text text-anchor="middle" x="247.5" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="294.58,-187 291.58,-191 270.58,-191 267.58,-187 198.42,-187 198.42,-151 294.58,-151 294.58,-187"/>
+<text text-anchor="middle" x="246.5" y="-164.8" font-family="Times,serif" font-size="14.00">ServerModule</text>
 </g>
 <!-- AuthModule&#45;&gt;ServerModule -->
 <g id="edge1" class="edge">
 <title>AuthModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M352.5,-122.11C352.5,-141.34 352.5,-169 352.5,-169 352.5,-169 305.7,-169 305.7,-169"/>
-<polygon fill="black" stroke="black" points="305.7,-165.5 295.7,-169 305.7,-172.5 305.7,-165.5"/>
+<path fill="none" stroke="black" d="M404.5,-122.11C404.5,-141.34 404.5,-169 404.5,-169 404.5,-169 304.76,-169 304.76,-169"/>
+<polygon fill="black" stroke="black" points="304.76,-165.5 294.76,-169 304.76,-172.5 304.76,-165.5"/>
 </g>
 <!-- CoreModule -->
 <g id="node2" class="node">
 <title>CoreModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="290.76,-122 287.76,-126 266.76,-126 263.76,-122 204.24,-122 204.24,-86 290.76,-86 290.76,-122"/>
-<text text-anchor="middle" x="247.5" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="342.76,-122 339.76,-126 318.76,-126 315.76,-122 256.24,-122 256.24,-86 342.76,-86 342.76,-122"/>
+<text text-anchor="middle" x="299.5" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
 </g>
 <!-- CoreModule&#45;&gt;ServerModule -->
 <g id="edge2" class="edge">
 <title>CoreModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M247.5,-122.11C247.5,-122.11 247.5,-140.99 247.5,-140.99"/>
-<polygon fill="black" stroke="black" points="244,-140.99 247.5,-150.99 251,-140.99 244,-140.99"/>
+<path fill="none" stroke="black" d="M275.33,-122.11C275.33,-122.11 275.33,-140.99 275.33,-140.99"/>
+<polygon fill="black" stroke="black" points="271.83,-140.99 275.33,-150.99 278.83,-140.99 271.83,-140.99"/>
 </g>
 <!-- TaskModule -->
 <g id="node3" class="node">
 <title>TaskModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="185.76,-122 182.76,-126 161.76,-126 158.76,-122 99.24,-122 99.24,-86 185.76,-86 185.76,-122"/>
-<text text-anchor="middle" x="142.5" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="237.76,-122 234.76,-126 213.76,-126 210.76,-122 151.24,-122 151.24,-86 237.76,-86 237.76,-122"/>
+<text text-anchor="middle" x="194.5" y="-99.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
 </g>
 <!-- TaskModule&#45;&gt;ServerModule -->
 <g id="edge3" class="edge">
 <title>TaskModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M142.5,-122.11C142.5,-141.34 142.5,-169 142.5,-169 142.5,-169 189.3,-169 189.3,-169"/>
-<polygon fill="black" stroke="black" points="189.3,-172.5 199.3,-169 189.3,-165.5 189.3,-172.5"/>
+<path fill="none" stroke="black" d="M218.17,-122.11C218.17,-122.11 218.17,-140.99 218.17,-140.99"/>
+<polygon fill="black" stroke="black" points="214.67,-140.99 218.17,-150.99 221.67,-140.99 214.67,-140.99"/>
+</g>
+<!-- UserModule -->
+<g id="node4" class="node">
+<title>UserModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="133.48,-122 130.48,-126 109.48,-126 106.48,-122 47.52,-122 47.52,-86 133.48,-86 133.48,-122"/>
+<text text-anchor="middle" x="90.5" y="-99.8" font-family="Times,serif" font-size="14.00">UserModule</text>
+</g>
+<!-- UserModule&#45;&gt;ServerModule -->
+<g id="edge4" class="edge">
+<title>UserModule&#45;&gt;ServerModule</title>
+<path fill="none" stroke="black" d="M90.5,-122.11C90.5,-141.34 90.5,-169 90.5,-169 90.5,-169 188.42,-169 188.42,-169"/>
+<polygon fill="black" stroke="black" points="188.42,-172.5 198.42,-169 188.42,-165.5 188.42,-172.5"/>
 </g>
 </g>
 </svg>

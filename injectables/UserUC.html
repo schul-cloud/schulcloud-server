@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -36,13 +36,9 @@
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>TaskMapper</li>
+  <li>Injectables</li>
+  <li>UserUC</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,9 +56,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/mapper/task.mapper.ts</code>
+            <code>apps/server/src/modules/user/uc/user.uc.ts</code>
         </p>
-
 
 
 
@@ -81,8 +76,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#mapToResponse">mapToResponse</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUserWithPermissions">getUserWithPermissions</a>
                             </li>
                         </ul>
                     </td>
@@ -96,7 +91,66 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html">UserRepo</a>, roleRepo: <a href="../injectables/RoleRepo.html">RoleRepo</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:10</a></div>
+                            </td>
+                        </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roleRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoleRepo.html" target="_self" >RoleRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -107,28 +161,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToResponse"></a>
+                    <a name="getUserWithPermissions"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Static</span>
-                            mapToResponse
+                            <span class="modifier">Async</span>
+                            getUserWithPermissions
                         </b>
-                        <a href="#mapToResponse"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getUserWithPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(task: <a href="../classes/Task.html">Task</a>, status?: <a href="../classes/Submission.html">ISubmissionStatus</a>)</code>
+                    <code>getUserWithPermissions(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:13</a></div>
                 </td>
             </tr>
 
@@ -148,25 +202,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>task</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>status</td>
-                                    <td>
-                                                <code><a href="../classes/Submission.html" target="_self" >ISubmissionStatus</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -177,7 +219,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TaskResponse.html" target="_self" >TaskResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -189,34 +231,40 @@
     </table>
 </section>
 
-
-
-
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskResponse } from &#x27;../controller/dto&#x27;;
-import { Task, COURSE_DEFAULT_COLOR, ISubmissionStatus } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
+import { ResolvedUserMapper } from &#x27;../mapper&#x27;;
+import { ResolvedUser } from &#x27;../controller/dto/ResolvedUser.dto&#x27;;
 
-export class TaskMapper {
-	static mapToResponse(task: Task, status?: ISubmissionStatus): TaskResponse {
-		const dto &#x3D; new TaskResponse();
-		dto.id &#x3D; task.id;
-		dto.name &#x3D; task.name;
-		dto.duedate &#x3D; task.dueDate;
-		dto.courseName &#x3D; task.course?.name;
-		dto.displayColor &#x3D; task.course?.color || COURSE_DEFAULT_COLOR;
-		dto.createdAt &#x3D; task.createdAt;
-		dto.updatedAt &#x3D; task.updatedAt;
-		dto.status &#x3D; status || {};
-		return dto;
+import { UserRepo, RoleRepo } from &#x27;../repo&#x27;;
+
+// TODO: IUserWithPermission as return
+@Injectable()
+export class UserUC {
+	constructor(private userRepo: UserRepo, private roleRepo: RoleRepo) {}
+
+	async getUserWithPermissions(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
+		const [user, resolved] &#x3D; await Promise.all([
+			this.userRepo.findById(currentUser.userId),
+			this.roleRepo.resolvePermissionsByIdList(currentUser.roles),
+		]);
+
+		const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, resolved.permissions, resolved.roles);
+		return resolvedUser;
 	}
 }
 </code></pre>
     </div>
+
 </div>
+
+
+
+
 
 
 
@@ -241,8 +289,8 @@ export class TaskMapper {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'TaskMapper.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserUC.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
