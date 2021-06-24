@@ -70,16 +70,7 @@
                             <a href="#config" title="apps/server/src/shared/controller/swagger.ts"><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../swagger.ts)</a>
                         </li>
                         <li>
-                            <a href="#COURSE_DEFAULT_COLOR" title="apps/server/src/modules/task/entity/course-task-info.entity.ts"><b>COURSE_DEFAULT_COLOR</b>&nbsp;&nbsp;&nbsp;(apps/.../course-task-info.entity.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#courseEntities" title="apps/server/src/server.module.ts"><b>courseEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../server.module.ts)</a>
-                        </li>
-                        <li>
                             <a href="#CourseSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>CourseSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#createCurrentTestUser" title="apps/server/src/modules/user/utils/createCurrentTestUser.ts"><b>createCurrentTestUser</b>&nbsp;&nbsp;&nbsp;(apps/.../createCurrentTestUser.ts)</a>
                         </li>
                         <li>
                             <a href="#createErrorResponse" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
@@ -160,9 +151,6 @@
                             <a href="#TARGET_MODEL_VALUES" title="apps/server/src/modules/news/controller/dto/news.response.ts"><b>TARGET_MODEL_VALUES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
                         </li>
                         <li>
-                            <a href="#taskEntities" title="apps/server/src/server.module.ts"><b>taskEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../server.module.ts)</a>
-                        </li>
-                        <li>
                             <a href="#TaskSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>TaskSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
                         </li>
                         <li>
@@ -173,9 +161,6 @@
                         </li>
                         <li>
                             <a href="#usedGlobals" title="apps/server/src/config/database.config.ts"><b>usedGlobals</b>&nbsp;&nbsp;&nbsp;(apps/.../database.config.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#userEntities" title="apps/server/src/server.module.ts"><b>userEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../server.module.ts)</a>
                         </li>
                         <li>
                             <a href="#" title="apps/server/src/config/database.config.ts"><b></b>&nbsp;&nbsp;&nbsp;(apps/.../database.config.ts)</a>
@@ -443,7 +428,7 @@
 		// add ts-config path&#x27;s here as regex
 		&#x27;^@shared/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/shared/$1&#x27;,
 		&#x27;^@src/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/$1&#x27;,
-	}
+	},
 }</code>
                         </td>
                     </tr>
@@ -552,120 +537,6 @@ must use @ApiProperty</p>
 	const document &#x3D; SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup(path, app, document);
 }</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/task/entity/course-task-info.entity.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="COURSE_DEFAULT_COLOR"></a>
-                        <span class="name">
-                            <b>
-                            COURSE_DEFAULT_COLOR</b>
-                            <a href="#COURSE_DEFAULT_COLOR"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;#ACACAC&#x27;</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/server.module.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="courseEntities"></a>
-                        <span class="name">
-                            <b>
-                            courseEntities</b>
-                            <a href="#courseEntities"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo, CourseInfo, TeamInfo]</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="taskEntities"></a>
-                        <span class="name">
-                            <b>
-                            taskEntities</b>
-                            <a href="#taskEntities"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTaskInfo]</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="userEntities"></a>
-                        <span class="name">
-                            <b>
-                            userEntities</b>
-                            <a href="#userEntities"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[User, Role, Account]</code>
                         </td>
                     </tr>
 
@@ -816,49 +687,6 @@ must use @ApiProperty</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>lessonModel</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/user/utils/createCurrentTestUser.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="createCurrentTestUser"></a>
-                        <span class="name">
-                            <b>
-                            createCurrentTestUser</b>
-                            <a href="#createCurrentTestUser"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(
-	initPermissions?: string[]
-): {
-	currentUser: ICurrentUser;
-	user: User;
-	roles: Role[];
-} &#x3D;&gt; {
-	const accountId &#x3D; new ObjectId().toHexString();
-	const schoolId &#x3D; new ObjectId().toHexString();
-
-	const permissions &#x3D; initPermissions || [&#x27;A&#x27;, &#x27;B&#x27;];
-	const roles &#x3D; [new Role({ name: &#x27;name&#x27;, permissions })] as Role[];
-	const roleIds &#x3D; roles.map((role) &#x3D;&gt; role.id);
-
-	const user &#x3D; new User({ email: &#x60;Date.now()@email.de&#x60;, roles, school: schoolId });
-	const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, roles);
-
-	const currentUser &#x3D; { userId: user.id, roles: roleIds, schoolId, accountId, user: resolvedUser } as ICurrentUser;
-	return { currentUser, user, roles };
-}</code>
                         </td>
                     </tr>
 

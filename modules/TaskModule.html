@@ -63,53 +63,41 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_TaskModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="44.5,-70 44.5,-195 451.5,-195 451.5,-70 44.5,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="130,-70 130,-195 366,-195 366,-70 130,-70"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_TaskModule_providers</title>
-<polygon fill="none" stroke="black" points="52.5,-78 52.5,-130 443.5,-130 443.5,-78 52.5,-78"/>
-</g>
-<!-- SubmissionRepo -->
-<g id="node1" class="node">
-<title>SubmissionRepo</title>
-<ellipse fill="#fdb462" stroke="black" cx="359.5" cy="-104" rx="76.49" ry="18"/>
-<text text-anchor="middle" x="359.5" y="-99.8" font-family="Times,serif" font-size="14.00">SubmissionRepo</text>
-</g>
-<!-- TaskModule -->
-<g id="node4" class="node">
-<title>TaskModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="257.76,-187 254.76,-191 233.76,-191 230.76,-187 171.24,-187 171.24,-151 257.76,-151 257.76,-187"/>
-<text text-anchor="middle" x="214.5" y="-164.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
-</g>
-<!-- SubmissionRepo&#45;&gt;TaskModule -->
-<g id="edge1" class="edge">
-<title>SubmissionRepo&#45;&gt;TaskModule</title>
-<path fill="none" stroke="black" d="M359.5,-122.11C359.5,-141.34 359.5,-169 359.5,-169 359.5,-169 268,-169 268,-169"/>
-<polygon fill="black" stroke="black" points="268,-165.5 258,-169 268,-172.5 268,-165.5"/>
+<polygon fill="none" stroke="black" points="138,-78 138,-130 358,-130 358,-78 138,-78"/>
 </g>
 <!-- TaskRepo -->
-<g id="node2" class="node">
+<g id="node1" class="node">
 <title>TaskRepo</title>
-<ellipse fill="#fdb462" stroke="black" cx="214.5" cy="-104" rx="50.38" ry="18"/>
-<text text-anchor="middle" x="214.5" y="-99.8" font-family="Times,serif" font-size="14.00">TaskRepo</text>
+<ellipse fill="#fdb462" stroke="black" cx="300" cy="-104" rx="50.38" ry="18"/>
+<text text-anchor="middle" x="300" y="-99.8" font-family="Times,serif" font-size="14.00">TaskRepo</text>
+</g>
+<!-- TaskModule -->
+<g id="node3" class="node">
+<title>TaskModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="287.26,-187 284.26,-191 263.26,-191 260.26,-187 200.74,-187 200.74,-151 287.26,-151 287.26,-187"/>
+<text text-anchor="middle" x="244" y="-164.8" font-family="Times,serif" font-size="14.00">TaskModule</text>
 </g>
 <!-- TaskRepo&#45;&gt;TaskModule -->
-<g id="edge2" class="edge">
+<g id="edge1" class="edge">
 <title>TaskRepo&#45;&gt;TaskModule</title>
-<path fill="none" stroke="black" d="M214.5,-122.11C214.5,-122.11 214.5,-140.99 214.5,-140.99"/>
-<polygon fill="black" stroke="black" points="211,-140.99 214.5,-150.99 218,-140.99 211,-140.99"/>
+<path fill="none" stroke="black" d="M268.6,-118.1C268.6,-118.1 268.6,-140.72 268.6,-140.72"/>
+<polygon fill="black" stroke="black" points="265.1,-140.72 268.6,-150.72 272.1,-140.72 265.1,-140.72"/>
 </g>
 <!-- TaskUC -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>TaskUC</title>
-<ellipse fill="#fdb462" stroke="black" cx="103.5" cy="-104" rx="43.44" ry="18"/>
-<text text-anchor="middle" x="103.5" y="-99.8" font-family="Times,serif" font-size="14.00">TaskUC</text>
+<ellipse fill="#fdb462" stroke="black" cx="189" cy="-104" rx="43.44" ry="18"/>
+<text text-anchor="middle" x="189" y="-99.8" font-family="Times,serif" font-size="14.00">TaskUC</text>
 </g>
 <!-- TaskUC&#45;&gt;TaskModule -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>TaskUC&#45;&gt;TaskModule</title>
-<path fill="none" stroke="black" d="M103.5,-122.11C103.5,-141.34 103.5,-169 103.5,-169 103.5,-169 160.95,-169 160.95,-169"/>
-<polygon fill="black" stroke="black" points="160.95,-172.5 170.95,-169 160.95,-165.5 160.95,-172.5"/>
+<path fill="none" stroke="black" d="M216.42,-118.1C216.42,-118.1 216.42,-140.72 216.42,-140.72"/>
+<polygon fill="black" stroke="black" points="212.92,-140.72 216.42,-150.72 219.92,-140.72 212.92,-140.72"/>
 </g>
 </g>
 </svg>
@@ -154,9 +142,6 @@
                             title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../injectables/SubmissionRepo.html">SubmissionRepo</a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="../injectables/TaskRepo.html">TaskRepo</a>
                         </li>
                         <li class="list-group-item">
@@ -185,11 +170,10 @@
 import { TaskController } from &#x27;./controller/task.controller&#x27;;
 import { TaskUC } from &#x27;./uc/task.uc&#x27;;
 import { TaskRepo } from &#x27;./repo/task.repo&#x27;;
-import { SubmissionRepo } from &#x27;./repo/submission.repo&#x27;;
 
 @Module({
 	controllers: [TaskController],
-	providers: [TaskUC, TaskRepo, SubmissionRepo],
+	providers: [TaskUC, TaskRepo],
 })
 export class TaskModule {}
 </code></pre>

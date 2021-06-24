@@ -316,9 +316,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ResolvedUser } from &#x27;../../user/controller/dto&#x27;;
-
-export interface ICurrentUser {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ICurrentUser {
 	/** authenticated users id */
 	userId: string;
 	/** users role ids as string[] */
@@ -327,8 +325,6 @@ export interface ICurrentUser {
 	schoolId: string;
 	/** account id as string */
 	accountId: string;
-
-	user: ResolvedUser;
 }
 
 export interface JwtPayload extends ICurrentUser {

@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IRoleProperties</li>
+  <li>User</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/entity/role.entity.ts</code>
+            <code>apps/server/src/modules/authorization/feathers-auth.provider.ts</code>
         </p>
 
 
@@ -79,15 +79,13 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#name">name</a>
+                                        <a href="#_id">_id</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#permissions">permissions</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#roles">roles</a>
+                                        <a href="#schoolId">schoolId</a>
                                 </li>
                             </ul>
                         </td>
@@ -104,13 +102,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="name"></a>
-                                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="_id"></a>
+                                        <span class="name"><b>_id</b><a href="#_id"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>_id:     <code>ObjectId</code>
 </code>
                                     </td>
                                 </tr>
@@ -118,7 +116,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>ObjectId</code>
 
                                         </td>
                                     </tr>
@@ -152,11 +150,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -167,13 +160,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="roles"></a>
-                                        <span class="name"><b>roles</b><a href="#roles"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="schoolId"></a>
+                                        <span class="name"><b>schoolId</b><a href="#schoolId"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>roles:         <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                        <code>schoolId:     <code>ObjectId</code>
 </code>
                                     </td>
                                 </tr>
@@ -181,16 +174,11 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                            <i>Type : </i>    <code>ObjectId</code>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -202,47 +190,71 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Unique, Index } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { BaseEntity, EntityId } from &#x27;@shared/domain&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { NewsTargetModelValue } from &#x27;../news/entity&#x27;;
+import { FeathersServiceProvider } from &#x27;../feathers/feathers-service.provider&#x27;;
 
-export interface IRoleProperties {
-	permissions?: string[];
-	roles?: EntityId[];
-	name: string;
+interface User {
+	_id: ObjectId;
+	schoolId: ObjectId;
+	permissions: string[];
 }
 
-export type IPermissionsAndRoles &#x3D; {
-	permissions: string[];
-	roles: Role[];
-};
+@Injectable()
+export class FeathersAuthProvider {
+	constructor(private feathersServiceProvider: FeathersServiceProvider) {}
 
-@Entity({ tableName: &#x27;roles&#x27; })
-export class Role extends BaseEntityWithTimestamps {
-	@Property()
-	@Index({ name: &#x27;primaryRoleSearchOperation&#x27; })
-	@Unique()
-	name: string;
+	async getUserSchoolPermissions(userId: EntityId, schoolId: EntityId): Promise&lt;string[]&gt; | never {
+		const user &#x3D; await this.getUser(userId);
+		// test user is school member
+		const sameSchool &#x3D; user.schoolId.toString() &#x3D;&#x3D;&#x3D; schoolId;
+		if (sameSchool &amp;&amp; Array.isArray(user.permissions)) {
+			return user.permissions;
+		}
+		return [];
+	}
 
-	// @Enum({ items: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;] }) in array with no permission is valid &#x3D;&gt; validator function
-	@Property()
-	permissions: string[] &#x3D; [];
-	// TODO: enum
+	async getUserTargetPermissions(
+		userId: EntityId,
+		targetModel: NewsTargetModelValue,
+		targetId: EntityId
+	): Promise&lt;string[]&gt; {
+		const service &#x3D; this.feathersServiceProvider.getService(&#x60;${targetModel}/:scopeId/userPermissions/&#x60;);
+		const targetPermissions &#x3D; (await service.get(userId, {
+			route: { scopeId: targetId },
+		})) as string[];
+		return targetPermissions;
+	}
 
-	// @ManyToMany(&#x27;Role&#x27;, &#x27;roles&#x27;)
-	// roles &#x3D; new Collection&lt;Role&gt;(this);
+	async getPermittedTargets(
+		userId: EntityId,
+		targetModel: NewsTargetModelValue,
+		permissions: string[]
+	): Promise&lt;EntityId[]&gt; {
+		const service &#x3D; this.feathersServiceProvider.getService(&#x60;/users/:scopeId/${targetModel}&#x60;);
+		const targets &#x3D; (await service.find({
+			route: { scopeId: userId.toString() },
+			query: {
+				permissions,
+			},
+			paginate: false,
+		})) as BaseEntity[];
+		const targetIds &#x3D; targets.map((target) &#x3D;&gt; target._id.toString());
+		return targetIds;
+	}
 
-	// @ManyToMany({ fieldName: &#x27;roles&#x27;, type: Role })
-	// roles &#x3D; new Collection&lt;Role&gt;(this);
+	async getPermittedSchools(userId: EntityId): Promise&lt;EntityId[]&gt; {
+		const user &#x3D; await this.getUser(userId);
+		return [user.schoolId.toString()] as EntityId[];
+	}
 
-	@Property()
-	roles: EntityId[] &#x3D; [];
-
-	constructor(props: IRoleProperties) {
-		super();
-		this.name &#x3D; props.name;
-		this.permissions &#x3D; props.permissions || [];
-		this.roles &#x3D; props.roles || [];
-		// Object.assign(this, { roles: props.roles });
+	private async getUser(userId: EntityId): Promise&lt;User&gt; {
+		const service &#x3D; this.feathersServiceProvider.getService(&#x27;users&#x27;);
+		const user &#x3D; (await service.get(userId)) as User;
+		if (user &#x3D;&#x3D; null) throw new NotFoundException();
+		return user;
 	}
 }
 </code></pre>
@@ -272,7 +284,7 @@ export class Role extends BaseEntityWithTimestamps {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IRoleProperties.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'User.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
