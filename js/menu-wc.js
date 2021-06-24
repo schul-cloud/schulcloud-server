@@ -115,13 +115,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthModule.html" data-type="entity-link">AuthModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthModule-3c81666cd84fa56d59b095b93366fbbe"' : 'data-target="#xs-injectables-links-module-AuthModule-3c81666cd84fa56d59b095b93366fbbe"' }>
+                                        'data-target="#injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' : 'data-target="#xs-injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-3c81666cd84fa56d59b095b93366fbbe"' :
-                                        'id="xs-injectables-links-module-AuthModule-3c81666cd84fa56d59b095b93366fbbe"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' :
+                                        'id="xs-injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' }>
                                         <li class="link">
                                             <a href="injectables/JwtStrategy.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>JwtStrategy</a>
@@ -299,13 +299,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/UserModule.html" data-type="entity-link">UserModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' : 'data-target="#xs-controllers-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' }>
+                                            'data-target="#controllers-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' : 'data-target="#xs-controllers-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' :
-                                            'id="xs-controllers-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' :
+                                            'id="xs-controllers-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' }>
                                             <li class="link">
                                                 <a href="controllers/UserController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserController</a>
@@ -314,16 +314,20 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' : 'data-target="#xs-injectables-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' }>
+                                        'data-target="#injectables-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' : 'data-target="#xs-injectables-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' :
-                                        'id="xs-injectables-links-module-UserModule-f63b0e7d8d8ca323bef8054b703b0a17"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' :
+                                        'id="xs-injectables-links-module-UserModule-7bf5dca32ba77e63a2bc4f32dbd2885b"' }>
                                         <li class="link">
                                             <a href="injectables/RoleRepo.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RoleRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/UserFacade.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>UserFacade</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/UserRepo.html"

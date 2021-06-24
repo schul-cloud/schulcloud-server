@@ -149,15 +149,15 @@
 </g>
 <g id="clust67" class="cluster">
 <title>cluster_UserModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="254,-70 254,-138 696,-138 696,-70 254,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="189,-70 189,-138 782,-138 782,-70 189,-70"/>
 </g>
 <g id="clust70" class="cluster">
 <title>cluster_UserModule_exports</title>
-<polygon fill="none" stroke="black" points="606,-78 606,-130 688,-130 688,-78 606,-78"/>
+<polygon fill="none" stroke="black" points="672,-78 672,-130 774,-130 774,-78 672,-78"/>
 </g>
 <g id="clust72" class="cluster">
 <title>cluster_UserModule_providers</title>
-<polygon fill="none" stroke="black" points="262,-78 262,-130 598,-130 598,-78 262,-78"/>
+<polygon fill="none" stroke="black" points="197,-78 197,-130 664,-130 664,-78 197,-78"/>
 </g>
 <!-- UserModule -->
 <g id="node1" class="node">
@@ -186,20 +186,20 @@
 <!-- UserModule&#45;&gt;ServerModule -->
 <g id="edge23" class="edge">
 <title>UserModule&#45;&gt;ServerModule</title>
-<path fill="none" stroke="black" d="M438.84,-180C427.74,-180 418.86,-180 418.86,-180 418.86,-180 418.86,-318 418.86,-318 418.86,-318 388.07,-318 388.07,-318"/>
+<path fill="none" stroke="black" d="M438.69,-186C426.51,-186 416.52,-186 416.52,-186 416.52,-186 416.52,-318 416.52,-318 416.52,-318 388.07,-318 388.07,-318"/>
 <polygon fill="black" stroke="black" points="388.07,-314.5 378.07,-318 388.07,-321.5 388.07,-314.5"/>
 </g>
-<!-- UserUC  -->
+<!-- UserFacade  -->
 <g id="node27" class="node">
-<title>UserUC </title>
-<polygon fill="#fb8072" stroke="black" points="679.87,-122 614.13,-122 614.13,-86 679.87,-86 679.87,-122"/>
-<text text-anchor="middle" x="647" y="-99.8" font-family="Times,serif" font-size="14.00">UserUC </text>
+<title>UserFacade </title>
+<polygon fill="#fb8072" stroke="black" points="765.57,-122 680.43,-122 680.43,-86 765.57,-86 765.57,-122"/>
+<text text-anchor="middle" x="723" y="-99.8" font-family="Times,serif" font-size="14.00">UserFacade </text>
 </g>
-<!-- UserModule&#45;&gt;UserUC  -->
+<!-- UserModule&#45;&gt;UserFacade  -->
 <g id="edge27" class="edge">
-<title>UserModule&#45;&gt;UserUC </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M513.44,-161.97C513.44,-155.15 513.44,-149 513.44,-149 513.44,-149 638.47,-149 638.47,-149 638.47,-149 638.47,-132.04 638.47,-132.04"/>
-<polygon fill="black" stroke="black" points="641.97,-132.04 638.47,-122.04 634.97,-132.04 641.97,-132.04"/>
+<title>UserModule&#45;&gt;UserFacade </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M503.49,-161.85C503.49,-149.73 503.49,-136 503.49,-136 503.49,-136 691.45,-136 691.45,-136 691.45,-136 691.45,-132.24 691.45,-132.24"/>
+<polygon fill="black" stroke="black" points="694.95,-132.24 691.45,-122.24 687.95,-132.24 694.95,-132.24"/>
 </g>
 <!-- AuthModule&#45;&gt;ServerModule -->
 <g id="edge20" class="edge">
@@ -486,38 +486,50 @@
 <!-- RoleRepo -->
 <g id="node28" class="node">
 <title>RoleRepo</title>
-<ellipse fill="#fdb462" stroke="black" cx="540" cy="-104" rx="49.82" ry="18"/>
-<text text-anchor="middle" x="540" y="-99.8" font-family="Times,serif" font-size="14.00">RoleRepo</text>
+<ellipse fill="#fdb462" stroke="black" cx="606" cy="-104" rx="49.82" ry="18"/>
+<text text-anchor="middle" x="606" y="-99.8" font-family="Times,serif" font-size="14.00">RoleRepo</text>
 </g>
 <!-- RoleRepo&#45;&gt;UserModule -->
 <g id="edge28" class="edge">
 <title>RoleRepo&#45;&gt;UserModule</title>
-<path fill="none" stroke="black" d="M501.89,-115.54C501.89,-115.54 501.89,-151.83 501.89,-151.83"/>
-<polygon fill="black" stroke="black" points="498.39,-151.83 501.89,-161.83 505.39,-151.83 498.39,-151.83"/>
+<path fill="none" stroke="black" d="M556.24,-104C549.03,-104 543.99,-104 543.99,-104 543.99,-104 543.99,-180 543.99,-180 543.99,-180 535.05,-180 535.05,-180"/>
+<polygon fill="black" stroke="black" points="535.05,-176.5 525.05,-180 535.05,-183.5 535.05,-176.5"/>
+</g>
+<!-- UserFacade -->
+<g id="node29" class="node">
+<title>UserFacade</title>
+<ellipse fill="#fdb462" stroke="black" cx="482" cy="-104" rx="56.72" ry="18"/>
+<text text-anchor="middle" x="482" y="-99.8" font-family="Times,serif" font-size="14.00">UserFacade</text>
+</g>
+<!-- UserFacade&#45;&gt;UserModule -->
+<g id="edge29" class="edge">
+<title>UserFacade&#45;&gt;UserModule</title>
+<path fill="none" stroke="black" d="M482,-122.01C482,-122.01 482,-151.85 482,-151.85"/>
+<polygon fill="black" stroke="black" points="478.5,-151.85 482,-161.85 485.5,-151.85 478.5,-151.85"/>
 </g>
 <!-- UserRepo -->
-<g id="node29" class="node">
+<g id="node30" class="node">
 <title>UserRepo</title>
-<ellipse fill="#fdb462" stroke="black" cx="423" cy="-104" rx="49.8" ry="18"/>
-<text text-anchor="middle" x="423" y="-99.8" font-family="Times,serif" font-size="14.00">UserRepo</text>
+<ellipse fill="#fdb462" stroke="black" cx="358" cy="-104" rx="49.8" ry="18"/>
+<text text-anchor="middle" x="358" y="-99.8" font-family="Times,serif" font-size="14.00">UserRepo</text>
 </g>
 <!-- UserRepo&#45;&gt;UserModule -->
-<g id="edge29" class="edge">
+<g id="edge30" class="edge">
 <title>UserRepo&#45;&gt;UserModule</title>
-<path fill="none" stroke="black" d="M461.44,-115.54C461.44,-115.54 461.44,-151.83 461.44,-151.83"/>
-<polygon fill="black" stroke="black" points="457.94,-151.83 461.44,-161.83 464.94,-151.83 457.94,-151.83"/>
+<path fill="none" stroke="black" d="M403.57,-111.23C403.57,-129.11 403.57,-174 403.57,-174 403.57,-174 428.66,-174 428.66,-174"/>
+<polygon fill="black" stroke="black" points="428.66,-177.5 438.66,-174 428.66,-170.5 428.66,-177.5"/>
 </g>
 <!-- UserUC -->
-<g id="node30" class="node">
+<g id="node31" class="node">
 <title>UserUC</title>
-<ellipse fill="#fdb462" stroke="black" cx="313" cy="-104" rx="42.85" ry="18"/>
-<text text-anchor="middle" x="313" y="-99.8" font-family="Times,serif" font-size="14.00">UserUC</text>
+<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="42.85" ry="18"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">UserUC</text>
 </g>
 <!-- UserUC&#45;&gt;UserModule -->
-<g id="edge30" class="edge">
+<g id="edge31" class="edge">
 <title>UserUC&#45;&gt;UserModule</title>
-<path fill="none" stroke="black" d="M313,-122.24C313,-129.43 313,-136 313,-136 313,-136 450.22,-136 450.22,-136 450.22,-136 450.22,-151.85 450.22,-151.85"/>
-<polygon fill="black" stroke="black" points="446.72,-151.85 450.22,-161.85 453.72,-151.85 446.72,-151.85"/>
+<path fill="none" stroke="black" d="M268.59,-119.99C268.59,-132.93 268.59,-149 268.59,-149 268.59,-149 460.51,-149 460.51,-149 460.51,-149 460.51,-151.97 460.51,-151.97"/>
+<polygon fill="black" stroke="black" points="457.01,-151.97 460.51,-161.97 464.01,-151.97 457.01,-151.97"/>
 </g>
 </g>
 </svg>
@@ -555,7 +567,7 @@
             <div class="card text-center">
                 <div class="card-block">
                     <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
-                    <p class="card-text">17 Injectables</p>
+                    <p class="card-text">18 Injectables</p>
                 </div>
             </div>
         </div>

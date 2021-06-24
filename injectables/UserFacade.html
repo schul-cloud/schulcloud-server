@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>JwtStrategy</li>
+  <li>UserFacade</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authentication/strategy/jwt.strategy.ts</code>
+            <code>apps/server/src/modules/user/user.facade.ts</code>
         </p>
 
 
@@ -77,7 +77,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#validate">validate</a>
+                                <a href="#resolveUser">resolveUser</a>
                             </li>
                         </ul>
                     </td>
@@ -97,12 +97,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userFacade: <a href="../injectables/UserFacade.html">UserFacade</a>)</code>
+<code>constructor(userUC: <a href="../injectables/UserUC.html">UserUC</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/user/user.facade.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -120,10 +120,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userFacade</td>
+                                                        <td>userUC</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserFacade.html" target="_self" >UserFacade</a></code>
+                                                                        <code><a href="../injectables/UserUC.html" target="_self" >UserUC</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -149,28 +149,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validate"></a>
+                    <a name="resolveUser"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            validate
+                            resolveUser
                         </b>
-                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                        <a href="#resolveUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(payload: <a href="../interfaces/JwtPayload.html">JwtPayload</a>)</code>
+                    <code>resolveUser(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/user/user.facade.ts:10</a></div>
                 </td>
             </tr>
 
@@ -190,9 +190,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>payload</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../interfaces/JwtPayload.html" target="_self" >JwtPayload</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -207,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/JwtPayload.html" target="_self" >Promise&lt;JwtPayload&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -223,32 +223,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
-import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { jwtConstants } from &#x27;../constants&#x27;;
-import { JwtPayload } from &#x27;../interface/jwt-payload&#x27;;
-import { UserFacade } from &#x27;../../user&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { UserUC } from &#x27;./uc/user.uc&#x27;;
+import { ICurrentUser } from &#x27;../authentication/interface/jwt-payload&#x27;;
+import { ResolvedUser } from &#x27;./controller/dto&#x27;;
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
-	constructor(private readonly userFacade: UserFacade) {
-		super({
-			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-			ignoreExpiration: false,
-			secretOrKey: jwtConstants.secret,
-			...jwtConstants.jwtOptions,
-		});
-	}
+export class UserFacade {
+	constructor(private readonly userUC: UserUC) {}
 
-	async validate(payload: JwtPayload): Promise&lt;JwtPayload&gt; {
-		// TODO: check jwt is whitelisted
-		// TODO: use user module for:
-		// TODO: --&gt; check user exist/is active
-		// TODO: --&gt; populate roles&gt;permissions
-		const resolvedUser &#x3D; await this.userFacade.resolveUser(payload);
-		payload.user &#x3D; resolvedUser;
-		return payload;
+	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt;{
+		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(currentUser);
+		return resolvedUser;
 	}
 }
 </code></pre>
@@ -284,7 +270,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'JwtStrategy.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserFacade.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
