@@ -240,13 +240,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link">ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-ff97dbbc32058549ab97418b363f80ab"' : 'data-target="#xs-controllers-links-module-ServerModule-ff97dbbc32058549ab97418b363f80ab"' }>
+                                            'data-target="#controllers-links-module-ServerModule-81413f3e4bdae42cc4e5bffd52afdbb6"' : 'data-target="#xs-controllers-links-module-ServerModule-81413f3e4bdae42cc4e5bffd52afdbb6"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-ff97dbbc32058549ab97418b363f80ab"' :
-                                            'id="xs-controllers-links-module-ServerModule-ff97dbbc32058549ab97418b363f80ab"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-81413f3e4bdae42cc4e5bffd52afdbb6"' :
+                                            'id="xs-controllers-links-module-ServerModule-81413f3e4bdae42cc4e5bffd52afdbb6"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerController</a>
