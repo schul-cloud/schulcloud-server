@@ -79,6 +79,9 @@
                             <a href="#CourseSchema" title="apps/server/src/modules/task/repo/task.schema.ts"><b>CourseSchema</b>&nbsp;&nbsp;&nbsp;(apps/.../task.schema.ts)</a>
                         </li>
                         <li>
+                            <a href="#createCurrentTestUser" title="apps/server/src/modules/user/utils/createCurrentTestUser.ts"><b>createCurrentTestUser</b>&nbsp;&nbsp;&nbsp;(apps/.../createCurrentTestUser.ts)</a>
+                        </li>
+                        <li>
                             <a href="#createErrorResponse" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
@@ -813,6 +816,49 @@ must use @ApiProperty</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>lessonModel</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/user/utils/createCurrentTestUser.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createCurrentTestUser"></a>
+                        <span class="name">
+                            <b>
+                            createCurrentTestUser</b>
+                            <a href="#createCurrentTestUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(
+	initPermissions?: string[]
+): {
+	currentUser: ICurrentUser;
+	user: User;
+	roles: Role[];
+} &#x3D;&gt; {
+	const accountId &#x3D; new ObjectId().toHexString();
+	const schoolId &#x3D; new ObjectId().toHexString();
+
+	const permissions &#x3D; initPermissions || [&#x27;A&#x27;, &#x27;B&#x27;];
+	const roles &#x3D; [new Role({ name: &#x27;name&#x27;, permissions })] as Role[];
+	const roleIds &#x3D; roles.map((role) &#x3D;&gt; role.id);
+
+	const user &#x3D; new User({ email: &#x60;Date.now()@email.de&#x60;, roles, school: schoolId });
+	const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, roles);
+
+	const currentUser &#x3D; { userId: user.id, roles: roleIds, schoolId, accountId, user: resolvedUser } as ICurrentUser;
+	return { currentUser, user, roles };
+}</code>
                         </td>
                     </tr>
 

@@ -232,7 +232,7 @@ import { ResolvedUser } from &#x27;./controller/dto&#x27;;
 export class UserFacade {
 	constructor(private readonly userUC: UserUC) {}
 
-	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt;{
+	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
 		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(currentUser);
 		return resolvedUser;
 	}
