@@ -211,6 +211,11 @@ export interface IRoleProperties {
 	name: string;
 }
 
+export type IPermissionsAndRoles &#x3D; {
+	permissions: string[];
+	roles: Role[];
+};
+
 @Entity({ tableName: &#x27;roles&#x27; })
 export class Role extends BaseEntityWithTimestamps {
 	@Property()
@@ -240,11 +245,6 @@ export class Role extends BaseEntityWithTimestamps {
 		// Object.assign(this, { roles: props.roles });
 	}
 }
-
-export type IPermissionsAndRoles &#x3D; {
-	permissions: string[];
-	roles: Role[];
-};
 </code></pre>
     </div>
 </div>

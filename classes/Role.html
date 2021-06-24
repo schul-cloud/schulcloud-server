@@ -130,7 +130,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -202,7 +202,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -243,7 +243,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -284,7 +284,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/user/entity/role.entity.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -482,6 +482,11 @@ export interface IRoleProperties {
 	name: string;
 }
 
+export type IPermissionsAndRoles &#x3D; {
+	permissions: string[];
+	roles: Role[];
+};
+
 @Entity({ tableName: &#x27;roles&#x27; })
 export class Role extends BaseEntityWithTimestamps {
 	@Property()
@@ -511,11 +516,6 @@ export class Role extends BaseEntityWithTimestamps {
 		// Object.assign(this, { roles: props.roles });
 	}
 }
-
-export type IPermissionsAndRoles &#x3D; {
-	permissions: string[];
-	roles: Role[];
-};
 </code></pre>
     </div>
 </div>
