@@ -132,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -195,7 +195,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -216,7 +216,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -243,7 +243,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:29</a></div>
                 </td>
             </tr>
 
@@ -361,8 +361,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -400,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:23</a></div>
                 </td>
             </tr>
 
@@ -461,22 +461,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
-import { Role, IPermissionsAndRoles } from &#x27;../entity&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
 interface CacheEntry {
 	[name: string]: { value: Role; validUntil: number };
 }
 
-// TODO: no query handled at the moment
-// TODO: write test and move
-// TODO: replace with generall solution if it is added
+// TODO: replace with https://mikro-orm.io/docs/caching/
 export class RoleCache {
 	cache: CacheEntry;
 
 	name: string;
 
-	// we do not registred changes by calling the old endpoint
-	// also the clear interval should short
 	clearInterval: 60000;
 
 	constructor(name &#x3D; &#x27;&#x27;) {
@@ -493,7 +489,7 @@ export class RoleCache {
 	add(selector: string, role: Role): void {
 		this.cache[selector] &#x3D; {
 			value: role,
-			validUntil: Date.now() + this.clearInterval, // TODO: test if it is work
+			validUntil: Date.now() + this.clearInterval,
 		};
 	}
 
@@ -536,7 +532,7 @@ export class RoleRepo {
 		return role;
 	}
 
-	async resolvePermissionsById(id: EntityId): Promise&lt;Role&gt; {
+	async resolvePermissionsFromSubRolesById(id: EntityId): Promise&lt;Role&gt; {
 		if (this.cl2.get(id)) {
 			return this.cl2.get(id) as Role;
 		}
@@ -546,7 +542,7 @@ export class RoleRepo {
 
 		for (let i &#x3D; 0; i &lt; role.roles.length; i +&#x3D; 1) {
 			// eslint-disable-next-line no-await-in-loop
-			const resolvedSubRole &#x3D; await this.resolvePermissionsById(role.roles[i]);
+			const resolvedSubRole &#x3D; await this.resolvePermissionsFromSubRolesById(role.roles[i]);
 			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
 		}
 
@@ -554,18 +550,6 @@ export class RoleRepo {
 		role.permissions &#x3D; uniquePermissions;
 		this.cl2.add(id, role);
 		return role;
-	}
-
-	async resolvePermissionsByIdList(ids: EntityId[]): Promise&lt;IPermissionsAndRoles&gt; {
-		const roles &#x3D; await Promise.all(ids.map((id) &#x3D;&gt; this.resolvePermissionsById(id)));
-
-		let permissions: string[] &#x3D; [];
-		roles.forEach((role) &#x3D;&gt; {
-			permissions &#x3D; [...permissions, ...role.permissions];
-		});
-		permissions &#x3D; [...new Set(permissions)];
-
-		return { roles, permissions };
 	}
 }
 </code></pre>

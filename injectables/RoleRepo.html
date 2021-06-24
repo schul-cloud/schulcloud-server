@@ -102,11 +102,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#resolvePermissionsById">resolvePermissionsById</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#resolvePermissionsByIdList">resolvePermissionsByIdList</a>
+                                <a href="#resolvePermissionsFromSubRolesById">resolvePermissionsFromSubRolesById</a>
                             </li>
                         </ul>
                     </td>
@@ -131,7 +127,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -198,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:64</a></div>
                 </td>
             </tr>
 
@@ -270,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:53</a></div>
                 </td>
             </tr>
 
@@ -322,28 +318,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="resolvePermissionsById"></a>
+                    <a name="resolvePermissionsFromSubRolesById"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            resolvePermissionsById
+                            resolvePermissionsFromSubRolesById
                         </b>
-                        <a href="#resolvePermissionsById"><span class="icon ion-ios-link"></span></a>
+                        <a href="#resolvePermissionsFromSubRolesById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolvePermissionsById(id: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>resolvePermissionsFromSubRolesById(id: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:75</a></div>
                 </td>
             </tr>
 
@@ -390,78 +386,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resolvePermissionsByIdList"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            resolvePermissionsByIdList
-                        </b>
-                        <a href="#resolvePermissionsByIdList"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolvePermissionsByIdList(ids: <a href="../undefineds/EntityId.html">EntityId[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:99</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ids</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Role.html" target="_self" >Promise&lt;IPermissionsAndRoles&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -488,7 +412,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -515,7 +439,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -531,22 +455,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
-import { Role, IPermissionsAndRoles } from &#x27;../entity&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
 interface CacheEntry {
 	[name: string]: { value: Role; validUntil: number };
 }
 
-// TODO: no query handled at the moment
-// TODO: write test and move
-// TODO: replace with generall solution if it is added
+// TODO: replace with https://mikro-orm.io/docs/caching/
 export class RoleCache {
 	cache: CacheEntry;
 
 	name: string;
 
-	// we do not registred changes by calling the old endpoint
-	// also the clear interval should short
 	clearInterval: 60000;
 
 	constructor(name &#x3D; &#x27;&#x27;) {
@@ -563,7 +483,7 @@ export class RoleCache {
 	add(selector: string, role: Role): void {
 		this.cache[selector] &#x3D; {
 			value: role,
-			validUntil: Date.now() + this.clearInterval, // TODO: test if it is work
+			validUntil: Date.now() + this.clearInterval,
 		};
 	}
 
@@ -606,7 +526,7 @@ export class RoleRepo {
 		return role;
 	}
 
-	async resolvePermissionsById(id: EntityId): Promise&lt;Role&gt; {
+	async resolvePermissionsFromSubRolesById(id: EntityId): Promise&lt;Role&gt; {
 		if (this.cl2.get(id)) {
 			return this.cl2.get(id) as Role;
 		}
@@ -616,7 +536,7 @@ export class RoleRepo {
 
 		for (let i &#x3D; 0; i &lt; role.roles.length; i +&#x3D; 1) {
 			// eslint-disable-next-line no-await-in-loop
-			const resolvedSubRole &#x3D; await this.resolvePermissionsById(role.roles[i]);
+			const resolvedSubRole &#x3D; await this.resolvePermissionsFromSubRolesById(role.roles[i]);
 			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
 		}
 
@@ -624,18 +544,6 @@ export class RoleRepo {
 		role.permissions &#x3D; uniquePermissions;
 		this.cl2.add(id, role);
 		return role;
-	}
-
-	async resolvePermissionsByIdList(ids: EntityId[]): Promise&lt;IPermissionsAndRoles&gt; {
-		const roles &#x3D; await Promise.all(ids.map((id) &#x3D;&gt; this.resolvePermissionsById(id)));
-
-		let permissions: string[] &#x3D; [];
-		roles.forEach((role) &#x3D;&gt; {
-			permissions &#x3D; [...permissions, ...role.permissions];
-		});
-		permissions &#x3D; [...new Set(permissions)];
-
-		return { roles, permissions };
 	}
 }
 </code></pre>
