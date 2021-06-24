@@ -83,7 +83,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#get">get</a>
+                                <a href="#me">me</a>
                             </li>
                         </ul>
                     </td>
@@ -106,20 +106,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="get"></a>
+                    <a name="me"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            get
+                            me
                         </b>
-                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                        <a href="#me"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>get(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
+                    <code>me(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -200,7 +200,7 @@ export class UserController {
 	constructor(private readonly userUc: UserUC) {}
 
 	@Get(&#x27;me&#x27;)
-	async get(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
+	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
 		return Promise.resolve(currentUser.user);
 	}
 }
