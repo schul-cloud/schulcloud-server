@@ -201,8 +201,7 @@ export class UserController {
 
 	@Get(&#x27;me&#x27;)
 	async get(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		const resolvedUser &#x3D; currentUser.user as ResolvedUser;
-		return Promise.resolve(resolvedUser);
+		return Promise.resolve(currentUser.user);
 	}
 }
 </code></pre>
