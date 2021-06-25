@@ -197,6 +197,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
+                                <a href="modules/MailModule.html" data-type="entity-link">MailModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' : 'data-target="#xs-injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' :
+                                        'id="xs-injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' }>
+                                        <li class="link">
+                                            <a href="injectables/MailService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>MailService</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/MongoMemoryDatabaseModule.html" data-type="entity-link">MongoMemoryDatabaseModule</a>
                             </li>
                             <li class="link">
@@ -240,13 +258,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link">ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' : 'data-target="#xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
+                                            'data-target="#controllers-links-module-ServerModule-ef81eaf71c9cdde41f5f2d63ef73bdc8"' : 'data-target="#xs-controllers-links-module-ServerModule-ef81eaf71c9cdde41f5f2d63ef73bdc8"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' :
-                                            'id="xs-controllers-links-module-ServerModule-d810cf27f3057bf4eac6e623ec82dc26"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-ef81eaf71c9cdde41f5f2d63ef73bdc8"' :
+                                            'id="xs-controllers-links-module-ServerModule-ef81eaf71c9cdde41f5f2d63ef73bdc8"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerController</a>
@@ -357,6 +375,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Lesson.html" data-type="entity-link">Lesson</a>
                             </li>
                             <li class="link">
+                                <a href="classes/NestAppHolder.html" data-type="entity-link">NestAppHolder</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/News.html" data-type="entity-link">News</a>
                             </li>
                             <li class="link">
@@ -455,6 +476,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
+                                <a href="interfaces/AppendedAttachment.html" data-type="entity-link">AppendedAttachment</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/FeathersError.html" data-type="entity-link">FeathersError</a>
                             </li>
                             <li class="link">
@@ -462,6 +486,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/GlobalConstants.html" data-type="entity-link">GlobalConstants</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/HtmlMailContent.html" data-type="entity-link">HtmlMailContent</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICreateNews.html" data-type="entity-link">ICreateNews</a>
@@ -482,6 +509,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/INewsScope.html" data-type="entity-link">INewsScope</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/InlineAttachment.html" data-type="entity-link">InlineAttachment</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IPagination.html" data-type="entity-link">IPagination</a>
                             </li>
                             <li class="link">
@@ -491,7 +521,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/JwtPayload.html" data-type="entity-link">JwtPayload</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Mail.html" data-type="entity-link">Mail</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MailAttachment.html" data-type="entity-link">MailAttachment</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MailContent.html" data-type="entity-link">MailContent</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/NewsTargetFilter.html" data-type="entity-link">NewsTargetFilter</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/PlainTextMailContent.html" data-type="entity-link">PlainTextMailContent</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link">User</a>

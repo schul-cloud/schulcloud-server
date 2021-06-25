@@ -124,6 +124,9 @@
                             <a href="#PORT" title="apps/server/src/constants.ts"><b>PORT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#rabbitMqClient" title="apps/server/src/modules/mail/rabbitMqClient.ts"><b>rabbitMqClient</b>&nbsp;&nbsp;&nbsp;(apps/.../rabbitMqClient.ts)</a>
+                        </li>
+                        <li>
                             <a href="#REQUEST_TIMEOUT" title="apps/server/src/shared/common/interceptor/constants.ts"><b>REQUEST_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
@@ -1265,6 +1268,38 @@ it should ensure an empty result</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>serverErrorTypes</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/mail/rabbitMqClient.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rabbitMqClient"></a>
+                        <span class="name">
+                            <b>
+                            rabbitMqClient</b>
+                            <a href="#rabbitMqClient"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>RabbitMQModule.forRoot(RabbitMQModule, {
+    exchanges: [
+        {
+            name: Configuration.get(&#x27;MAIL_SEND_EXCHANGE&#x27;),
+            type: &#x27;direct&#x27;,
+        },
+    ],
+    uri: Configuration.get(&#x27;RABBITMQ_URI&#x27;),
+})</code>
                         </td>
                     </tr>
 
