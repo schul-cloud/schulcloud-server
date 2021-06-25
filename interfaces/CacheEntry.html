@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>AppendedAttachment</li>
+  <li>CacheEntry</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,122 +61,131 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/mail/interfaces/mail.ts</code>
+            <code>apps/server/src/modules/user/repo/role.repo.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../interfaces/MailAttachment.html" target="_self" >MailAttachment</a></code>
-            </p>
-
-        <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Properties</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#contentDisposition">contentDisposition</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
 
 
 
             <section>
-                <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="contentDisposition"></a>
-                                        <span class="name"><b>contentDisposition</b><a href="#contentDisposition"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>contentDisposition:     <code></code>
+    <h3 id="inputs">Indexable</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <code>[name: string]:    <code>literal type</code>
 </code>
-                                    </td>
-                                </tr>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:6</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
-
-
-
-
-
-
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface MailAttachment {
-    base64Content: string;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { Role } from &#x27;../entity&#x27;;
 
-    mimeType: string;
-
-    name: string;
+interface CacheEntry {
+	[name: string]: { value: Role; validUntil: number };
 }
 
-interface InlineAttachment extends MailAttachment {
-    contentDisposition: &#x27;INLINE&#x27;;
+// TODO: replace with https://mikro-orm.io/docs/caching/
+export class RoleCache {
+	cache: CacheEntry;
 
-    contentId: string;
+	name: string;
+
+	clearInterval: 60000;
+
+	constructor(name &#x3D; &#x27;&#x27;) {
+		this.cache &#x3D; {};
+		this.name &#x3D; name;
+	}
+
+	get(selector: string): Role | undefined {
+		const entry &#x3D; this.cache[selector];
+		if (!entry || entry.validUntil &lt; Date.now()) return undefined;
+		return entry.value;
+	}
+
+	add(selector: string, role: Role): void {
+		this.cache[selector] &#x3D; {
+			value: role,
+			validUntil: Date.now() + this.clearInterval,
+		};
+	}
+
+	clear(): void {
+		this.cache &#x3D; {};
+	}
 }
 
-interface AppendedAttachment extends MailAttachment {
-    contentDisposition: &#x27;ATTACHMENT&#x27;;
+// caching ?
+@Injectable()
+export class RoleRepo {
+	cl1: RoleCache;
+
+	cl2: RoleCache;
+
+	constructor(private readonly em: EntityManager) {
+		this.cl1 &#x3D; new RoleCache(&#x27;level1&#x27;);
+		this.cl2 &#x3D; new RoleCache(&#x27;level2&#x27;);
+	}
+
+	async findByName(name: string): Promise&lt;Role&gt; {
+		if (this.cl1.get(name)) {
+			return this.cl1.get(name) as Role;
+		}
+
+		const role &#x3D; await this.em.findOneOrFail(Role, { name });
+		this.cl1.add(name, role);
+
+		return role;
+	}
+
+	async findById(id: EntityId): Promise&lt;Role&gt; {
+		if (this.cl1.get(id)) {
+			return this.cl1.get(id) as Role;
+		}
+
+		const role &#x3D; await this.em.findOneOrFail(Role, { id });
+		this.cl1.add(id, role);
+
+		return role;
+	}
+
+	async resolvePermissionsFromSubRolesById(id: EntityId): Promise&lt;Role&gt; {
+		if (this.cl2.get(id)) {
+			return this.cl2.get(id) as Role;
+		}
+
+		const role &#x3D; await this.findById(id);
+		let { permissions } &#x3D; role;
+
+		for (let i &#x3D; 0; i &lt; role.roles.length; i +&#x3D; 1) {
+			// eslint-disable-next-line no-await-in-loop
+			const resolvedSubRole &#x3D; await this.resolvePermissionsFromSubRolesById(role.roles[i]);
+			permissions &#x3D; [...permissions, ...resolvedSubRole.permissions];
+		}
+
+		const uniquePermissions &#x3D; [...new Set(permissions)];
+		role.permissions &#x3D; uniquePermissions;
+		this.cl2.add(id, role);
+		return role;
+	}
 }
-
-
-interface MailContent {
-    subject: string;
-
-    attachments?: (InlineAttachment | AppendedAttachment)[];
-};
-
-interface PlainTextMailContent extends MailContent {
-    htmlContent?: string;
-
-    plainTextContent: string;
-}
-
-interface HtmlMailContent extends MailContent {
-    htmlContent: string;
-
-    plainTextContent?: string;
-}
-
-
-export interface Mail {
-    mail: PlainTextMailContent | HtmlMailContent;
-
-    recipients: string[];
-
-    from?: string;
-
-    cc?: string[];
-
-    bcc?: string[];
-
-    replyTo?: string[];
-}</code></pre>
+</code></pre>
     </div>
 </div>
 
@@ -203,7 +212,7 @@ export interface Mail {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppendedAttachment.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CacheEntry.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

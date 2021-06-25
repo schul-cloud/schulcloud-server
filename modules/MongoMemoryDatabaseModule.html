@@ -87,15 +87,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options?: MikroOrmModuleSyncOptions)</code>
+                    <code>forRoot(options?: <a href="../undefineds/ForbiddenOptions.html">Omit<MikroOrmModuleSyncOptions | ForbiddenOptions></a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:49</a></div>
                 </td>
             </tr>
 
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                            <code>MikroOrmModuleSyncOptions</code>
+                                                <code><a href="../miscellaneous/typealiases.html#ForbiddenOptions" target="_self" >Omit&lt;MikroOrmModuleSyncOptions | ForbiddenOptions&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -166,8 +166,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:59</a></div>
                 </td>
             </tr>
 
@@ -226,6 +226,8 @@ const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicM
 	return mikroOrmModule;
 };
 
+/** options we not allow to pass as they are internally replaced by using the in memory mongo  */
+type ForbiddenOptions &#x3D; &#x27;type&#x27; | &#x27;driver&#x27; | &#x27;clientUrl&#x27; | &#x27;dbName&#x27; | &#x27;user&#x27; | &#x27;password&#x27;;
 @Module({})
 export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 	constructor(
@@ -234,7 +236,7 @@ export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 		private readonly moduleRef: ModuleRef
 	) {}
 
-	static forRoot(options?: MikroOrmModuleSyncOptions): DynamicModule {
+	static forRoot(options?: Omit&lt;MikroOrmModuleSyncOptions, ForbiddenOptions&gt;): DynamicModule {
 		return {
 			module: MongoMemoryDatabaseModule,
 			imports: [createMikroOrmModule(options || {})],
