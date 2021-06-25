@@ -75,10 +75,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#cl1">cl1</a>
-                            </li>
-                            <li>
-                                <a href="#cl2">cl2</a>
+                                <a href="#cache">cache</a>
                             </li>
                         </ul>
                     </td>
@@ -127,7 +124,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -194,8 +191,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -266,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:12</a></div>
                 </td>
             </tr>
 
@@ -338,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -396,50 +393,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="cl1"></a>
+                        <a name="cache"></a>
                         <span class="name">
                             <b>
-                            cl1</b>
-                            <a href="#cl1"><span class="icon ion-ios-link"></span></a>
+                            cache</b>
+                            <a href="#cache"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/RoleCache.html" target="_self" >RoleCache</a></code>
-
-                        </td>
-                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:44</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="cl2"></a>
-                        <span class="name">
-                            <b>
-                            cl2</b>
-                            <a href="#cl2"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/RoleCache.html" target="_self" >RoleCache</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/user/repo/role.repo.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -457,80 +421,23 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { Role } from &#x27;../entity&#x27;;
 
-interface CacheEntry {
-	[name: string]: { value: Role; validUntil: number };
-}
-
-// TODO: replace with https://mikro-orm.io/docs/caching/
-export class RoleCache {
-	cache: CacheEntry;
-
-	name: string;
-
-	clearInterval: 60000;
-
-	constructor(name &#x3D; &#x27;&#x27;) {
-		this.cache &#x3D; {};
-		this.name &#x3D; name;
-	}
-
-	get(selector: string): Role | undefined {
-		const entry &#x3D; this.cache[selector];
-		if (!entry || entry.validUntil &lt; Date.now()) return undefined;
-		return entry.value;
-	}
-
-	add(selector: string, role: Role): void {
-		this.cache[selector] &#x3D; {
-			value: role,
-			validUntil: Date.now() + this.clearInterval,
-		};
-	}
-
-	clear(): void {
-		this.cache &#x3D; {};
-	}
-}
-
-// caching ?
 @Injectable()
 export class RoleRepo {
-	cl1: RoleCache;
+	cache: 60000;
 
-	cl2: RoleCache;
-
-	constructor(private readonly em: EntityManager) {
-		this.cl1 &#x3D; new RoleCache(&#x27;level1&#x27;);
-		this.cl2 &#x3D; new RoleCache(&#x27;level2&#x27;);
-	}
+	constructor(private readonly em: EntityManager) {}
 
 	async findByName(name: string): Promise&lt;Role&gt; {
-		if (this.cl1.get(name)) {
-			return this.cl1.get(name) as Role;
-		}
-
-		const role &#x3D; await this.em.findOneOrFail(Role, { name });
-		this.cl1.add(name, role);
-
+		const role &#x3D; await this.em.findOneOrFail(Role, { name }, { cache: this.cache });
 		return role;
 	}
 
 	async findById(id: EntityId): Promise&lt;Role&gt; {
-		if (this.cl1.get(id)) {
-			return this.cl1.get(id) as Role;
-		}
-
-		const role &#x3D; await this.em.findOneOrFail(Role, { id });
-		this.cl1.add(id, role);
-
+		const role &#x3D; await this.em.findOneOrFail(Role, { id }, { cache: this.cache });
 		return role;
 	}
 
 	async resolvePermissionsFromSubRolesById(id: EntityId): Promise&lt;Role&gt; {
-		if (this.cl2.get(id)) {
-			return this.cl2.get(id) as Role;
-		}
-
 		const role &#x3D; await this.findById(id);
 		let { permissions } &#x3D; role;
 
@@ -542,7 +449,7 @@ export class RoleRepo {
 
 		const uniquePermissions &#x3D; [...new Set(permissions)];
 		role.permissions &#x3D; uniquePermissions;
-		this.cl2.add(id, role);
+
 		return role;
 	}
 }
