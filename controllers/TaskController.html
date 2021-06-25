@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:21</a></div>
                 </td>
             </tr>
 
@@ -205,7 +205,6 @@ import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 import { TaskResponse } from &#x27;./dto&#x27;;
 
@@ -223,10 +222,9 @@ export class TaskController {
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
 		// const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
-		const [tasks, total] &#x3D; await this.taskUc.findAllOpenForUser(currentUser.userId, paginationQuery);
-		const tasksResponse &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task));
+		const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
 		const { skip, limit } &#x3D; paginationQuery;
-		const result &#x3D; new PaginationResponse(tasksResponse, total, skip, limit);
+		const result &#x3D; new PaginationResponse(tasks, total, skip, limit);
 		return result;
 	}
 }

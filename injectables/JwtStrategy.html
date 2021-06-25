@@ -243,9 +243,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 	async validate(payload: JwtPayload): Promise&lt;JwtPayload&gt; {
 		// TODO: check jwt is whitelisted
-		// TODO: use user module for:
-		// TODO: --&gt; check user exist/is active
-		// TODO: --&gt; populate roles&gt;permissions
+
+		// TODO: check user is active
+		// TODO: throw not authentication error if user not exist or is not activated
 		const resolvedUser &#x3D; await this.userFacade.resolveUser(payload);
 		payload.user &#x3D; resolvedUser;
 		return payload;
