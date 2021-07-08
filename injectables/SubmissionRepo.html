@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>SubmissionRepo</li>
+  <li >SubmissionRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,11 +79,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getSubmissionsByTask">getSubmissionsByTask</a>
+                                <a href="#getSubmissionsByTask" >getSubmissionsByTask</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getSubmissionsByTasksList">getSubmissionsByTasksList</a>
+                                <a href="#getSubmissionsByTasksList" >getSubmissionsByTasksList</a>
                             </li>
                         </ul>
                     </td>
@@ -155,10 +157,8 @@
                 <td class="col-md-4">
                     <a name="getSubmissionsByTask"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getSubmissionsByTask
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getSubmissionsByTask</b></span>
                         <a href="#getSubmissionsByTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -166,7 +166,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSubmissionsByTask(task: <a href="../classes/Task.html">Task</a>)</code>
+                    <code>getSubmissionsByTask(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
                 </td>
             </tr>
 
@@ -227,10 +227,8 @@
                 <td class="col-md-4">
                     <a name="getSubmissionsByTasksList"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getSubmissionsByTasksList
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getSubmissionsByTasksList</b></span>
                         <a href="#getSubmissionsByTasksList"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -238,7 +236,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSubmissionsByTasksList(tasks: <a href="../classes/Task.html">Task[]</a>)</code>
+                    <code>getSubmissionsByTasksList(tasks: <a href="../classes/Task.html" target="_self">Task[]</a>)</code>
                 </td>
             </tr>
 
@@ -362,9 +360,9 @@ export class SubmissionRepo {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>FeathersAuthProvider</li>
+  <li >FeathersAuthProvider</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,24 +79,24 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedSchools">getPermittedSchools</a>
+                                <a href="#getPermittedSchools" >getPermittedSchools</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedTargets">getPermittedTargets</a>
+                                <a href="#getPermittedTargets" >getPermittedTargets</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#getUser">getUser</a>
+                                <a href="#getUser" >getUser</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserSchoolPermissions">getUserSchoolPermissions</a>
+                                <a href="#getUserSchoolPermissions" >getUserSchoolPermissions</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserTargetPermissions">getUserTargetPermissions</a>
+                                <a href="#getUserTargetPermissions" >getUserTargetPermissions</a>
                             </li>
                         </ul>
                     </td>
@@ -114,7 +116,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html">FeathersServiceProvider</a>)</code>
+<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html" target="_self">FeathersServiceProvider</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -168,10 +170,8 @@
                 <td class="col-md-4">
                     <a name="getPermittedSchools"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getPermittedSchools
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getPermittedSchools</b></span>
                         <a href="#getPermittedSchools"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -179,7 +179,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedSchools(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>getPermittedSchools(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -240,10 +240,8 @@
                 <td class="col-md-4">
                     <a name="getPermittedTargets"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getPermittedTargets
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getPermittedTargets</b></span>
                         <a href="#getPermittedTargets"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -251,7 +249,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, permissions: string[])</code>
+                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetModel: <a href="../classes/News.html" target="_self">NewsTargetModel</a>, permissions: string[])</code>
                 </td>
             </tr>
 
@@ -293,7 +291,7 @@
                                 <tr>
                                     <td>targetModel</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
                                     </td>
 
                                     <td>
@@ -336,11 +334,9 @@
                 <td class="col-md-4">
                     <a name="getUser"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            getUser
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getUser</b></span>
                         <a href="#getUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -348,7 +344,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>getUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -409,10 +405,8 @@
                 <td class="col-md-4">
                     <a name="getUserSchoolPermissions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getUserSchoolPermissions
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserSchoolPermissions</b></span>
                         <a href="#getUserSchoolPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -420,7 +414,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserSchoolPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>getUserSchoolPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -493,10 +487,8 @@
                 <td class="col-md-4">
                     <a name="getUserTargetPermissions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getUserTargetPermissions
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserTargetPermissions</b></span>
                         <a href="#getUserTargetPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -504,7 +496,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserTargetPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModel: <a href="../classes/News.html">NewsTargetModelValue</a>, targetId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>getUserTargetPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetModel: <a href="../classes/News.html" target="_self">NewsTargetModel</a>, targetId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -546,7 +538,7 @@
                                 <tr>
                                     <td>targetModel</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
                                     </td>
 
                                     <td>
@@ -592,7 +584,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { BaseEntity, EntityId } from &#x27;@shared/domain&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { NewsTargetModelValue } from &#x27;../news/entity&#x27;;
+import { NewsTargetModel } from &#x27;../news/entity&#x27;;
 import { FeathersServiceProvider } from &#x27;../feathers/feathers-service.provider&#x27;;
 
 interface User {
@@ -617,7 +609,7 @@ export class FeathersAuthProvider {
 
 	async getUserTargetPermissions(
 		userId: EntityId,
-		targetModel: NewsTargetModelValue,
+		targetModel: NewsTargetModel,
 		targetId: EntityId
 	): Promise&lt;string[]&gt; {
 		const service &#x3D; this.feathersServiceProvider.getService(&#x60;${targetModel}/:scopeId/userPermissions/&#x60;);
@@ -629,7 +621,7 @@ export class FeathersAuthProvider {
 
 	async getPermittedTargets(
 		userId: EntityId,
-		targetModel: NewsTargetModelValue,
+		targetModel: NewsTargetModel,
 		permissions: string[]
 	): Promise&lt;EntityId[]&gt; {
 		const service &#x3D; this.feathersServiceProvider.getService(&#x60;/users/:scopeId/${targetModel}&#x60;);
@@ -695,9 +687,9 @@ export class FeathersAuthProvider {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

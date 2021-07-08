@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IUserProperties</li>
+  <li
+  >
+  IUserProperties</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -79,21 +83,36 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#email">email</a>
+                                        <a href="#email" 
+>
+                                            email
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#firstName">firstName</a>
+                                        <a href="#firstName" 
+>
+                                            firstName
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#lastName">lastName</a>
+                                        <a href="#lastName" 
+>
+                                            lastName
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#roles">roles</a>
+                                        <a href="#roles" 
+>
+                                            roles
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#school">school</a>
+                                        <a href="#school" 
+>
+                                            school
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -111,7 +130,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="email"></a>
-                                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>email</b>
+                                            <a href="#email">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -140,7 +163,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="firstName"></a>
-                                        <span class="name"><b>firstName</b><a href="#firstName"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>firstName</b>
+                                            <a href="#firstName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -174,7 +201,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="lastName"></a>
-                                        <span class="name"><b>lastName</b><a href="#lastName"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>lastName</b>
+                                            <a href="#lastName">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -208,7 +239,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="roles"></a>
-                                        <span class="name"><b>roles</b><a href="#roles"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>roles</b>
+                                            <a href="#roles">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -237,7 +272,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="school"></a>
-                                        <span class="name"><b>school</b><a href="#school"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>school</b>
+                                            <a href="#school">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -344,9 +383,9 @@ export class User extends BaseEntityWithTimestamps {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

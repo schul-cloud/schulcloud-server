@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -58,19 +59,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#bootstrap" title="apps/server/src/main.ts"><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
+                            <a href="#bootstrap" title="apps/server/src/main.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.ts)</a>
                         </li>
                         <li>
-                            <a href="#createErrorResponseForBusinessError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForBusinessError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                            <a href="#createErrorResponseForBusinessError" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>createErrorResponseForBusinessError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
-                            <a href="#createErrorResponseForFeathersError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForFeathersError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                            <a href="#createErrorResponseForFeathersError" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>createErrorResponseForFeathersError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
-                            <a href="#createErrorResponseForUnknownError" title="apps/server/src/core/error/filter/global-error.filter.ts"><b>createErrorResponseForUnknownError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
+                            <a href="#createErrorResponseForUnknownError" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>createErrorResponseForUnknownError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
-                            <a href="#StringToBoolean" title="apps/server/src/shared/controller/transformer/string-to-boolean.transformer.ts"><b>StringToBoolean</b>&nbsp;&nbsp;&nbsp;(apps/.../string-to-boolean.transformer.ts)</a>
+                            <a href="#StringToBoolean" title="apps/server/src/shared/controller/transformer/string-to-boolean.transformer.ts" ><b>StringToBoolean</b>&nbsp;&nbsp;&nbsp;(apps/.../string-to-boolean.transformer.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -87,9 +88,7 @@
                 <td class="col-md-4">
                     <a name="bootstrap"></a>
                     <span class="name">
-                        <b>
-                            bootstrap
-                        </b>
+                        <span ><b>bootstrap</b></span>
                         <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -113,9 +112,7 @@
                 <td class="col-md-4">
                     <a name="createErrorResponseForBusinessError"></a>
                     <span class="name">
-                        <b>
-                            createErrorResponseForBusinessError
-                        </b>
+                        <span ><b>createErrorResponseForBusinessError</b></span>
                         <a href="#createErrorResponseForBusinessError"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -173,9 +170,7 @@
                 <td class="col-md-4">
                     <a name="createErrorResponseForFeathersError"></a>
                     <span class="name">
-                        <b>
-                            createErrorResponseForFeathersError
-                        </b>
+                        <span ><b>createErrorResponseForFeathersError</b></span>
                         <a href="#createErrorResponseForFeathersError"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -226,9 +221,7 @@
                 <td class="col-md-4">
                     <a name="createErrorResponseForUnknownError"></a>
                     <span class="name">
-                        <b>
-                            createErrorResponseForUnknownError
-                        </b>
+                        <span ><b>createErrorResponseForUnknownError</b></span>
                         <a href="#createErrorResponseForUnknownError"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -288,9 +281,7 @@
                 <td class="col-md-4">
                     <a name="StringToBoolean"></a>
                     <span class="name">
-                        <b>
-                            StringToBoolean
-                        </b>
+                        <span ><b>StringToBoolean</b></span>
                         <a href="#StringToBoolean"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -349,9 +340,9 @@ Accepts: &#39;1&#39;, &#39;true&#39;, &#39;0&#39;, &#39;false&#39; with type str
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

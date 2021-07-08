@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>NewsFilterQuery</li>
+  <li >NewsFilterQuery</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +68,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -81,15 +83,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#targetId">targetId</a>
+                                <a href="#targetId" >targetId</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#targetModel">targetModel</a>
+                                <a href="#targetModel" >targetModel</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#unpublished">unpublished</a>
+                                <a href="#unpublished" >unpublished</a>
                             </li>
                         </ul>
                     </td>
@@ -107,120 +109,117 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="targetId"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>targetId</b></span>
+                        <a href="#targetId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="targetId"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            targetId</b>
-                            <a href="#targetId"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsMongoId()<br />@ApiPropertyOptional({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the news are related (works only together with targetModel)&#x27;})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:25</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @IsOptional()<br />@IsMongoId()<br />@ApiPropertyOptional({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Specific target id to which the news are related (works only together with targetModel)&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:25</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="targetModel"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>targetModel</b></span>
+                        <a href="#targetModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="targetModel"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            targetModel</b>
-                            <a href="#targetModel"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsString()<br />@IsIn(TARGET_MODEL_VALUES)<br />@ApiPropertyOptional({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the news are related&#x27;})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:17</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @IsOptional()<br />@IsString()<br />@IsIn(TARGET_MODEL_VALUES)<br />@ApiPropertyOptional({enum: TARGET_MODEL_VALUES, enumName: &#x27;NewsTargetModel&#x27;, description: &#x27;Target model to which the news are related&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:17</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unpublished"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>unpublished</b></span>
+                        <a href="#unpublished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="unpublished"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Optional</span>
-                            unpublished</b>
-                            <a href="#unpublished"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsOptional()<br />@IsBoolean()<br />@StringToBoolean()<br />@ApiPropertyOptional({description: &#x27;Flag that filters if the news should be published or not&#x27;})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:33</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @IsOptional()<br />@IsBoolean()<br />@StringToBoolean()<br />@ApiPropertyOptional({description: &#x27;Flag that filters if the news should be published or not&#x27;})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/news/controller/dto/news-filter.query.ts:33</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 
@@ -301,9 +300,9 @@ export class NewsFilterQuery {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

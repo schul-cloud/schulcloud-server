@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -41,22 +42,16 @@ Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img s
 <p>Swagger UI documentation when running the server locally, it is served at <a href="http://localhost:3030/docs/">http://localhost:3030/docs/</a>.</p>
 <h1 id="nestjs-application">NestJS application</h1>
 <blockquote>
-<p>Find the <a href="https://hpi-schul-cloud.github.io/schulcloud-server/">NestJS applications documentation</a> of this repository at GitHub pages.</p>
+<p>Find the <a href="https://hpi-schul-cloud.github.io/schulcloud-server/additional-documentation/nestjs-application.html">NestJS applications documentation</a> of this repository at GitHub pages. It contains information about</p>
 </blockquote>
-<h1 id="requirements">Requirements</h1>
 <ul>
-<li>Node.js (see <code>.nvmrc</code> for version)</li>
-<li>MongoDB (<code>4.x</code>)</li>
+<li>setup &amp; preconditions</li>
+<li>starting the application</li>
+<li>testing</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>You will need the <a href="https://github.com/hpi-schul-cloud/schulcloud-client">client</a> as well. For more detailed setup instructions, take a look <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Setup">here</a>. It is written for Windows but the procedure is similar for other OS.</p>
-<h2 id="run">Run</h2>
-<ol>
-<li>Go into project folder</li>
-<li>Run <code>mongod</code></li>
-<li>Run <code>npm start</code></li>
-<li>Run <code>npm run setup</code></li>
-</ol>
+<p>For more detailed setup instructions, take a look at <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Setup">setup</a>.
+The whole application setup with all dependencies can be found in <a href="https://docs.hpi-schul-cloud.org/display/TSC/System+Architecture">System Architecture</a>. It contains information about how different application components are connected to each other.</p>
 <h2 id="debugger-configuration-in-visual-studio-code">Debugger Configuration in Visual Studio Code</h2>
 <p>For more details how to set up Visual Studio Code, read <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Visual+Studio+Code">this document</a>.</p>
 <h2 id="how-to-name-your-branch-and-create-a-pull-request-pr">How to name your branch and create a pull request (PR)</h2>
@@ -66,22 +61,8 @@ Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img s
 <li>Create a PR on branch develop containing the Ticket Number in PR title</li>
 <li>Keep the <code>WIP</code> label as long as this PR is in development, complete PR checklist (is automatically added), keep or increase code test coverage, and pass all tests before you remove the <code>WIP</code> label. Reviewers will be added automatically. For more information check our Definition of Done <a href="https://docs.hpi-schul-cloud.org/pages/viewpage.action?pageId=92831762">here</a>.</li>
 </ol>
-<h2 id="testing">Testing</h2>
-<h3 id="run-tests">Run tests</h3>
-<ol>
-<li>Go into project folder</li>
-<li>run <code>npm run test</code></li>
-</ol>
-<p>To run a single test, use <code>npm run mocha-single -- &lt;path/to/unit.test.js&gt;</code>.</p>
-<h3 id="create-tests">Create tests</h3>
-<ol>
-<li>Create a folder for the &quot;service&quot; you&#39;re working on in &quot;/test/services&quot;</li>
-<li>Create a file &quot;user.test.js&quot; for frontend tests (e.g. clicking a link or check if URL is available)</li>
-<li>Create a file &quot;unit.test.js&quot; for backend tests (e.g. calculating a number)</li>
-</ol>
-<p><em>Try to cover as many methods as possible unit test wise - goal is 100% of course, so one test per method.</em></p>
 <h2 id="committing">Committing</h2>
-<p>Default branch: develop</p>
+<p>Default branch: <code>develop</code></p>
 <ol>
 <li>Go into project folder</li>
 <li>Checkout to develop branch (or clone for the first time)</li>
@@ -133,9 +114,9 @@ Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img s
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

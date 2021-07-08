@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -34,7 +35,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>MongoMemoryDatabaseModule</li>
+    <li >MongoMemoryDatabaseModule</li>
 </ol>
 
 
@@ -60,6 +61,7 @@
 
 
 
+
         <div class="container-fluid module">
             <div class="row">
             </div>
@@ -76,10 +78,8 @@
                 <td class="col-md-4">
                     <a name="forRoot"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            forRoot
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>forRoot</b></span>
                         <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -87,15 +87,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options?: <a href="../undefineds/ForbiddenOptions.html">Omit<MikroOrmModuleSyncOptions | ForbiddenOptions></a>)</code>
+                    <code>forRoot(options?: <a href="../undefineds/MongoDatabaseModuleOptions.html" target="_self">MongoDatabaseModuleOptions</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:48</a></div>
                 </td>
             </tr>
 
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#ForbiddenOptions" target="_self" >Omit&lt;MikroOrmModuleSyncOptions | ForbiddenOptions&gt;</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#MongoDatabaseModuleOptions" target="_self" >MongoDatabaseModuleOptions</a></code>
                                     </td>
 
                                     <td>
@@ -148,10 +148,8 @@
                 <td class="col-md-4">
                     <a name="onModuleDestroy"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            onModuleDestroy
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>onModuleDestroy</b></span>
                         <a href="#onModuleDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -166,8 +164,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:58</a></div>
                 </td>
             </tr>
 
@@ -193,6 +191,7 @@ import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestj
 import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
 import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
+import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
 
 const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
@@ -226,8 +225,6 @@ const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicM
 	return mikroOrmModule;
 };
 
-/** options we not allow to pass as they are internally replaced by using the in memory mongo  */
-type ForbiddenOptions &#x3D; &#x27;type&#x27; | &#x27;driver&#x27; | &#x27;clientUrl&#x27; | &#x27;dbName&#x27; | &#x27;user&#x27; | &#x27;password&#x27;;
 @Module({})
 export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 	constructor(
@@ -236,7 +233,7 @@ export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 		private readonly moduleRef: ModuleRef
 	) {}
 
-	static forRoot(options?: Omit&lt;MikroOrmModuleSyncOptions, ForbiddenOptions&gt;): DynamicModule {
+	static forRoot(options?: MongoDatabaseModuleOptions): DynamicModule {
 		return {
 			module: MongoMemoryDatabaseModule,
 			imports: [createMikroOrmModule(options || {})],
@@ -292,9 +289,9 @@ export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

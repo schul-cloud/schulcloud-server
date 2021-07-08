@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>NewsRepo</li>
+  <li >NewsRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,6 +62,13 @@
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+            </p>
+
 
             <section>
     <h3 id="index">Index</h3>
@@ -77,24 +85,36 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#delete">delete</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAll">findAll</a>
+                                <a href="#findAll" >findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#findNewsAndCount">findNewsAndCount</a>
+                                <a href="#findNewsAndCount" >findNewsAndCount</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findOneById">findOneById</a>
+                                <a href="#findOneById" >findOneById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#save">save</a>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteAll" >deleteAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#flush" >flush</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAll" >saveAll</a>
                             </li>
                         </ul>
                     </td>
@@ -108,54 +128,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>em</td>
-                                                  
-                                                        <td>
-                                                                    <code>EntityManager</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -166,84 +138,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            delete
-                        </b>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(news: <a href="../classes/News.html">News</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:44</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>news</td>
-                                    <td>
-                                                <code><a href="../classes/News.html" target="_self" >News</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="findAll"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findAll
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
                         <a href="#findAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -251,15 +149,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(targets: <a href="../interfaces/NewsTargetFilter.html">NewsTargetFilter[]</a>, unpublished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, pagination: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+                    <code>findAll(targets: <a href="../interfaces/NewsTargetFilter.html" target="_self">NewsTargetFilter[]</a>, unpublished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;News&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:19</a></div>
                 </td>
             </tr>
 
@@ -277,7 +175,6 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -291,8 +188,6 @@
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
@@ -305,23 +200,18 @@
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
-                                    <td>pagination</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                                <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;News&gt;</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -346,11 +236,9 @@
                 <td class="col-md-4">
                     <a name="findNewsAndCount"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            findNewsAndCount
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findNewsAndCount</b></span>
                         <a href="#findNewsAndCount"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -358,15 +246,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findNewsAndCount(query, pagination: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+                    <code>findNewsAndCount(query: <a href="../classes/News.html" target="_self">FilterQuery&lt;News&gt;</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;News&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:37</a></div>
                 </td>
             </tr>
 
@@ -388,6 +276,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
+                                                <code><a href="../classes/News.html" target="_self" >FilterQuery&lt;News&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -397,13 +286,13 @@
 
                                 </tr>
                                 <tr>
-                                    <td>pagination</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                                <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;News&gt;</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -430,10 +319,8 @@
                 <td class="col-md-4">
                     <a name="findOneById"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findOneById
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findOneById</b></span>
                         <a href="#findOneById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -441,22 +328,22 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneById(id: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>findOneById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>resolves a news document with some elements names (school, updator/creator) populated already </p>
+                    <div class="io-description"><p>resolves a news document with some elements names (school, updator/creator) populated already</p>
 </div>
 
                     <div class="io-description">
@@ -502,28 +389,111 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="save"></a>
+                    <a name="delete"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            save
-                        </b>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(news: <a href="../classes/News.html">News</a>)</code>
+                    <code>delete(objs: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news.repo.ts:13</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:43</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>In order to delete multiple entities use {@code deleteAll}
+Due to multiple transactions consistency</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>objs</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteAll</b></span>
+                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteAll(objs: T[], autoFlush)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:47</a></code>
+</div>
                 </td>
             </tr>
 
@@ -539,19 +509,36 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>news</td>
+                                    <td>objs</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >News</a></code>
+                                            <code>T[]</code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>autoFlush</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -560,7 +547,241 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/News.html" target="_self" >Promise&lt;News&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>flush</b></span>
+                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flush()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:34</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>save(obj: T, autoFlush)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>In order to save multiple entities use {@code saveAll}
+Due to multiple transactions consistency</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>obj</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>autoFlush</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAll</b></span>
+                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAll(objs: T[], autoFlush)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:23</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>objs</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>autoFlush</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -577,39 +798,32 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
+import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
+import { QueryOrderMap } from &#x27;@mikro-orm/core/enums&#x27;;
 import { News } from &#x27;../entity&#x27;;
 import { NewsScope } from &#x27;./news-scope&#x27;;
 import { NewsTargetFilter } from &#x27;./news-target-filter&#x27;;
 
 @Injectable()
-export class NewsRepo {
-	constructor(private readonly em: EntityManager) {}
-
-	async save(news: News): Promise&lt;News&gt; {
-		await this.em.persistAndFlush(news);
-		return news;
-	}
-
+export class NewsRepo extends BaseRepo&lt;News&gt; {
 	/**
 	 * Find news
 	 * @param targets
 	 * @param unpublished
-	 * @param pagination
+	 * @param options
 	 */
 	async findAll(
 		targets: NewsTargetFilter[],
 		unpublished: boolean,
-		pagination: IPagination &#x3D; {}
+		options?: IFindOptions&lt;News&gt;
 	): Promise&lt;Counted&lt;News[]&gt;&gt; {
 		const scope &#x3D; new NewsScope();
 		scope.byTargets(targets);
 		scope.byUnpublished(unpublished);
-		// TODO sort by publishedAt?
-		// scope.sortBy(...)
-		const countedNewsList &#x3D; await this.findNewsAndCount(scope.query, pagination);
+		const countedNewsList &#x3D; await this.findNewsAndCount(scope.query, options);
 		return countedNewsList;
 	}
 
@@ -619,13 +833,11 @@ export class NewsRepo {
 		return news;
 	}
 
-	async delete(news: News): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(news);
-	}
-
-	private async findNewsAndCount(query, pagination: IPagination): Promise&lt;Counted&lt;News[]&gt;&gt; {
+	private async findNewsAndCount(query: FilterQuery&lt;News&gt;, options?: IFindOptions&lt;News&gt;): Promise&lt;Counted&lt;News[]&gt;&gt; {
+		const { pagination, order } &#x3D; options || {};
 		const [obj, count] &#x3D; await this.em.findAndCount(News, query, {
 			...pagination,
+			orderBy: order as QueryOrderMap,
 		});
 		const newsList &#x3D; await this.em.populate(obj, [&#x27;school&#x27;, &#x27;creator&#x27;, &#x27;updater&#x27;]);
 		return [newsList, count];
@@ -670,9 +882,9 @@ export class NewsRepo {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

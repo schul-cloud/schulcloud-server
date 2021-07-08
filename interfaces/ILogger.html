@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>ILogger</li>
+  <li
+  >
+  ILogger</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -80,20 +84,35 @@
                             <ul class="index-list">
                                 <li>
                                         <span class="modifier">Optional</span>
-                                    <a href="#debug">debug</a>
+                                    <a href="#debug" 
+>
+                                        debug
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#error">error</a>
+                                    <a href="#error" 
+>
+                                        error
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#log">log</a>
+                                    <a href="#log" 
+>
+                                        log
+                                    </a>
                                 </li>
                                 <li>
                                         <span class="modifier">Optional</span>
-                                    <a href="#verbose">verbose</a>
+                                    <a href="#verbose" 
+>
+                                        verbose
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#warn">warn</a>
+                                    <a href="#warn" 
+>
+                                        warn
+                                    </a>
                                 </li>
                             </ul>
                         </td>
@@ -113,10 +132,8 @@
                 <td class="col-md-4">
                     <a name="debug"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Optional</span>
-                            debug
-                        </b>
+                        <span class="modifier">Optional</span>
+                        <span ><b>debug</b></span>
                         <a href="#debug"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -196,9 +213,7 @@
                 <td class="col-md-4">
                     <a name="error"></a>
                     <span class="name">
-                        <b>
-                            error
-                        </b>
+                        <span ><b>error</b></span>
                         <a href="#error"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -290,9 +305,7 @@
                 <td class="col-md-4">
                     <a name="log"></a>
                     <span class="name">
-                        <b>
-                            log
-                        </b>
+                        <span ><b>log</b></span>
                         <a href="#log"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -372,10 +385,8 @@
                 <td class="col-md-4">
                     <a name="verbose"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Optional</span>
-                            verbose
-                        </b>
+                        <span class="modifier">Optional</span>
+                        <span ><b>verbose</b></span>
                         <a href="#verbose"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -455,9 +466,7 @@
                 <td class="col-md-4">
                     <a name="warn"></a>
                     <span class="name">
-                        <b>
-                            warn
-                        </b>
+                        <span ><b>warn</b></span>
                         <a href="#warn"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -577,9 +586,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

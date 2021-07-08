@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>ICurrentUser</li>
+  <li
+  >
+  ICurrentUser</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -79,19 +83,34 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#accountId">accountId</a>
+                                        <a href="#accountId" 
+>
+                                            accountId
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#roles">roles</a>
+                                        <a href="#roles" 
+>
+                                            roles
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#schoolId">schoolId</a>
+                                        <a href="#schoolId" 
+>
+                                            schoolId
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#user">user</a>
+                                        <a href="#user" 
+>
+                                            user
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#userId">userId</a>
+                                        <a href="#userId" 
+>
+                                            userId
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -109,7 +128,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="accountId"></a>
-                                        <span class="name"><b>accountId</b><a href="#accountId"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>accountId</b>
+                                            <a href="#accountId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -133,7 +156,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>account id as string </p>
+                                    <div class="io-description"><p>account id as string</p>
 </div>
                                 </td>
                             </tr>
@@ -144,7 +167,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="roles"></a>
-                                        <span class="name"><b>roles</b><a href="#roles"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>roles</b>
+                                            <a href="#roles">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -168,7 +195,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>users role ids as string[] </p>
+                                    <div class="io-description"><p>users role ids as string[]</p>
 </div>
                                 </td>
                             </tr>
@@ -179,7 +206,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="schoolId"></a>
-                                        <span class="name"><b>schoolId</b><a href="#schoolId"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>schoolId</b>
+                                            <a href="#schoolId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -203,7 +234,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>users schoolId as string </p>
+                                    <div class="io-description"><p>users schoolId as string</p>
 </div>
                                 </td>
                             </tr>
@@ -214,7 +245,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="user"></a>
-                                        <span class="name"><b>user</b><a href="#user"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>user</b>
+                                            <a href="#user">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -243,7 +278,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="userId"></a>
-                                        <span class="name"><b>userId</b><a href="#userId"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>userId</b>
+                                            <a href="#userId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -267,7 +306,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>authenticated users id </p>
+                                    <div class="io-description"><p>authenticated users id</p>
 </div>
                                 </td>
                             </tr>
@@ -343,9 +382,9 @@ export interface JwtPayload extends ICurrentUser {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

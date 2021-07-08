@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-	      <link rel="stylesheet" href="../../styles/style.css">
+	   <link rel="stylesheet" href="../../styles/style.css">
+        <link rel="stylesheet" href="../../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -70,34 +71,34 @@
 <ul>
 <li><strong>Component Oriented Design</strong><br>We follow a strictly component oriented design to address the following sub-principles:<ul>
 <li><strong>Separation of Concerns</strong></li>
-<li><strong>Reusability</strong> and avoiding redundant code</li>
-<li>I<strong>nformation Hiding</strong> via component API and its exchangeable implementation treated as secret.</li>
-<li><strong>Design by Contract</strong> for self-contained, descriptive, and stable component APIs.</li>
-<li><strong>Layering</strong> as well as separation of business logic from technical code for better maintenance.</li>
-<li><strong>Data Sovereignty</strong> (and high cohesion with low coupling) says that a component is responsible for its data and changes to this data shall only happen via the component. Otherwise maintenance problems will arise to ensure that data remains consistent. Therefore interfaces of a component that may be used by other components are designed call-by-value and not call-by-reference.</li>
+<li><strong>Reusability</strong> and avoiding redundant code</li>
+<li>I<strong>nformation Hiding</strong> via component API and its exchangeable implementation treated as secret.</li>
+<li><strong>Design by Contract</strong> for self-contained, descriptive, and stable component APIs.</li>
+<li><strong>Layering</strong> as well as separation of business logic from technical code for better maintenance.</li>
+<li><strong>Data Sovereignty</strong> (and high cohesion with low coupling) says that a component is responsible for its data and changes to this data shall only happen via the component. Otherwise maintenance problems will arise to ensure that data remains consistent. Therefore interfaces of a component that may be used by other components are designed call-by-value and not call-by-reference.</li>
 </ul>
 </li>
 <li><strong>Homogeneity</strong><br>Solve similar problems in similar ways and establish a uniform code-style.</li>
 </ul>
 <h2 id="overview">Overview</h2>
-<p>The following figure shows the general architecture approach for the HPI-Schul-Cloud. It contains two different architecture categories (<em>business architecture</em> and <em>technical architecture</em>), which are described in more detail bellow.</p>
+<p>The following figure shows the general architecture approach for the HPI-Schul-Cloud. It contains two different architecture categories (<em>business architecture</em> and <em>technical architecture</em>), which are described in more detail bellow.</p>
 <p><img src="../../assets/architecture-overview.png" alt="" class="img-responsive"></p>
 <h3 id="business-architecture">Business Architecture</h3>
-<p>The <em>business architecture</em> divides the application into <em>business components</em>. A <strong>business component has a well-defined responsibility that it encapsulates</strong>. All aspects related to that responsibility have to be implemented within that business component. Further the business architecture defines the dependencies between the business components. These dependencies need to be free of cycles. A business component exports his functionality via well-defined interfaces as a self-contained API. A business component may use another business component via its API and compliant with the dependencies defined by the business architecture.</p>
-<p>The business components in the architecture should be the output of the <a href="https://docs.hpi-schul-cloud.org/display/PROD/Facharchitektur">business architecture</a> created and managed by the product owner and it must stay aligned with the implementation to provide actual value. If their components are hard to implement (e.g. because technically, there is a very high cohesion between two components), the business component model should be changed. The business architecture has a very high impact on the solution and should therefore (especially in a agile environment) be the result of a mix team (business and development).</p>
+<p>The <em>business architecture</em> divides the application into <em>business components</em>. A <strong>business component has a well-defined responsibility that it encapsulates</strong>. All aspects related to that responsibility have to be implemented within that business component. Further the business architecture defines the dependencies between the business components. These dependencies need to be free of cycles. A business component exports his functionality via well-defined interfaces as a self-contained API. A business component may use another business component via its API and compliant with the dependencies defined by the business architecture.</p>
+<p>The business components in the architecture should be the output of the <a href="https://docs.hpi-schul-cloud.org/display/PROD/Facharchitektur">business architecture</a> created and managed by the product owner and it must stay aligned with the implementation to provide actual value. If their components are hard to implement (e.g. because technically, there is a very high cohesion between two components), the business component model should be changed. The business architecture has a very high impact on the solution and should therefore (especially in a agile environment) be the result of a mix team (business and development).</p>
 <p>The application might contain components, which are not part of the business architecture, but have a technical background (e.g. a complex adapter component used to connect to an external system).</p>
 <h3 id="technical-architecture">Technical Architecture</h3>
-<p>The <em>technical architecture</em> <strong>divides the application into technical ***</strong>layers<em>\</em>* based on the multilayered architecture. A layer is a unit of code with the same category such as service or presentation logic. A layer is therefore often supported by a technical framework. Each business component can therefore be split into <em>component parts\</em> for each layer.</p>
+<p>The <em>technical architecture</em> **divides the application into technical ****<em>layers</em>** based on the multilayered architecture. A layer is a unit of code with the same category such as service or presentation logic. A layer is therefore often supported by a technical framework. Each business component can therefore be split into *component parts* for each layer.</p>
 <h2 id="components">Components</h2>
-<p>Following <strong>separation-of-concerns</strong> we divide an application into components using our folder-conventions and the architecture-mapping (see <a href="https://docs.hpi-schul-cloud.org/display/TSC/Software+Architecture#SoftwareArchitecture-architecturemapping">Architecture Mapping to Code</a>). Components must use the UseCase-Facade of other components to communicate with them. Never access any other code from a different component directly.</p>
+<p>Following <strong>separation-of-concerns</strong> we divide an application into components using our folder-conventions and the architecture-mapping (see <a href="https://docs.hpi-schul-cloud.org/display/TSC/Software+Architecture#SoftwareArchitecture-architecturemapping">Architecture Mapping to Code</a>). Components must use the UseCase-Facade of other components to communicate with them. Never access any other code from a different component directly.</p>
 <p>For the HPI Schul-Cloud, we have two major types of components</p>
 <h3 id="business-components">Business Components</h3>
 <p>These usually manage one or more entities and provide the related business logic to other components and external systems.</p>
 <h3 id="adapter-components">Adapter Components</h3>
 <p>Adapter components encapsulate interactions with external systems:</p>
 <ul>
-<li>requests <strong>to</strong> an <strong>external system</strong> like a chat system, microservices etc.</li>
-<li>requests <strong>from</strong> <strong>external systems</strong>, but only if:<ul>
+<li>requests <strong>to</strong> an <strong>external system</strong> like a chat system, microservices etc.</li>
+<li>requests <strong>from</strong> <strong>external systems</strong>, but only if:<ul>
 <li>the external system needs a specific API (e.g. a public standard for user/class management)</li>
 <li>there are other (non-)functional requirements, which make it reasonable to encapsulate the interface into its own component, for example:<ul>
 <li>a reporting API, which aggregates data of multiple components</li>
@@ -110,7 +111,7 @@
 </ul>
 <h2 id="how-to-use-components">How to use Components</h2>
 <h3 id="communication-between-components">Communication between components</h3>
-<p>If <code>component B</code> needs anything from <code>component A</code>, it must always access it using the UseCase Facade of A. The general rules are:</p>
+<p>If <code>component B</code> needs anything from <code>component A</code>, it must always access it using the UseCase Facade of A. The general rules are:</p>
 <ul>
 <li><p>Only the logic exposed in the UseCase facade can be invoked by other components. All other logic must not be called directly. This provides a clean and defined interface, which can be tested and validated.</p>
 <ul>
@@ -118,9 +119,9 @@
 <li>accessing the service layer makes no sense because it contains protocol specific aspects and overhead, which is not relevant within the application</li>
 </ul>
 </li>
-<li><p>In some cases, it is reasonable for the service layer of <code>component B</code> to call the UseCase facade of <code>component A</code> directly</p>
+<li><p>In some cases, it is reasonable for the service layer of <code>component B</code> to call the UseCase facade of <code>component A</code> directly</p>
 <ul>
-<li>for example if <code>component B</code> has no business logic (like a simple adapter component)<ul>
+<li>for example if <code>component B</code> has no business logic (like a simple adapter component)<ul>
 <li>In any other situation, you should only put it into the business logic</li>
 </ul>
 </li>
@@ -148,7 +149,7 @@
 </ul>
 </li>
 <li>There are cases, in which the client to an external system could be part of a business component. Thats allowed, if the following conditons are true:<ol>
-<li>It will not be reused/called directly by other components. All calls must go through this business components usecase facade and obviously, the logic must fit into the components responsibility.</li>
+<li> It will not be reused/called directly by other components. All calls must go through this business components usecase facade and obviously, the logic must fit into the components responsibility.</li>
 <li>it&#39;s very simple or tightly related to an entity managed by the business component, e.g.<ul>
 <li>if course content is not stored in a database but in a third party LMS. In that case, the external system is the actual &quot;repository&quot; of the data and the client for it belongs in the dataaccess layer</li>
 <li>a component managing addresses could contain a client which calls an external application to validate addresses.</li>
@@ -185,7 +186,7 @@
 <p><img src="../../assets/extract-component-microservice.png" alt="Extract Component into its own microservice" class="img-responsive"></p>
 <h2 id="layers">Layers</h2>
 <h3 id="ui-layer">UI Layer</h3>
-<p>The UI layer is implemented as single-page-application using the <a href="https://nuxtjs.org/">https://nuxtjs.org/</a> framework, which wraps the <a href="https://vuejs.org/">https://vuejs.org/</a> framework. It should contain only logic related to:</p>
+<p>The UI layer is implemented as single-page-application using the <a href="https://nuxtjs.org/">https://nuxtjs.org/</a> framework, which wraps the <a href="https://vuejs.org/">https://vuejs.org/</a> framework. It should contain only logic related to:</p>
 <ul>
 <li>presentation</li>
 <li>simple form validation</li>
@@ -193,7 +194,7 @@
 </ul>
 <p>The client architecture uses an atomic design approach. For details, please check the client-architecture documentation.</p>
 <h3 id="service-layer">Service Layer</h3>
-<p>The service layer is responsible for exposing functionality made available by the logical layer to *<em>external consumers *</em>over a network via technical protocols. By doing this, it decouples the logic layer completely from any protocols or frameworks used to provide logic to the outside world. The service layer can actually contain multiple services for all kinds of protocols (e.g. REST, Sockets, Kafka Messages and so on), which all map protocol specific requests to the protocol-independent logic layer.</p>
+<p>The service layer is responsible for exposing functionality made available by the logical layer to **external consumers **over a network via technical protocols. By doing this, it decouples the logic layer completely from any protocols or frameworks used to provide logic to the outside world. The service layer can actually contain multiple services for all kinds of protocols (e.g. REST, Sockets, Kafka Messages and so on), which all map protocol specific requests to the protocol-independent logic layer.</p>
 <p>The service layer in the project uses the feathers/express framework to expose RESTful/socket APIs to the legacy client and NUXT client as well as any other authorized consumer.</p>
 <p>The layer ensures that the API specification contract is fulfilled, but also handles a large set of cross-cutting-concerns. Its most important tasks are:</p>
 <ul>
@@ -208,18 +209,18 @@
 </ul>
 <p>Cross-cutting-concerns are actually shared across all components (hence the name), but many of them are hooked (<a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming">aspect oriented programming</a>) around the services in the service-layer und some need a service-specific configuration. For example, a hook, which does role based authorization, is implemented only once and wraps all services. But it needs to know which roles must be checked for specific services and service operations.</p>
 <h3 id="logic-layer">Logic Layer</h3>
-<p>The logic layer is the heart of the application and contains the main business logic. According to our business architecture we divide an application into components, which contains use-cases. Each component provides a usecase facade, which can be used to trigger the business logic for a use case from either:</p>
+<p>The logic layer is the heart of the application and contains the main business logic. According to our business architecture we divide an application into components, which contains use-cases. Each component provides a usecase facade, which can be used to trigger the business logic for a use case from either:</p>
 <ul>
 <li>the service layer</li>
 <li>from another component.</li>
 </ul>
 <p>The logic layer is responsible for the implementation of the business logic according to the specified functional demands and requirements. It therefore creates the actual value of the application. The following additional aspects are also in its responsibility:</p>
 <ul>
-<li><strong>Validation</strong> based on business rules. For example:<ul>
+<li><strong>Validation</strong> based on business rules. For example:<ul>
 <li>Parents must provide their consent for students bellow 16 years of age</li>
 </ul>
 </li>
-<li><strong>Authorization</strong> and data access rights (scope or user specific permission), for example:<ul>
+<li><strong>Authorization</strong> and data access rights (scope or user specific permission), for example:<ul>
 <li>A teacher are not allowed to see courses or students from other schools</li>
 </ul>
 </li>
@@ -233,7 +234,7 @@
 </ul>
 <p>Using this approach, the business layer, which contains the actual logic, is much easier to test, understand and change. For example, it is possible to write xUnit Tests with no dependencies to DBs or protocols.</p>
 <h3 id="dataaccess-layer">Dataaccess Layer</h3>
-<p>The data-access layer is responsible for all outgoing connections to access and process data. This is mainly about accessing data from a persistent data-store but also about invoking external services. It provides a more or less business oriented interface - e.g. <code>findUser(userId)</code>- and translates it into an database or database-framework specific query. No matter which database, database framework or protocol-client you use, the interface of the dataaccess layer should be neutral. That means that your interface must also provide parameters for pagination etc.</p>
+<p>The data-access layer is responsible for all outgoing connections to access and process data. This is mainly about accessing data from a persistent data-store but also about invoking external services. It provides a more or less business oriented interface - e.g. <code>findUser(userId)</code>- and translates it into an database or database-framework specific query. No matter which database, database framework or protocol-client you use, the interface of the dataaccess layer should be neutral. That means that your interface must also provide parameters for pagination etc.</p>
 <p>This approach brings a couple of benefits:</p>
 <ul>
 <li>Separation of Concerns: encapsulates DB queries/requests to external services and allows for testing it separately</li>
@@ -243,7 +244,7 @@
 </ul>
 <h3 id="batch-layer">Batch Layer</h3>
 <p>The batch layer is basically a service layer, which contains code related to batch processing (bulk-oriented, non-interactive, typically long running execution of tasks). For simplicity the term batch or batch job is used for such tasks in the project.</p>
-<p>The batch layer is responsible for batch processes, whereas the business logic is implemented in the logic layer. Compared to the service layer you may understand the batch layer just as a different way of accessing the business logic. Batches should invoke use cases in the logic layer for doing their work. Only &quot;batch specific&quot; technical aspects should be implemented in the batch layer. Example: For a batch, which imports user data from a CSV file, this means that all code for actually reading and parsing the CSV input file is implemented in the batch layer. The batch calls the use case &quot;create user&quot; in the logic layer for actually creating the users for each line read from the CSV input file.</p>
+<p>The batch layer is responsible for batch processes, whereas the business logic is implemented in the logic layer. Compared to the service layer you may understand the batch layer just as a different way of accessing the business logic. Batches should invoke use cases in the logic layer for doing their work. Only &quot;batch specific&quot; technical aspects should be implemented in the batch layer. Example: For a batch, which imports user data from a CSV file, this means that all code for actually reading and parsing the CSV input file is implemented in the batch layer. The batch calls the use case &quot;create user&quot; in the logic layer for actually creating the users for each line read from the CSV input file.</p>
 <p>In practice it is not always appropriate to create use cases in the logic layer for every bit of work a batch should do. Instead, the data access layer can be used directly. An example for that is a typical batch for data retention which deletes out-of-time data. Often deleting out-dated data is done by invoking a single SQL statement. It is appropriate to implement that SQL in a Repository method (provided by the dataaccess layer interface) and call this method directly from the batch. But be careful that this pattern is a simplification which could lead to business logic cluttered in different layers which reduces maintainability of the application. It is a typical design decision you have to take when designing your specific batches.</p>
 <h2 id="cross-cutting-concerns">Cross Cutting Concerns</h2>
 <p><img src="../../assets/Cross-Cutting-Concerns.png" alt="Cross Cutting Concerns" class="img-responsive"></p>
@@ -256,7 +257,7 @@
 </ul>
 </li>
 </ul>
-<p>Please check the <a href="https://docs.hpi-schul-cloud.org/display/TSC/Error+Handling+Guildelines">error handling guidelines</a> for details.</p>
+<p>Please check the <a href="https://docs.hpi-schul-cloud.org/display/TSC/Error+Handling+Guildelines">error handling guidelines</a> for details.</p>
 <h3 id="transaction-handling">Transaction Handling</h3>
 <p>Transactions can span multiple layers and components. A concept is necessary to execute/rollback those transactions.</p>
 <p>TODO: add a link to the concept and describe how it interacts with layers.</p>
@@ -267,12 +268,12 @@
 <li>each request is triggered by a user or a batch job. We need to store this trigger in the audit logs</li>
 <li>if we introduce transactions across multiple components (e.g. users and classes), we need a way to share transaction information between components and store the transaction until a commit</li>
 </ul>
-<p>Because this context is required in all layers (especially in the data access layer for audit logging) and in cross cutting hooks, we need a framework/feature, which makes this available for direct access without adding this object to every method signature as input variable. Luckily, the necessary functionality is now part of nodejs: <a href="https://nodejs.org/docs/latest-v14.x/api/async_hooks.html#async_hooks_class_asynclocalstorage">AsyncLocalStorage</a>.</p>
+<p>Because this context is required in all layers (especially in the data access layer for audit logging) and in cross cutting hooks, we need a framework/feature, which makes this available for direct access without adding this object to every method signature as input variable. Luckily, the necessary functionality is now part of nodejs: <a href="https://nodejs.org/docs/latest-v14.x/api/async_hooks.html#async_hooks_class_asynclocalstorage">AsyncLocalStorage</a>.</p>
 <p>The general approach for rest requests:</p>
 <ol>
-<li>A request is received</li>
-<li>A hook initializes the request context</li>
-<li>A hook extracts trace information (e.g. traceid and spanid) from the request and adds it to the request context</li>
+<li> A request is received</li>
+<li> A hook initializes the request context</li>
+<li> A hook extracts trace information (e.g. traceid and spanid) from the request and adds it to the request context</li>
 <li>A hook authenticates and authorizes the user and stores basic user information (e.g. user id, maybe general permissions roles) in the request context<ul>
 <li>If the user is not authenticated, a &quot;guest user&quot; is set in the content with only guest permissions</li>
 <li>For batch jobs, a technial user must be set in the request context. For the business logic, the technology, channel and user must be hidden behind the request context.</li>
@@ -285,7 +286,7 @@
 <li>Our logging abstraction retrieves the trace id from the request context and adds it to the log message before writing it to the logfile (actually the console).</li>
 </ul>
 </li>
-<li>After the response is sent to the client, the request context is &quot;destroyed&quot;</li>
+<li> After the response is sent to the client, the request context is &quot;destroyed&quot;</li>
 </ol>
 <p>Characteristics of the context:</p>
 <ul>
@@ -293,7 +294,7 @@
 <li>Data in it are only accessable by the processing o f a specific request, not any other request of the same user or another user!</li>
 <li>It should only contain very basic information necessary for cross cutting concerns like logging and audit logging. Do not use it to transport all kinds of business data around</li>
 </ul>
-<p><strong>Important:</strong> In order to make the code (and especially the business logic) agnostic to the source of a request, the request context should be considered a &quot;invocation context&quot;. That means that also batch jobs (time based triggerd requests) and anonymous rest request should work the exact same way. That means that:</p>
+<p><strong>Important:</strong> In order to make the code (and especially the business logic) agnostic to the source of a request, the request context should be considered a &quot;invocation context&quot;. That means that also batch jobs (time based triggerd requests) and anonymous rest request should work the exact same way. That means that:</p>
 <ul>
 <li>we must setup the request context for batch jobs</li>
 <li>we need technical users for anonymous requests and batch jobs</li>
@@ -301,7 +302,7 @@
 </ul>
 <p>That way, we can use the same logic for all invocations and the source of an invocation is isolated within the service layer.</p>
 <h3 id="logging-and-tracing">Logging and Tracing</h3>
-<p>For details see the corresponding <a href="https://docs.hpi-schul-cloud.org/display/TSC/Logging+and+Tracing+Guidelines">logging and tracing guidelines</a>.</p>
+<p>For details see the corresponding <a href="https://docs.hpi-schul-cloud.org/display/TSC/Logging+and+Tracing+Guidelines">logging and tracing guidelines</a>.</p>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -326,9 +327,9 @@
 
        <script src="../../js/libs/custom-elements.min.js"></script>
        <script src="../../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../../js/menu-wc.js" defer></script>
+       <script nomodule src="../../js/menu-wc_es5.js" defer></script>
 
        <script src="../../js/libs/bootstrap-native.js"></script>
 

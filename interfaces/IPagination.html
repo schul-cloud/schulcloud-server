@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IPagination</li>
+  <li
+  >
+  IPagination</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,8 +64,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/interface/pagination.interface.ts</code>
+            <code>apps/server/src/shared/domain/interface/find-options.ts</code>
         </p>
+
 
 
 
@@ -80,11 +84,17 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#limit">limit</a>
+                                        <a href="#limit" 
+>
+                                            limit
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#skip">skip</a>
+                                        <a href="#skip" 
+>
+                                            skip
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -102,7 +112,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="limit"></a>
-                                        <span class="name"><b>limit</b><a href="#limit"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>limit</b>
+                                            <a href="#limit">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -136,7 +150,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="skip"></a>
-                                        <span class="name"><b>skip</b><a href="#skip"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>skip</b>
+                                            <a href="#skip">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -174,6 +192,18 @@
 	skip?: number;
 	limit?: number;
 }
+
+export enum SortOrder {
+	asc &#x3D; &#x27;asc&#x27;,
+	desc &#x3D; &#x27;desc&#x27;,
+}
+
+export type SortOrderMap&lt;T&gt; &#x3D; Partial&lt;Record&lt;keyof T, SortOrder&gt;&gt;;
+
+export interface IFindOptions&lt;T&gt; {
+	pagination?: IPagination;
+	order?: SortOrderMap&lt;T&gt;;
+}
 </code></pre>
     </div>
 </div>
@@ -207,9 +237,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

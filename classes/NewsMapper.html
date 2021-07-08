@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>NewsMapper</li>
+  <li >NewsMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -67,6 +68,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -82,19 +84,19 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapCreateNewsToDomain">mapCreateNewsToDomain</a>
+                                <a href="#mapCreateNewsToDomain" >mapCreateNewsToDomain</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapNewsScopeToDomain">mapNewsScopeToDomain</a>
+                                <a href="#mapNewsScopeToDomain" >mapNewsScopeToDomain</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapToResponse">mapToResponse</a>
+                                <a href="#mapToResponse" >mapToResponse</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapUpdateNewsToDomain">mapUpdateNewsToDomain</a>
+                                <a href="#mapUpdateNewsToDomain" >mapUpdateNewsToDomain</a>
                             </li>
                         </ul>
                     </td>
@@ -121,10 +123,8 @@
                 <td class="col-md-4">
                     <a name="mapCreateNewsToDomain"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            mapCreateNewsToDomain
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapCreateNewsToDomain</b></span>
                         <a href="#mapCreateNewsToDomain"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -132,7 +132,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapCreateNewsToDomain(params: <a href="../classes/CreateNewsParams.html">CreateNewsParams</a>)</code>
+                    <code>mapCreateNewsToDomain(params: <a href="../classes/CreateNewsParams.html" target="_self">CreateNewsParams</a>)</code>
                 </td>
             </tr>
 
@@ -193,10 +193,8 @@
                 <td class="col-md-4">
                     <a name="mapNewsScopeToDomain"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            mapNewsScopeToDomain
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapNewsScopeToDomain</b></span>
                         <a href="#mapNewsScopeToDomain"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -204,7 +202,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapNewsScopeToDomain(query: <a href="../classes/NewsFilterQuery.html">NewsFilterQuery</a>)</code>
+                    <code>mapNewsScopeToDomain(query: <a href="../classes/NewsFilterQuery.html" target="_self">NewsFilterQuery</a>)</code>
                 </td>
             </tr>
 
@@ -265,10 +263,8 @@
                 <td class="col-md-4">
                     <a name="mapToResponse"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            mapToResponse
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapToResponse</b></span>
                         <a href="#mapToResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -276,7 +272,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(news: <a href="../classes/News.html">News</a>)</code>
+                    <code>mapToResponse(news: <a href="../classes/News.html" target="_self">News</a>)</code>
                 </td>
             </tr>
 
@@ -337,10 +333,8 @@
                 <td class="col-md-4">
                     <a name="mapUpdateNewsToDomain"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            mapUpdateNewsToDomain
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapUpdateNewsToDomain</b></span>
                         <a href="#mapUpdateNewsToDomain"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -348,7 +342,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapUpdateNewsToDomain(params: <a href="../classes/UpdateNewsParams.html">UpdateNewsParams</a>)</code>
+                    <code>mapUpdateNewsToDomain(params: <a href="../classes/UpdateNewsParams.html" target="_self">UpdateNewsParams</a>)</code>
                 </td>
             </tr>
 
@@ -414,7 +408,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreateNewsParams, NewsFilterQuery, NewsResponse, UpdateNewsParams } from &#x27;../controller/dto&#x27;;
-import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetModelValue } from &#x27;../entity&#x27;;
+import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetModel } from &#x27;../entity&#x27;;
 import { SchoolInfoMapper } from &#x27;./school-info.mapper&#x27;;
 import { UserInfoMapper } from &#x27;./user-info.mapper&#x27;;
 
@@ -444,7 +438,7 @@ export class NewsMapper {
 		const dto: INewsScope &#x3D; {};
 		if (query.targetModel) {
 			dto.target &#x3D; {
-				targetModel: query.targetModel as NewsTargetModelValue,
+				targetModel: query.targetModel as NewsTargetModel,
 				targetId: query.targetId,
 			};
 		}
@@ -460,7 +454,7 @@ export class NewsMapper {
 			content: params.content,
 			displayAt: params.displayAt,
 			target: {
-				targetModel: params.targetModel as NewsTargetModelValue,
+				targetModel: params.targetModel as NewsTargetModel,
 				targetId: params.targetId,
 			},
 		};
@@ -510,9 +504,9 @@ export class NewsMapper {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>GlobalErrorFilter</li>
+  <li >GlobalErrorFilter</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
         <p class="comment">
             <code>apps/server/src/core/error/filter/global-error.filter.ts</code>
         </p>
+
 
 
 
@@ -89,7 +91,7 @@
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#logger">logger</a>
+                                <a href="#logger" >logger</a>
                             </li>
                         </ul>
                     </td>
@@ -104,10 +106,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#catch">catch</a>
+                                <a href="#catch" >catch</a>
                             </li>
                             <li>
-                                <a href="#createErrorResponse">createErrorResponse</a>
+                                <a href="#createErrorResponse" >createErrorResponse</a>
                             </li>
                         </ul>
                     </td>
@@ -124,38 +126,37 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="logger"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Static</span>
-                                <span class="modifier">Readonly</span>
-                            logger</b>
-                            <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Logger(&#x27;Error&#x27;)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Logger(&#x27;Error&#x27;)</code>
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:119</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -169,9 +170,7 @@
                 <td class="col-md-4">
                     <a name="catch"></a>
                     <span class="name">
-                        <b>
-                            catch
-                        </b>
+                        <span ><b>catch</b></span>
                         <a href="#catch"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -185,8 +184,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:122</a></div>
                 </td>
             </tr>
 
@@ -251,9 +250,7 @@
                 <td class="col-md-4">
                     <a name="createErrorResponse"></a>
                     <span class="name">
-                        <b>
-                            createErrorResponse
-                        </b>
+                        <span ><b>createErrorResponse</b></span>
                         <a href="#createErrorResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -267,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:130</a></div>
                 </td>
             </tr>
 
@@ -332,6 +329,7 @@ import { BusinessError, ApiValidationError } from &#x27;@shared/common&#x27;;
 import { Logger } from &#x27;../../logger/logger.service&#x27;;
 import { ErrorResponse } from &#x27;../dto/error.response&#x27;;
 import { FeathersError } from &#x27;../interface&#x27;;
+import { ApiValidationErrorResponse } from &#x27;../dto/api-validation-error.response&#x27;;
 
 const isFeathersError &#x3D; (error: Error): error is FeathersError &#x3D;&gt; {
 	if (!(error &amp;&amp; &#x27;type&#x27; in error)) return false;
@@ -366,6 +364,10 @@ const createErrorResponseForHttpException &#x3D; (exception: HttpException): Err
 };
 
 function createErrorResponseForBusinessError(error: BusinessError): ErrorResponse {
+	if (error instanceof ApiValidationError) {
+		const response &#x3D; new ApiValidationErrorResponse(error);
+		return response;
+	}
 	const response &#x3D; error.getResponse();
 	return response;
 }
@@ -487,9 +489,9 @@ export class GlobalErrorFilter&lt;T &#x3D; unknown&gt; implements ExceptionFilte
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

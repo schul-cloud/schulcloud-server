@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -53,9 +54,16 @@
 <li>remove sentry from code</li>
 <li>remove mongoose history (keep one)</li>
 <li>remove custom npm packages (ldap, ...)</li>
+<li>e2e default tests to extend: auth required, fails without/succeeds with  </li>
 </ul>
 <h2 id="accepted">ACCEPTED</h2>
 <ul>
+<li><p>documentation</p>
+<ul>
+<li>entity constructor</li>
+<li>em to be used in repositories only (!!!)</li>
+</ul>
+</li>
 <li><p>load/perf test</p>
 </li>
 <li><p>disable legacy ts support (app, tests)</p>
@@ -63,11 +71,21 @@
 <li><p>fix .env/config for windows</p>
 </li>
 </ul>
+<h2 id="merge">MERGE</h2>
+<ul>
+<li>api path prefix cleanup: remove middleware and multiple path mounts, sync with nest</li>
+<li>user module stucture</li>
+<li>single domain: shared entity (main.ts), shared repository </li>
+<li>request.user.user in jwt strategy</li>
+<li>remove outdated sorting.ts </li>
+<li>remove default launch/settings json files, apply them</li>
+<li>fix <a href="https://github.com/hpi-schul-cloud/schulcloud-server/pull/2729#pullrequestreview-699615164">https://github.com/hpi-schul-cloud/schulcloud-server/pull/2729#pullrequestreview-699615164</a></li>
+</ul>
 <h2 id="selected">SELECTED</h2>
 <ul>
 <li><p>test shared / core module </p>
 </li>
-<li><p>async test fixes</p>
+<li><p>async test fixes (remove this.timeout and red promise chains)</p>
 </li>
 <li><p>db configuration</p>
 <ul>
@@ -152,9 +170,9 @@ domain: &lt;ICreateNews, create-news.interface.ts&gt;, &lt;News, news.entity.ts&
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

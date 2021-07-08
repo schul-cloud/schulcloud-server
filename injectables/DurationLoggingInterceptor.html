@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>DurationLoggingInterceptor</li>
+  <li >DurationLoggingInterceptor</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +59,7 @@
         <p class="comment">
             <code>apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -84,7 +86,7 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#logger">logger</a>
+                                <a href="#logger" >logger</a>
                             </li>
                         </ul>
                     </td>
@@ -99,7 +101,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#intercept">intercept</a>
+                                <a href="#intercept" >intercept</a>
                             </li>
                         </ul>
                     </td>
@@ -125,9 +127,7 @@
                 <td class="col-md-4">
                     <a name="intercept"></a>
                     <span class="name">
-                        <b>
-                            intercept
-                        </b>
+                        <span ><b>intercept</b></span>
                         <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -204,37 +204,36 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="logger"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Readonly</span>
-                            logger</b>
-                            <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Logger(DurationLoggingInterceptor.name)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Logger(DurationLoggingInterceptor.name)</code>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts:11</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/common/interceptor/duration-logging.interceptor.ts:11</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -298,9 +297,9 @@ export class DurationLoggingInterceptor implements NestInterceptor {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

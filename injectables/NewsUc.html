@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>NewsUc</li>
+  <li >NewsUc</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,43 +79,43 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#create">create</a>
+                                <a href="#create" >create</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#delete">delete</a>
+                                <a href="#delete" >delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllForUser">findAllForUser</a>
+                                <a href="#findAllForUser" >findAllForUser</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findOneByIdForUser">findOneByIdForUser</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#getNewsPermissions">getNewsPermissions</a>
+                                <a href="#findOneByIdForUser" >findOneByIdForUser</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedTargets">getPermittedTargets</a>
+                                <a href="#getNewsPermissions" >getNewsPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getPermittedTargets" >getPermittedTargets</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
-                                <a href="#getRequiredPermissions">getRequiredPermissions</a>
+                                <a href="#getRequiredPermissions" >getRequiredPermissions</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#getTargetFilters">getTargetFilters</a>
+                                <a href="#getTargetFilters" >getTargetFilters</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#update">update</a>
+                                <a href="#update" >update</a>
                             </li>
                         </ul>
                     </td>
@@ -133,7 +135,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html">AuthorizationService</a>, logger: <a href="../injectables/Logger.html">Logger</a>)</code>
+<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html" target="_self">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -211,10 +213,8 @@
                 <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            create
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
                         <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -222,7 +222,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(userId: <a href="../undefineds/EntityId.html">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../interfaces/ICreateNews.html">ICreateNews</a>)</code>
+                    <code>create(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ICreateNews.html" target="_self">ICreateNews</a>)</code>
                 </td>
             </tr>
 
@@ -307,10 +307,8 @@
                 <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            delete
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
                         <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -318,15 +316,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>delete(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:134</a></div>
                 </td>
             </tr>
 
@@ -391,10 +389,8 @@
                 <td class="col-md-4">
                     <a name="findAllForUser"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findAllForUser
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForUser</b></span>
                         <a href="#findAllForUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -402,21 +398,23 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForUser(userId: <a href="../undefineds/EntityId.html">EntityId</a>, scope?: <a href="../interfaces/INewsScope.html">INewsScope</a>, pagination?: <a href="../interfaces/IPagination.html">IPagination</a>)</code>
+                    <code>findAllForUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, scope?: <a href="../interfaces/INewsScope.html" target="_self">INewsScope</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;News&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:55</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Provides news for a user, by default odered by displayAt to show latest news first.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -454,9 +452,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>pagination</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                                <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;News&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -487,10 +485,8 @@
                 <td class="col-md-4">
                     <a name="findOneByIdForUser"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findOneByIdForUser
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findOneByIdForUser</b></span>
                         <a href="#findOneByIdForUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -498,15 +494,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneByIdForUser(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>)</code>
+                    <code>findOneByIdForUser(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:86</a></div>
                 </td>
             </tr>
 
@@ -571,11 +567,9 @@
                 <td class="col-md-4">
                     <a name="getNewsPermissions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            getNewsPermissions
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getNewsPermissions</b></span>
                         <a href="#getNewsPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -583,15 +577,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getNewsPermissions(userId: <a href="../undefineds/EntityId.html">EntityId</a>, news: <a href="../classes/News.html">News</a>)</code>
+                    <code>getNewsPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, news: <a href="../classes/News.html" target="_self">News</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="175"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:175</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:183</a></div>
                 </td>
             </tr>
 
@@ -656,11 +650,9 @@
                 <td class="col-md-4">
                     <a name="getPermittedTargets"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            getPermittedTargets
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getPermittedTargets</b></span>
                         <a href="#getPermittedTargets"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -668,15 +660,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html">EntityId</a>, scope: <a href="../interfaces/INewsScope.html">INewsScope | undefined</a>, permissions: <a href="../undefineds/Permission.html">Permission[]</a>)</code>
+                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, scope: <a href="../interfaces/INewsScope.html" target="_self">INewsScope | undefined</a>, permissions: <a href="../undefineds/Permission.html" target="_self">Permission[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:145</a></div>
                 </td>
             </tr>
 
@@ -753,11 +745,9 @@
                 <td class="col-md-4">
                     <a name="getRequiredPermissions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Static</span>
-                            getRequiredPermissions
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>getRequiredPermissions</b></span>
                         <a href="#getRequiredPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -772,8 +762,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:193</a></div>
                 </td>
             </tr>
 
@@ -824,11 +814,9 @@
                 <td class="col-md-4">
                     <a name="getTargetFilters"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Async</span>
-                            getTargetFilters
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getTargetFilters</b></span>
                         <a href="#getTargetFilters"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -836,15 +824,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getTargetFilters(userId: <a href="../undefineds/EntityId.html">EntityId</a>, targetModels: <a href="../classes/News.html">NewsTargetModelValue[]</a>, permissions: string[])</code>
+                    <code>getTargetFilters(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetModels: <a href="../classes/News.html" target="_self">NewsTargetModel[]</a>, permissions: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:165</a></div>
                 </td>
             </tr>
 
@@ -878,7 +866,7 @@
                                 <tr>
                                     <td>targetModels</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModelValue[]</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel[]</a></code>
                                     </td>
 
                                     <td>
@@ -921,10 +909,8 @@
                 <td class="col-md-4">
                     <a name="update"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            update
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
                         <a href="#update"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -932,15 +918,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(id: <a href="../undefineds/EntityId.html">EntityId</a>, userId: <a href="../undefineds/EntityId.html">EntityId</a>, params: <a href="../classes/News.html">IUpdateNews</a>)</code>
+                    <code>update(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/News.html" target="_self">IUpdateNews</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/modules/news/uc/news.uc.ts:110</a></div>
                 </td>
             </tr>
 
@@ -1018,11 +1004,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions, SortOrder } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import { AuthorizationService } from &#x27;../../authorization/authorization.service&#x27;;
-import { News, NewsTargetModel, NewsTargetModelValue, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
+import { News, NewsTargetModel, ICreateNews, INewsScope, IUpdateNews } from &#x27;../entity&#x27;;
 import { NewsRepo } from &#x27;../repo/news.repo&#x27;;
 import { NewsTargetFilter } from &#x27;../repo/news-target-filter&#x27;;
 
@@ -1047,9 +1033,12 @@ export class NewsUc {
 		const { targetModel, targetId } &#x3D; params.target;
 		await this.authorizationService.checkEntityPermissions(userId, targetModel, targetId, [&#x27;NEWS_CREATE&#x27;]);
 
-		const { target, ...props } &#x3D; params;
+		const { target, displayAt: paramDisplayAt, ...props } &#x3D; params;
+		// set news as published by default
+		const displayAt &#x3D; paramDisplayAt || new Date();
 		const news &#x3D; News.createInstance(targetModel, {
 			...props,
+			displayAt,
 			school: schoolId,
 			creator: userId,
 			target: targetId,
@@ -1062,20 +1051,25 @@ export class NewsUc {
 	}
 
 	/**
-	 *
+	 * Provides news for a user, by default odered by displayAt to show latest news first.
 	 * @param userId
 	 * @param scope
 	 * @param pagination
 	 * @returns
 	 */
-	async findAllForUser(userId: EntityId, scope?: INewsScope, pagination?: IPagination): Promise&lt;Counted&lt;News[]&gt;&gt; {
+	async findAllForUser(userId: EntityId, scope?: INewsScope, options?: IFindOptions&lt;News&gt;): Promise&lt;Counted&lt;News[]&gt;&gt; {
 		this.logger.log(&#x60;start find all news for user ${userId}&#x60;);
 
 		const unpublished &#x3D; !!scope?.unpublished; // default is only published news
 		const permissions: [Permission] &#x3D; NewsUc.getRequiredPermissions(unpublished);
 
 		const targets &#x3D; await this.getPermittedTargets(userId, scope, permissions);
-		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, pagination);
+
+		if (options &#x3D;&#x3D; null) options &#x3D; {};
+		// by default show latest news first
+		if (options.order &#x3D;&#x3D; null) options.order &#x3D; { displayAt: SortOrder.desc };
+
+		const [newsList, newsCount] &#x3D; await this.newsRepo.findAll(targets, unpublished, options);
 
 		await Promise.all(
 			newsList.map(async (news: News) &#x3D;&gt; {
@@ -1175,7 +1169,7 @@ export class NewsUc {
 
 	private async getTargetFilters(
 		userId: EntityId,
-		targetModels: NewsTargetModelValue[],
+		targetModels: NewsTargetModel[],
 		permissions: string[]
 	): Promise&lt;NewsTargetFilter[]&gt; {
 		const targets &#x3D; await Promise.all(
@@ -1244,9 +1238,9 @@ export class NewsUc {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

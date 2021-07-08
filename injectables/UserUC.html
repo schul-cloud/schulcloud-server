@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>UserUC</li>
+  <li >UserUC</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -77,7 +79,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserWithPermissions">getUserWithPermissions</a>
+                                <a href="#getUserWithPermissions" >getUserWithPermissions</a>
                             </li>
                         </ul>
                     </td>
@@ -97,7 +99,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html">UserRepo</a>, roleUC: <a href="../injectables/RoleUC.html">RoleUC</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, roleUC: <a href="../injectables/RoleUC.html" target="_self">RoleUC</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -163,10 +165,8 @@
                 <td class="col-md-4">
                     <a name="getUserWithPermissions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            getUserWithPermissions
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserWithPermissions</b></span>
                         <a href="#getUserWithPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -174,7 +174,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserWithPermissions(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
+                    <code>getUserWithPermissions(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -295,9 +295,9 @@ export class UserUC {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

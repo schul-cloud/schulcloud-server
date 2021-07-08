@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -36,7 +37,7 @@
 
 <ol class="breadcrumb">
   <li>Controllers</li>
-  <li>NewsController</li>
+  <li >NewsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -68,6 +69,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -83,23 +85,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#create">create</a>
+                                <a href="#create" >create</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#delete">delete</a>
+                                <a href="#delete" >delete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAll">findAll</a>
+                                <a href="#findAll" >findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findOne">findOne</a>
+                                <a href="#findOne" >findOne</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#update">update</a>
+                                <a href="#update" >update</a>
                             </li>
                         </ul>
                     </td>
@@ -124,10 +126,8 @@
                 <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            create
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
                         <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -135,7 +135,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, params: <a href="../classes/CreateNewsParams.html">CreateNewsParams</a>)</code>
+                    <code>create(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/CreateNewsParams.html" target="_self">CreateNewsParams</a>)</code>
                 </td>
             </tr>
 
@@ -149,14 +149,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:22</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Create a news by a user in a given scope (school or team).</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -215,10 +217,8 @@
                 <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            delete
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
                         <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -226,7 +226,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
+                    <code>delete(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -240,14 +240,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:85</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Delete a news.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -306,10 +308,8 @@
                 <td class="col-md-4">
                     <a name="findAll"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findAll
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
                         <a href="#findAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -317,7 +317,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, scope: <a href="../classes/NewsFilterQuery.html">NewsFilterQuery</a>, pagination: <a href="../classes/PaginationQuery.html">PaginationQuery</a>)</code>
+                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/NewsFilterQuery.html" target="_self">NewsFilterQuery</a>, pagination: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
                 </td>
             </tr>
 
@@ -331,14 +331,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:36</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Responds with all news for a user.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -409,10 +411,8 @@
                 <td class="col-md-4">
                     <a name="findOne"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            findOne
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
                         <a href="#findOne"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -420,7 +420,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOne(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>)</code>
+                    <code>findOne(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -434,15 +434,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:57</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Retrieve a specific news entry by id. A user may only read news of scopes he has the read permission. The news entity has school and user names populated. </p>
+                    <div class="io-description"><p>Retrieve a specific news entry by id.
+A user may only read news of scopes he has the read permission.
+The news entity has school and user names populated.</p>
 </div>
 
                     <div class="io-description">
@@ -502,10 +504,8 @@
                 <td class="col-md-4">
                     <a name="update"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            update
-                        </b>
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
                         <a href="#update"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -513,7 +513,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html">ICurrentUser</a>, params: <a href="../classes/UpdateNewsParams.html">UpdateNewsParams</a>)</code>
+                    <code>update(newsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/UpdateNewsParams.html" target="_self">UpdateNewsParams</a>)</code>
                 </td>
             </tr>
 
@@ -527,14 +527,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:71</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Update properties of a news.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -620,6 +622,9 @@ import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 export class NewsController {
 	constructor(private readonly newsUc: NewsUc) {}
 
+	/**
+	 * Create a news by a user in a given scope (school or team).
+	 */
 	@Post()
 	async create(@CurrentUser() currentUser: ICurrentUser, @Body() params: CreateNewsParams): Promise&lt;NewsResponse&gt; {
 		const news &#x3D; await this.newsUc.create(
@@ -631,6 +636,9 @@ export class NewsController {
 		return dto;
 	}
 
+	/**
+	 * Responds with all news for a user.
+	 */
 	@Get()
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
@@ -640,13 +648,18 @@ export class NewsController {
 		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,
 			NewsMapper.mapNewsScopeToDomain(scope),
-			pagination
+			{ pagination }
 		);
 		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
-		return new PaginationResponse(dtoList, count);
+		const response &#x3D; new PaginationResponse(dtoList, count);
+		return response;
 	}
 
-	/** Retrieve a specific news entry by id. A user may only read news of scopes he has the read permission. The news entity has school and user names populated. */
+	/**
+	 * Retrieve a specific news entry by id.
+	 * A user may only read news of scopes he has the read permission.
+	 * The news entity has school and user names populated.
+	 */
 	@Get(&#x27;:id&#x27;)
 	async findOne(
 		// A parameter pipe like ParseObjectIdPipe gives us the guarantee of typesafety for @Param
@@ -658,6 +671,9 @@ export class NewsController {
 		return dto;
 	}
 
+	/**
+	 * Update properties of a news.
+	 */
 	@Patch(&#x27;:id&#x27;)
 	async update(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,
@@ -669,6 +685,9 @@ export class NewsController {
 		return dto;
 	}
 
+	/**
+	 * Delete a news.
+	 */
 	@Delete(&#x27;:id&#x27;)
 	async delete(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,
@@ -718,9 +737,9 @@ export class NewsController {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
