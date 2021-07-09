@@ -79,23 +79,35 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#deleteAll" >deleteAll</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#flush" >flush</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#save" >save</a>
+                                <a href="#persist" >persist</a>
+                            </li>
+                            <li>
+                                <a href="#persistAll" >persistAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#saveAll" >saveAll</a>
+                                <a href="#persistAllAndFlush" >persistAllAndFlush</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#persistAndFlush" >persistAndFlush</a>
+                            </li>
+                            <li>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                <a href="#removeAll" >removeAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeAllAndFlush" >removeAllAndFlush</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeAndFlush" >removeAndFlush</a>
                             </li>
                         </ul>
                     </td>
@@ -167,166 +179,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(objs: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:43</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>In order to delete multiple entities use {@code deleteAll}
-Due to multiple transactions consistency</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>objs</td>
-                                    <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteAll"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>deleteAll</b></span>
-                        <a href="#deleteAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteAll(objs: T[], autoFlush)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:47</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>objs</td>
-                                    <td>
-                                            <code>T[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>autoFlush</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>true</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="flush"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -345,8 +197,8 @@ Due to multiple transactions consistency</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:53</a></div>
                 </td>
             </tr>
 
@@ -366,35 +218,30 @@ Due to multiple transactions consistency</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="save"></a>
+                    <a name="persist"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>save</b></span>
-                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>persist</b></span>
+                        <a href="#persist"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(obj: T, autoFlush)</code>
+<code>persist(entity: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:9</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>In order to save multiple entities use {@code saveAll}
-Due to multiple transactions consistency</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -404,12 +251,11 @@ Due to multiple transactions consistency</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>obj</td>
+                                    <td>entity</td>
                                     <td>
                                             <code>T</code>
                                     </td>
@@ -418,22 +264,214 @@ Due to multiple transactions consistency</p>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persistAll"></a>
+                    <span class="name">
+                        <span ><b>persistAll</b></span>
+                        <a href="#persistAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>persistAll(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
                                 <tr>
-                                    <td>autoFlush</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
                                     <td>
+                                            <code>T[]</code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persistAllAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>persistAllAndFlush</b></span>
+                        <a href="#persistAllAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>persistAllAndFlush(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
                                     <td>
-                                        <code>true</code>
+                                            <code>T[]</code>
                                     </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persistAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>persistAndFlush</b></span>
+                        <a href="#persistAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>persistAndFlush(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
 
                                 </tr>
                             </tbody>
@@ -456,26 +494,24 @@ Due to multiple transactions consistency</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="saveAll"></a>
+                    <a name="remove"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>saveAll</b></span>
-                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>saveAll(objs: T[], autoFlush)</code>
+<code>remove(entity: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -491,36 +527,19 @@ Due to multiple transactions consistency</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>objs</td>
+                                    <td>entity</td>
                                     <td>
-                                            <code>T[]</code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>autoFlush</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>true</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -529,7 +548,215 @@ Due to multiple transactions consistency</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAll"></a>
+                    <span class="name">
+                        <span ><b>removeAll</b></span>
+                        <a href="#removeAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeAll(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeAllAndFlush</b></span>
+                        <a href="#removeAllAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAllAndFlush(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeAndFlush</b></span>
+                        <a href="#removeAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAndFlush(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -553,49 +780,52 @@ import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 export class BaseRepo&lt;T extends BaseEntity&gt; {
 	constructor(protected readonly em: EntityManager) {}
 
-	/**
-	 * In order to save multiple entities use {@code saveAll}
-	 * Due to multiple transactions consistency
-	 * @param obj
-	 * @param autoFlush
-	 */
-	async save(obj: T, autoFlush &#x3D; true): Promise&lt;T&gt; {
-		this.em.persist(obj);
-		if (autoFlush) {
-			await this.flush();
-		}
-		return obj;
+	persist(entity: T): T {
+		this.em.persist(entity);
+		return entity;
 	}
 
-	async saveAll(objs: T[], autoFlush &#x3D; true): Promise&lt;T[]&gt; {
-		const persisted &#x3D; objs.map((n) &#x3D;&gt; {
+	async persistAndFlush(entity: T): Promise&lt;T&gt; {
+		await this.em.persistAndFlush(entity);
+		return entity;
+	}
+
+	persistAll(entities: T[]): T[] {
+		const persisted &#x3D; entities.map((n) &#x3D;&gt; {
 			this.em.persist(n);
 			return n;
 		});
-		if (autoFlush) {
-			await this.em.flush();
-		}
 		return persisted;
+	}
+
+	async persistAllAndFlush(entities: T[]): Promise&lt;T[]&gt; {
+		const persisted &#x3D; entities.map((n) &#x3D;&gt; {
+			this.em.persist(n);
+			return n;
+		});
+		await this.em.flush();
+		return persisted;
+	}
+
+	remove(entity: T): void {
+		this.em.remove(entity);
+	}
+
+	async removeAndFlush(entity: T): Promise&lt;void&gt; {
+		await this.em.removeAndFlush(entity);
+	}
+
+	removeAll(entities: T[]): void {
+		entities.forEach((entity) &#x3D;&gt; this.em.remove(entity));
+	}
+
+	async removeAllAndFlush(entities: T[]): Promise&lt;void&gt; {
+		entities.forEach((entity) &#x3D;&gt; this.em.remove(entity));
+		await this.em.flush();
 	}
 
 	async flush(): Promise&lt;void&gt; {
 		await this.em.flush();
-	}
-
-	/**
-	 * In order to delete multiple entities use {@code deleteAll}
-	 * Due to multiple transactions consistency
-	 * @param objs
-	 */
-	async delete(objs: T): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(objs);
-	}
-
-	async deleteAll(objs: T[], autoFlush &#x3D; true): Promise&lt;void&gt; {
-		objs.map((n) &#x3D;&gt; this.em.remove(n));
-		if (autoFlush) {
-			await this.flush();
-		}
 	}
 }
 </code></pre>

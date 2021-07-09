@@ -1043,7 +1043,7 @@ export class NewsUc {
 			creator: userId,
 			target: targetId,
 		});
-		await this.newsRepo.save(news);
+		await this.newsRepo.persistAndFlush(news);
 
 		this.logger.log(&#x60;news ${news.id} created by user ${userId}&#x60;);
 
@@ -1125,7 +1125,7 @@ export class NewsUc {
 			}
 		}
 
-		await this.newsRepo.save(news);
+		await this.newsRepo.persistAndFlush(news);
 
 		return news;
 	}
@@ -1142,7 +1142,7 @@ export class NewsUc {
 		const news &#x3D; await this.newsRepo.findOneById(id);
 		await this.authorizationService.checkEntityPermissions(userId, news.targetModel, news.target.id, [&#x27;NEWS_EDIT&#x27;]);
 
-		await this.newsRepo.delete(news);
+		await this.newsRepo.removeAndFlush(news);
 
 		return id;
 	}
