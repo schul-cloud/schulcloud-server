@@ -95,6 +95,9 @@
                             <a href="#createMikroOrmModule" title="apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts" ><b>createMikroOrmModule</b>&nbsp;&nbsp;&nbsp;(apps/.../mongo-memory-database.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#createRabbitMqModule" title="apps/server/src/modules/mail/mail.module.ts" ><b>createRabbitMqModule</b>&nbsp;&nbsp;&nbsp;(apps/.../mail.module.ts)</a>
+                        </li>
+                        <li>
                             <a href="#createTestModule" title="apps/server/src/shared/common/interceptor/test/create-test.module.ts" ><b>createTestModule</b>&nbsp;&nbsp;&nbsp;(apps/.../create-test.module.ts)</a>
                         </li>
                         <li>
@@ -132,9 +135,6 @@
                         </li>
                         <li>
                             <a href="#PORT" title="apps/server/src/constants.ts" ><b>PORT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#rabbitMqClient" title="apps/server/src/modules/mail/rabbitMqClient.ts" ><b>rabbitMqClient</b>&nbsp;&nbsp;&nbsp;(apps/.../rabbitMqClient.ts)</a>
                         </li>
                         <li>
                             <a href="#REQUEST_TIMEOUT" title="apps/server/src/shared/common/interceptor/constants.ts" ><b>REQUEST_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
@@ -1166,6 +1166,40 @@ must use @ApiProperty</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/modules/mail/mail.module.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRabbitMqModule"></a>
+                    <span class="name">
+                        <span ><b>createRabbitMqModule</b></span>
+                        <a href="#createRabbitMqModule"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(options: RabbitMqModuleOptions) &#x3D;&gt; {
+	const rabbitMqModule &#x3D; RabbitMQModule.forRoot(RabbitMQModule, {
+		exchanges: [
+			{
+				name: options.exchange,
+				type: &#x27;direct&#x27;,
+			},
+		],
+		uri: options.uri,
+	});
+	return rabbitMqModule;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/common/interceptor/test/create-test.module.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1422,37 +1456,6 @@ it should ensure an empty result</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>serverErrorTypes</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>apps/server/src/modules/mail/rabbitMqClient.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="rabbitMqClient"></a>
-                    <span class="name">
-                        <span ><b>rabbitMqClient</b></span>
-                        <a href="#rabbitMqClient"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>RabbitMQModule.forRoot(RabbitMQModule, {
-	exchanges: [
-		{
-			name: Configuration.get(&#x27;MAIL_SEND_EXCHANGE&#x27;),
-			type: &#x27;direct&#x27;,
-		},
-	],
-	uri: Configuration.get(&#x27;RABBITMQ_URI&#x27;),
-})</code>
                     </td>
                 </tr>
 

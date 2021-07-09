@@ -198,21 +198,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/MailModule.html" data-type="entity-link" >MailModule</a>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' : 'data-target="#xs-injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' :
-                                        'id="xs-injectables-links-module-MailModule-231567e80183301a89a4bb19ef7451df"' }>
-                                        <li class="link">
-                                            <a href="injectables/MailService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >MailService</a>
-                                        </li>
-                                    </ul>
-                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/MongoDatabaseModule.html" data-type="entity-link" >MongoDatabaseModule</a>
@@ -265,13 +250,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-9fdbb3226178019cbc860d1632bc24e2"' : 'data-target="#xs-controllers-links-module-ServerModule-9fdbb3226178019cbc860d1632bc24e2"' }>
+                                            'data-target="#controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' : 'data-target="#xs-controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-9fdbb3226178019cbc860d1632bc24e2"' :
-                                            'id="xs-controllers-links-module-ServerModule-9fdbb3226178019cbc860d1632bc24e2"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' :
+                                            'id="xs-controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
@@ -553,6 +538,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/JwtAuthGuard.html" data-type="entity-link" >JwtAuthGuard</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/MailService.html" data-type="entity-link" >MailService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/ParseObjectIdPipe.html" data-type="entity-link" >ParseObjectIdPipe</a>
                                 </li>
                                 <li class="link">
@@ -642,6 +630,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/MailContent.html" data-type="entity-link" >MailContent</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MailModuleOptions.html" data-type="entity-link" >MailModuleOptions</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MailServiceOptions.html" data-type="entity-link" >MailServiceOptions</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/NewsTargetFilter.html" data-type="entity-link" >NewsTargetFilter</a>
