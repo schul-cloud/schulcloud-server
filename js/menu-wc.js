@@ -435,9 +435,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MongoSharedDriver.html" data-type="entity-link" >MongoSharedDriver</a>
                             </li>
                             <li class="link">
-                                <a href="classes/NestAppHolder.html" data-type="entity-link" >NestAppHolder</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/News.html" data-type="entity-link" >News</a>
                             </li>
                             <li class="link">
