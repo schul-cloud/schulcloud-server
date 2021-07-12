@@ -123,8 +123,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' :
                                         'id="xs-injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' }>
                                         <li class="link">
-                                            <a href="injectables/JwtStrategy.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JwtStrategy</a>
+                                            <a href="injectables/JwtStrategy.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JwtStrategy</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -141,12 +140,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthorizationModule-e1395ae179a656a6a263bc2698a5bc51"' :
                                         'id="xs-injectables-links-module-AuthorizationModule-e1395ae179a656a6a263bc2698a5bc51"' }>
                                         <li class="link">
-                                            <a href="injectables/AuthorizationService.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthorizationService</a>
+                                            <a href="injectables/AuthorizationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthorizationService</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/FeathersAuthProvider.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeathersAuthProvider</a>
+                                            <a href="injectables/FeathersAuthProvider.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeathersAuthProvider</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -169,8 +166,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FeathersModule-d0e6855685938f9fa18af670e4efab18"' :
                                         'id="xs-injectables-links-module-FeathersModule-d0e6855685938f9fa18af670e4efab18"' }>
                                         <li class="link">
-                                            <a href="injectables/FeathersServiceProvider.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeathersServiceProvider</a>
+                                            <a href="injectables/FeathersServiceProvider.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeathersServiceProvider</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -190,8 +186,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-LoggerModule-8ba8d456b47ff5c9286092ab4518db2a"' :
                                         'id="xs-injectables-links-module-LoggerModule-8ba8d456b47ff5c9286092ab4518db2a"' }>
                                         <li class="link">
-                                            <a href="injectables/Logger.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >Logger</a>
+                                            <a href="injectables/Logger.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >Logger</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -217,12 +212,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-NewsModule-25de3999a1e1a7c6e01f9cc4c0fef4c4"' :
                                             'id="xs-controllers-links-module-NewsModule-25de3999a1e1a7c6e01f9cc4c0fef4c4"' }>
                                             <li class="link">
-                                                <a href="controllers/NewsController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsController</a>
+                                                <a href="controllers/NewsController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsController</a>
                                             </li>
                                             <li class="link">
-                                                <a href="controllers/TeamNewsController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TeamNewsController</a>
+                                                <a href="controllers/TeamNewsController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TeamNewsController</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -236,12 +229,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-NewsModule-25de3999a1e1a7c6e01f9cc4c0fef4c4"' :
                                         'id="xs-injectables-links-module-NewsModule-25de3999a1e1a7c6e01f9cc4c0fef4c4"' }>
                                         <li class="link">
-                                            <a href="injectables/NewsRepo.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsRepo</a>
+                                            <a href="injectables/NewsRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsRepo</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/NewsUc.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsUc</a>
+                                            <a href="injectables/NewsUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NewsUc</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -258,8 +249,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' :
                                             'id="xs-controllers-links-module-ServerModule-f65697d375ec6320bad870b32b4f20da"' }>
                                             <li class="link">
-                                                <a href="controllers/ServerController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
+                                                <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -276,8 +266,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' :
                                             'id="xs-controllers-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
                                             <li class="link">
-                                                <a href="controllers/TaskController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskController</a>
+                                                <a href="controllers/TaskController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskController</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -291,16 +280,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' :
                                         'id="xs-injectables-links-module-TaskModule-2a727804b8343fc5cad72be483c55ad0"' }>
                                         <li class="link">
-                                            <a href="injectables/SubmissionRepo.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SubmissionRepo</a>
+                                            <a href="injectables/SubmissionRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SubmissionRepo</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/TaskRepo.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskRepo</a>
+                                            <a href="injectables/TaskRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskRepo</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/TaskUC.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskUC</a>
+                                            <a href="injectables/TaskUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskUC</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -317,8 +303,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-UserModule-45dcda805f40fd02e97af7cd8b2c4423"' :
                                             'id="xs-controllers-links-module-UserModule-45dcda805f40fd02e97af7cd8b2c4423"' }>
                                             <li class="link">
-                                                <a href="controllers/UserController.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserController</a>
+                                                <a href="controllers/UserController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserController</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -332,24 +317,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-UserModule-45dcda805f40fd02e97af7cd8b2c4423"' :
                                         'id="xs-injectables-links-module-UserModule-45dcda805f40fd02e97af7cd8b2c4423"' }>
                                         <li class="link">
-                                            <a href="injectables/RoleRepo.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RoleRepo</a>
+                                            <a href="injectables/RoleRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RoleRepo</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/RoleUC.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RoleUC</a>
+                                            <a href="injectables/RoleUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RoleUC</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/UserFacade.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserFacade</a>
+                                            <a href="injectables/UserFacade.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserFacade</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/UserRepo.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserRepo</a>
+                                            <a href="injectables/UserRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserRepo</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/UserUC.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserUC</a>
+                                            <a href="injectables/UserUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserUC</a>
                                         </li>
                                     </ul>
                                 </li>
