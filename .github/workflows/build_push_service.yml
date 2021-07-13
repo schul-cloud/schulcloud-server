@@ -47,6 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
       - build_and_push
+    permissions:
+      repository-projects: write
     steps:
       - uses: actions/checkout@v2
       - name: Extract branch name
@@ -54,10 +56,9 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       - name: Repository Dispatch
-        uses: mamutmk5/repository-dispatch@main
+        uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          owner: ${{ github.actor }}
           repository: hpi-schul-cloud/dof_app_deploy
           event-type: dev-deploy
           client-payload: '{"branch": "${{ steps.extract_branch.outputs.branch}}" }'
