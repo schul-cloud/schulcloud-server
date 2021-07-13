@@ -57,6 +57,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: hpi-schul-cloud/dof_app_deploy
+          repository: ${{ github.actor }}/dof_app_deploy
           event-type: dev-deploy
           client-payload: '{"branch": "${{ steps.extract_branch.outputs.branch}}" }'
