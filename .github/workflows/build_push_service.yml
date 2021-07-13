@@ -52,7 +52,7 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: |
-          git_ref_name='$(echo ${GITHUB_REF#refs/heads/})'
+          git_ref_name="$(echo ${GITHUB_REF#refs/heads/})"
           echo "git_ref_name=$git_ref_name" >> $GITHUB_ENV
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
