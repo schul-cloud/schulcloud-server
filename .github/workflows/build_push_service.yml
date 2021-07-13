@@ -47,8 +47,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
       - build_and_push
-    permissions:
-      repository-projects: write
     steps:
       - uses: actions/checkout@v2
       - name: Extract branch name
@@ -58,7 +56,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: hpi-schul-cloud/dof_app_deploy
           event-type: dev-deploy
           client-payload: '{"branch": "${{ steps.extract_branch.outputs.branch}}" }'
