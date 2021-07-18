@@ -59,10 +59,10 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#NewsTargetModel" title="apps/server/src/modules/news/entity/news.types.ts" ><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                            <a href="#PermissionsTypes" title="apps/server/src/shared/domain/types/permissionTypes.ts" ><b>PermissionsTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../permissionTypes.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
+                            <a href="#UserGroupTypes" title="apps/server/src/modules/user/entity/group.entity.ts" ><b>UserGroupTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../group.entity.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -71,77 +71,104 @@
     </table>
 </section>
 
-    <h3>apps/server/src/modules/news/entity/news.types.ts</h3>
+    <h3>apps/server/src/shared/domain/types/permissionTypes.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="NewsTargetModel"></a>
-                        <span class="name "><b>NewsTargetModel</b><a href="#NewsTargetModel"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="PermissionsTypes"></a>
+                        <span class="name "><b>PermissionsTypes</b><a href="#PermissionsTypes"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;School
+                                &nbsp;Write
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>schools</code>
+                                <i>Value : </i><code>write</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;Course
+                                &nbsp;Read
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>courses</code>
+                                <i>Value : </i><code>read</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;Team
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>teams</code>
+                                &nbsp;Empty
                             </td>
                         </tr>
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
+    <h3>apps/server/src/modules/user/entity/group.entity.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="SortOrder"></a>
-                        <span class="name "><b>SortOrder</b><a href="#SortOrder"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="UserGroupTypes"></a>
+                        <span class="name "><b>UserGroupTypes</b><a href="#UserGroupTypes"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Why &quot;group&quot; also the id list of userIds seperatly?
+If we want to have a group collection in future,
+we can add the id of this groups to the learning room (that include the stuff from teams, classes, course, coursgroups, editor, multiple sub groups...)
+The lerning room ressources and childs hold all the related informations but not the userId numbers.
+This are the part of the IDM group, class, school, user management.
+If we run a sync we only want to update this id list and not the content that is linked with it.</p>
+<p>To get closer to this target we must start to collect this informations on this place and later replace this with a real group collection.</p>
+</div>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;asc
+                                &nbsp;CourseSubstitutionTeachers
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>asc</code>
+                                <i>Value : </i><code>course-substitution-teachers</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;desc
+                                &nbsp;CourseTeachers
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>desc</code>
+                                <i>Value : </i><code>course-teachers</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CourseStudents
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>course-students</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CoursegroupStudents
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>coursegroup-students</code>
                             </td>
                         </tr>
             </tbody>

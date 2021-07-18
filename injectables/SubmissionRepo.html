@@ -79,10 +79,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getSubmissionsByTask" >getSubmissionsByTask</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#getSubmissionsByTasksList" >getSubmissionsByTasksList</a>
                             </li>
                         </ul>
@@ -108,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -155,76 +151,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getSubmissionsByTask"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getSubmissionsByTask</b></span>
-                        <a href="#getSubmissionsByTask"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getSubmissionsByTask(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:10</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Counted&lt;Submission[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getSubmissionsByTasksList"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -243,8 +169,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:11</a></div>
                 </td>
             </tr>
 
@@ -302,16 +228,10 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Counted } from &#x27;../../../shared/domain&#x27;;
 import { Submission, Task } from &#x27;../entity&#x27;;
 
+// TODO: add schoolId as filter vs shd operations?
 @Injectable()
 export class SubmissionRepo {
 	constructor(private readonly em: EntityManager) {}
-
-	async getSubmissionsByTask(task: Task): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
-		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {
-			task,
-		});
-		return [submissions, count];
-	}
 
 	async getSubmissionsByTasksList(tasks: Task[]): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
 		const [submissions, count] &#x3D; await this.em.findAndCount(Submission, {

@@ -92,7 +92,6 @@
                                 <a href="#content" >content</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#displayAt" >displayAt</a>
                             </li>
                             <li>
@@ -164,7 +163,6 @@
                 <td class="col-md-4">
                     <a name="displayAt"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>displayAt</b></span>
                         <a href="#displayAt"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -181,13 +179,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsDate()<br />@IsOptional()<br />@ApiPropertyOptional({description: &#x27;The point in time from when the News entity schould be displayed. Defaults to now so that the news is published&#x27;})<br />
+                            @IsDate()<br />@ApiProperty({description: &#x27;The point in time from when the News entity schould be displayed&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -222,7 +220,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -257,7 +255,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/news/controller/dto/create-news.params.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -311,8 +309,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { IsDate, IsOptional, IsString } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsDate, IsString } from &#x27;class-validator&#x27;;
 import { NewsTargetModel } from &#x27;../../entity&#x27;;
 
 const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
@@ -334,12 +332,10 @@ export class CreateNewsParams {
 	content: string;
 
 	@IsDate()
-	@IsOptional()
-	@ApiPropertyOptional({
-		description:
-			&#x27;The point in time from when the News entity schould be displayed. Defaults to now so that the news is published&#x27;,
+	@ApiProperty({
+		description: &#x27;The point in time from when the News entity schould be displayed&#x27;,
 	})
-	displayAt?: Date;
+	displayAt: Date;
 
 	@IsString()
 	@ApiProperty({

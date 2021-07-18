@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:21</a></div>
                 </td>
             </tr>
 
@@ -197,10 +197,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/* istanbul ignore file */
-// TODO add tests to improve coverage
-
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
 import { PaginationResponse } from &#x27;@shared/controller/dto/pagination.response&#x27;;
 import { PaginationQuery } from &#x27;@shared/controller/dto/pagination.query&#x27;;
@@ -208,9 +205,11 @@ import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
+
 import { TaskResponse } from &#x27;./dto&#x27;;
 
 // TODO: swagger doku do not read from combined query object only from passed single parameter in Query(), but this do not allowed optional querys only required querys
+
 @ApiTags(&#x27;Task&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;task&#x27;)
@@ -222,8 +221,7 @@ export class TaskController {
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
-		// const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
-		const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
+		const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser.user, paginationQuery);
 		const { skip, limit } &#x3D; paginationQuery;
 		const result &#x3D; new PaginationResponse(tasks, total, skip, limit);
 		return result;

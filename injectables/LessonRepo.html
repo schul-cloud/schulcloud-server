@@ -39,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >MailService</li>
+  <li >LessonRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/mail/mail.service.ts</code>
+            <code>apps/server/src/modules/task/repo/lesson.repo.ts</code>
         </p>
 
 
@@ -78,9 +78,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#send" >send</a>
+                                <a href="#getPublishedLessonsIdsByCourseIds" >getPublishedLessonsIdsByCourseIds</a>
                             </li>
                         </ul>
                     </td>
@@ -100,12 +99,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(amqpConnection: AmqpConnection, options: <a href="../injectables/MailService.html" target="_self">MailServiceOptions</a>)</code>
+<code>constructor(em: EntityManager)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/mail/mail.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/task/repo/lesson.repo.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -123,22 +122,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>amqpConnection</td>
+                                                        <td>em</td>
                                                   
                                                         <td>
-                                                                    <code>AmqpConnection</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>options</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/MailService.html" target="_self" >MailServiceOptions</a></code>
+                                                                    <code>EntityManager</code>
                                                         </td>
                                                   
                                                     <td>
@@ -164,27 +151,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="send"></a>
+                    <a name="getPublishedLessonsIdsByCourseIds"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
-                        <span ><b>send</b></span>
-                        <a href="#send"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getPublishedLessonsIdsByCourseIds</b></span>
+                        <a href="#getPublishedLessonsIdsByCourseIds"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>send(data: <a href="../interfaces/Mail.html" target="_self">Mail</a>)</code>
+                    <code>getPublishedLessonsIdsByCourseIds(courseIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/mail/mail.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/task/repo/lesson.repo.ts:12</a></div>
                 </td>
             </tr>
 
@@ -204,9 +190,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>data</td>
+                                    <td>courseIds</td>
                                     <td>
-                                                <code><a href="../interfaces/Mail.html" target="_self" >Mail</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
                                     </td>
 
                                     <td>
@@ -221,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -237,25 +223,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
-import { AmqpConnection } from &#x27;@golevelup/nestjs-rabbitmq&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;../../../shared/domain&#x27;;
+import { LessonTaskInfo } from &#x27;../entity&#x27;;
 
-import { Mail } from &#x27;./mail.interface&#x27;;
-
-interface MailServiceOptions {
-	exchange: string;
-	routingKey: string;
-}
-
+// TODO: add schoolId as filter vs shd operations?
 @Injectable()
-export class MailService {
-	constructor(
-		private readonly amqpConnection: AmqpConnection,
-		@Inject(&#x27;MAIL_SERVICE_OPTIONS&#x27;) private readonly options: MailServiceOptions
-	) {}
+export class LessonRepo {
+	constructor(private readonly em: EntityManager) {}
 
-	public async send(data: Mail): Promise&lt;void&gt; {
-		await this.amqpConnection.publish(this.options.exchange, this.options.routingKey, data);
+	async getPublishedLessonsIdsByCourseIds(courseIds: EntityId[]): Promise&lt;EntityId[]&gt; {
+		const publishedLessons &#x3D; await this.em.find(LessonTaskInfo, {
+			courseId: { $in: courseIds },
+			hidden: false,
+		});
+
+		const publishedLessonsIds &#x3D; publishedLessons.map(({ id }) &#x3D;&gt; id);
+		return publishedLessonsIds;
 	}
 }
 </code></pre>
@@ -291,7 +276,7 @@ export class MailService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'MailService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LessonRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

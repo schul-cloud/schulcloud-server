@@ -191,7 +191,7 @@ import { Controller, Get } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { UserUC } from &#x27;../uc&#x27;;
-import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
+import { ResolvedUser } from &#x27;@shared/domain/entity&#x27;;
 
 @ApiTags(&#x27;User&#x27;)
 @Authenticate(&#x27;jwt&#x27;)

@@ -150,7 +150,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:119</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:114</a></div>
                         </td>
                     </tr>
 
@@ -184,8 +184,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:117</a></div>
                 </td>
             </tr>
 
@@ -264,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="130"
-                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:130</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/core/error/filter/global-error.filter.ts:125</a></div>
                 </td>
             </tr>
 
@@ -329,7 +329,6 @@ import { BusinessError, ApiValidationError } from &#x27;@shared/common&#x27;;
 import { Logger } from &#x27;../../logger/logger.service&#x27;;
 import { ErrorResponse } from &#x27;../dto/error.response&#x27;;
 import { FeathersError } from &#x27;../interface&#x27;;
-import { ApiValidationErrorResponse } from &#x27;../dto/api-validation-error.response&#x27;;
 
 const isFeathersError &#x3D; (error: Error): error is FeathersError &#x3D;&gt; {
 	if (!(error &amp;&amp; &#x27;type&#x27; in error)) return false;
@@ -364,10 +363,6 @@ const createErrorResponseForHttpException &#x3D; (exception: HttpException): Err
 };
 
 function createErrorResponseForBusinessError(error: BusinessError): ErrorResponse {
-	if (error instanceof ApiValidationError) {
-		const response &#x3D; new ApiValidationErrorResponse(error);
-		return response;
-	}
 	const response &#x3D; error.getResponse();
 	return response;
 }

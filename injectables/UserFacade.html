@@ -79,6 +79,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getCourseGroupsByUserId" >getCourseGroupsByUserId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#resolveUser" >resolveUser</a>
                             </li>
                         </ul>
@@ -99,12 +103,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userUC: <a href="../injectables/UserUC.html" target="_self">UserUC</a>)</code>
+<code>constructor(userUC: <a href="../injectables/UserUC.html" target="_self">UserUC</a>, groupUC: <a href="../injectables/GroupUC.html" target="_self">GroupUC</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/user/user.facade.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/user/user.facade.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -133,6 +137,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>groupUC</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GroupUC.html" target="_self" >GroupUC</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -147,6 +163,76 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCourseGroupsByUserId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getCourseGroupsByUserId</b></span>
+                        <a href="#getCourseGroupsByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCourseGroupsByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/user/user.facade.ts:17</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FilteredCourseGroups.html" target="_self" >Promise&lt;FilteredCourseGroups&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -169,8 +255,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/user/user.facade.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/user/user.facade.ts:12</a></div>
                 </td>
             </tr>
 
@@ -224,17 +310,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, ResolvedUser } from &#x27;@shared/domain&#x27;;
 import { UserUC } from &#x27;./uc/user.uc&#x27;;
+import { GroupUC } from &#x27;./uc/group.uc&#x27;;
 import { ICurrentUser } from &#x27;../authentication/interface/jwt-payload&#x27;;
-import { ResolvedUser } from &#x27;./controller/dto&#x27;;
+import { FilteredCourseGroups } from &#x27;./entity&#x27;;
 
 @Injectable()
 export class UserFacade {
-	constructor(private readonly userUC: UserUC) {}
+	constructor(private readonly userUC: UserUC, private readonly groupUC: GroupUC) {}
 
 	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
 		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(currentUser);
 		return resolvedUser;
+	}
+
+	async getCourseGroupsByUserId(userId: EntityId): Promise&lt;FilteredCourseGroups&gt; {
+		const filteredCourseGroups &#x3D; await this.groupUC.getCourseGroupsByUserId(userId);
+		return filteredCourseGroups;
 	}
 }
 </code></pre>

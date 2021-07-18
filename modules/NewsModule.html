@@ -60,13 +60,13 @@
 <title>cluster_NewsModule_imports</title>
 <polygon fill="none" stroke="black" points="253,-40.8 253,-92.8 525,-92.8 525,-40.8 253,-40.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_NewsModule_exports</title>
-<polygon fill="none" stroke="black" points="205,-170.8 205,-222.8 289,-222.8 289,-170.8 205,-170.8"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_NewsModule_providers</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 245,-92.8 245,-40.8 16,-40.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_NewsModule_exports</title>
+<polygon fill="none" stroke="black" points="205,-170.8 205,-222.8 289,-222.8 289,-170.8 205,-170.8"/>
 </g>
 <!-- AuthorizationModule -->
 <g id="node1" class="node">
@@ -192,9 +192,6 @@
                         <li class="list-group-item">
                             <a href="../controllers/NewsController.html">NewsController</a>
                         </li>
-                        <li class="list-group-item">
-                            <a href="../controllers/TeamNewsController.html">TeamNewsController</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -232,7 +229,6 @@ import { NewsRepo } from &#x27;./repo/news.repo&#x27;;
 import { NewsController } from &#x27;./controller/news.controller&#x27;;
 import { AuthorizationModule } from &#x27;../authorization/authorization.module&#x27;;
 import { LoggerModule } from &#x27;../../core/logger/logger.module&#x27;;
-import { TeamNewsController } from &#x27;./controller/team-news.controller&#x27;;
 
 /* NewsController
  * to enable:
@@ -242,7 +238,7 @@ import { TeamNewsController } from &#x27;./controller/team-news.controller&#x27;
  */
 @Module({
 	imports: [AuthorizationModule, LoggerModule],
-	controllers: [NewsController, TeamNewsController],
+	controllers: [NewsController],
 	providers: [NewsUc, NewsRepo],
 	exports: [NewsUc],
 })

@@ -247,7 +247,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 		// TODO: check user is active
 		// TODO: throw not authentication error if user not exist or is not activated
 		const resolvedUser &#x3D; await this.userFacade.resolveUser(payload);
-		payload.user &#x3D; resolvedUser; // todo decide request.user or request.user.user to be used everywhere
+		payload.user &#x3D; resolvedUser;
 		return payload;
 	}
 }

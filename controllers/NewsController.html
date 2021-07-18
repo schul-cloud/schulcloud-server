@@ -149,16 +149,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:19</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Create a news by a user in a given scope (school or team).</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -240,16 +238,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:68</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Delete a news.</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -331,16 +327,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:30</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Responds with all news for a user.</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -434,17 +428,15 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:46</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Retrieve a specific news entry by id.
-A user may only read news of scopes he has the read permission.
-The news entity has school and user names populated.</p>
+                    <div class="io-description"><p>Retrieve a specific news entry by id. A user may only read news of scopes he has the read permission. The news entity has school and user names populated.</p>
 </div>
 
                     <div class="io-description">
@@ -527,16 +519,14 @@ The news entity has school and user names populated.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/news/controller/news.controller.ts:57</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Update properties of a news.</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -622,9 +612,6 @@ import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 export class NewsController {
 	constructor(private readonly newsUc: NewsUc) {}
 
-	/**
-	 * Create a news by a user in a given scope (school or team).
-	 */
 	@Post()
 	async create(@CurrentUser() currentUser: ICurrentUser, @Body() params: CreateNewsParams): Promise&lt;NewsResponse&gt; {
 		const news &#x3D; await this.newsUc.create(
@@ -636,9 +623,6 @@ export class NewsController {
 		return dto;
 	}
 
-	/**
-	 * Responds with all news for a user.
-	 */
 	@Get()
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
@@ -648,18 +632,13 @@ export class NewsController {
 		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,
 			NewsMapper.mapNewsScopeToDomain(scope),
-			{ pagination }
+			pagination
 		);
 		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
-		const response &#x3D; new PaginationResponse(dtoList, count);
-		return response;
+		return new PaginationResponse(dtoList, count);
 	}
 
-	/**
-	 * Retrieve a specific news entry by id.
-	 * A user may only read news of scopes he has the read permission.
-	 * The news entity has school and user names populated.
-	 */
+	/** Retrieve a specific news entry by id. A user may only read news of scopes he has the read permission. The news entity has school and user names populated. */
 	@Get(&#x27;:id&#x27;)
 	async findOne(
 		// A parameter pipe like ParseObjectIdPipe gives us the guarantee of typesafety for @Param
@@ -671,9 +650,6 @@ export class NewsController {
 		return dto;
 	}
 
-	/**
-	 * Update properties of a news.
-	 */
 	@Patch(&#x27;:id&#x27;)
 	async update(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,
@@ -685,9 +661,6 @@ export class NewsController {
 		return dto;
 	}
 
-	/**
-	 * Delete a news.
-	 */
 	@Delete(&#x27;:id&#x27;)
 	async delete(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) newsId: string,

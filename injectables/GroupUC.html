@@ -28,16 +28,18 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >TeamNewsController</li>
+  <li>Injectables</li>
+  <li >GroupUC</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,16 +57,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/news/controller/team-news.controller.ts</code>
+            <code>apps/server/src/modules/user/uc/group.uc.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>team</code>
-            </p>
-
 
 
 
@@ -85,7 +79,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllForTeam" >findAllForTeam</a>
+                                <a href="#getCourseGroupsByUserId" >getCourseGroupsByUserId</a>
                             </li>
                         </ul>
                     </td>
@@ -100,6 +94,55 @@
 </section>
 
             <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(groupRepo: <a href="../injectables/GroupRepo.html" target="_self">GroupRepo</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/user/uc/group.uc.ts:7</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>groupRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GroupRepo.html" target="_self" >GroupRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -108,41 +151,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllForTeam"></a>
+                    <a name="getCourseGroupsByUserId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findAllForTeam</b></span>
-                        <a href="#findAllForTeam"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getCourseGroupsByUserId</b></span>
+                        <a href="#getCourseGroupsByUserId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/NewsFilterQuery.html" target="_self">NewsFilterQuery</a>, pagination: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;:teamId/news&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/news/controller/team-news.controller.ts:20</a></div>
+                    <code>getCourseGroupsByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Responds with news of a given team for a user.</p>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/user/uc/group.uc.ts:10</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -156,45 +190,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>teamId</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>scope</td>
-                                    <td>
-                                                <code><a href="../classes/NewsFilterQuery.html" target="_self" >NewsFilterQuery</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -209,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/FilteredCourseGroups.html" target="_self" >Promise&lt;FilteredCourseGroups&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -219,53 +217,73 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query } from &#x27;@nestjs/common&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { PaginationQuery, PaginationResponse, ParseObjectIdPipe } from &#x27;../../../shared/controller&#x27;;
-import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
-import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
-import { NewsUc } from &#x27;../uc&#x27;;
-import { NewsFilterQuery, NewsResponse } from &#x27;./dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, PermissionsTypes } from &#x27;@shared/domain&#x27;;
+import { GroupRepo } from &#x27;../repo&#x27;;
+import { UserGroupTypes, FilteredCourseGroups } from &#x27;../entity&#x27;;
 
-@ApiTags(&#x27;News&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;team&#x27;)
-export class TeamNewsController {
-	constructor(private readonly newsUc: NewsUc) {}
+@Injectable()
+export class GroupUC {
+	constructor(private readonly groupRepo: GroupRepo) {}
 
-	/**
-	 * Responds with news of a given team for a user.
-	 */
-	@Get(&#x27;:teamId/news&#x27;)
-	async findAllForTeam(
-		@Param(&#x27;teamId&#x27;, ParseObjectIdPipe) teamId: string,
-		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: NewsFilterQuery,
-		@Query() pagination: PaginationQuery
-	): Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt; {
-		// enforce filter by a given team, used in team tab
-		scope.targetId &#x3D; teamId;
-		scope.targetModel &#x3D; &#x27;teams&#x27;;
-		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
-			currentUser.userId,
-			NewsMapper.mapNewsScopeToDomain(scope),
-			{ pagination }
-		);
-		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
-		const response &#x3D; new PaginationResponse(dtoList, count);
-		return response;
+	async getCourseGroupsByUserId(userId: EntityId): Promise&lt;FilteredCourseGroups&gt; {
+		const [courseGroups, coursegroupGroups] &#x3D; await Promise.all([
+			this.groupRepo.getCoursesByUserId(userId),
+			this.groupRepo.getCourseGroupsByUserId(userId),
+		]);
+
+		const sortedGroupcollections &#x3D; new FilteredCourseGroups();
+
+		coursegroupGroups.forEach(({ studentIds, parent }) &#x3D;&gt; {
+			const type &#x3D; UserGroupTypes.CoursegroupStudents;
+			sortedGroupcollections[type].push({
+				userIds: studentIds,
+				type,
+				parent,
+				permission: PermissionsTypes.Read,
+			});
+		});
+
+		courseGroups.forEach(({ teacherIds, studentIds, substitutionIds, id }) &#x3D;&gt; {
+			const studentType &#x3D; UserGroupTypes.CourseStudents;
+			const teacherType &#x3D; UserGroupTypes.CourseTeachers;
+			const substitionTeacherType &#x3D; UserGroupTypes.CourseSubstitutionTeachers;
+
+			sortedGroupcollections[studentType].push({
+				userIds: studentIds,
+				type: studentType,
+				parent: id,
+				permission: PermissionsTypes.Read,
+			});
+
+			sortedGroupcollections[teacherType].push({
+				userIds: teacherIds,
+				type: teacherType,
+				parent: id,
+				permission: PermissionsTypes.Write,
+			});
+
+			sortedGroupcollections[studentType].push({
+				userIds: substitutionIds,
+				type: substitionTeacherType,
+				parent: id,
+				permission: PermissionsTypes.Write,
+			});
+		});
+
+		return sortedGroupcollections;
 	}
 }
 </code></pre>
     </div>
+
 </div>
-
-
 
 
 
@@ -294,8 +312,8 @@ export class TeamNewsController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'TeamNewsController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GroupUC.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
